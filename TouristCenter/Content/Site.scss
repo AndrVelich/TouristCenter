@@ -1,0 +1,262 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, legend, input, button, textarea, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+label {
+  font-weight: normal;
+}
+
+.required {
+  color: red;
+  font-weight: bold;
+  margin: 0 5px;
+}
+
+.error{
+  color:red;
+}
+
+.ng-dirty.ng-invalid{
+  border-color:red !important;
+}
+
+.bold{
+    font-weight:600;
+}
+
+/*------------matDogNail-------------------*/
+.mat-dialog-container {
+    padding: 0 !important;
+}
+
+html.cdk-global-scrollblock {
+  width: initial;
+  position: initial;
+  overflow-y: initial;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+body.modal-open .cdk-global-overlay-wrapper {
+  pointer-events: all;
+  overflow: auto;
+  padding: 30px 0;
+  position: fixed;
+}
+
+body .cdk-overlay-pane {
+  /*position: relative !important;*/
+  margin: auto !important;
+}
+
+.cdk-overlay-backdrop {
+  position: fixed !important;
+}
+
+.mat-dialog-container {
+  margin: 0 auto 30px !important;
+  height: auto !important;
+  overflow: initial !important;
+}
+
+.mat-dialog-content {
+  max-width: none !important;
+  max-height: none !important;
+  overflow: initial !important;
+}
+
+@media (max-width: 600px) {
+
+  body .cdk-global-overlay-wrapper {
+    padding: 0 !important;
+  }
+
+  body .cdk-overlay-pane {
+    max-width: none !important;
+    width: 100% !important;
+    left: 0 !important;
+  }
+
+  .mat-dialog-container {
+    border-radius: 0 !important;
+    margin: 0 !important;
+  }
+}
+
+/*------------matDogNail-------------------*/
+
+
+@font-face {
+  font-family: 'exo';
+  src: url(../fonts/Exo2Regular.woff);
+  font-weight: normal;
+  font-style: italic;
+}
+
+body {
+    font-family: 'exo', sans-serif;
+    min-width:400px;
+}
+
+.body-content {
+    margin: 20px auto;
+    max-width: 1200px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+
+header {
+
+    .header-background {
+        margin-top: 60px;
+        height: 300px;
+        background-image: url(../Content/Images/beach_header.jpg);
+        background-size: 100%;
+        background-position: center;
+        margin-bottom: -360px;
+
+        .header-background-image {
+            background-color: black;
+            height: 300px;
+            opacity: 0.2;
+        }
+    }
+
+    .header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+
+        .logo {
+            display: inline-block;
+            padding-top: 15px;
+            margin-left: 40px;
+            font-size: 22px;
+            width: 190px;
+        }
+
+        .headerMenu {
+            padding-top: 15px;
+            float: right;
+        }
+
+        .mobileMenu {
+            display: none;
+        }
+
+        .mainMenu {
+            li {
+                display: inline-block;
+                vertical-align: top;
+                text-align: center;
+                margin: 0px 15px;
+                font-size: 18px;
+            }
+        }
+
+        .middleHeaderMenu {
+            height: 300px;
+            margin: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            color: white;
+
+            .putOrder {
+                margin: 15px;
+                width: 180px;
+
+                button {
+                    margin: 10px 0;
+                }
+            }
+
+            .contact {
+                margin: 15px;
+                width: 230px;
+                /*margin: 15px;
+                  width: 240px;
+                  color: #428bca;
+                  height: 95px;
+                  padding: 0 20px;
+                  border-radius: 2px;
+                  background-color: white;*/
+                div {
+                    padding-top: 5px;
+                }
+
+                span {
+                    font-size: 18px;
+                }
+
+                i {
+                    font-size: 22px;
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .footerLeft {
+        width: 270px;
+        display: inline-block;
+        vertical-align: top;
+
+        .footerLogo {
+            font-size: 20px;
+        }
+
+        .footerContact {
+            margin-top: 15px;
+
+            div {
+                padding-top: 5px;
+                
+            }
+
+            span {
+                font-size: 16px;
+            }
+
+            i {
+                position:relative;
+                top:4px;
+                font-size: 22px;
+                margin-right: 5px;
+                
+            }
+        }
+    }
+
+    .footerRight {
+        width: 650px;
+        display: inline-block;
+        vertical-align: top;
+
+        .footerMenu {
+
+
+            li {
+                list-style: none;
+                display: inline-block;
+                vertical-align: top;
+                margin-left: 15px;
+                font-size: 16px;
+            }
+        }
+    }
+}

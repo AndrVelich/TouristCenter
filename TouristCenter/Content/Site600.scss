@@ -1,0 +1,135 @@
+﻿@media (max-width: 600px) {
+    header {
+
+        .header-background {
+
+            background-size: cover;
+        }
+
+        .header-content {
+
+            .logo {
+                display: block;
+                margin: 0 auto;
+                width: 250px;
+                padding-top: 50px;
+                text-align: center;
+            }
+
+            .headerMenu {
+                a {
+                    color: #fff;
+                    font-size: 16px;
+                    font-family: 'Exo 2',sans-serif;
+                    text-decoration: none;
+                    text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+                    text-transform: uppercase;
+                    line-height: 25px;
+                    padding: 0 25px;
+                    cursor: pointer;
+                    transition: font-size 0.1s;
+                }
+
+                a:hover {
+                    font-size: 17px;
+                }
+
+                .mobileMenu {
+                    display: block;
+                    position: fixed;
+                    top: 0;
+                    width: 100%;
+                    z-index: 50;
+
+
+                    &-header {
+                        width: 100%;
+                        background: #2B3037;
+                        position: relative;
+                        height: 42px;
+                        line-height: 42px;
+                        z-index: 51;
+                        border-bottom: 2px solid #fff;
+                        font-weight: 700;
+                    }
+
+                    &-list {
+                        background: #2B3037;
+                        width: 100%;
+
+                        li {
+                            display: block;
+                            text-align: left;
+                            margin: 0;
+                            padding: 5px 0;
+                            border-bottom: 1px solid #fff;
+                        }
+                    }
+                }
+
+                .mainMenu {
+                    display: none;
+                }
+            }
+
+            .middleHeaderMenu {
+                margin-top: 35px;
+                display: block;
+
+                .putOrder {
+                    width: 300px;
+                    margin: 0 auto;
+
+                    button {
+                        height: 40px;
+                        width: 300px;
+                        text-transform: uppercase;
+                        font-size: 18px;
+                        margin: 10px auto;
+                    }
+                }
+
+                .contact {
+                    margin: 20px auto;
+                    position: relative;
+                }
+            }
+        }
+    }
+
+    .body-content {
+        margin: 40px 0;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    footer {
+        .footerLeft {
+            display: block;
+            text-align: center;
+            margin: 0 auto;
+
+            .footerLogo {
+            }
+
+            .footerContact {
+
+            }
+        }
+
+        .footerRight {
+            width: 300px;
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            float:none;
+
+            .footerMenu {
+
+                li {
+                    display: block;
+                }
+            }
+        }
+    }
+}

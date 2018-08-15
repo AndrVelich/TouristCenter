@@ -1,0 +1,26 @@
+﻿[
+  {
+    "outputFile": "Content/Site.css",
+    "inputFile": "Content/Site.scss"
+  },
+  {
+    "outputFile": "Content/Site600.css",
+    "inputFile": "Content/Site600.scss"
+  },
+  {
+    "outputFile": "Content/Site960.css",
+    "inputFile": "Content/Site960.scss"
+  },
+  {
+    "outputFile": "app/Content/Home/home.component.css",
+    "inputFile": "app/Content/Home/home.component.scss"
+  },
+  {
+    "outputFile": "src/app/Order/order.component.css",
+    "inputFile": "src/app/Order/order.component.scss"
+  },
+  {
+    "outputFile": "src/app/Content/Home/home.component.css",
+    "inputFile": "src/app/Content/Home/home.component.scss"
+  }
+]
