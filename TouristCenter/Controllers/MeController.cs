@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
+﻿using AccountService.Interfaces.Managers;
+using AccountService.Interfaces.Models;
+using System.Net.Http;
 using System.Web;
 using System.Web.Http;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using Owin;
 using TouristCenter.Models;
 
 namespace TouristCenter.Controllers
@@ -17,22 +10,19 @@ namespace TouristCenter.Controllers
     [Authorize]
     public class MeController : ApiController
     {
-        private ApplicationUserManager _userManager;
+        private IAccountManager _accountManager;
+        private IApplicationUserManager<IApplicationUser> _userManager;
 
-        public MeController()
+        public MeController(IAccountManager accountManager)
         {
+            _accountManager = accountManager;
         }
 
-        public MeController(ApplicationUserManager userManager)
-        {
-            UserManager = userManager;
-        }
-
-        public ApplicationUserManager UserManager
+        public IApplicationUserManager<IApplicationUser> UserManager
         {
             get
             {
-                return _userManager ?? HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                return _userManager ?? _accountManager.GetUserManager(Request.GetOwinContext());
             }
             private set
             {
@@ -43,8 +33,9 @@ namespace TouristCenter.Controllers
         // GET api/Me
         public GetViewModel Get()
         {
-            var user = UserManager.FindById(User.Identity.GetUserId());
-            return new GetViewModel() { Hometown = user.Hometown };
+            //var user = UserManager.FindById(User.Identity.GetUserId());
+            //return new GetViewModel() { Hometown = user.Hometown };
+            return null;
         }
     }
 }

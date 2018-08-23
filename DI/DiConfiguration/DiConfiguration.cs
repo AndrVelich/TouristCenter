@@ -1,4 +1,6 @@
-﻿using Ninject.Modules;
+﻿using AccountService;
+using AccountService.Interfaces.Managers;
+using Ninject.Modules;
 using TouristCenter.Domain.Interfaces.Order.Managers;
 using TouristCenter.Domain.Order.Managers;
 using TouristCenter.Storage.Interfaces.Order.Managers;
@@ -24,6 +26,7 @@ namespace VirtualBuisnessCard.DI
         private void RegisterBuisnessPart()
         {
             Bind<IOrderManager>().To<OrderManager>();
+            Bind<IAccountManager>().To<AccountManager>();
 
         }
 
