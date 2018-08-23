@@ -1,0 +1,175 @@
+﻿.benefits-description {
+    max-width: 1200px;
+    margin: 15px 30px;
+}
+
+@media (max-width: 960px) and (min-width:600px) {
+    .benefits-description {
+        max-width: 700px;
+        margin: 15px auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .benefits-description {
+        margin: 0;
+        width: 100%;
+    }
+}
+
+.benefits {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    ul {
+        li {
+            list-style: none;
+            display: inline-block;
+            vertical-align: top;
+            width: 33%;
+            margin-top: 40px;
+
+            .benefitItemContainer {
+                margin: 0 auto;
+                width: 240px;
+            }
+
+            h5 {
+                font-size: 16px;
+                font-weight: 600;
+                text-transform: uppercase;
+                line-height: 18px;
+            }
+
+            .benTxt {
+                display: inline-block;
+                vertical-align: top;
+                width: 220px;
+            }
+
+            i {
+                margin-right: 15px;
+                margin-bottom: 10px;
+                font-size: 30px;
+                width: 30px;
+            }
+
+            @media (max-width: 600px) {
+                .benefitItemContainer {
+                    margin: 0 auto;
+                    width: 400px;
+                }
+
+                .benTxt {
+                    width: 300px;
+                    margin: 10px;
+                }
+
+                i {
+                    position: relative;
+                    top: 10px;
+                }
+            }
+        }
+
+        @media (max-width: 960px) and (min-width:600px) {
+            li {
+                width: 49%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            li {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.services {
+    max-width: 1100px;
+    margin: 20px auto;
+
+    h3 {
+        color: #2b2a29;
+        font-size: 30px;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;
+        padding-bottom: 20px;
+        padding-top: 50px;
+        margin-top: -13px;
+    }
+
+    p {
+        margin-top: 17px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+}
+
+.serviceList {
+    max-width: 1100px;
+    margin: 20px auto;
+
+    h3 {
+        font-size: 30px;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 30px;
+    }
+
+    .listContainer {
+        margin: 20px 0;
+
+        .list {
+            width: 49%;
+            display: inline-block;
+            vertical-align: top;
+
+            ul {
+                width: 450px;
+                margin: 0 auto;
+
+                li {
+                    list-style-type: none;
+                    padding-left: 30px !important;
+                    padding-bottom: 20px !important;
+                    position: relative;
+
+                    i {
+                        position: absolute;
+                        top: 5px;
+                        left: 0;
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 960px) {
+            .list {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.putOrderBottom {
+    margin: 30px auto;
+    text-align: center;
+    max-width: 900px;
+
+    p {
+        margin: 20px;
+    }
+
+    .btn {
+        height: 40px;
+        width: 300px;
+        text-transform: uppercase;
+        font-size: 18px;
+    }
+}

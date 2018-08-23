@@ -1,0 +1,60 @@
+<header>
+    <div class="header-adminstative-background">
+        <div class="header-background-image">
+        </div>
+    </div>
+    <div class="header-content">
+        <div class="topHeaderMenu">
+            <div class="logo">
+                <a href="">
+                    <div>
+                        <span>Центр туризма</span>
+                    </div>
+                </a>
+            </div>
+            <div class="headerMenu">
+                <div clickOutside callbackName="onClickOutsideMobileMenu" [componentContext]="this" class="mobileMenu">
+                    <div class="mobileMenu-header">
+                        <a (click)="toggleMenu()">
+                            <i class="fa fa-bars" aria-hidden="true"></i>
+                            <span>
+                                Меню
+                            </span>
+                        </a>
+                    </div>
+                    <ul *ngIf="isMobileMenuVisible" [@slideInOut] class="mobileMenu-list">
+                        <li>
+                            <a>
+                                <i class="fa fa-plane" aria-hidden="true"></i>
+                                <span>Туры</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <i class="fa fa-cogs" aria-hidden="true"></i>
+                                <span>Заказы</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="mainMenu">
+                    <li>
+                        <a>
+                            <i class="fa fa-plane" aria-hidden="true"></i>
+                            <span>Туры</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <i class="fa fa-cogs" aria-hidden="true"></i>
+                            <span>Заказы</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="middleHeaderMenu">
+        </div>
+    </div>
+</header>
+

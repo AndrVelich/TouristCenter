@@ -1,0 +1,114 @@
+<header>
+    <div class="header-background">
+        <div class="header-background-image">
+        </div>
+    </div>
+    <div class="header-content">
+        <div class="topHeaderMenu">
+            <div class="logo">
+                <a href="">
+                    <div>
+                        <span>Центр туризма</span>
+                    </div>
+                </a>
+            </div>
+            <div class="headerMenu">
+                <div clickOutside callbackName="onClickOutsideMobileMenu" [componentContext]="this" class="mobileMenu">
+                    <div class="mobileMenu-header">
+                        <a (click)="toggleMenu()">
+                            <i class="fa fa-bars" aria-hidden="true"></i>
+                            <span>
+                                Меню
+                            </span>
+                        </a>
+                    </div>
+                    <ul *ngIf="isMobileMenuVisible" [@slideInOut] class="mobileMenu-list">
+                        <li>
+                            <a>
+                                <i class="fa fa-plane" aria-hidden="true"></i>
+                                <span>Туры</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <i class="fa fa-cogs" aria-hidden="true"></i>
+                                <span>Услуги</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <i class="fa fa-percent" aria-hidden="true"></i>
+                                <span>Акции</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <i class="fa fa-users" aria-hidden="true"></i>
+                                <span>О компании</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <i class="fa fa-mobile" aria-hidden="true"></i>
+                                <span>Контакты</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="mainMenu">
+                    <li>
+                        <a>
+                            <i class="fa fa-plane" aria-hidden="true"></i>
+                            <span>Туры</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <i class="fa fa-cogs" aria-hidden="true"></i>
+                            <span>Услуги</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <i class="fa fa-percent" aria-hidden="true"></i>
+                            <span>Акции</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <i class="fa fa-users" aria-hidden="true"></i>
+                            <span>О компании</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <i class="fa fa-mobile" aria-hidden="true"></i>
+                            <span>Контакты</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="middleHeaderMenu">
+            <div class="putOrder">
+                <button type="button" (click)="openOrderPopup()" class="btn btn-warning btn-block">Отправить заявку</button>
+                <div>Оставьте заявку и мы в кротчайшие сроки свяжемся с Вами</div>
+            </div>
+            <div class="contact">
+                <div class="phone">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    <span>+375 (44) 444-44-44</span>
+                </div>
+                <div class="email">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <span>mail@gmail.com</span>
+                </div>
+                <div class="skype">
+                    <i class="fa fa-skype" aria-hidden="true"></i>
+                    <span>skype</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+

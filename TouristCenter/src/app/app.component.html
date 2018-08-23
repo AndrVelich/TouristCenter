@@ -1,6 +1,2 @@
-<headerComponent></headerComponent>
-<div class="body-content">
-  <contentComponent></contentComponent>
-  <hr />
-  <footerComponent></footerComponent>
-</div>
+<administrationComponent *ngIf="isAdministration"></administrationComponent>
+<siteComponent *ngIf="!isAdministration"></siteComponent>

@@ -263,6 +263,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\TourController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -285,24 +286,13 @@
     <Content Include="Content\fa-svg-with-js.css" />
     <Content Include="Content\Icons\fontawesome-all.js" />
     <Content Include="Content\Icons\fontAwesome.js" />
+    <Content Include="Content\Images\admin_header.jpg" />
     <Content Include="Content\Images\beach_header.jpg" />
     <Content Include="Content\Site.css">
       <DependentUpon>Site.scss</DependentUpon>
     </Content>
     <Content Include="Content\Site.min.css">
       <DependentUpon>Site.css</DependentUpon>
-    </Content>
-    <Content Include="Content\Site600.css">
-      <DependentUpon>Site600.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\Site600.min.css">
-      <DependentUpon>Site600.css</DependentUpon>
-    </Content>
-    <Content Include="Content\Site960.css">
-      <DependentUpon>Site960.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\Site960.min.css">
-      <DependentUpon>Site960.css</DependentUpon>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -339,8 +329,6 @@
     <Content Include=".angular-cli.json" />
     <Content Include="compilerconfig.json" />
     <Content Include="Content\Site.scss" />
-    <Content Include="Content\Site600.scss" />
-    <Content Include="Content\Site960.scss" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
@@ -356,37 +344,90 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\sammy-0.7.4.js" />
     <Content Include="Scripts\sammy-0.7.4.min.js" />
+    <Content Include="src\app\Administration\administration.component.css">
+      <DependentUpon>administration.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Administration\administration.component.min.css">
+      <DependentUpon>administration.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Administration\Content\content.component.js" />
+    <Content Include="src\app\Administration\Content\content.component.ts" />
+    <Content Include="src\app\Administration\Content\Home\home.component.css" />
+    <Content Include="src\app\Administration\Content\Home\home.component.html" />
+    <Content Include="src\app\Administration\Content\Home\home.component.js" />
+    <Content Include="src\app\Administration\Content\Home\home.component.min.css" />
+    <Content Include="src\app\Administration\Content\Home\home.component.ts" />
+    <Content Include="src\app\Administration\Footer\footer.component.css">
+      <DependentUpon>footer.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Administration\Footer\footer.component.html" />
+    <Content Include="src\app\Administration\Footer\footer.component.js" />
+    <Content Include="src\app\Administration\Footer\footer.component.min.css">
+      <DependentUpon>footer.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Administration\Footer\footer.component.ts" />
+    <Content Include="src\app\Administration\Header\header.component.css">
+      <DependentUpon>header.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Administration\Header\header.component.html" />
+    <Content Include="src\app\Administration\Header\header.component.min.css">
+      <DependentUpon>header.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Administration\Header\header.component.ts" />
+    <Content Include="src\app\Administration\administration.component.html" />
+    <Content Include="src\app\Administration\administration.component.ts" />
+    <Content Include="src\app\Administration\administration.module.ts" />
+    <Content Include="src\app\Administration\administration.routes.ts" />
     <Content Include="src\app\app.component.html" />
     <Content Include="src\app\app.component.spec.ts" />
     <Content Include="src\app\app.component.ts" />
     <Content Include="src\app\app.module.ts" />
-    <Content Include="src\app\Common\Dictionary.ts" />
-    <Content Include="src\app\Content\content.component.js" />
-    <Content Include="src\app\Content\content.component.ts" />
-    <Content Include="src\app\Content\content.module.js" />
-    <Content Include="src\app\Content\content.module.ts" />
-    <Content Include="src\app\Content\content.routes.js" />
-    <Content Include="src\app\Content\content.routes.ts" />
-    <Content Include="src\app\Content\Home\home.component.css" />
-    <Content Include="src\app\Content\Home\home.component.html" />
-    <Content Include="src\app\Content\Home\home.component.js" />
-    <Content Include="src\app\Content\Home\home.component.min.css" />
-    <Content Include="src\app\Content\Home\home.component.ts" />
-    <Content Include="src\app\Directives\clickOutside.directive.js" />
-    <Content Include="src\app\Directives\clickOutside.directive.ts" />
-    <Content Include="src\app\Directives\ClickOutsideDirective.js" />
-    <Content Include="src\app\Footer\footer.component.html" />
-    <Content Include="src\app\Footer\footer.component.js" />
-    <Content Include="src\app\Footer\footer.component.ts" />
-    <Content Include="src\app\Header\header.component.html" />
-    <Content Include="src\app\Header\header.component.js" />
-    <Content Include="src\app\Header\header.component.ts" />
-    <Content Include="src\app\Order\order.component.css" />
-    <Content Include="src\app\Order\order.component.html" />
-    <Content Include="src\app\Order\order.component.min.css" />
-    <Content Include="src\app\Order\order.component.ts" />
-    <Content Include="src\app\Order\order.service.ts" />
-    <Content Include="src\app\Order\order.ts" />
+    <Content Include="src\app\Common\common.module.ts" />
+    <Content Include="src\app\Common\Types\Dictionary.ts" />
+    <Content Include="src\app\Site\Footer\footer.component.css">
+      <DependentUpon>footer.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Footer\footer.component.min.css">
+      <DependentUpon>footer.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Header\header.component.css">
+      <DependentUpon>header.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Header\header.component.min.css">
+      <DependentUpon>header.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\site.component.css">
+      <DependentUpon>site.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\site.component.min.css">
+      <DependentUpon>site.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\site.routes.ts" />
+    <Content Include="src\app\Site\site.module.ts" />
+    <Content Include="src\app\Site\site.component.html" />
+    <Content Include="src\app\Site\site.component.ts" />
+    <Content Include="src\app\Site\Content\content.component.js" />
+    <Content Include="src\app\Site\Content\content.component.ts" />
+    <Content Include="src\app\Site\Content\Home\home.component.css" />
+    <Content Include="src\app\Site\Content\Home\home.component.html" />
+    <Content Include="src\app\Site\Content\Home\home.component.js" />
+    <Content Include="src\app\Site\Content\Home\home.component.min.css" />
+    <Content Include="src\app\Site\Content\Home\home.component.ts" />
+    <Content Include="src\app\Common\Directives\clickOutside.directive.js" />
+    <Content Include="src\app\Common\Directives\clickOutside.directive.ts" />
+    <Content Include="src\app\Common\Directives\ClickOutsideDirective.js" />
+    <Content Include="src\app\Site\Footer\footer.component.html" />
+    <Content Include="src\app\Site\Footer\footer.component.js" />
+    <Content Include="src\app\Site\Footer\footer.component.ts" />
+    <Content Include="src\app\Site\Header\header.component.html" />
+    <Content Include="src\app\Site\Header\header.component.js" />
+    <Content Include="src\app\Site\Header\header.component.ts" />
+    <Content Include="src\app\Site\Order\order.component.css" />
+    <Content Include="src\app\Site\Order\order.component.html" />
+    <Content Include="src\app\Site\Order\order.component.min.css" />
+    <Content Include="src\app\Site\Order\order.component.ts" />
+    <Content Include="src\app\Site\Order\order.service.ts" />
+    <Content Include="src\app\Site\Order\order.ts" />
     <Content Include="src\environments\environment.prod.ts" />
     <Content Include="src\environments\environment.ts" />
     <Content Include="src\favicon.ico" />
@@ -432,20 +473,28 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="src\app\Content\content.component.js.map" />
-    <Content Include="src\app\Content\content.module.js.map" />
-    <Content Include="src\app\Content\content.routes.js.map" />
-    <Content Include="src\app\Content\Home\home.component.js.map" />
-    <Content Include="src\app\Content\Home\home.component.scss" />
-    <Content Include="src\app\Directives\clickOutside.directive.js.map" />
-    <Content Include="src\app\Directives\ClickOutsideDirective.js.map" />
-    <Content Include="src\app\Footer\footer.component.js.map" />
-    <Content Include="src\app\Header\header.component.js.map" />
-    <Content Include="src\app\Order\order.component.scss" />
+    <Content Include="src\app\Site\Content\content.component.js.map" />
+    <Content Include="src\app\Site\Content\Home\home.component.js.map" />
+    <Content Include="src\app\Site\Content\Home\home.component.scss" />
+    <Content Include="src\app\Common\Directives\clickOutside.directive.js.map" />
+    <Content Include="src\app\Common\Directives\ClickOutsideDirective.js.map" />
+    <Content Include="src\app\Site\Footer\footer.component.js.map" />
+    <Content Include="src\app\Site\Header\header.component.js.map" />
+    <Content Include="src\app\Site\Order\order.component.scss" />
     <Content Include="src\assets\.gitkeep" />
     <Content Include="src\tsconfig.app.json" />
     <Content Include="src\tsconfig.spec.json" />
     <Content Include="tsconfig.json" />
+    <Content Include="src\app\Administration\Footer\footer.component.js.map" />
+    <Content Include="src\app\Administration\Content\content.component.js.map" />
+    <Content Include="src\app\Administration\Content\Home\home.component.js.map" />
+    <Content Include="src\app\Administration\Content\Home\home.component.scss" />
+    <Content Include="src\app\Site\Footer\footer.component.scss" />
+    <Content Include="src\app\Administration\Header\header.component.scss" />
+    <Content Include="src\app\Administration\Footer\footer.component.scss" />
+    <Content Include="src\app\Administration\administration.component.scss" />
+    <None Include="src\app\Site\Header\header.component.scss" />
+    <Content Include="src\app\Site\site.component.scss" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
