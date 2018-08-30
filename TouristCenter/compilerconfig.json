@@ -22,5 +22,29 @@
   {
     "outputFile": "src/app/Content/Home/home.component.css",
     "inputFile": "src/app/Content/Home/home.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Header/header.component.css",
+    "inputFile": "src/app/Site/Header/header.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Footer/footer.component.css",
+    "inputFile": "src/app/Site/Footer/footer.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/site.component.css",
+    "inputFile": "src/app/Site/site.component.scss"
+  },
+  {
+    "outputFile": "src/app/Administration/administration.component.css",
+    "inputFile": "src/app/Administration/administration.component.scss"
+  },
+  {
+    "outputFile": "src/app/Administration/Header/header.component.css",
+    "inputFile": "src/app/Administration/Header/header.component.scss"
+  },
+  {
+    "outputFile": "src/app/Administration/Footer/footer.component.css",
+    "inputFile": "src/app/Administration/Footer/footer.component.scss"
   }
 ]

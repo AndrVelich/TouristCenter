@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace TouristCenter
 {
@@ -32,8 +29,6 @@ namespace TouristCenter
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
-                      "~/Content/site600.css",
-                      "~/Content/site960.css",
                       "~/Content/fa-svg-with-js.css"));
 
             #endregion
