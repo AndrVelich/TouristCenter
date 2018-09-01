@@ -1,98 +1,69 @@
 ﻿header {
 
-    .header-background{
-        margin-top: 60px;
-        height: 300px;
-        background-image: url(/Content/Images/beach_header.jpg);
-        background-size: 100%;
-        background-position: center;
-        margin-bottom: -360px;
-
-        .header-background-image {
-            background-color: black;
-            height: 300px;
-            opacity: 0.2;
-        }
-    }
-
-    .header-adminstative-background {
-        margin-top: 60px;
-        height: 300px;
-        background-image: url(/Content/Images/admin_header.jpg);
-        background-size: 100%;
-        background-position: center;
-        margin-bottom: -360px;
-
-        .header-background-image {
-            background-color: black;
-            height: 300px;
-            opacity: 0.2;
-        }
-    }
-
     .header-content {
-        max-width: 1200px;
         margin: 0 auto;
         position: relative;
 
-        .logo {
-            display: inline-block;
-            padding-top: 15px;
-            margin-left: 40px;
-            font-size: 22px;
-            width: 190px;
-        }
+        .topHeaderMenu {
 
-        .headerMenu {
-            padding-top: 15px;
-            float: right;
-        }
+            .width-wrapper {
+                display: flex;
+                justify-content: space-between;
 
-        .mobileMenu {
-            display: none;
-        }
+                .logo {
+                    display: inline-block;
+                    padding-top: 15px;
+                    margin-left: 40px;
+                    font-size: 22px;
+                    width: 190px;
+                }
 
-        .mainMenu {
-            li {
-                display: inline-block;
-                vertical-align: top;
-                text-align: center;
-                margin: 0px 15px;
-                font-size: 18px;
+                .contact {
+                    margin: 15px;
+                    width: 230px;
+
+                    div {
+                        padding-top: 5px;
+                    }
+
+                    span {
+                        font-size: 18px;
+                    }
+
+                    i {
+                        font-size: 22px;
+                        margin-right: 5px;
+                    }
+                }
             }
         }
 
         .middleHeaderMenu {
-            height: 300px;
             margin: 15px 0;
-            display: flex;
-            justify-content: space-between;
-            color: white;
 
-            .putOrder {
-                margin: 15px;
-                width: 180px;
-
-                button {
-                    margin: 10px 0;
-                }
+            .mobileMenu {
+                display: none;
             }
 
-            .contact {
-                margin: 15px;
-                width: 230px;
+            .mainMenu {
+                background: #505050;
+                padding: 10px;
 
-                div {
-                    padding-top: 5px;
-                }
+                .width-wrapper {
+                    display: flex;
+                    justify-content: space-between;
 
-                span {
-                    font-size: 18px;
-                }
+                    a {
+                        color: white;
+                    }
 
-                i {
-                    font-size: 22px;
-                    margin-right: 5px;
+                    li {
+                        display: inline-block;
+                        vertical-align: top;
+                        text-align: center;
+                        margin: 0px 15px;
+                        font-size: 18px;
+                    }
                 }
             }
         }
@@ -102,21 +73,32 @@
 @media (max-width: 600px) {
     header {
 
-        .header-background {
-            background-size: cover;
-        }
-
         .header-content {
 
-            .logo {
-                display: block;
-                margin: 0 auto;
-                width: 250px;
-                padding-top: 50px;
-                text-align: center;
+            .topHeaderMenu {
+
+                .width-wrapper {
+                    display: block;
+
+                    .logo {
+                        display: block;
+                        margin: 0 auto;
+                        width: 250px;
+                        padding-top: 50px;
+                        text-align: center;
+                    }
+
+                    .contact {
+                        margin: 20px auto;
+                        position: relative;
+                    }
+                }
             }
 
-            .headerMenu {
+            .middleHeaderMenu {
+                margin-top: 35px;
+                display: block;
+
                 a {
                     color: #fff;
                     font-size: 16px;
@@ -171,45 +153,12 @@
                     display: none;
                 }
             }
-
-            .middleHeaderMenu {
-                margin-top: 35px;
-                display: block;
-
-                .putOrder {
-                    width: 300px;
-                    margin: 0 auto;
-
-                    button {
-                        height: 40px;
-                        width: 300px;
-                        text-transform: uppercase;
-                        font-size: 18px;
-                        margin: 10px auto;
-                    }
-                }
-
-                .contact {
-                    margin: 20px auto;
-                    position: relative;
-                }
-            }
         }
     }
-}
+    }
 
 @media (max-width: 960px) {
-    header {
-
-        .header-background {
-            margin-top: 90px;
-            height: 280px;
-            margin-bottom: -370px;
-
-            .header-background-image {
-                height: 280px;
-            }
-        }
+    /*header {
 
         .header-content {
 
@@ -238,5 +187,5 @@
                 }
             }
         }
-    }
+    }*/
 }

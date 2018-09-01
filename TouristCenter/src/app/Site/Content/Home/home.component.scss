@@ -1,6 +1,10 @@
-﻿.benefits-description {
-    max-width: 1200px;
-    margin: 15px 30px;
+﻿.banner-carousel {
+    max-height:300px;
+    overflow:hidden;
+     
+    img{
+        width: 100%;
+    }
 }
 
 @media (max-width: 960px) and (min-width:600px) {
@@ -10,16 +14,7 @@
     }
 }
 
-@media (max-width: 600px) {
-    .benefits-description {
-        margin: 0;
-        width: 100%;
-    }
-}
-
 .benefits {
-    max-width: 1200px;
-    margin: 0 auto;
 
     ul {
         li {

@@ -5,11 +5,11 @@ import { OrderComponent } from '../../Order/order.component';
 @Component({
     
     moduleId: module.id,
-    selector: "tour",
-    templateUrl: "tour.component.html",
-    styleUrls: ["tour.component.css"]
+    selector: "tourTypes",
+    templateUrl: "tourTypes.component.html",
+    styleUrls: ["tourTypes.component.css"]
 })
-export class TourComponent {
+export class TourTypesComponent {
 
     constructor(
         public dialog: MatDialog)

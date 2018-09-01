@@ -20,6 +20,9 @@ import { OrderService } from "./Order/order.service";
 import { FooterComponent } from "./Footer/footer.component";
 import { ContentComponent } from "./Content/content.component";
 import { HomeComponent } from "./Content/Home/home.component";
+import { TourTypesComponent } from "./Content/TourTypes/tourTypes.component";
+import { CountryComponent } from "./Content/Country/country.component";
+import { ToursComponent } from "./Content/Tours/tours.component";
 
 @NgModule({
     imports:
@@ -37,8 +40,11 @@ import { HomeComponent } from "./Content/Home/home.component";
     ],
     entryComponents:
     [
+        TourTypesComponent,
         HeaderComponent,
-        OrderComponent
+        OrderComponent,
+        CountryComponent,
+        ToursComponent
     ],
     declarations:
     [
@@ -47,7 +53,10 @@ import { HomeComponent } from "./Content/Home/home.component";
         OrderComponent,
         FooterComponent,
         ContentComponent, 
-        HomeComponent
+        HomeComponent,
+        TourTypesComponent,
+        CountryComponent,
+        ToursComponent
     ],
     exports: [
         SiteComponent,

@@ -46,5 +46,25 @@
   {
     "outputFile": "src/app/Administration/Footer/footer.component.css",
     "inputFile": "src/app/Administration/Footer/footer.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/Tour/tour.component.css",
+    "inputFile": "src/app/Site/Content/Tour/tour.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/Home/home.component.css",
+    "inputFile": "src/app/Site/Content/Home/home.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/Country/country.component.css",
+    "inputFile": "src/app/Site/Content/Country/country.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/Tour/tourTypes.component.css",
+    "inputFile": "src/app/Site/Content/Tour/tourTypes.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/Tours/tours.component.css",
+    "inputFile": "src/app/Site/Content/Tours/tours.component.scss"
   }
 ]

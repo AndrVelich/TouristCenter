@@ -17,65 +17,34 @@ namespace TouristCenter.Controllers
         {
             var tour1 = new TourViewModel
             {
-                Name = "Tour1Name",
-                Description = "Tour 1 Description",
-                IsTransferIncluded = true,
+                Name = "Hotel1Name",
+                Description1 = "Hotel 1 Description",
+                Description2 = "Hotel 2 Description",
+                Description3 = "Hotel 3 Description",
+                Stars = 4,
+                Country = "Egypt",
+                City = "Hurghada",
                 Price = 1200,
-                IsHot = false,
+                DaysCount = 7,
+                IsTransferIncluded = true,
 
-                Hotel = new HotelViewModel
-                {
-                    Name = "Hotel1Name",
-                    Description = "Hotel 1 Description",
-                    Stars = 4,
-                    Country = "Egypt",
-                    City = "Hurghada",
-                    DistanceToSea = 700,
-                    Services = "Бар (3 + 2 бара у бассейна), Игровая комната, Лифт, Магазины, Парикмахерская, Парковка (платно), Прачечная, Ресторан (с разнообразной национальной и европейской кухней), Телевизионная комната, Холл, Сад (Бесплатно)",
-                    ChildServices = "Детская площадка, Детская секция в бассейне, Детская мебель",
-                    Food = "завтрак",
-                    HasPool = true,
-                    HasOwnBeach = false,
-                    HasInternet = true,
-
-                    ImageIdCollection = new List<string>(),
-
-                    Apartment = new ApartmentViewModel
-                    {
-                        Conveniences = "Балкон, Ванна/душ, Кондиционер (не во всех номерах - работают с начала июня по середину сентября), Спутниковое телевидение, Телефон, Туалет, Полотенца, Сейф (Платно), Телевизор (Бесплатно), Уборка"
-                    }
-                }
+                ImageIdCollection = new List<string>(),
             };
             var tour2 = new TourViewModel
             {
-                Name = "Tour2Name",
-                Description = "Tour 2 Description",
+                Name = "Hotel2Name",
+                Description1 = "Hotel 21 Description",
+                Description2 = "Hotel 22 Description",
+                Description3 = "Hotel 23 Description",
+                Stars = 4,
+                Country = "Egypt2",
+                City = "Hurghada2",
+                Price = 2000,
+                DaysCount = 8,
                 IsTransferIncluded = true,
-                Price = 1500,
-                IsHot = false,
 
-                Hotel = new HotelViewModel
-                {
-                    Name = "Hotel2Name",
-                    Description = "Hotel 2 Description",
-                    Stars = 4,
-                    Country = "Turkey",
-                    City = "Antalya",
-                    DistanceToSea = 700,
-                    Services = "Бар (3 + 2 бара у бассейна), Игровая комната, Лифт, Магазины, Парикмахерская, Парковка (платно), Прачечная, Ресторан (с разнообразной национальной и европейской кухней), Телевизионная комната, Холл, Сад (Бесплатно)",
-                    ChildServices = "Детская площадка, Детская секция в бассейне, Детская мебель",
-                    Food = "завтрак",
-                    HasPool = true,
-                    HasOwnBeach = false,
-                    HasInternet = true,
-
-                    ImageIdCollection = new List<string>(),
-
-                    Apartment = new ApartmentViewModel
-                    {
-                        Conveniences = "Балкон, Ванна/душ, Кондиционер (не во всех номерах - работают с начала июня по середину сентября), Спутниковое телевидение, Телефон, Туалет, Полотенца, Сейф (Платно), Телевизор (Бесплатно), Уборка"
-                    }
-                }
+                ImageIdCollection = new List<string>(),
+            
             };
 
             var tourCollection = new List<TourViewModel>();

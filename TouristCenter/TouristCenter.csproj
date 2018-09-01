@@ -263,8 +263,6 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MeViewModels.cs" />
     <Compile Include="Models\Order\OrderViewModel.cs" />
-    <Compile Include="Models\Tour\ApartmentViewModel.cs" />
-    <Compile Include="Models\Tour\HotelViewModel.cs" />
     <Compile Include="Models\Tour\TourViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
@@ -378,11 +376,31 @@
     <Content Include="src\app\Common\common.module.ts" />
     <Content Include="src\app\Common\Types\Dictionary.ts" />
     <Content Include="src\app\Site\Common\Services\Models\tour.ts" />
-    <Content Include="src\app\Site\Common\Services\Models\hotel.ts" />
-    <Content Include="src\app\Site\Common\Services\Models\apartment.ts" />
     <Content Include="src\app\Site\Common\Services\tourService.ts" />
-    <Content Include="src\app\Site\Content\Tour\tour.component.html" />
-    <Content Include="src\app\Site\Content\Tour\tour.component.ts" />
+    <Content Include="src\app\Site\Content\Tours\tours.component.css">
+      <DependentUpon>tours.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\Tours\tours.component.html" />
+    <Content Include="src\app\Site\Content\Tours\tours.component.min.css">
+      <DependentUpon>tours.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\Tours\tours.component.ts" />
+    <Content Include="src\app\Site\Content\Country\country.component.css">
+      <DependentUpon>country.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\Country\country.component.html" />
+    <Content Include="src\app\Site\Content\Country\country.component.min.css">
+      <DependentUpon>country.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\Country\country.component.ts" />
+    <Content Include="src\app\Site\Content\TourTypes\tourTypes.component.css">
+      <DependentUpon>tourTypes.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\TourTypes\tourTypes.component.html" />
+    <Content Include="src\app\Site\Content\TourTypes\tourTypes.component.min.css">
+      <DependentUpon>tourTypes.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\TourTypes\tourTypes.component.ts" />
     <Content Include="src\app\Site\Footer\footer.component.css">
       <DependentUpon>footer.component.scss</DependentUpon>
     </Content>
@@ -492,7 +510,9 @@
     <Content Include="src\app\Administration\Header\header.component.scss" />
     <Content Include="src\app\Administration\Footer\footer.component.scss" />
     <Content Include="src\app\Administration\administration.component.scss" />
-    <Content Include="src\app\Site\Content\Tour\tour.component.scss" />
+    <Content Include="src\app\Site\Content\TourTypes\tourTypes.component.scss" />
+    <Content Include="src\app\Site\Content\Country\country.component.scss" />
+    <Content Include="src\app\Site\Content\Tours\tours.component.scss" />
     <None Include="src\app\Site\Header\header.component.scss" />
     <Content Include="src\app\Site\site.component.scss" />
   </ItemGroup>

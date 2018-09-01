@@ -76,4 +76,13 @@ body .cdk-overlay-pane {
 body {
   font-family: 'exo', sans-serif;
   min-width: 400px; }
+  body .width-wrapper {
+    max-width: 1400px;
+    margin: 0 auto; }
+  body .text-wrapper {
+    margin: 0 10px; }
+  body a {
+    cursor: pointer; }
+  body a.link-big {
+    font-size: 22px; }
 

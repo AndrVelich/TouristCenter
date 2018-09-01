@@ -1,157 +1,128 @@
-﻿header .header-background {
-  margin-top: 60px;
-  height: 300px;
-  background-image: url(/Content/Images/beach_header.jpg);
-  background-size: 100%;
-  background-position: center;
-  margin-bottom: -360px; }
-  header .header-background .header-background-image {
-    background-color: black;
-    height: 300px;
-    opacity: 0.2; }
-
-header .header-adminstative-background {
-  margin-top: 60px;
-  height: 300px;
-  background-image: url(/Content/Images/admin_header.jpg);
-  background-size: 100%;
-  background-position: center;
-  margin-bottom: -360px; }
-  header .header-adminstative-background .header-background-image {
-    background-color: black;
-    height: 300px;
-    opacity: 0.2; }
-
-header .header-content {
-  max-width: 1200px;
+﻿header .header-content {
   margin: 0 auto;
   position: relative; }
-  header .header-content .logo {
-    display: inline-block;
-    padding-top: 15px;
-    margin-left: 40px;
-    font-size: 22px;
-    width: 190px; }
-  header .header-content .headerMenu {
-    padding-top: 15px;
-    float: right; }
-  header .header-content .mobileMenu {
-    display: none; }
-  header .header-content .mainMenu li {
-    display: inline-block;
-    vertical-align: top;
-    text-align: center;
-    margin: 0px 15px;
-    font-size: 18px; }
-  header .header-content .middleHeaderMenu {
-    height: 300px;
-    margin: 15px 0;
+  header .header-content .topHeaderMenu .width-wrapper {
     display: flex;
-    justify-content: space-between;
-    color: white; }
-    header .header-content .middleHeaderMenu .putOrder {
-      margin: 15px;
-      width: 180px; }
-      header .header-content .middleHeaderMenu .putOrder button {
-        margin: 10px 0; }
-    header .header-content .middleHeaderMenu .contact {
+    justify-content: space-between; }
+    header .header-content .topHeaderMenu .width-wrapper .logo {
+      display: inline-block;
+      padding-top: 15px;
+      margin-left: 40px;
+      font-size: 22px;
+      width: 190px; }
+    header .header-content .topHeaderMenu .width-wrapper .contact {
       margin: 15px;
       width: 230px; }
-      header .header-content .middleHeaderMenu .contact div {
+      header .header-content .topHeaderMenu .width-wrapper .contact div {
         padding-top: 5px; }
-      header .header-content .middleHeaderMenu .contact span {
+      header .header-content .topHeaderMenu .width-wrapper .contact span {
         font-size: 18px; }
-      header .header-content .middleHeaderMenu .contact i {
+      header .header-content .topHeaderMenu .width-wrapper .contact i {
         font-size: 22px;
         margin-right: 5px; }
+  header .header-content .middleHeaderMenu {
+    margin: 15px 0; }
+    header .header-content .middleHeaderMenu .mobileMenu {
+      display: none; }
+    header .header-content .middleHeaderMenu .mainMenu {
+      background: #505050;
+      padding: 10px; }
+      header .header-content .middleHeaderMenu .mainMenu .width-wrapper {
+        display: flex;
+        justify-content: space-between; }
+        header .header-content .middleHeaderMenu .mainMenu .width-wrapper a {
+          color: white; }
+        header .header-content .middleHeaderMenu .mainMenu .width-wrapper li {
+          display: inline-block;
+          vertical-align: top;
+          text-align: center;
+          margin: 0px 15px;
+          font-size: 18px; }
 
 @media (max-width: 600px) {
-  header .header-background {
-    background-size: cover; }
-  header .header-content .logo {
-    display: block;
-    margin: 0 auto;
-    width: 250px;
-    padding-top: 50px;
-    text-align: center; }
-  header .header-content .headerMenu a {
-    color: #fff;
-    font-size: 16px;
-    font-family: 'Exo 2',sans-serif;
-    text-decoration: none;
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
-    text-transform: uppercase;
-    line-height: 25px;
-    padding: 0 25px;
-    cursor: pointer;
-    transition: font-size 0.1s; }
-  header .header-content .headerMenu a:hover {
-    font-size: 17px; }
-  header .header-content .headerMenu .mobileMenu {
-    display: block;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 50; }
-    header .header-content .headerMenu .mobileMenu-header {
-      width: 100%;
-      background: #2B3037;
-      position: relative;
-      height: 42px;
-      line-height: 42px;
-      z-index: 51;
-      border-bottom: 2px solid #fff;
-      font-weight: 700; }
-    header .header-content .headerMenu .mobileMenu-list {
-      background: #2B3037;
-      width: 100%; }
-      header .header-content .headerMenu .mobileMenu-list li {
-        display: block;
-        text-align: left;
-        margin: 0;
-        padding: 5px 0;
-        border-bottom: 1px solid #fff; }
-  header .header-content .headerMenu .mainMenu {
-    display: none; }
+  header .header-content .topHeaderMenu .width-wrapper {
+    display: block; }
+    header .header-content .topHeaderMenu .width-wrapper .logo {
+      display: block;
+      margin: 0 auto;
+      width: 250px;
+      padding-top: 50px;
+      text-align: center; }
+    header .header-content .topHeaderMenu .width-wrapper .contact {
+      margin: 20px auto;
+      position: relative; }
   header .header-content .middleHeaderMenu {
     margin-top: 35px;
     display: block; }
-    header .header-content .middleHeaderMenu .putOrder {
-      width: 300px;
-      margin: 0 auto; }
-      header .header-content .middleHeaderMenu .putOrder button {
-        height: 40px;
-        width: 300px;
-        text-transform: uppercase;
-        font-size: 18px;
-        margin: 10px auto; }
-    header .header-content .middleHeaderMenu .contact {
-      margin: 20px auto;
-      position: relative; } }
+    header .header-content .middleHeaderMenu a {
+      color: #fff;
+      font-size: 16px;
+      font-family: 'Exo 2',sans-serif;
+      text-decoration: none;
+      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+      text-transform: uppercase;
+      line-height: 25px;
+      padding: 0 25px;
+      cursor: pointer;
+      transition: font-size 0.1s; }
+    header .header-content .middleHeaderMenu a:hover {
+      font-size: 17px; }
+    header .header-content .middleHeaderMenu .mobileMenu {
+      display: block;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 50; }
+      header .header-content .middleHeaderMenu .mobileMenu-header {
+        width: 100%;
+        background: #2B3037;
+        position: relative;
+        height: 42px;
+        line-height: 42px;
+        z-index: 51;
+        border-bottom: 2px solid #fff;
+        font-weight: 700; }
+      header .header-content .middleHeaderMenu .mobileMenu-list {
+        background: #2B3037;
+        width: 100%; }
+        header .header-content .middleHeaderMenu .mobileMenu-list li {
+          display: block;
+          text-align: left;
+          margin: 0;
+          padding: 5px 0;
+          border-bottom: 1px solid #fff; }
+    header .header-content .middleHeaderMenu .mainMenu {
+      display: none; } }
 
 @media (max-width: 960px) {
-  header .header-background {
-    margin-top: 90px;
-    height: 280px;
-    margin-bottom: -370px; }
-    header .header-background .header-background-image {
-      height: 280px; } }
+  /*header {
 
-@media (max-width: 960px) and (min-width: 601px) {
-  header .header-content .logo {
-    display: block;
-    padding-top: 7px;
-    margin: 0 auto;
-    width: 400px;
-    text-align: center; } }
+        .header-content {
 
-@media (max-width: 960px) {
-  header .header-content .headerMenu {
-    padding-top: 10px;
-    float: none; }
-  header .header-content .mainMenu {
-    text-align: center; } }
-  @media (max-width: 960px) and (min-width: 600px) {
-    header .header-content .mainMenu li {
-      margin: 0 10px; } }
+            @media (min-width: 601px) {
+                .logo {
+                    display: block;
+                    padding-top: 7px;
+                    margin: 0 auto;
+                    width: 400px;
+                    text-align: center;
+                }
+            }
+
+            .headerMenu {
+                padding-top: 10px;
+                float: none;
+            }
+
+            .mainMenu {
+                text-align: center;
+
+                @media (min-width: 600px) {
+                    li {
+                        margin: 0 10px;
+                    }
+                }
+            }
+        }
+    }*/ }
 

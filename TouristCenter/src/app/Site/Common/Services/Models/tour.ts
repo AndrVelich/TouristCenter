@@ -1,11 +1,15 @@
-﻿import { Hotel } from "./hotel";
+﻿export class Tour{
+  public name : string;
+  public description1: string; 
+  public description2: string; 
+  public description3: string;
+  public daysCount: number; 
+  public isTransferIncluded: boolean;
+  public price: number;
+  public stars: number;
+  public country: string;
+  public city: string;
 
-export class Tour{
-  public name: string
-  public description: string  
-  public isTransferIncluded: boolean  
-  public price: number  
-  public isHot: boolean  
-
-  public hotel: Hotel  
+  public imageIdCollection: string[];
+  
 }

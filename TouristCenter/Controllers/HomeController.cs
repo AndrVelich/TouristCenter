@@ -6,6 +6,8 @@ namespace TouristCenter.Controllers
     {
         [Route("")]
         [Route("administration")]
+        [Route("tour")]
+        [Route("tour/{type}/{country}")]
         public ActionResult Index()
         {
             return View();
