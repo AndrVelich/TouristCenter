@@ -6,7 +6,7 @@
         <div class="tour">
             <div class="image-description">
                 <div class="tour-image">
-                    <img class="counrty-image" src="/Content/Images/tour_category_test1.jpg" />
+                    <img (click)="openImagesPopup()" class="counrty-image" src="/Content/Images/tour_category_test1.jpg" />
                 </div>
                 <div class="tour-descriptions">
                     <div class="stars">
@@ -39,7 +39,9 @@
         <div class="tour">
             <div class="image-description">
                 <div class="tour-image">
-                    <img class="counrty-image" src="/Content/Images/tour_category_test1.jpg" />
+                    <a (click)="openImagesPopup()">
+                        <img class="counrty-image" src="/Content/Images/tour_category_test1.jpg" />
+                    </a>                  
                 </div>
                 <div class="tour-descriptions">
                     <div class="stars">

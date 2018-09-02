@@ -17,7 +17,14 @@
     </div>
 </div>
 <div class="banner-carousel">
-    <img src="/Content/Images/beach_header.jpg" />
+    <slideshow [height]="'300px'"
+               [minHeight]="'200px'"
+               [autoPlay]="true"
+               [showArrows]="true"
+               [imageUrls]="imageSources"
+               [lazyLoad]="imageSources?.length > 1"
+               [autoPlayWaitForLazyLoad]="true">
+    </slideshow>
 </div>
 <div class="width-wrapper">
     <div class="text-wrapper">

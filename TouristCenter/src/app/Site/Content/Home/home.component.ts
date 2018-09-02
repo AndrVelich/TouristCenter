@@ -17,7 +17,14 @@ export class HomeComponent {
         
     }
 
+    public imageSources: string[] = [
+     '/Content/Images/beach_header.jpg', 
+     '/Content/Images/admin_header.jpg'
+    ];
+ 
+
     public openOrderPopup() {
         let dialogRef = this.dialog.open(OrderComponent);
     }
+
 }

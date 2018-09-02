@@ -279,6 +279,10 @@
     <Content Include="Content\Icons\fontAwesome.js" />
     <Content Include="Content\Images\admin_header.jpg" />
     <Content Include="Content\Images\beach_header.jpg" />
+    <Content Include="Content\Images\pv_layer_controls.png" />
+    <Content Include="Content\Images\star.svg" />
+    <Content Include="Content\Images\tour_category_test1.jpg" />
+    <Content Include="Content\Images\tour_category_test2.jpg" />
     <Content Include="Content\Site.css">
       <DependentUpon>Site.scss</DependentUpon>
     </Content>
@@ -377,6 +381,14 @@
     <Content Include="src\app\Common\Types\Dictionary.ts" />
     <Content Include="src\app\Site\Common\Services\Models\tour.ts" />
     <Content Include="src\app\Site\Common\Services\tourService.ts" />
+    <Content Include="src\app\Site\Content\ImagesPopup\imagesPopup.component.css">
+      <DependentUpon>imagesPopup.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\ImagesPopup\imagesPopup.component.html" />
+    <Content Include="src\app\Site\Content\ImagesPopup\imagesPopup.component.min.css">
+      <DependentUpon>imagesPopup.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\ImagesPopup\imagesPopup.component.ts" />
     <Content Include="src\app\Site\Content\Tours\tours.component.css">
       <DependentUpon>tours.component.scss</DependentUpon>
     </Content>
@@ -513,6 +525,7 @@
     <Content Include="src\app\Site\Content\TourTypes\tourTypes.component.scss" />
     <Content Include="src\app\Site\Content\Country\country.component.scss" />
     <Content Include="src\app\Site\Content\Tours\tours.component.scss" />
+    <Content Include="src\app\Site\Content\ImagesPopup\imagesPopup.component.scss" />
     <None Include="src\app\Site\Header\header.component.scss" />
     <Content Include="src\app\Site\site.component.scss" />
   </ItemGroup>
@@ -575,6 +588,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
+      <UserProperties tsconfig_1json__JSONSchema="" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -66,5 +66,9 @@
   {
     "outputFile": "src/app/Site/Content/Tours/tours.component.css",
     "inputFile": "src/app/Site/Content/Tours/tours.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/ImagesPopup/imagesPopup.component.css",
+    "inputFile": "src/app/Site/Content/ImagesPopup/imagesPopup.component.scss"
   }
 ]

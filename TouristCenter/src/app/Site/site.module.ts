@@ -23,6 +23,8 @@ import { HomeComponent } from "./Content/Home/home.component";
 import { TourTypesComponent } from "./Content/TourTypes/tourTypes.component";
 import { CountryComponent } from "./Content/Country/country.component";
 import { ToursComponent } from "./Content/Tours/tours.component";
+import { ImagesPopupComponent } from "./Content/ImagesPopup/imagesPopup.component";
+import { SlideshowModule } from 'ng-simple-slideshow';
 
 @NgModule({
     imports:
@@ -35,6 +37,7 @@ import { ToursComponent } from "./Content/Tours/tours.component";
         HttpModule,
         TextMaskModule,
         CommonModule,
+        SlideshowModule,
 
         RouterModule.forRoot(routes)
     ],
@@ -44,7 +47,8 @@ import { ToursComponent } from "./Content/Tours/tours.component";
         HeaderComponent,
         OrderComponent,
         CountryComponent,
-        ToursComponent
+        ToursComponent,
+        ImagesPopupComponent
     ],
     declarations:
     [
@@ -56,7 +60,8 @@ import { ToursComponent } from "./Content/Tours/tours.component";
         HomeComponent,
         TourTypesComponent,
         CountryComponent,
-        ToursComponent
+        ToursComponent,
+        ImagesPopupComponent
     ],
     exports: [
         SiteComponent,
