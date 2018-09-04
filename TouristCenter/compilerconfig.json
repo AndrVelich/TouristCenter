@@ -70,5 +70,17 @@
   {
     "outputFile": "src/app/Site/Content/ImagesPopup/imagesPopup.component.css",
     "inputFile": "src/app/Site/Content/ImagesPopup/imagesPopup.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/Promotions/promotion.component.css",
+    "inputFile": "src/app/Site/Content/Promotions/promotion.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/Promotions/promotions.component.css",
+    "inputFile": "src/app/Site/Content/Promotions/promotions.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/Promotions/PromotionDetails/promotionDetails.component.css",
+    "inputFile": "src/app/Site/Content/Promotions/PromotionDetails/promotionDetails.component.scss"
   }
 ]

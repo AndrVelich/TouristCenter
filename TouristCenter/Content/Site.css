@@ -82,7 +82,8 @@ body {
   body .text-wrapper {
     margin: 0 10px; }
   body a {
-    cursor: pointer; }
+    cursor: pointer;
+    text-decoration: none; }
   body a.link-big {
     font-size: 22px; }
 

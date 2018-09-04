@@ -23,6 +23,8 @@ import { HomeComponent } from "./Content/Home/home.component";
 import { TourTypesComponent } from "./Content/TourTypes/tourTypes.component";
 import { CountryComponent } from "./Content/Country/country.component";
 import { ToursComponent } from "./Content/Tours/tours.component";
+import { PromotionsComponent } from "./Content/Promotions/promotions.component";
+import { PromotionDetailsComponent } from "./Content/Promotions/PromotionDetails/promotionDetails.component";
 import { ImagesPopupComponent } from "./Content/ImagesPopup/imagesPopup.component";
 import { SlideshowModule } from 'ng-simple-slideshow';
 
@@ -48,7 +50,9 @@ import { SlideshowModule } from 'ng-simple-slideshow';
         OrderComponent,
         CountryComponent,
         ToursComponent,
-        ImagesPopupComponent
+        ImagesPopupComponent,
+        PromotionsComponent,
+        PromotionDetailsComponent
     ],
     declarations:
     [
@@ -61,7 +65,9 @@ import { SlideshowModule } from 'ng-simple-slideshow';
         TourTypesComponent,
         CountryComponent,
         ToursComponent,
-        ImagesPopupComponent
+        ImagesPopupComponent,
+        PromotionsComponent,
+        PromotionDetailsComponent
     ],
     exports: [
         SiteComponent,

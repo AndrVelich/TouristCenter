@@ -711,6 +711,147 @@ var ImagesPopupComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/Site/Content/Promotions/PromotionDetails/promotionDetails.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".promotion-text {\n  margin-bottom: 20px;\n  text-align: center; }\n\n.promotions-wrapper {\n  margin: 0 20px; }\n\n.promotions-wrapper .promotion {\n    position: relative;\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-position: center;\n    padding-top: 40%;\n    text-align: center;\n    display: block;\n    margin-bottom: 20px; }\n\n.promotions-wrapper .promotion .promotion-name {\n      position: absolute;\n      top: 0;\n      width: 100%;\n      background-color: rgba(255, 255, 255, 0.8); }\n\n.promotions-wrapper .promotion .promotion-descriptions {\n      position: relative;\n      bottom: 25px;\n      width: 100%;\n      background-color: rgba(255, 255, 255, 0.8);\n      padding: 5px; }\n\n.promotions-wrapper .promotion .promotion-descriptions .until-date {\n        position: absolute;\n        top: 12px;\n        right: 10px; }\n\n@media (min-width: 850px) {\n  .promotion {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 850px) {\n  .promotion {\n    display: block; } }\n\n@media (max-width: 600px) {\n  .promotion {\n    width: 340px;\n    margin: 0 auto 20px auto; } }\n\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/Site/Content/Promotions/PromotionDetails/promotionDetails.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper promotion-text\">\r\n        АКЦИИ и СПЕЦПРЕДЛОЖЕНИЯ\r\n    </div>\r\n    <div class=\"promotions-wrapper\">\r\n        <div class=\"promotion\" style=\"background-image:url(/Content/Images/promotions_test1.jpg)\">\r\n            <div class=\"promotion-name\">\r\n                <a class=\"link-big\">«Счастливые часы на Экзотику»</a>\r\n            </div>\r\n\r\n            <div class=\"promotion-descriptions\">\r\n                <a class=\"btn btn-info\">Принять участие</a>\r\n                <div class=\"until-date\"> Действует до <span>30.09.2018</span></div>\r\n            </div>\r\n        </div>\r\n        <div>\r\n            <p>\r\n                Привозите интересные магнитики из отпуска нам, а мы в свою очередь будем дарить подарки Вам. Каждый наш турист, который привезет нам магнитик, получит вкуснейший шоколадный подарок!\r\n            </p>\r\n            <a class=\"btn btn-info\">Принять участие</a>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/Site/Content/Promotions/PromotionDetails/promotionDetails.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PromotionDetailsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Order_order_component__ = __webpack_require__("../../../../../src/app/Site/Order/order.component.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var PromotionDetailsComponent = /** @class */ (function () {
+    function PromotionDetailsComponent(dialog) {
+        this.dialog = dialog;
+    }
+    PromotionDetailsComponent.prototype.openOrderPopup = function () {
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_2__Order_order_component__["a" /* OrderComponent */]);
+    };
+    PromotionDetailsComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            moduleId: module.i,
+            selector: "promotionDetails",
+            template: __webpack_require__("../../../../../src/app/Site/Content/Promotions/PromotionDetails/promotionDetails.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/Site/Content/Promotions/PromotionDetails/promotionDetails.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */]])
+    ], PromotionDetailsComponent);
+    return PromotionDetailsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/Site/Content/Promotions/promotions.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".promotion-text {\n  margin-bottom: 20px;\n  text-align: center; }\n\n.promotions-wrapper {\n  margin: 0 20px; }\n\n.promotions-wrapper .promotion {\n    position: relative;\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-position: center;\n    padding-top: 40%;\n    text-align: center;\n    display: block;\n    margin-bottom: 20px; }\n\n.promotions-wrapper .promotion .promotion-name {\n      position: absolute;\n      top: 0;\n      width: 100%;\n      background-color: rgba(255, 255, 255, 0.8); }\n\n.promotions-wrapper .promotion .promotion-descriptions {\n      position: relative;\n      bottom: 25px;\n      width: 100%;\n      background-color: rgba(255, 255, 255, 0.8);\n      padding: 5px; }\n\n.promotions-wrapper .promotion .promotion-descriptions .until-date {\n        position: absolute;\n        top: 12px;\n        right: 10px; }\n\n@media (min-width: 850px) {\n  .promotion {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 850px) {\n  .promotion {\n    display: block; } }\n\n@media (max-width: 600px) {\n  .promotion {\n    width: 340px;\n    margin: 0 auto 20px auto; } }\n\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/Site/Content/Promotions/promotions.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper promotion-text\">\r\n        АКЦИИ и СПЕЦПРЕДЛОЖЕНИЯ\r\n    </div>\r\n    <div class=\"promotions-wrapper\">\r\n        <div class=\"promotion\" style=\"background-image:url(/Content/Images/promotions_test1.jpg)\">\r\n            <div class=\"promotion-name\">\r\n                <a [routerLink]=\"[ 'prom1' ]\" class=\"link-big\">«Счастливые часы на Экзотику»</a>\r\n            </div>\r\n\r\n            <div class=\"promotion-descriptions\">\r\n                <a class=\"btn btn-info\">Принять участие</a>\r\n                <div class=\"until-date\"> Действует до <span>30.09.2018</span></div>\r\n            </div>\r\n            \r\n        </div>\r\n        <div class=\"promotion\" style=\"background-image:url(/Content/Images/tour_category_test1.jpg)\">\r\n            <div class=\"promotion-name\">\r\n                <a class=\"link-big\">«Счастливые часы на Экзотику»</a>\r\n            </div>\r\n\r\n            <div class=\"promotion-descriptions\">\r\n                <a [routerLink]=\"[ 'prom2' ]\" class=\"btn btn-info\">Принять участие</a>\r\n                <div class=\"until-date\"> Действует до <span>30.09.2018</span></div>\r\n            </div>\r\n\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/Site/Content/Promotions/promotions.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PromotionsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Order_order_component__ = __webpack_require__("../../../../../src/app/Site/Order/order.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ImagesPopup_imagesPopup_component__ = __webpack_require__("../../../../../src/app/Site/Content/ImagesPopup/imagesPopup.component.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var PromotionsComponent = /** @class */ (function () {
+    function PromotionsComponent(dialog) {
+        this.dialog = dialog;
+    }
+    PromotionsComponent.prototype.openOrderPopup = function () {
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_2__Order_order_component__["a" /* OrderComponent */]);
+    };
+    PromotionsComponent.prototype.openImagesPopup = function () {
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__ImagesPopup_imagesPopup_component__["a" /* ImagesPopupComponent */]);
+    };
+    PromotionsComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            moduleId: module.i,
+            selector: "promotions",
+            template: __webpack_require__("../../../../../src/app/Site/Content/Promotions/promotions.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/Site/Content/Promotions/promotions.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */]])
+    ], PromotionsComponent);
+    return PromotionsComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/Site/Content/TourTypes/tourTypes.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -959,7 +1100,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Site/Header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<header>\r\n    \r\n    <div class=\"header-content\">\r\n        <div class=\"topHeaderMenu\">\r\n            <div class=\"width-wrapper\">\r\n                <div class=\"logo\">\r\n                    <a href=\"\">\r\n                        <div>\r\n                            <span>Центр туризма</span>\r\n                        </div>\r\n                    </a>\r\n                </div>\r\n                <div class=\"contact\">\r\n                    <div class=\"phone\">\r\n                        <i class=\"fa fa-phone\" aria-hidden=\"true\"></i>\r\n                        <span>+375 (44) 444-44-44</span>\r\n                    </div>\r\n                    <div class=\"email\">\r\n                        <i class=\"fa fa-envelope\" aria-hidden=\"true\"></i>\r\n                        <span>mail@gmail.com</span>\r\n                    </div>\r\n                    <div class=\"skype\">\r\n                        <i class=\"fa fa-skype\" aria-hidden=\"true\"></i>\r\n                        <span>skype</span>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"middleHeaderMenu\">\r\n            <div clickOutside callbackName=\"onClickOutsideMobileMenu\" [componentContext]=\"this\" class=\"mobileMenu\">\r\n                <div class=\"mobileMenu-header\">\r\n                    <a (click)=\"toggleMenu()\">\r\n                        <i class=\"fa fa-bars\" aria-hidden=\"true\"></i>\r\n                        <span>\r\n                            Меню\r\n                        </span>\r\n                    </a>\r\n                </div>\r\n                <ul *ngIf=\"isMobileMenuVisible\" [@slideInOut] class=\"mobileMenu-list\">\r\n                    <li>\r\n                        <a [routerLink]=\"[ '/tour' ]\">\r\n                            <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                            <span>Туры</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                            <span>Услуги</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-percent\" aria-hidden=\"true\"></i>\r\n                            <span>Акции</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-users\" aria-hidden=\"true\"></i>\r\n                            <span>О компании</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-mobile\" aria-hidden=\"true\"></i>\r\n                            <span>Контакты</span>\r\n                        </a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n            <div class=\"mainMenu\">\r\n                <ul class=\"width-wrapper\">\r\n                    <li>\r\n                        <a [routerLink]=\"[ '/tour' ]\">\r\n                            <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                            <span>Туры</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                            <span>Услуги</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-percent\" aria-hidden=\"true\"></i>\r\n                            <span>Акции</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-users\" aria-hidden=\"true\"></i>\r\n                            <span>О компании</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-mobile\" aria-hidden=\"true\"></i>\r\n                            <span>Контакты</span>\r\n                        </a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n            \r\n        </div>\r\n    </div>\r\n</header>\r\n\r\n"
+module.exports = "<header>\r\n    \r\n    <div class=\"header-content\">\r\n        <div class=\"topHeaderMenu\">\r\n            <div class=\"width-wrapper\">\r\n                <div class=\"logo\">\r\n                    <a href=\"\">\r\n                        <div>\r\n                            <span>Центр туризма</span>\r\n                        </div>\r\n                    </a>\r\n                </div>\r\n                <div class=\"contact\">\r\n                    <div class=\"phone\">\r\n                        <i class=\"fa fa-phone\" aria-hidden=\"true\"></i>\r\n                        <span>+375 (44) 444-44-44</span>\r\n                    </div>\r\n                    <div class=\"email\">\r\n                        <i class=\"fa fa-envelope\" aria-hidden=\"true\"></i>\r\n                        <span>mail@gmail.com</span>\r\n                    </div>\r\n                    <div class=\"skype\">\r\n                        <i class=\"fa fa-skype\" aria-hidden=\"true\"></i>\r\n                        <span>skype</span>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"middleHeaderMenu\">\r\n            <div clickOutside callbackName=\"onClickOutsideMobileMenu\" [componentContext]=\"this\" class=\"mobileMenu\">\r\n                <div class=\"mobileMenu-header\">\r\n                    <a (click)=\"toggleMenu()\">\r\n                        <i class=\"fa fa-bars\" aria-hidden=\"true\"></i>\r\n                        <span>\r\n                            Меню\r\n                        </span>\r\n                    </a>\r\n                </div>\r\n                <ul *ngIf=\"isMobileMenuVisible\" [@slideInOut] class=\"mobileMenu-list\">\r\n                    <li>\r\n                        <a [routerLink]=\"[ '/tour' ]\">\r\n                            <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                            <span>Туры</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                            <span>Услуги</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a [routerLink]=\"[ '/promotions' ]\">\r\n                            <i class=\"fa fa-percent\" aria-hidden=\"true\"></i>\r\n                            <span>Акции</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-users\" aria-hidden=\"true\"></i>\r\n                            <span>О компании</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-mobile\" aria-hidden=\"true\"></i>\r\n                            <span>Контакты</span>\r\n                        </a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n            <div class=\"mainMenu\">\r\n                <ul class=\"width-wrapper\">\r\n                    <li>\r\n                        <a [routerLink]=\"[ '/tour' ]\">\r\n                            <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                            <span>Туры</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                            <span>Услуги</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a [routerLink]=\"[ '/promotions' ]\">\r\n                            <i class=\"fa fa-percent\" aria-hidden=\"true\"></i>\r\n                            <span>Акции</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-users\" aria-hidden=\"true\"></i>\r\n                            <span>О компании</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-mobile\" aria-hidden=\"true\"></i>\r\n                            <span>Контакты</span>\r\n                        </a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n            \r\n        </div>\r\n    </div>\r\n</header>\r\n\r\n"
 
 /***/ }),
 
@@ -1285,14 +1426,18 @@ var SiteComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__Content_TourTypes_tourTypes_component__ = __webpack_require__("../../../../../src/app/Site/Content/TourTypes/tourTypes.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__Content_Country_country_component__ = __webpack_require__("../../../../../src/app/Site/Content/Country/country.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__Content_Tours_tours_component__ = __webpack_require__("../../../../../src/app/Site/Content/Tours/tours.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__Content_ImagesPopup_imagesPopup_component__ = __webpack_require__("../../../../../src/app/Site/Content/ImagesPopup/imagesPopup.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_ng_simple_slideshow__ = __webpack_require__("../../../../ng-simple-slideshow/ng-simple-slideshow.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__Content_Promotions_promotions_component__ = __webpack_require__("../../../../../src/app/Site/Content/Promotions/promotions.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__Content_Promotions_PromotionDetails_promotionDetails_component__ = __webpack_require__("../../../../../src/app/Site/Content/Promotions/PromotionDetails/promotionDetails.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__Content_ImagesPopup_imagesPopup_component__ = __webpack_require__("../../../../../src/app/Site/Content/ImagesPopup/imagesPopup.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_ng_simple_slideshow__ = __webpack_require__("../../../../ng-simple-slideshow/ng-simple-slideshow.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -1328,7 +1473,7 @@ var SiteModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_5_angular2_text_mask__["TextMaskModule"],
                 __WEBPACK_IMPORTED_MODULE_8__Common_common_module__["a" /* CommonModule */],
-                __WEBPACK_IMPORTED_MODULE_20_ng_simple_slideshow__["a" /* SlideshowModule */],
+                __WEBPACK_IMPORTED_MODULE_22_ng_simple_slideshow__["a" /* SlideshowModule */],
                 __WEBPACK_IMPORTED_MODULE_6__angular_router__["b" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_9__site_routes__["a" /* routes */])
             ],
             entryComponents: [
@@ -1337,7 +1482,9 @@ var SiteModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_12__Order_order_component__["a" /* OrderComponent */],
                 __WEBPACK_IMPORTED_MODULE_17__Content_Country_country_component__["a" /* CountryComponent */],
                 __WEBPACK_IMPORTED_MODULE_18__Content_Tours_tours_component__["a" /* ToursComponent */],
-                __WEBPACK_IMPORTED_MODULE_19__Content_ImagesPopup_imagesPopup_component__["a" /* ImagesPopupComponent */]
+                __WEBPACK_IMPORTED_MODULE_21__Content_ImagesPopup_imagesPopup_component__["a" /* ImagesPopupComponent */],
+                __WEBPACK_IMPORTED_MODULE_19__Content_Promotions_promotions_component__["a" /* PromotionsComponent */],
+                __WEBPACK_IMPORTED_MODULE_20__Content_Promotions_PromotionDetails_promotionDetails_component__["a" /* PromotionDetailsComponent */]
             ],
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_10__site_component__["a" /* SiteComponent */],
@@ -1349,7 +1496,9 @@ var SiteModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_16__Content_TourTypes_tourTypes_component__["a" /* TourTypesComponent */],
                 __WEBPACK_IMPORTED_MODULE_17__Content_Country_country_component__["a" /* CountryComponent */],
                 __WEBPACK_IMPORTED_MODULE_18__Content_Tours_tours_component__["a" /* ToursComponent */],
-                __WEBPACK_IMPORTED_MODULE_19__Content_ImagesPopup_imagesPopup_component__["a" /* ImagesPopupComponent */]
+                __WEBPACK_IMPORTED_MODULE_21__Content_ImagesPopup_imagesPopup_component__["a" /* ImagesPopupComponent */],
+                __WEBPACK_IMPORTED_MODULE_19__Content_Promotions_promotions_component__["a" /* PromotionsComponent */],
+                __WEBPACK_IMPORTED_MODULE_20__Content_Promotions_PromotionDetails_promotionDetails_component__["a" /* PromotionDetailsComponent */]
             ],
             exports: [
                 __WEBPACK_IMPORTED_MODULE_10__site_component__["a" /* SiteComponent */],
@@ -1375,6 +1524,10 @@ var SiteModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Content_TourTypes_tourTypes_component__ = __webpack_require__("../../../../../src/app/Site/Content/TourTypes/tourTypes.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Content_Country_country_component__ = __webpack_require__("../../../../../src/app/Site/Content/Country/country.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Content_Tours_tours_component__ = __webpack_require__("../../../../../src/app/Site/Content/Tours/tours.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Content_Promotions_promotions_component__ = __webpack_require__("../../../../../src/app/Site/Content/Promotions/promotions.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Content_Promotions_PromotionDetails_promotionDetails_component__ = __webpack_require__("../../../../../src/app/Site/Content/Promotions/PromotionDetails/promotionDetails.component.ts");
+
+
 
 
 
@@ -1399,6 +1552,14 @@ var routes = [
     {
         path: 'tour/:type/:country',
         component: __WEBPACK_IMPORTED_MODULE_3__Content_Tours_tours_component__["a" /* ToursComponent */]
+    },
+    {
+        path: 'promotions',
+        component: __WEBPACK_IMPORTED_MODULE_4__Content_Promotions_promotions_component__["a" /* PromotionsComponent */]
+    },
+    {
+        path: 'promotions/:promotion',
+        component: __WEBPACK_IMPORTED_MODULE_5__Content_Promotions_PromotionDetails_promotionDetails_component__["a" /* PromotionDetailsComponent */]
     }
 ];
 

@@ -389,6 +389,22 @@
       <DependentUpon>imagesPopup.component.css</DependentUpon>
     </Content>
     <Content Include="src\app\Site\Content\ImagesPopup\imagesPopup.component.ts" />
+    <Content Include="src\app\Site\Content\Promotions\PromotionDetails\promotionDetails.component.css">
+      <DependentUpon>promotionDetails.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\Promotions\PromotionDetails\promotionDetails.component.html" />
+    <Content Include="src\app\Site\Content\Promotions\PromotionDetails\promotionDetails.component.min.css">
+      <DependentUpon>promotionDetails.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\Promotions\PromotionDetails\promotionDetails.component.ts" />
+    <Content Include="src\app\Site\Content\Promotions\promotions.component.css">
+      <DependentUpon>promotions.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\Promotions\promotions.component.html" />
+    <Content Include="src\app\Site\Content\Promotions\promotions.component.min.css">
+      <DependentUpon>promotions.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\Promotions\promotions.component.ts" />
     <Content Include="src\app\Site\Content\Tours\tours.component.css">
       <DependentUpon>tours.component.scss</DependentUpon>
     </Content>
@@ -526,6 +542,8 @@
     <Content Include="src\app\Site\Content\Country\country.component.scss" />
     <Content Include="src\app\Site\Content\Tours\tours.component.scss" />
     <Content Include="src\app\Site\Content\ImagesPopup\imagesPopup.component.scss" />
+    <Content Include="src\app\Site\Content\Promotions\promotions.component.scss" />
+    <Content Include="src\app\Site\Content\Promotions\PromotionDetails\promotionDetails.component.scss" />
     <None Include="src\app\Site\Header\header.component.scss" />
     <Content Include="src\app\Site\site.component.scss" />
   </ItemGroup>

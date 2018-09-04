@@ -8,6 +8,8 @@ namespace TouristCenter.Controllers
         [Route("administration")]
         [Route("tour")]
         [Route("tour/{type}/{country}")]
+        [Route("promotions")]
+        [Route("promotions/{promotion}")]
         public ActionResult Index()
         {
             return View();

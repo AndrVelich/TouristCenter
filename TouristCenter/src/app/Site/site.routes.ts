@@ -3,6 +3,8 @@ import { HomeComponent } from "./Content/Home/home.component";
 import { TourTypesComponent } from "./Content/TourTypes/tourTypes.component";
 import { CountryComponent } from "./Content/Country/country.component";
 import { ToursComponent } from "./Content/Tours/tours.component";
+import { PromotionsComponent } from "./Content/Promotions/promotions.component";
+import { PromotionDetailsComponent } from "./Content/Promotions/PromotionDetails/promotionDetails.component";
 
 export const routes: Routes = [
     {
@@ -24,5 +26,13 @@ export const routes: Routes = [
     { 
         path: 'tour/:type/:country', 
         component: ToursComponent
+    },
+    { 
+        path: 'promotions', 
+        component: PromotionsComponent
+    },
+    { 
+        path: 'promotions/:promotion', 
+        component: PromotionDetailsComponent
     }
 ];
