@@ -41,9 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Tour\Managers\IHotelDataManager.cs" />
+    <Compile Include="Tour\Managers\IApartmentDataManager.cs" />
+    <Compile Include="Tour\Managers\ITourDataManager.cs" />
     <Compile Include="Order\Managers\IOrderDataManager.cs" />
+    <Compile Include="Tour\Models\Apartment.cs" />
+    <Compile Include="Tour\Models\Hotel.cs" />
     <Compile Include="Order\Models\Order.cs" />
+    <Compile Include="Tour\Models\Tour.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -47,6 +47,23 @@
     <Compile Include="Order\Managers\IOrderManager.cs" />
     <Compile Include="Order\Models\IOrder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tour\Exceptions\ApartmentConveniencesNotValidException.cs" />
+    <Compile Include="Tour\Exceptions\ApartmentNotFoundException.cs" />
+    <Compile Include="Tour\Exceptions\HotelCityNotValidException.cs" />
+    <Compile Include="Tour\Exceptions\HotelNameNotValidException.cs" />
+    <Compile Include="Tour\Exceptions\HotelNotFoundException.cs" />
+    <Compile Include="Tour\Exceptions\HotelStarsNotValidException.cs" />
+    <Compile Include="Tour\Exceptions\TourHotelNotValidException.cs" />
+    <Compile Include="Tour\Exceptions\TourNameNotValidException.cs" />
+    <Compile Include="Tour\Exceptions\TourNotFoundException.cs" />
+    <Compile Include="Tour\Exceptions\TourPriceNotValidException.cs" />
+    <Compile Include="Tour\Managers\IApartmentManager.cs" />
+    <Compile Include="Tour\Managers\IHotelManager.cs" />
+    <Compile Include="Tour\Managers\ITourManager.cs" />
+    <Compile Include="Tour\Models\IApartment.cs" />
+    <Compile Include="Tour\Models\IHotel.cs" />
+    <Compile Include="Tour\Models\ITour.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

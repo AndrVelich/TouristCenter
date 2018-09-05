@@ -50,6 +50,9 @@
     <Compile Include="Context\TouristCenterContext.cs" />
     <Compile Include="Order\Managers\OrderDataManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tour\Managers\TourDataManager.cs" />
+    <Compile Include="Tour\Managers\ApartmentDataManager.cs" />
+    <Compile Include="Tour\Managers\HotelDataManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

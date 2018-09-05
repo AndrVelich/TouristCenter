@@ -43,6 +43,12 @@
     <Compile Include="Order\Managers\OrderManager.cs" />
     <Compile Include="Order\Models\Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tour\Managers\ApartmentManager.cs" />
+    <Compile Include="Tour\Managers\HotelManager.cs" />
+    <Compile Include="Tour\Managers\TourManager.cs" />
+    <Compile Include="Tour\Models\Apartment.cs" />
+    <Compile Include="Tour\Models\Hotel.cs" />
+    <Compile Include="Tour\Models\Tour.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Storage\TouristCenter.Storage.Interfaces\TouristCenter.Storage.Interfaces.csproj">
@@ -54,5 +60,6 @@
       <Name>TouristCenter.Domain.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
