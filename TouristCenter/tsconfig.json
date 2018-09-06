@@ -17,7 +17,8 @@
         ],
         "paths": {
             "common/*": [ "app/Common/*" ],
-            "siteCommon/*": [ "app/Site/Common/*" ]
+            "siteCommon/*": [ "app/Site/Common/*" ],
+            "@siteModule/*": [ "app/Site/*" ]
         }
     }
 }

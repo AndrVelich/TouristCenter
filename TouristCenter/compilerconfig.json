@@ -82,5 +82,49 @@
   {
     "outputFile": "src/app/Site/Content/Promotions/PromotionDetails/promotionDetails.component.css",
     "inputFile": "src/app/Site/Content/Promotions/PromotionDetails/promotionDetails.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/TourTypes/Beach/Country/beachCountry.component.css",
+    "inputFile": "src/app/Site/Content/TourTypes/Beach/Country/beachCountry.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/TourTypes/Beach/Tours/beachTours.component.css",
+    "inputFile": "src/app/Site/Content/TourTypes/Beach/Tours/beachTours.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/TourTypes/Corporate/Country/corporateCountry.component.css",
+    "inputFile": "src/app/Site/Content/TourTypes/Corporate/Country/corporateCountry.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/TourTypes/Bus/Tours/busTours.component.css",
+    "inputFile": "src/app/Site/Content/TourTypes/Bus/Tours/busTours.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/TourTypes/Corporate/Tours/corporateTours.component.css",
+    "inputFile": "src/app/Site/Content/TourTypes/Corporate/Tours/corporateTours.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/TourTypes/Individual/Country/individualCountry.component.css",
+    "inputFile": "src/app/Site/Content/TourTypes/Individual/Country/individualCountry.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/TourTypes/Individual/Tours/individualTours.component.css",
+    "inputFile": "src/app/Site/Content/TourTypes/Individual/Tours/individualTours.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/TourTypes/NewYear/Country/newYearCountry.component.css",
+    "inputFile": "src/app/Site/Content/TourTypes/NewYear/Country/newYearCountry.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/TourTypes/NewYear/Tours/newYearTours.component.css",
+    "inputFile": "src/app/Site/Content/TourTypes/NewYear/Tours/newYearTours.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/TourTypes/Skiing/Country/skiingCountry.component.css",
+    "inputFile": "src/app/Site/Content/TourTypes/Skiing/Country/skiingCountry.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/TourTypes/Skiing/Tours/skiingTours.component.css",
+    "inputFile": "src/app/Site/Content/TourTypes/Skiing/Tours/skiingTours.component.scss"
   }
 ]

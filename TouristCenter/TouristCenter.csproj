@@ -249,6 +249,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -405,14 +406,20 @@
       <DependentUpon>promotions.component.css</DependentUpon>
     </Content>
     <Content Include="src\app\Site\Content\Promotions\promotions.component.ts" />
-    <Content Include="src\app\Site\Content\Tours\tours.component.css">
-      <DependentUpon>tours.component.scss</DependentUpon>
+    <Content Include="src\app\Site\Content\TourTypes\Beach\Country\beachCountry.component.css">
+      <DependentUpon>beachCountry.component.scss</DependentUpon>
     </Content>
-    <Content Include="src\app\Site\Content\Tours\tours.component.html" />
-    <Content Include="src\app\Site\Content\Tours\tours.component.min.css">
-      <DependentUpon>tours.component.css</DependentUpon>
+    <Content Include="src\app\Site\Content\TourTypes\Beach\Country\beachCountry.component.min.css">
+      <DependentUpon>beachCountry.component.css</DependentUpon>
     </Content>
-    <Content Include="src\app\Site\Content\Tours\tours.component.ts" />
+    <Content Include="src\app\Site\Content\TourTypes\Beach\Tours\beachTours.component.css">
+      <DependentUpon>beachTours.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\TourTypes\Beach\Tours\beachTours.component.html" />
+    <Content Include="src\app\Site\Content\TourTypes\Beach\Tours\beachTours.component.min.css">
+      <DependentUpon>beachTours.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\TourTypes\Beach\Tours\beachTours.component.ts" />
     <Content Include="src\app\Site\Content\Country\country.component.css">
       <DependentUpon>country.component.scss</DependentUpon>
     </Content>
@@ -421,6 +428,80 @@
       <DependentUpon>country.component.css</DependentUpon>
     </Content>
     <Content Include="src\app\Site\Content\Country\country.component.ts" />
+    <Content Include="src\app\Site\Content\TourTypes\Beach\Country\beachCountry.component.html" />
+    <Content Include="src\app\Site\Content\TourTypes\Beach\Country\beachCountry.component.ts" />
+    <Content Include="src\app\Site\Content\TourTypes\Bus\Tours\busTours.component.css">
+      <DependentUpon>busTours.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\TourTypes\Bus\Tours\busTours.component.html" />
+    <Content Include="src\app\Site\Content\TourTypes\Bus\Tours\busTours.component.min.css">
+      <DependentUpon>busTours.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\TourTypes\Bus\Tours\busTours.component.ts" />
+    <Content Include="src\app\Site\Content\TourTypes\Corporate\Country\corporateCountry.component.css">
+      <DependentUpon>corporateCountry.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\TourTypes\Corporate\Country\corporateCountry.component.html" />
+    <Content Include="src\app\Site\Content\TourTypes\Corporate\Country\corporateCountry.component.min.css">
+      <DependentUpon>corporateCountry.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\TourTypes\Corporate\Country\corporateCountry.component.ts" />
+    <Content Include="src\app\Site\Content\TourTypes\Corporate\Tours\corporateTours.component.css">
+      <DependentUpon>corporateTours.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\TourTypes\Corporate\Tours\corporateTours.component.html" />
+    <Content Include="src\app\Site\Content\TourTypes\Corporate\Tours\corporateTours.component.min.css">
+      <DependentUpon>corporateTours.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\TourTypes\Corporate\Tours\corporateTours.component.ts" />
+    <Content Include="src\app\Site\Content\TourTypes\Individual\Country\individualCountry.component.css">
+      <DependentUpon>individualCountry.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\TourTypes\Individual\Country\individualCountry.component.html" />
+    <Content Include="src\app\Site\Content\TourTypes\Individual\Country\individualCountry.component.min.css">
+      <DependentUpon>individualCountry.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\TourTypes\Individual\Country\individualCountry.component.ts" />
+    <Content Include="src\app\Site\Content\TourTypes\Individual\Tours\individualTours.component.css">
+      <DependentUpon>individualTours.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\TourTypes\Individual\Tours\individualTours.component.html" />
+    <Content Include="src\app\Site\Content\TourTypes\Individual\Tours\individualTours.component.min.css">
+      <DependentUpon>individualTours.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\TourTypes\Individual\Tours\individualTours.component.ts" />
+    <Content Include="src\app\Site\Content\TourTypes\NewYear\Country\newYearCountry.component.css">
+      <DependentUpon>newYearCountry.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\TourTypes\NewYear\Country\newYearCountry.component.html" />
+    <Content Include="src\app\Site\Content\TourTypes\NewYear\Country\newYearCountry.component.min.css">
+      <DependentUpon>newYearCountry.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\TourTypes\NewYear\Country\newYearCountry.component.ts" />
+    <Content Include="src\app\Site\Content\TourTypes\NewYear\Tours\newYearTours.component.css">
+      <DependentUpon>newYearTours.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\TourTypes\NewYear\Tours\newYearTours.component.html" />
+    <Content Include="src\app\Site\Content\TourTypes\NewYear\Tours\newYearTours.component.min.css">
+      <DependentUpon>newYearTours.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\TourTypes\NewYear\Tours\newYearTours.component.ts" />
+    <Content Include="src\app\Site\Content\TourTypes\Skiing\Country\skiingCountry.component.css">
+      <DependentUpon>skiingCountry.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\TourTypes\Skiing\Country\skiingCountry.component.html" />
+    <Content Include="src\app\Site\Content\TourTypes\Skiing\Country\skiingCountry.component.min.css">
+      <DependentUpon>skiingCountry.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\TourTypes\Skiing\Country\skiingCountry.component.ts" />
+    <Content Include="src\app\Site\Content\TourTypes\Skiing\Tours\skiingTours.component.css">
+      <DependentUpon>skiingTours.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\TourTypes\Skiing\Tours\skiingTours.component.html" />
+    <Content Include="src\app\Site\Content\TourTypes\Skiing\Tours\skiingTours.component.min.css">
+      <DependentUpon>skiingTours.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\TourTypes\Skiing\Tours\skiingTours.component.ts" />
     <Content Include="src\app\Site\Content\TourTypes\tourTypes.component.css">
       <DependentUpon>tourTypes.component.scss</DependentUpon>
     </Content>
@@ -540,10 +621,20 @@
     <Content Include="src\app\Administration\administration.component.scss" />
     <Content Include="src\app\Site\Content\TourTypes\tourTypes.component.scss" />
     <Content Include="src\app\Site\Content\Country\country.component.scss" />
-    <Content Include="src\app\Site\Content\Tours\tours.component.scss" />
+    <Content Include="src\app\Site\Content\TourTypes\Beach\Tours\beachTours.component.scss" />
     <Content Include="src\app\Site\Content\ImagesPopup\imagesPopup.component.scss" />
     <Content Include="src\app\Site\Content\Promotions\promotions.component.scss" />
     <Content Include="src\app\Site\Content\Promotions\PromotionDetails\promotionDetails.component.scss" />
+    <Content Include="src\app\Site\Content\TourTypes\Beach\Country\beachCountry.component.scss" />
+    <Content Include="src\app\Site\Content\TourTypes\Corporate\Country\corporateCountry.component.scss" />
+    <Content Include="src\app\Site\Content\TourTypes\Individual\Country\individualCountry.component.scss" />
+    <Content Include="src\app\Site\Content\TourTypes\NewYear\Country\newYearCountry.component.scss" />
+    <Content Include="src\app\Site\Content\TourTypes\Skiing\Country\skiingCountry.component.scss" />
+    <Content Include="src\app\Site\Content\TourTypes\Bus\Tours\busTours.component.scss" />
+    <Content Include="src\app\Site\Content\TourTypes\Corporate\Tours\corporateTours.component.scss" />
+    <Content Include="src\app\Site\Content\TourTypes\Individual\Tours\individualTours.component.scss" />
+    <Content Include="src\app\Site\Content\TourTypes\NewYear\Tours\newYearTours.component.scss" />
+    <Content Include="src\app\Site\Content\TourTypes\Skiing\Tours\skiingTours.component.scss" />
     <None Include="src\app\Site\Header\header.component.scss" />
     <Content Include="src\app\Site\site.component.scss" />
   </ItemGroup>

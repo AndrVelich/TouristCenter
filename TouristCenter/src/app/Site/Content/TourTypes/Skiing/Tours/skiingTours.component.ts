@@ -1,16 +1,16 @@
 import { Component } from "@angular/core";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { OrderComponent } from '../../Order/order.component';
-import { ImagesPopupComponent } from '../ImagesPopup/imagesPopup.component';
+import { OrderComponent } from '@siteModule/Order/order.component';
+import { ImagesPopupComponent } from '@siteModule/Content/ImagesPopup/imagesPopup.component';
 
 @Component({
     
     moduleId: module.id,
-    selector: "tours",
-    templateUrl: "tours.component.html",
-    styleUrls: ["tours.component.css"]
+    selector: "skiingTours",
+    templateUrl: "skiingTours.component.html",
+    styleUrls: ["skiingTours.component.css"]
 })
-export class ToursComponent {
+export class SkiingToursComponent {
 
     constructor(
         public dialog: MatDialog)
