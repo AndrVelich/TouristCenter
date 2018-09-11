@@ -126,5 +126,9 @@
   {
     "outputFile": "src/app/Site/Content/TourTypes/Skiing/Tours/skiingTours.component.css",
     "inputFile": "src/app/Site/Content/TourTypes/Skiing/Tours/skiingTours.component.scss"
+  },
+  {
+    "outputFile": "src/app/Administration/Content/Countries/countries.component.css",
+    "inputFile": "src/app/Administration/Content/Countries/countries.component.scss"
   }
 ]

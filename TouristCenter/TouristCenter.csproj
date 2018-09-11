@@ -249,6 +249,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdministrationController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
@@ -348,6 +349,16 @@
     </Content>
     <Content Include="src\app\Administration\Content\content.component.js" />
     <Content Include="src\app\Administration\Content\content.component.ts" />
+    <Content Include="src\app\Administration\Content\Countries\countries.component.css">
+      <DependentUpon>countries.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Administration\Content\Countries\countries.component.min.css">
+      <DependentUpon>countries.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Administration\Content\Countries\Country\country.component.html" />
+    <Content Include="src\app\Administration\Content\Countries\Country\country.component.ts" />
+    <Content Include="src\app\Administration\Content\Countries\countries.component.html" />
+    <Content Include="src\app\Administration\Content\Countries\countries.component.ts" />
     <Content Include="src\app\Administration\Content\Home\home.component.css" />
     <Content Include="src\app\Administration\Content\Home\home.component.html" />
     <Content Include="src\app\Administration\Content\Home\home.component.js" />
@@ -558,7 +569,8 @@
     <Content Include="src\environments\environment.ts" />
     <Content Include="src\favicon.ico" />
     <Content Include="src\index.html" />
-    <Content Include="src\main.ts" />
+    <Content Include="src\mainAdministration.ts" />
+    <Content Include="src\mainSite.ts" />
     <Content Include="src\polyfills.ts" />
     <Content Include="src\styles.css" />
     <Content Include="src\test.ts" />
@@ -635,8 +647,11 @@
     <Content Include="src\app\Site\Content\TourTypes\Individual\Tours\individualTours.component.scss" />
     <Content Include="src\app\Site\Content\TourTypes\NewYear\Tours\newYearTours.component.scss" />
     <Content Include="src\app\Site\Content\TourTypes\Skiing\Tours\skiingTours.component.scss" />
+    <Content Include="src\app\Administration\Content\Countries\countries.component.scss" />
+    <Content Include="src\app\Administration\Content\Countries\Country\country.component.scss" />
     <None Include="src\app\Site\Header\header.component.scss" />
     <Content Include="src\app\Site\site.component.scss" />
+    <Content Include="Views\Administration\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

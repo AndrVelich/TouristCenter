@@ -8,12 +8,5 @@ import { Router } from '@angular/router';
     templateUrl: "app.component.html"
 })
 export class AppComponent {
-    private administration : string = '/administration'
-
     constructor(private router: Router) {}
-
-    get isAdministration() : boolean {
-        var result = this.router.url.startsWith(this.administration)
-        return result;
-    }
 }

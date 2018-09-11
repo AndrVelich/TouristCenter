@@ -3,32 +3,58 @@
   "project": {
     "name": "virtual-buisness-card"
   },
-  "apps": [
-    {
-      "root": "src",
-      "outDir": "dist",
-      "assets": [
-        "assets",
-        "favicon.ico"
-      ],
-      "index": "index.html",
-      "main": "main.ts",
-      "polyfills": "polyfills.ts",
-      "test": "test.ts",
-      "tsconfig": "tsconfig.app.json",
-      "testTsconfig": "tsconfig.spec.json",
-      "prefix": "app",
-      "styles": [
-        "styles.css"
-      ],
-      "scripts": [],
-      "environmentSource": "environments/environment.ts",
-      "environments": {
-        "dev": "environments/environment.ts",
-        "prod": "environments/environment.prod.ts"
-      }
-    }
-  ],
+    "apps": [
+        {
+            "name": "site",
+            "root": "src",
+            "outDir": "distSite",
+            "assets": [
+                "assets",
+                "favicon.ico"
+            ],
+            "index": "index.html",
+            "main": "mainSite.ts",
+            "polyfills": "polyfills.ts",
+            "test": "test.ts",
+            "tsconfig": "tsconfig.app.json",
+            "testTsconfig": "tsconfig.spec.json",
+            "prefix": "app",
+            "styles": [
+                "styles.css"
+            ],
+            "scripts": [],
+            "environmentSource": "environments/environment.ts",
+            "environments": {
+                "dev": "environments/environment.ts",
+                "prod": "environments/environment.prod.ts"
+            }
+        },
+        {
+            "name": "administration",
+            "root": "src",
+            "outDir": "distAdministration",
+            "assets": [
+                "assets",
+                "favicon.ico"
+            ],
+            "index": "index.html",
+            "main": "mainAdministration.ts",
+            "polyfills": "polyfills.ts",
+            "test": "test.ts",
+            "tsconfig": "tsconfig.app.json",
+            "testTsconfig": "tsconfig.spec.json",
+            "prefix": "app",
+            "styles": [
+                "styles.css"
+            ],
+            "scripts": [],
+            "environmentSource": "environments/environment.ts",
+            "environments": {
+                "dev": "environments/environment.ts",
+                "prod": "environments/environment.prod.ts"
+            }
+        }
+    ],
   "e2e": {
     "protractor": {
       "config": "./protractor.conf.js"

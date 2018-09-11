@@ -103,11 +103,12 @@ import { SlideshowModule } from 'ng-simple-slideshow';
         PromotionDetailsComponent
     ],
     exports: [
-        SiteComponent,
-
         MatDialogModule,
         MatSelectModule,
-        HttpModule
-    ]
+        HttpModule,
+
+        SiteComponent
+    ],
+    bootstrap: [SiteComponent]
 })
 export class SiteModule { }

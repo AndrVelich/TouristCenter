@@ -17,6 +17,69 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 
 /***/ }),
 
+/***/ "../../../../../src/app/Administration/Content/Countries/countries.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".country-text {\n  margin-bottom: 20px; }\n\n.counties-wrapper {\n  margin: 0 20px; }\n\n.counties-wrapper .country {\n    margin-bottom: 20px; }\n\n.counties-wrapper .country .image-description .country-image {\n      margin-top: 10px;\n      margin-right: 40px; }\n\n.counties-wrapper .country .image-description .country-image img {\n        width: 340px;\n        height: 250px; }\n\n.counties-wrapper .country .image-description .country-descriptions {\n      margin-top: 10px;\n      min-width: 200px; }\n\n.counties-wrapper .country .country-prices {\n      margin-top: 10px;\n      margin-right: 10px;\n      width: 220px; }\n\n.counties-wrapper .country .country-prices .hotels {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n        margin-bottom: 10px; }\n\n.counties-wrapper .country .country-prices .hotels li {\n          list-style-type: none; }\n\n.counties-wrapper .country .country-prices .hotels .stars {\n          margin-right: 5px; }\n\n.counties-wrapper .country .country-prices .hotels .stars .s {\n            background-image: url(/content/images/star.svg);\n            background-position: 14px 14px;\n            width: 14px;\n            height: 14px;\n            display: inline-block;\n            margin-top: 2px; }\n\n@media (min-width: 850px) {\n  .country {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 850px) {\n  .country {\n    display: block; } }\n\n@media (min-width: 600px) {\n  .country .image-description {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 600px) {\n  .country {\n    width: 340px;\n    margin: 0 auto 20px auto; }\n    .country .image-description {\n      display: block; } }\n\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/Administration/Content/Countries/countries.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"width-wrapper\">\r\n    <h1>Страны</h1>\r\n    <div class=\"counties-wrapper\">\r\n        <div class=\"country\">\r\n            <div class=\"image-description\">\r\n                <div class=\"country-image\">\r\n                    <img class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                </div>\r\n                <div class=\"country-descriptions\">\r\n                    <a class=\"link-big\">Бали</a>\r\n                    <ul>\r\n                        <li>Все условия для релаксации</li>\r\n                        <li>Прекрасные песчаные пляжи</li>\r\n                        <li>SPA-центры. Аквапарки</li>\r\n                        <li>Водные виды спорта. Серфинг</li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <div class=\"country-prices\">\r\n                <p>Отели:</p>\r\n                <div class=\"hotels\">\r\n                    <div class=\"stars\">\r\n                        <ul>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                        </ul>\r\n                    </div>\r\n                    <div class=\"price\">\r\n                        <ul>\r\n                            <li>от <strong>1 998,00 р.</strong></li>\r\n                            <li>от <strong>1 480,00 р.</strong></li>\r\n                            <li>от <strong>1 618,00 р.</strong></li>\r\n                        </ul>\r\n                    </div>\r\n                </div>\r\n               <div>\r\n                   <strong>Пляжный отдых</strong>\r\n               </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"country\">\r\n            <div class=\"image-description\">\r\n                <div class=\"country-image\">\r\n                    <img class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                </div>\r\n                <div class=\"country-descriptions\">\r\n                    <a class=\"link-big\">Бали</a>\r\n                    <ul>\r\n                        <li>Все условия для релаксации</li>\r\n                        <li>Прекрасные песчаные пляжи</li>\r\n                        <li>SPA-центры. Аквапарки</li>\r\n                        <li>Водные виды спорта. Серфинг</li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <div class=\"country-prices\">\r\n                <p>Отели:</p>\r\n                <div class=\"hotels\">\r\n                    <div class=\"stars\">\r\n                        <ul>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                        </ul>\r\n                    </div>\r\n                    <div class=\"price\">\r\n                        <ul>\r\n                            <li>от <strong>1 998,00 р.</strong></li>\r\n                            <li>от <strong>1 480,00 р.</strong></li>\r\n                            <li>от <strong>1 618,00 р.</strong></li>\r\n                        </ul>\r\n                    </div>\r\n                </div>\r\n                <div>\r\n                    <strong>Пляжный отдых</strong>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/Administration/Content/Countries/countries.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CountriesComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var CountriesComponent = /** @class */ (function () {
+    function CountriesComponent(dialog) {
+        this.dialog = dialog;
+    }
+    CountriesComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            moduleId: module.i,
+            selector: "countries",
+            template: __webpack_require__("../../../../../src/app/Administration/Content/Countries/countries.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/Administration/Content/Countries/countries.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */]])
+    ], CountriesComponent);
+    return CountriesComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/Administration/Content/Home/home.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -187,7 +250,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Administration/Header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<header>\r\n    <div class=\"header-adminstative-background\">\r\n        <div class=\"header-background-image\">\r\n        </div>\r\n    </div>\r\n    <div class=\"header-content\">\r\n        <div class=\"topHeaderMenu\">\r\n            <div class=\"logo\">\r\n                <a href=\"\">\r\n                    <div>\r\n                        <span>Центр туризма</span>\r\n                    </div>\r\n                </a>\r\n            </div>\r\n            <div class=\"headerMenu\">\r\n                <div clickOutside callbackName=\"onClickOutsideMobileMenu\" [componentContext]=\"this\" class=\"mobileMenu\">\r\n                    <div class=\"mobileMenu-header\">\r\n                        <a (click)=\"toggleMenu()\">\r\n                            <i class=\"fa fa-bars\" aria-hidden=\"true\"></i>\r\n                            <span>\r\n                                Меню\r\n                            </span>\r\n                        </a>\r\n                    </div>\r\n                    <ul *ngIf=\"isMobileMenuVisible\" [@slideInOut] class=\"mobileMenu-list\">\r\n                        <li>\r\n                            <a>\r\n                                <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                                <span>Туры</span>\r\n                            </a>\r\n                        </li>\r\n                        <li>\r\n                            <a>\r\n                                <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                                <span>Заказы</span>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n                <ul class=\"mainMenu\">\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                            <span>Туры</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                            <span>Заказы</span>\r\n                        </a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n        <div class=\"middleHeaderMenu\">\r\n        </div>\r\n    </div>\r\n</header>\r\n\r\n"
+module.exports = "<header>\r\n    <div class=\"header-adminstative-background\">\r\n        <div class=\"header-background-image\">\r\n        </div>\r\n    </div>\r\n    <div class=\"header-content\">\r\n        <div class=\"topHeaderMenu\">\r\n            <div class=\"logo\">\r\n                <a href=\"\">\r\n                    <div>\r\n                        <span>Центр туризма</span>\r\n                    </div>\r\n                </a>\r\n            </div>\r\n            <div class=\"headerMenu\">\r\n                <div clickOutside callbackName=\"onClickOutsideMobileMenu\" [componentContext]=\"this\" class=\"mobileMenu\">\r\n                    <div class=\"mobileMenu-header\">\r\n                        <a (click)=\"toggleMenu()\">\r\n                            <i class=\"fa fa-bars\" aria-hidden=\"true\"></i>\r\n                            <span>\r\n                                Меню\r\n                            </span>\r\n                        </a>\r\n                    </div>\r\n                    <ul *ngIf=\"isMobileMenuVisible\" [@slideInOut] class=\"mobileMenu-list\">\r\n                        <li>\r\n                            <a>\r\n                                <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                                <span>Туры</span>\r\n                            </a>\r\n                        </li>\r\n                        <li>\r\n                            <a>\r\n                                <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                                <span>Заказы</span>\r\n                            </a>\r\n                        </li>\r\n                        <li>\r\n                            <a [routerLink]=\"[ '/administration/countries' ]\">\r\n                                <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                                <span>Страны</span>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n                <ul class=\"mainMenu\">\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                            <span>Туры</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                            <span>Заказы</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a [routerLink]=\"[ '/administration/countries' ]\">\r\n                            <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                            <span>Страны</span>\r\n                        </a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n        <div class=\"middleHeaderMenu\">\r\n        </div>\r\n    </div>\r\n</header>\r\n\r\n"
 
 /***/ }),
 
@@ -291,7 +354,7 @@ var AdministrationComponent = /** @class */ (function () {
     AdministrationComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             moduleId: module.i,
-            selector: "administrationComponent",
+            selector: "administration-root",
             template: __webpack_require__("../../../../../src/app/Administration/administration.component.html"),
             styles: [__webpack_require__("../../../../../src/app/Administration/administration.component.css")]
         })
@@ -324,12 +387,14 @@ var AdministrationComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__Footer_footer_component__ = __webpack_require__("../../../../../src/app/Administration/Footer/footer.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__Content_content_component__ = __webpack_require__("../../../../../src/app/Administration/Content/content.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__Content_Home_home_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Home/home.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__Content_Countries_countries_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Countries/countries.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -359,7 +424,7 @@ var AdministrationModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_5_angular2_text_mask__["TextMaskModule"],
                 __WEBPACK_IMPORTED_MODULE_8__Common_common_module__["a" /* CommonModule */],
-                __WEBPACK_IMPORTED_MODULE_6__angular_router__["b" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_9__administration_routes__["a" /* routes */])
+                __WEBPACK_IMPORTED_MODULE_6__angular_router__["a" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_9__administration_routes__["a" /* routes */])
             ],
             entryComponents: [],
             declarations: [
@@ -367,7 +432,8 @@ var AdministrationModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_11__Header_header_component__["a" /* HeaderComponent */],
                 __WEBPACK_IMPORTED_MODULE_12__Footer_footer_component__["a" /* FooterComponent */],
                 __WEBPACK_IMPORTED_MODULE_13__Content_content_component__["a" /* ContentComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__Content_Home_home_component__["a" /* HomeComponent */]
+                __WEBPACK_IMPORTED_MODULE_14__Content_Home_home_component__["a" /* HomeComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__Content_Countries_countries_component__["a" /* CountriesComponent */]
             ],
             exports: [
                 __WEBPACK_IMPORTED_MODULE_10__administration_component__["a" /* AdministrationComponent */],
@@ -390,11 +456,17 @@ var AdministrationModule = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routes; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Content_Home_home_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Home/home.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Content_Countries_countries_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Countries/countries.component.ts");
+
 
 var routes = [
     {
         path: 'administration',
         component: __WEBPACK_IMPORTED_MODULE_0__Content_Home_home_component__["a" /* HomeComponent */]
+    },
+    {
+        path: 'administration/countries',
+        component: __WEBPACK_IMPORTED_MODULE_1__Content_Countries_countries_component__["a" /* CountriesComponent */]
     }
 ];
 
@@ -1583,7 +1655,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Site/Content/TourTypes/tourTypes.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper\">\r\n        <p>Сегодня уже не совсем модно, да и не комфортно, проводить отдых в Крыму или в том же Сочи, некоторые люде желают приятно провести время не зависимо от погодных условий своего региона. Выход поможет найти Центр туризма. </p>\r\n        <p>Очень давно и много раз мы слышали от врачей и психологов, что смена обстановки благотворно влияет, как на весь организм на уровне физиологического здоровья, так и помогает \"отдохнуть мозгу\" от постоянных картинок, которые просто приелись от обыденной жизни.</p>\r\n        <p>Если не прислушиваться умным советам врачей возможны расстройство основных систем: дыхательной (загрязненный воздух), сердечно-сосудистой и опорно-двигательной (малоподвижный образ жизни) и т.д., писать можно много, но на данных примерах легко видно, что чистый морской воздух и обилие растительности \"прочистит\" легкие, а активный образ жизни (плавание или просто ходьба и прогулка по новым достопримечательностям) восстановят опорно-двигательную систему, и суставы еще долго не дадут о себе знать. Ведущие психологи мира давно делали акцент лечения всех неврозов на смену обстановки. </p>\r\n        <p>\r\n            Выбор страны для путешествий достаточно велик. ВТО выделяет четко шесть, отличных по составу в географии, туристских центров мира:<br>\r\n            - Американский. Сюда входят страны Северной, Южной и Центральной Америки, территории Карибского бассейна и островные государства;<br>\r\n            - Европейский. Это страны Западной, Южной, Северной, Восточной и Центральной Европы (плюс бывшие республики СССР, а также Израиль, Кипр, Турция - государства Восточного Средиземноморья);<br>\r\n            - Азиатско-Тихоокеанский. Среди его - страны Юго-Восточной и Восточной Азии, Океания и Австралия;<br>\r\n            - Южно - Азиатский - все страны Южной Азии;<br>\r\n            - Африканский - страны Африки, но кроме Египта и Ливии;<br>\r\n            - Ближне - Восточный. К нему относят Египет и Ливию (страны Западной и Юго-Западной Азии).\r\n        </p>\r\n        <p>Присмотревшись сразу видны одни положительные качества туристических путешествий, будь то Турция, Египет, Тунис, ОАЭ, Куба, Тайланд, Шри Ланка или Мальдивы вы однозначно получите массу положительных эмоций!</p>\r\n    </div>\r\n</div>\r\n<div class=\"row\">\r\n    <div class=\"category col-md-4 col-sm-6 col-xs-12\">\r\n        <a [routerLink]=\"[ '/tour/beach' ]\" style=\"background-image: url(/Content/Images/tour_category_test1.jpg)\">\r\n            <div>Пляжный отдых</div>\r\n        </a>\r\n    </div>\r\n    <div class=\"category col-md-4 col-sm-6 col-xs-12\">\r\n        <a style=\"background-image: url(/Content/Images/tour_category_test2.jpg)\">\r\n            <div>Автобусные туры</div>\r\n        </a>\r\n    </div>\r\n    <div class=\"category col-md-4 col-sm-6 col-xs-12\">\r\n        <a style=\"background-image: url(/Content/Images/tour_category_test2.jpg)\">\r\n            <div>Горнолыжные туры</div>\r\n        </a>\r\n    </div>\r\n    <div class=\"category col-md-4 col-sm-6 col-xs-12\">\r\n        <a style=\"background-image: url(/Content/Images/tour_category_test2.jpg)\">\r\n            <div>Новогодние туры</div>\r\n        </a>\r\n    </div>\r\n    <div class=\"category col-md-4 col-sm-6 col-xs-12\">\r\n        <a style=\"background-image: url(/Content/Images/tour_category_test2.jpg)\">\r\n            <div>Индивидуальные туры</div>\r\n        </a>\r\n    </div>\r\n    <div class=\"category col-md-4 col-sm-6 col-xs-12\">\r\n        <a style=\"background-image: url(/Content/Images/tour_category_test2.jpg)\">\r\n            <div>Корпоративный отдых</div>\r\n        </a>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper\">\r\n        <p>Сегодня уже не совсем модно, да и не комфортно, проводить отдых в Крыму или в том же Сочи, некоторые люде желают приятно провести время не зависимо от погодных условий своего региона. Выход поможет найти Центр туризма. </p>\r\n        <p>Очень давно и много раз мы слышали от врачей и психологов, что смена обстановки благотворно влияет, как на весь организм на уровне физиологического здоровья, так и помогает \"отдохнуть мозгу\" от постоянных картинок, которые просто приелись от обыденной жизни.</p>\r\n        <p>Если не прислушиваться умным советам врачей возможны расстройство основных систем: дыхательной (загрязненный воздух), сердечно-сосудистой и опорно-двигательной (малоподвижный образ жизни) и т.д., писать можно много, но на данных примерах легко видно, что чистый морской воздух и обилие растительности \"прочистит\" легкие, а активный образ жизни (плавание или просто ходьба и прогулка по новым достопримечательностям) восстановят опорно-двигательную систему, и суставы еще долго не дадут о себе знать. Ведущие психологи мира давно делали акцент лечения всех неврозов на смену обстановки. </p>\r\n        <p>\r\n            Выбор страны для путешествий достаточно велик. ВТО выделяет четко шесть, отличных по составу в географии, туристских центров мира:<br>\r\n            - Американский. Сюда входят страны Северной, Южной и Центральной Америки, территории Карибского бассейна и островные государства;<br>\r\n            - Европейский. Это страны Западной, Южной, Северной, Восточной и Центральной Европы (плюс бывшие республики СССР, а также Израиль, Кипр, Турция - государства Восточного Средиземноморья);<br>\r\n            - Азиатско-Тихоокеанский. Среди его - страны Юго-Восточной и Восточной Азии, Океания и Австралия;<br>\r\n            - Южно - Азиатский - все страны Южной Азии;<br>\r\n            - Африканский - страны Африки, но кроме Египта и Ливии;<br>\r\n            - Ближне - Восточный. К нему относят Египет и Ливию (страны Западной и Юго-Западной Азии).\r\n        </p>\r\n        <p>Присмотревшись сразу видны одни положительные качества туристических путешествий, будь то Турция, Египет, Тунис, ОАЭ, Куба, Тайланд, Шри Ланка или Мальдивы вы однозначно получите массу положительных эмоций!</p>\r\n    </div>\r\n</div>\r\n<div class=\"row\">\r\n    <div class=\"category col-md-4 col-sm-6 col-xs-12\">\r\n        <a [routerLink]=\"[ '/tour/beach' ]\" style=\"background-image: url(/Content/Images/tour_category_test1.jpg)\">\r\n            <div>Пляжный отдых</div>\r\n        </a>\r\n    </div>\r\n    <div class=\"category col-md-4 col-sm-6 col-xs-12\">\r\n        <a [routerLink]=\"[ '/tour/bus' ]\" style=\"background-image: url(/Content/Images/tour_category_test2.jpg)\">\r\n            <div>Автобусные туры</div>\r\n        </a>\r\n    </div>\r\n    <div class=\"category col-md-4 col-sm-6 col-xs-12\">\r\n        <a [routerLink]=\"[ '/tour/skiing' ]\" style=\"background-image: url(/Content/Images/tour_category_test2.jpg)\">\r\n            <div>Горнолыжные туры</div>\r\n        </a>\r\n    </div>\r\n    <div class=\"category col-md-4 col-sm-6 col-xs-12\">\r\n        <a [routerLink]=\"[ '/tour/newyear' ]\" style=\"background-image: url(/Content/Images/tour_category_test2.jpg)\">\r\n            <div>Новогодние туры</div>\r\n        </a>\r\n    </div>\r\n    <div class=\"category col-md-4 col-sm-6 col-xs-12\">\r\n        <a [routerLink]=\"[ '/tour/individual' ]\" style=\"background-image: url(/Content/Images/tour_category_test2.jpg)\">\r\n            <div>Индивидуальные туры</div>\r\n        </a>\r\n    </div>\r\n    <div class=\"category col-md-4 col-sm-6 col-xs-12\">\r\n        <a [routerLink]=\"[ '/tour/corporate' ]\" style=\"background-image: url(/Content/Images/tour_category_test2.jpg)\">\r\n            <div>Корпоративный отдых</div>\r\n        </a>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -1737,7 +1809,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Site/Header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<header>\r\n    \r\n    <div class=\"header-content\">\r\n        <div class=\"topHeaderMenu\">\r\n            <div class=\"width-wrapper\">\r\n                <div class=\"logo\">\r\n                    <a href=\"\">\r\n                        <div>\r\n                            <span>Центр туризма</span>\r\n                        </div>\r\n                    </a>\r\n                </div>\r\n                <div class=\"contact\">\r\n                    <div class=\"phone\">\r\n                        <i class=\"fa fa-phone\" aria-hidden=\"true\"></i>\r\n                        <span>+375 (44) 444-44-44</span>\r\n                    </div>\r\n                    <div class=\"email\">\r\n                        <i class=\"fa fa-envelope\" aria-hidden=\"true\"></i>\r\n                        <span>mail@gmail.com</span>\r\n                    </div>\r\n                    <div class=\"skype\">\r\n                        <i class=\"fa fa-skype\" aria-hidden=\"true\"></i>\r\n                        <span>skype</span>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"middleHeaderMenu\">\r\n            <div clickOutside callbackName=\"onClickOutsideMobileMenu\" [componentContext]=\"this\" class=\"mobileMenu\">\r\n                <div class=\"mobileMenu-header\">\r\n                    <a (click)=\"toggleMenu()\">\r\n                        <i class=\"fa fa-bars\" aria-hidden=\"true\"></i>\r\n                        <span>\r\n                            Меню\r\n                        </span>\r\n                    </a>\r\n                </div>\r\n                <ul *ngIf=\"isMobileMenuVisible\" [@slideInOut] class=\"mobileMenu-list\">\r\n                    <li>\r\n                        <a [routerLink]=\"[ '/tour' ]\">\r\n                            <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                            <span>Туры</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                            <span>Услуги</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a [routerLink]=\"[ '/promotions' ]\">\r\n                            <i class=\"fa fa-percent\" aria-hidden=\"true\"></i>\r\n                            <span>Акции</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-users\" aria-hidden=\"true\"></i>\r\n                            <span>О компании</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-mobile\" aria-hidden=\"true\"></i>\r\n                            <span>Контакты</span>\r\n                        </a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n            <div class=\"mainMenu\">\r\n                <ul class=\"width-wrapper\">\r\n                    <li>\r\n                        <a [routerLink]=\"[ '/tour' ]\">\r\n                            <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                            <span>Туры</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                            <span>Услуги</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a [routerLink]=\"[ '/promotions' ]\">\r\n                            <i class=\"fa fa-percent\" aria-hidden=\"true\"></i>\r\n                            <span>Акции</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-users\" aria-hidden=\"true\"></i>\r\n                            <span>О компании</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-mobile\" aria-hidden=\"true\"></i>\r\n                            <span>Контакты</span>\r\n                        </a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n            \r\n        </div>\r\n    </div>\r\n</header>\r\n\r\n"
+module.exports = "<header>\r\n    <div class=\"header-content\">\r\n        <div class=\"topHeaderMenu\">\r\n            <div class=\"width-wrapper\">\r\n                <div class=\"logo\">\r\n                    <a href=\"\">\r\n                        <div>\r\n                            <span>Центр туризма</span>\r\n                        </div>\r\n                    </a>\r\n                </div>\r\n                <div class=\"contact\">\r\n                    <div class=\"phone\">\r\n                        <i class=\"fa fa-phone\" aria-hidden=\"true\"></i>\r\n                        <span>+375 (44) 444-44-44</span>\r\n                    </div>\r\n                    <div class=\"email\">\r\n                        <i class=\"fa fa-envelope\" aria-hidden=\"true\"></i>\r\n                        <span>mail@gmail.com</span>\r\n                    </div>\r\n                    <div class=\"skype\">\r\n                        <i class=\"fa fa-skype\" aria-hidden=\"true\"></i>\r\n                        <span>skype</span>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"middleHeaderMenu\">\r\n            <div clickOutside callbackName=\"onClickOutsideMobileMenu\" [componentContext]=\"this\" class=\"mobileMenu\">\r\n                <div class=\"mobileMenu-header\">\r\n                    <a (click)=\"toggleMenu()\">\r\n                        <i class=\"fa fa-bars\" aria-hidden=\"true\"></i>\r\n                        <span>\r\n                            Меню\r\n                        </span>\r\n                    </a>\r\n                </div>\r\n                <ul *ngIf=\"isMobileMenuVisible\" [@slideInOut] class=\"mobileMenu-list\">\r\n                    <li>\r\n                        <a [routerLink]=\"[ '/tour' ]\">\r\n                            <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                            <span>Туры</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                            <span>Услуги</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a [routerLink]=\"[ '/promotions' ]\">\r\n                            <i class=\"fa fa-percent\" aria-hidden=\"true\"></i>\r\n                            <span>Акции</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-users\" aria-hidden=\"true\"></i>\r\n                            <span>О компании</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-mobile\" aria-hidden=\"true\"></i>\r\n                            <span>Контакты</span>\r\n                        </a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n            <div class=\"mainMenu\">\r\n                <ul class=\"width-wrapper\">\r\n                    <li>\r\n                        <a [routerLink]=\"[ '/tour' ]\">\r\n                            <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                            <span>Туры</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                            <span>Услуги</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a [routerLink]=\"[ '/promotions' ]\">\r\n                            <i class=\"fa fa-percent\" aria-hidden=\"true\"></i>\r\n                            <span>Акции</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-users\" aria-hidden=\"true\"></i>\r\n                            <span>О компании</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-mobile\" aria-hidden=\"true\"></i>\r\n                            <span>Контакты</span>\r\n                        </a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n            \r\n        </div>\r\n    </div>\r\n</header>\r\n\r\n"
 
 /***/ }),
 
@@ -2129,7 +2201,7 @@ var SiteModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_5_angular2_text_mask__["TextMaskModule"],
                 __WEBPACK_IMPORTED_MODULE_8__Common_common_module__["a" /* CommonModule */],
                 __WEBPACK_IMPORTED_MODULE_31_ng_simple_slideshow__["a" /* SlideshowModule */],
-                __WEBPACK_IMPORTED_MODULE_6__angular_router__["b" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_9__site_routes__["a" /* routes */])
+                __WEBPACK_IMPORTED_MODULE_6__angular_router__["a" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_9__site_routes__["a" /* routes */])
             ],
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_16__Content_TourTypes_tourTypes_component__["a" /* TourTypesComponent */],
@@ -2174,10 +2246,10 @@ var SiteModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_29__Content_Promotions_PromotionDetails_promotionDetails_component__["a" /* PromotionDetailsComponent */]
             ],
             exports: [
-                __WEBPACK_IMPORTED_MODULE_10__site_component__["a" /* SiteComponent */],
                 __WEBPACK_IMPORTED_MODULE_7__angular_material__["c" /* MatDialogModule */],
                 __WEBPACK_IMPORTED_MODULE_7__angular_material__["e" /* MatSelectModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* HttpModule */]
+                __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_10__site_component__["a" /* SiteComponent */]
             ]
         })
     ], SiteModule);
@@ -2293,59 +2365,6 @@ var routes = [
 
 /***/ }),
 
-/***/ "../../../../../src/app/app.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<administrationComponent *ngIf=\"isAdministration\"></administrationComponent>\r\n<siteComponent *ngIf=\"!isAdministration\"></siteComponent>"
-
-/***/ }),
-
-/***/ "../../../../../src/app/app.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var AppComponent = /** @class */ (function () {
-    function AppComponent(router) {
-        this.router = router;
-        this.administration = '/administration';
-    }
-    Object.defineProperty(AppComponent.prototype, "isAdministration", {
-        get: function () {
-            var result = this.router.url.startsWith(this.administration);
-            return result;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    AppComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            moduleId: module.i,
-            selector: "app-root",
-            template: __webpack_require__("../../../../../src/app/app.component.html")
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]])
-    ], AppComponent);
-    return AppComponent;
-}());
-
-
-
-/***/ }),
-
 /***/ "../../../../../src/app/app.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2353,15 +2372,17 @@ var AppComponent = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__("../../../platform-browser/esm5/platform-browser.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Administration_administration_module__ = __webpack_require__("../../../../../src/app/Administration/administration.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Site_site_module__ = __webpack_require__("../../../../../src/app/Site/site.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Administration_administration_module__ = __webpack_require__("../../../../../src/app/Administration/administration.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Site_site_component__ = __webpack_require__("../../../../../src/app/Site/site.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Administration_administration_component__ = __webpack_require__("../../../../../src/app/Administration/administration.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -2375,14 +2396,12 @@ var AppModule = /** @class */ (function () {
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_3__Site_site_module__["a" /* SiteModule */],
-                __WEBPACK_IMPORTED_MODULE_4__Administration_administration_module__["a" /* AdministrationModule */]
+                __WEBPACK_IMPORTED_MODULE_2__Administration_administration_module__["a" /* AdministrationModule */],
             ],
             entryComponents: [],
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]
-            ],
+            declarations: [],
             exports: [],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_4__Site_site_component__["a" /* SiteComponent */], __WEBPACK_IMPORTED_MODULE_5__Administration_administration_component__["a" /* AdministrationComponent */]]
         })
     ], AppModule);
     return AppModule;

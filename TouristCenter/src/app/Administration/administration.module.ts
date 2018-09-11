@@ -14,10 +14,11 @@ import {
 import { CommonModule } from "../Common/common.module";
 import { routes } from "./administration.routes";
 import { AdministrationComponent } from "./administration.component";
-import {HeaderComponent } from "./Header/header.component";
+import { HeaderComponent } from "./Header/header.component";
 import { FooterComponent } from "./Footer/footer.component";
 import { ContentComponent } from "./Content/content.component";
 import { HomeComponent } from "./Content/Home/home.component";
+import { CountriesComponent } from "./Content/Countries/countries.component";
 
 @NgModule({
     imports:
@@ -41,7 +42,8 @@ import { HomeComponent } from "./Content/Home/home.component";
         HeaderComponent,
         FooterComponent,
         ContentComponent, 
-        HomeComponent
+        HomeComponent,
+        CountriesComponent
     ],
     exports: [
         AdministrationComponent,
@@ -49,6 +51,7 @@ import { HomeComponent } from "./Content/Home/home.component";
         MatDialogModule,
         MatSelectModule,
         HttpModule
-    ]
+    ],
+    bootstrap: [AdministrationComponent]
 })
 export class AdministrationModule { }
