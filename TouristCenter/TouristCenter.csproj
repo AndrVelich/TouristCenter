@@ -355,10 +355,16 @@
     <Content Include="src\app\Administration\Content\Countries\countries.component.min.css">
       <DependentUpon>countries.component.css</DependentUpon>
     </Content>
-    <Content Include="src\app\Administration\Content\Countries\Country\country.component.html" />
-    <Content Include="src\app\Administration\Content\Countries\Country\country.component.ts" />
     <Content Include="src\app\Administration\Content\Countries\countries.component.html" />
     <Content Include="src\app\Administration\Content\Countries\countries.component.ts" />
+    <Content Include="src\app\Administration\Content\Countries\Country\country.component.css">
+      <DependentUpon>country.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Administration\Content\Countries\Country\country.component.html" />
+    <Content Include="src\app\Administration\Content\Countries\Country\country.component.min.css">
+      <DependentUpon>country.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Administration\Content\Countries\Country\country.component.ts" />
     <Content Include="src\app\Administration\Content\Home\home.component.css" />
     <Content Include="src\app\Administration\Content\Home\home.component.html" />
     <Content Include="src\app\Administration\Content\Home\home.component.js" />

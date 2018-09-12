@@ -130,5 +130,9 @@
   {
     "outputFile": "src/app/Administration/Content/Countries/countries.component.css",
     "inputFile": "src/app/Administration/Content/Countries/countries.component.scss"
+  },
+  {
+    "outputFile": "src/app/Administration/Content/Countries/Country/country.component.css",
+    "inputFile": "src/app/Administration/Content/Countries/Country/country.component.scss"
   }
 ]

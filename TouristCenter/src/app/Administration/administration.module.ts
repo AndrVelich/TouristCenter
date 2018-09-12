@@ -19,6 +19,7 @@ import { FooterComponent } from "./Footer/footer.component";
 import { ContentComponent } from "./Content/content.component";
 import { HomeComponent } from "./Content/Home/home.component";
 import { CountriesComponent } from "./Content/Countries/countries.component";
+import { CountryComponent } from "./Content/Countries/Country/country.component";
 
 @NgModule({
     imports:
@@ -43,7 +44,8 @@ import { CountriesComponent } from "./Content/Countries/countries.component";
         FooterComponent,
         ContentComponent, 
         HomeComponent,
-        CountriesComponent
+        CountriesComponent,
+        CountryComponent
     ],
     exports: [
         AdministrationComponent,

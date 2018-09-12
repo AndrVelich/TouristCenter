@@ -1,6 +1,15 @@
 ﻿.country-text {
   margin-bottom: 20px; }
 
+.countries-header h2 {
+  display: inline; }
+
+.countries-header a.link-big {
+  float: right;
+  line-height: 33px; }
+  .countries-header a.link-big i {
+    font-size: 19px; }
+
 .counties-wrapper {
   margin: 0 20px; }
   .counties-wrapper .country {
@@ -14,6 +23,8 @@
     .counties-wrapper .country .image-description .country-descriptions {
       margin-top: 10px;
       min-width: 200px; }
+      .counties-wrapper .country .image-description .country-descriptions a.link-big i {
+        font-size: 19px; }
     .counties-wrapper .country .country-prices {
       margin-top: 10px;
       margin-right: 10px;

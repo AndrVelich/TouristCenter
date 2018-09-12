@@ -1,3 +1,84 @@
-<div class="admin-content">
-    Administrative tool
+﻿<div class="width-wrapper">
+    <div class="counties-wrapper">
+        <div>
+            <div class="country">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 country-descriptions">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Название</span>
+                                <span class="required">*</span>
+                            </div>
+                            <input type="text" name="countryName" class="form-control" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Название для строки запроса(латиницей)</span>
+                                <span class="required">*</span>
+                            </div>
+                            <input type="text" name="countryUrlName" class="form-control" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Категория</span>
+                                <span class="required">*</span>
+                            </div>
+                            <input type="text" name="countryUrlName" class="form-control" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 country-prices">
+                        <div class="hotels">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text stars">
+                                        <span class="s"></span><span class="s"></span><span class="s"></span><span class="s"></span><span class="s"></span>
+                                    </span>
+                                    <span class="required">*</span>
+                                </div>
+                                <input type="number" name="fiveStarsPrice" class="form-control" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text stars">
+                                        <span class="s"></span><span class="s"></span><span class="s"></span><span class="s"></span>
+                                    </span>
+                                    <span class="required">*</span>
+                                </div>
+                                <input type="number" name="fourStarsPrice" class="form-control" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text stars">
+                                        <span class="s"></span><span class="s"></span><span class="s"></span>
+                                    </span>
+                                    <span class="required">*</span>
+                                </div>
+                                <input type="number" name="threeStarsPrice" class="form-control" aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="country-image">
+                    <img class="counrty-image" src="/Content/Images/tour_category_test1.jpg" />
+                </div>
+                <div class="content-fields">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Описание</span>
+                            <span class="required">*</span>
+                        </div>
+                        <textarea type="text" name="countryDescription" class="form-control country-description" aria-describedby="basic-addon1"></textarea>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Контент для страницы</span>
+                            <span class="required">*</span>
+                        </div>
+                        <textarea type="text" name="countryContent" class="form-control country-content" aria-describedby="basic-addon1"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
