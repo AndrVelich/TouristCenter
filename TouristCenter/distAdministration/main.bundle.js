@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Administration/Content/Countries/Country/country.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"counties-wrapper\">\r\n        <div>\r\n            <div class=\"country\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-md-6 col-sm-6 country-descriptions\">\r\n                        <div class=\"input-group mb-3\">\r\n                            <div class=\"input-group-prepend\">\r\n                                <span class=\"input-group-text\">Название</span>\r\n                                <span class=\"required\">*</span>\r\n                            </div>\r\n                            <input type=\"text\" name=\"countryName\" class=\"form-control\" aria-describedby=\"basic-addon1\">\r\n                        </div>\r\n                        <div class=\"input-group mb-3\">\r\n                            <div class=\"input-group-prepend\">\r\n                                <span class=\"input-group-text\">Название для строки запроса(латиницей)</span>\r\n                                <span class=\"required\">*</span>\r\n                            </div>\r\n                            <input type=\"text\" name=\"countryUrlName\" class=\"form-control\" aria-describedby=\"basic-addon1\">\r\n                        </div>\r\n                        <div class=\"input-group mb-3\">\r\n                            <div class=\"input-group-prepend\">\r\n                                <span class=\"input-group-text\">Категория</span>\r\n                                <span class=\"required\">*</span>\r\n                            </div>\r\n                            <input type=\"text\" name=\"countryUrlName\" class=\"form-control\" aria-describedby=\"basic-addon1\">\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"col-md-6 col-sm-6 country-prices\">\r\n                        <div class=\"hotels\">\r\n                            <div class=\"input-group mb-3\">\r\n                                <div class=\"input-group-prepend\">\r\n                                    <span class=\"input-group-text stars\">\r\n                                        <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                                    </span>\r\n                                    <span class=\"required\">*</span>\r\n                                </div>\r\n                                <input type=\"number\" name=\"fiveStarsPrice\" class=\"form-control\" aria-describedby=\"basic-addon1\">\r\n                            </div>\r\n                            <div class=\"input-group mb-3\">\r\n                                <div class=\"input-group-prepend\">\r\n                                    <span class=\"input-group-text stars\">\r\n                                        <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                                    </span>\r\n                                    <span class=\"required\">*</span>\r\n                                </div>\r\n                                <input type=\"number\" name=\"fourStarsPrice\" class=\"form-control\" aria-describedby=\"basic-addon1\">\r\n                            </div>\r\n                            <div class=\"input-group mb-3\">\r\n                                <div class=\"input-group-prepend\">\r\n                                    <span class=\"input-group-text stars\">\r\n                                        <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                                    </span>\r\n                                    <span class=\"required\">*</span>\r\n                                </div>\r\n                                <input type=\"number\" name=\"threeStarsPrice\" class=\"form-control\" aria-describedby=\"basic-addon1\">\r\n                            </div>\r\n                        </div>\r\n\r\n                    </div>\r\n                </div>\r\n                <div class=\"country-image\">\r\n                    <img class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                </div>\r\n                <div class=\"content-fields\">\r\n                    <div class=\"input-group mb-3\">\r\n                        <div class=\"input-group-prepend\">\r\n                            <span class=\"input-group-text\">Описание</span>\r\n                            <span class=\"required\">*</span>\r\n                        </div>\r\n                        <textarea type=\"text\" name=\"countryDescription\" class=\"form-control country-description\" aria-describedby=\"basic-addon1\"></textarea>\r\n                    </div>\r\n                    <div class=\"input-group mb-3\">\r\n                        <div class=\"input-group-prepend\">\r\n                            <span class=\"input-group-text\">Контент для страницы</span>\r\n                            <span class=\"required\">*</span>\r\n                        </div>\r\n                        <textarea type=\"text\" name=\"countryContent\" class=\"form-control country-content\" aria-describedby=\"basic-addon1\"></textarea>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"counties-wrapper\">\r\n        <div>\r\n            <div [formGroup]=\"countryForm\" class=\"country\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-md-6 col-sm-6 country-descriptions\">\r\n                        <div class=\"input-group mb-3\">\r\n                            <div class=\"input-group-prepend\">\r\n                                <span class=\"input-group-text\">Название</span>\r\n                                <span class=\"required\">*</span>\r\n                            </div>\r\n                            <input type=\"text\" name=\"countryName\" class=\"form-control\" aria-describedby=\"basic-addon1\">\r\n                        </div>\r\n                        <div class=\"input-group mb-3\">\r\n                            <div class=\"input-group-prepend\">\r\n                                <span class=\"input-group-text\">Название для строки запроса(латиницей)</span>\r\n                                <span class=\"required\">*</span>\r\n                            </div>\r\n                            <input type=\"text\" name=\"countryUrlName\" class=\"form-control\" aria-describedby=\"basic-addon1\">\r\n                        </div>\r\n                        <div class=\"input-group mb-3\">\r\n                            <div class=\"input-group-prepend\">\r\n                                <span class=\"input-group-text\">Категория</span>\r\n                                <span class=\"required\">*</span>\r\n                            </div>\r\n                            <mat-select formControlName=\"category\" [(ngModel)]=\"category\" placeholder=\"Выберите...\">\r\n                                <mat-option *ngFor=\"let tourTypeKey of tourTypes.keys()\" [value]=\"tourTypeKey\">\r\n                                    {{ tourTypes[tourTypeKey] }}\r\n                                </mat-option>\r\n                            </mat-select>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"col-md-6 col-sm-6 country-prices\">\r\n                        <div class=\"hotels\">\r\n                            <div class=\"input-group mb-3\">\r\n                                <div class=\"input-group-prepend\">\r\n                                    <span class=\"input-group-text stars\">\r\n                                        <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                                    </span>\r\n                                    <span class=\"required\">*</span>\r\n                                </div>\r\n                                <input type=\"number\" name=\"fiveStarsPrice\" class=\"form-control\" aria-describedby=\"basic-addon1\">\r\n                            </div>\r\n                            <div class=\"input-group mb-3\">\r\n                                <div class=\"input-group-prepend\">\r\n                                    <span class=\"input-group-text stars\">\r\n                                        <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                                    </span>\r\n                                    <span class=\"required\">*</span>\r\n                                </div>\r\n                                <input type=\"number\" name=\"fourStarsPrice\" class=\"form-control\" aria-describedby=\"basic-addon1\">\r\n                            </div>\r\n                            <div class=\"input-group mb-3\">\r\n                                <div class=\"input-group-prepend\">\r\n                                    <span class=\"input-group-text stars\">\r\n                                        <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                                    </span>\r\n                                    <span class=\"required\">*</span>\r\n                                </div>\r\n                                <input type=\"number\" name=\"threeStarsPrice\" class=\"form-control\" aria-describedby=\"basic-addon1\">\r\n                            </div>\r\n                        </div>\r\n\r\n                    </div>\r\n                </div>\r\n                <div class=\"country-image\">\r\n                    <img class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                </div>\r\n                <div class=\"content-fields\">\r\n                    <div class=\"input-group mb-3\">\r\n                        <div class=\"input-group-prepend\">\r\n                            <span class=\"input-group-text\">Описание</span>\r\n                            <span class=\"required\">*</span>\r\n                        </div>\r\n                        <textarea type=\"text\" name=\"countryDescription\" class=\"form-control country-description\" aria-describedby=\"basic-addon1\"></textarea>\r\n                    </div>\r\n                    <div class=\"input-group mb-3\">\r\n                        <div class=\"input-group-prepend\">\r\n                            <span class=\"input-group-text\">Контент для страницы</span>\r\n                            <span class=\"required\">*</span>\r\n                        </div>\r\n                        <textarea type=\"text\" name=\"countryContent\" class=\"form-control country-content\" aria-describedby=\"basic-addon1\"></textarea>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -48,7 +48,8 @@ module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"counties-wra
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CountryComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_Services_tourType_service__ = __webpack_require__("../../../../../src/app/Common/Services/tourType.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -60,10 +61,51 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var CountryComponent = /** @class */ (function () {
-    function CountryComponent(dialog) {
-        this.dialog = dialog;
+    function CountryComponent(tourTypeService, fb) {
+        this.tourTypeService = tourTypeService;
+        this.fb = fb;
+        this.tourTypes = this.tourTypeService.GetTourTypes();
     }
+    CountryComponent.prototype.ngOnInit = function () {
+        this.buildForm();
+    };
+    CountryComponent.prototype.buildForm = function () {
+        this.countryForm = this.fb.group({
+            //"name": [this.order.name, [
+            //    Validators.required,
+            //    //Validators.minLength(4),
+            //    //Validators.maxLength(15)
+            //]],
+            //"email": [this.order.email, [
+            //    Validators.required,
+            //    Validators.pattern("[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}")
+            //]],
+            //"countryCode": [this.order.countryCode, [
+            //    Validators.required
+            //]],
+            //"phone": [this.order.phone, [
+            //    Validators.required,
+            //    Validators.pattern("\\d+")
+            //]],
+            //"service": [this.order.service, [
+            //    Validators.required
+            //]],
+            //"isTechnicalTaskAvailable": [this.order.isTechnicalTaskAvailable, [
+            //    Validators.required
+            //]],
+            //"isNeedUrgently": [this.order.isNeedUrgently, [
+            //    Validators.required
+            //]],
+            //"description": [this.order.description, [
+            //    Validators.required
+            //]]
+            "category": [this.category, [
+                    __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required
+                ]],
+        });
+    };
     CountryComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             moduleId: module.i,
@@ -71,7 +113,8 @@ var CountryComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/Administration/Content/Countries/Country/country.component.html"),
             styles: [__webpack_require__("../../../../../src/app/Administration/Content/Countries/Country/country.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MatDialog */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__common_Services_tourType_service__["a" /* TourTypeService */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormBuilder"]])
     ], CountryComponent);
     return CountryComponent;
 }());
@@ -381,7 +424,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".body-content {\r\n  margin: 20px auto;\r\n  max-width: 1200px;\r\n  padding-left: 15px;\r\n  padding-right: 15px; }\r\n\r\n@media (max-width: 600px) {\r\n  .body-content {\r\n    margin: 40px 0;\r\n    padding-left: 15px;\r\n    padding-right: 15px; } }\r\n\r\n", ""]);
+exports.push([module.i, ".body-content {\n  margin: 20px auto;\n  max-width: 1200px;\n  padding-left: 15px;\n  padding-right: 15px;\n  /*--mat select--*/ }\n  .body-content ::ng-deep mat-select .mat-select-trigger {\n    height: 30px;\n    border-radius: 2px;\n    border: 1px solid #D8D8D8;\n    padding: 0px 10px; }\n  .body-content ::ng-deep mat-select .mat-select-trigger span {\n      line-height: 30px; }\n  @media (max-width: 600px) {\n  .body-content {\n    margin: 40px 0;\n    padding-left: 15px;\n    padding-right: 15px; } }\n\n", ""]);
 
 // exports
 
@@ -443,7 +486,7 @@ var AdministrationComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angular2_text_mask___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_angular2_text_mask__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Common_common_module__ = __webpack_require__("../../../../../src/app/Common/common.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__common_common_module__ = __webpack_require__("../../../../../src/app/Common/common.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__administration_routes__ = __webpack_require__("../../../../../src/app/Administration/administration.routes.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__administration_component__ = __webpack_require__("../../../../../src/app/Administration/administration.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__Header_header_component__ = __webpack_require__("../../../../../src/app/Administration/Header/header.component.ts");
@@ -488,7 +531,7 @@ var AdministrationModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_7__angular_material__["c" /* MatSelectModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_5_angular2_text_mask__["TextMaskModule"],
-                __WEBPACK_IMPORTED_MODULE_8__Common_common_module__["a" /* CommonModule */],
+                __WEBPACK_IMPORTED_MODULE_8__common_common_module__["a" /* CommonModule */],
                 __WEBPACK_IMPORTED_MODULE_6__angular_router__["a" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_9__administration_routes__["a" /* routes */])
             ],
             entryComponents: [],
@@ -602,6 +645,91 @@ var ClickOutsideDirective = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/Common/Services/tourType.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TourTypeService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_Types_Dictionary__ = __webpack_require__("../../../../../src/app/Common/Types/Dictionary.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var TourTypeService = /** @class */ (function () {
+    function TourTypeService() {
+        this.tourTypes = new __WEBPACK_IMPORTED_MODULE_1__common_Types_Dictionary__["a" /* Dictionary */]();
+        this.FillTourTypes();
+    }
+    TourTypeService.prototype.FillTourTypes = function () {
+        this.tourTypes.add('beach', 'Пляжный отдых');
+        this.tourTypes.add('bus', 'Автобусные туры');
+        this.tourTypes.add('corporate', 'Корпоративные туры');
+        this.tourTypes.add('individual', 'Индивидуальные туры');
+        this.tourTypes.add('newYear', 'Новогодние туры');
+        this.tourTypes.add('skiing', 'Горнолыжные туры');
+    };
+    TourTypeService.prototype.GetTourTypes = function () {
+        return this.tourTypes;
+    };
+    TourTypeService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [])
+    ], TourTypeService);
+    return TourTypeService;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/Common/Types/Dictionary.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Dictionary; });
+var Dictionary = /** @class */ (function () {
+    function Dictionary() {
+        this._keys = new Array();
+        this._values = new Array();
+    }
+    Dictionary.prototype.add = function (key, value) {
+        this[key] = value;
+        this._keys.push(key);
+        this._values.push(value);
+    };
+    Dictionary.prototype.remove = function (key) {
+        var index = this._keys.indexOf(key, 0);
+        this._keys.splice(index, 1);
+        this._values.splice(index, 1);
+        delete this[key];
+    };
+    Dictionary.prototype.keys = function () {
+        return this._keys;
+    };
+    Dictionary.prototype.values = function () {
+        return this._values;
+    };
+    Dictionary.prototype.containsKey = function (key) {
+        if (typeof this[key] === "undefined") {
+            return false;
+        }
+        return true;
+    };
+    return Dictionary;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/Common/common.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -609,12 +737,14 @@ var ClickOutsideDirective = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CommonModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Directives_clickOutside_directive__ = __webpack_require__("../../../../../src/app/Common/Directives/clickOutside.directive.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Services_tourType_service__ = __webpack_require__("../../../../../src/app/Common/Services/tourType.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 var CommonModule = /** @class */ (function () {
@@ -624,11 +754,14 @@ var CommonModule = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             imports: [],
             entryComponents: [],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_2__Services_tourType_service__["a" /* TourTypeService */]
+            ],
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_1__Directives_clickOutside_directive__["a" /* ClickOutsideDirective */]
             ],
             exports: [
-                __WEBPACK_IMPORTED_MODULE_1__Directives_clickOutside_directive__["a" /* ClickOutsideDirective */]
+                __WEBPACK_IMPORTED_MODULE_1__Directives_clickOutside_directive__["a" /* ClickOutsideDirective */],
             ]
         })
     ], CommonModule);

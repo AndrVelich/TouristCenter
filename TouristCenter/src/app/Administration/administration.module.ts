@@ -11,7 +11,7 @@ import {
   MatSelectModule,
 } from '@angular/material';
 
-import { CommonModule } from "../Common/common.module";
+import { CommonModule } from "@common/common.module";
 import { routes } from "./administration.routes";
 import { AdministrationComponent } from "./administration.component";
 import { HeaderComponent } from "./Header/header.component";

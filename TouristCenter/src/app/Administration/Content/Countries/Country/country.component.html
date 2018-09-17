@@ -1,7 +1,7 @@
 ﻿<div class="width-wrapper">
     <div class="counties-wrapper">
         <div>
-            <div class="country">
+            <div [formGroup]="countryForm" class="country">
                 <div class="row">
                     <div class="col-md-6 col-sm-6 country-descriptions">
                         <div class="input-group mb-3">
@@ -23,7 +23,11 @@
                                 <span class="input-group-text">Категория</span>
                                 <span class="required">*</span>
                             </div>
-                            <input type="text" name="countryUrlName" class="form-control" aria-describedby="basic-addon1">
+                            <mat-select formControlName="category" [(ngModel)]="category" placeholder="Выберите...">
+                                <mat-option *ngFor="let tourTypeKey of tourTypes.keys()" [value]="tourTypeKey">
+                                    {{ tourTypes[tourTypeKey] }}
+                                </mat-option>
+                            </mat-select>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6 country-prices">

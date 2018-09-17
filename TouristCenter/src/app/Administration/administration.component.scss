@@ -1,14 +1,31 @@
-﻿.body-content {
+﻿body {
+    /*--mat select--*/
+    ::ng-deep mat-select {
+        .mat-select-trigger {
+            height: 30px;
+            border-radius: 2px;
+            border: 1px solid #D8D8D8;
+            padding: 0px 10px;
+
+            span {
+                line-height: 30px;
+            }
+        }
+    }
+}
+
+.body-content {
     margin: 20px auto;
     max-width: 1200px;
     padding-left: 15px;
     padding-right: 15px;
+
 }
 
-@media (max-width: 600px) {
-    .body-content {
-        margin: 40px 0;
-        padding-left: 15px;
-        padding-right: 15px;
+    @media (max-width: 600px) {
+        .body-content {
+            margin: 40px 0;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
     }
-}

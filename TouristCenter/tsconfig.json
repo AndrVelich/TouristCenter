@@ -16,9 +16,9 @@
             "dom"
         ],
         "paths": {
-            "common/*": [ "app/Common/*" ],
-            "siteCommon/*": [ "app/Site/Common/*" ],
-            "@siteModule/*": [ "app/Site/*" ]
+            "@common/*": [ "app/Common/*" ],
+            "@siteModule/*": [ "app/Site/*" ],
+            "@siteCommon/*": [ "app/Site/Common/*" ]
         }
     }
 }
