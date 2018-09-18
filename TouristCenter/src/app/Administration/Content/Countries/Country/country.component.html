@@ -4,21 +4,21 @@
             <div [formGroup]="countryForm" class="country">
                 <div class="row">
                     <div class="col-md-6 col-sm-6 country-descriptions">
-                        <div class="input-group mb-3">
+                        <div class="mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Название</span>
                                 <span class="required">*</span>
                             </div>
                             <input type="text" name="countryName" class="form-control" aria-describedby="basic-addon1">
                         </div>
-                        <div class="input-group mb-3">
+                        <div class="mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Название для строки запроса(латиницей)</span>
                                 <span class="required">*</span>
                             </div>
                             <input type="text" name="countryUrlName" class="form-control" aria-describedby="basic-addon1">
                         </div>
-                        <div class="input-group mb-3">
+                        <div class="mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Категория</span>
                                 <span class="required">*</span>
@@ -32,7 +32,7 @@
                     </div>
                     <div class="col-md-6 col-sm-6 country-prices">
                         <div class="hotels">
-                            <div class="input-group mb-3">
+                            <div class="mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text stars">
                                         <span class="s"></span><span class="s"></span><span class="s"></span><span class="s"></span><span class="s"></span>
@@ -41,7 +41,7 @@
                                 </div>
                                 <input type="number" name="fiveStarsPrice" class="form-control" aria-describedby="basic-addon1">
                             </div>
-                            <div class="input-group mb-3">
+                            <div class="mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text stars">
                                         <span class="s"></span><span class="s"></span><span class="s"></span><span class="s"></span>
@@ -50,7 +50,7 @@
                                 </div>
                                 <input type="number" name="fourStarsPrice" class="form-control" aria-describedby="basic-addon1">
                             </div>
-                            <div class="input-group mb-3">
+                            <div class="mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text stars">
                                         <span class="s"></span><span class="s"></span><span class="s"></span>
@@ -64,17 +64,29 @@
                     </div>
                 </div>
                 <div class="country-image">
-                    <img class="counrty-image" src="/Content/Images/tour_category_test1.jpg" />
+                    <div class="small-images" *ngFor="let imageUrl of imagesUrls">
+                        <a [style.background]="'url(' + imageUrl + ')'">
+                            <div (click)="removeImage(imageUrl)" class="cross-close">&#10005;</div>
+                        </a>
+                    </div>
+
+                    <br />
+                    <a class="link-medium">
+                        <label class="upload-mage">
+                            <span>Загрузить изображение</span>
+                            <input type="file" (change)="onSelectImage($event)">
+                        </label>
+                    </a>
                 </div>
                 <div class="content-fields">
-                    <div class="input-group mb-3">
+                    <div class="mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Описание</span>
                             <span class="required">*</span>
                         </div>
                         <textarea type="text" name="countryDescription" class="form-control country-description" aria-describedby="basic-addon1"></textarea>
                     </div>
-                    <div class="input-group mb-3">
+                    <div class="mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Контент для страницы</span>
                             <span class="required">*</span>

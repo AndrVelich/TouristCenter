@@ -3,6 +3,30 @@
 
     .country {
         margin-bottom: 20px;
+        /*--mat select--*/
+        ::ng-deep mat-select {
+            .mat-select-trigger {
+                display: block;
+                width: 100%;
+                height: 34px;
+                padding: 6px 12px;
+                font-size: 14px;
+                line-height: 1.428571429;
+                color: #555555;
+                vertical-align: middle;
+                background-color: #ffffff;
+                border: 1px solid #cccccc;
+                border-radius: 4px;
+                -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+                -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+                transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+
+                span {
+                    line-height: 20px;
+                }
+            }
+        }
 
         .input-group {
             width: 100%;
@@ -39,7 +63,6 @@
                         width: 14px;
                         height: 14px;
                         display: inline-block;
-                        margin-top: 2px;
                     }
                 }
             }
@@ -48,20 +71,54 @@
         .country-image {
             margin-top: 10px;
 
-            img {
-                width: 340px;
-                height: 250px;
+            .small-images {
+                display: inline-block;
+                vertical-align: top;
+
+                a {
+                    position: relative;
+                    background-size: cover !important;
+                    background-repeat: no-repeat !important;
+                    background-position: center !important;
+                    padding-top: 50%;
+                    text-align: center;
+                    display: block;
+                    width: 200px;
+                    margin: 3px;
+
+                    .cross-close {
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        padding: 0px 7px;
+                        cursor: pointer;
+                        color: white;
+                        background-color: rgba(0, 0, 0, 0.7);
+                        opacity: 0;
+                    }
+                }
+
+                a:hover .cross-close {
+                    opacity: 1;
+                }
+            }
+
+            .upload-mage {
+
+                input {
+                    display: none;
+                }
             }
         }
 
         .content-fields {
 
-            .country-description{
+            .country-description {
                 height: 100px;
-            } 
+            }
 
             .country-content {
-                height:150px;
+                height: 150px;
             }
         }
     }

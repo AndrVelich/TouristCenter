@@ -347,6 +347,7 @@
     <Content Include="src\app\Administration\administration.component.min.css">
       <DependentUpon>administration.component.css</DependentUpon>
     </Content>
+    <Content Include="src\app\Common\Services\tourType.service.ts" />
     <Content Include="src\app\Administration\Content\content.component.js" />
     <Content Include="src\app\Administration\Content\content.component.ts" />
     <Content Include="src\app\Administration\Content\Countries\countries.component.css">
@@ -661,6 +662,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="src\app\Administration\Common\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

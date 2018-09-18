@@ -15,6 +15,7 @@ export class CountryComponent {
     public tourTypes: Dictionary;
     public category: string;
     public countryForm: FormGroup;
+    public imagesUrls: string[] = new Array<string>();
 
     constructor(
         private tourTypeService: TourTypeService,
@@ -26,6 +27,23 @@ export class CountryComponent {
 
     ngOnInit() {
         this.buildForm();
+    }
+
+    public onSelectImage(event) {
+        if (event.target.files && event.target.files[0]) {
+            var reader = new FileReader();
+
+            reader.readAsDataURL(event.target.files[0]);
+
+            reader.onload = () => {
+                this.imagesUrls.push(reader.result);
+                event.target.value = null;
+            }
+        }
+    }
+
+    public removeImage(removeUrl){
+        this.imagesUrls = this.imagesUrls.filter(url => url != removeUrl);
     }
 
     private buildForm() {
