@@ -347,6 +347,23 @@
     <Content Include="src\app\Administration\administration.component.min.css">
       <DependentUpon>administration.component.css</DependentUpon>
     </Content>
+    <Content Include="src\app\Administration\Common\Services\country.service.ts" />
+    <Content Include="src\app\Administration\Content\Tours\tours.component.css">
+      <DependentUpon>tours.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Administration\Content\Tours\tours.component.html" />
+    <Content Include="src\app\Administration\Content\Tours\tours.component.min.css">
+      <DependentUpon>tours.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Administration\Content\Tours\tours.component.ts" />
+    <Content Include="src\app\Administration\Content\Tours\Tour\tour.component.css">
+      <DependentUpon>tour.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Administration\Content\Tours\Tour\tour.component.html" />
+    <Content Include="src\app\Administration\Content\Tours\Tour\tour.component.min.css">
+      <DependentUpon>tour.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Administration\Content\Tours\Tour\tour.component.ts" />
     <Content Include="src\app\Common\Services\tourType.service.ts" />
     <Content Include="src\app\Administration\Content\content.component.js" />
     <Content Include="src\app\Administration\Content\content.component.ts" />
@@ -656,13 +673,14 @@
     <Content Include="src\app\Site\Content\TourTypes\Skiing\Tours\skiingTours.component.scss" />
     <Content Include="src\app\Administration\Content\Countries\countries.component.scss" />
     <Content Include="src\app\Administration\Content\Countries\Country\country.component.scss" />
+    <Content Include="src\app\Administration\Content\Tours\tours.component.scss" />
+    <Content Include="src\app\Administration\Content\Tours\Tour\tour.component.scss" />
     <None Include="src\app\Site\Header\header.component.scss" />
     <Content Include="src\app\Site\site.component.scss" />
     <Content Include="Views\Administration\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="src\app\Administration\Common\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

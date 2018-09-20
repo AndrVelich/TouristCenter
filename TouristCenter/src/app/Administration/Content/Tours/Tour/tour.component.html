@@ -1,0 +1,99 @@
+﻿<div class="width-wrapper">
+    <div class="tours-wrapper">
+        <div>
+            <div [formGroup]="tourForm" class="tour">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 tour-descriptions">
+                        <div class="mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Название</span>
+                                <span class="required">*</span>
+                            </div>
+                            <input type="text" name="tourName" class="form-control" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Название для строки запроса(латиницей)</span>
+                                <span class="required">*</span>
+                            </div>
+                            <input type="text" name="tourUrlName" class="form-control" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Город</span>
+                                <span class="required">*</span>
+                            </div>
+                            <input type="text" name="city" class="form-control" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                   Цена
+                                </span>
+                                <span class="required">*</span>
+                            </div>
+                            <input type="number" name="price" class="form-control" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 tour-prices">
+                        <div class="mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text stars">
+                                    X<span class="s"></span>
+                                </span>
+                                <span class="required">*</span>
+                            </div>
+                            <input type="number" name="fiveStarsPrice" class="form-control" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Категория</span>
+                                <span class="required">*</span>
+                            </div>
+                            <mat-select formControlName="category" [(ngModel)]="category" placeholder="Выберите...">
+                                <mat-option *ngFor="let tourTypeKey of tourTypes.keys()" [value]="tourTypeKey">
+                                    {{ tourTypes[tourTypeKey] }}
+                                </mat-option>
+                            </mat-select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Страна</span>
+                                <span class="required">*</span>
+                            </div>
+                            <mat-select formControlName="country" [(ngModel)]="country" placeholder="Выберите...">
+                                <mat-option *ngFor="let countryKey of countries.keys()" [value]="countryKey">
+                                    {{ countries[countryKey] }}
+                                </mat-option>
+                            </mat-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="tour-image">
+                    <div class="small-images" *ngFor="let imageUrl of imagesUrls">
+                        <a [style.background]="'url(' + imageUrl + ')'">
+                            <div (click)="removeImage(imageUrl)" class="cross-close">&#10005;</div>
+                        </a>
+                    </div>
+
+                    <br />
+                    <a class="link-medium">
+                        <label class="upload-mage">
+                            <span>Загрузить изображение</span>
+                            <input type="file" (change)="onSelectImage($event)">
+                        </label>
+                    </a>
+                </div>
+                <div class="content-fields">
+                    <div class="mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Описание</span>
+                            <span class="required">*</span>
+                        </div>
+                        <textarea type="text" name="tourDescription" class="form-control tour-description" aria-describedby="basic-addon1"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

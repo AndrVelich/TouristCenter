@@ -18,7 +18,8 @@
         "paths": {
             "@common/*": [ "app/Common/*" ],
             "@siteModule/*": [ "app/Site/*" ],
-            "@siteCommon/*": [ "app/Site/Common/*" ]
+            "@siteCommon/*": [ "app/Site/Common/*" ],
+            "@administrationCommon/*": [ "app/Administration/Common/*" ]
         }
     }
 }

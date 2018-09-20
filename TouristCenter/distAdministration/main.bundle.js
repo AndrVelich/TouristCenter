@@ -17,6 +17,51 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 
 /***/ }),
 
+/***/ "../../../../../src/app/Administration/Common/Services/country.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CountryService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_Types_Dictionary__ = __webpack_require__("../../../../../src/app/Common/Types/Dictionary.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var CountryService = /** @class */ (function () {
+    function CountryService() {
+        this.countries = new __WEBPACK_IMPORTED_MODULE_1__common_Types_Dictionary__["a" /* Dictionary */]();
+        this.FillTourTypes();
+    }
+    CountryService.prototype.FillTourTypes = function () {
+        this.countries.add('bali', 'Бали');
+        this.countries.add('Greece', 'Греция');
+        this.countries.add('corporate', 'Испания');
+        this.countries.add('individual', 'Индия');
+        this.countries.add('newYear', 'Морокко');
+        this.countries.add('skiing', 'Мексика');
+    };
+    CountryService.prototype.GetCountries = function () {
+        return this.countries;
+    };
+    CountryService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [])
+    ], CountryService);
+    return CountryService;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/Administration/Content/Countries/Country/country.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -264,6 +309,199 @@ var HomeComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/Administration/Content/Tours/Tour/tour.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".tours-wrapper {\n  margin: 0 20px; }\n  .tours-wrapper .tour {\n    margin-bottom: 20px;\n    /*--mat select--*/ }\n  .tours-wrapper .tour ::ng-deep mat-select .mat-select-trigger {\n      display: block;\n      width: 100%;\n      height: 34px;\n      padding: 6px 12px;\n      font-size: 14px;\n      line-height: 1.428571429;\n      color: #555555;\n      vertical-align: middle;\n      background-color: #ffffff;\n      border: 1px solid #cccccc;\n      border-radius: 4px;\n      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n      -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\n      -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;\n      transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;\n      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\n      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s; }\n  .tours-wrapper .tour ::ng-deep mat-select .mat-select-trigger span {\n        line-height: 20px; }\n  .tours-wrapper .tour .input-group {\n      width: 100%; }\n  .tours-wrapper .tour .input-group .form-control {\n        width: 100%; }\n  .tours-wrapper .tour .tour-descriptions {\n      min-width: 200px; }\n  .tours-wrapper .tour .tour-descriptions a.link-big i {\n        font-size: 19px; }\n  .tours-wrapper .tour .tour-prices {\n      margin-top: 10px 0; }\n  .tours-wrapper .tour .tour-prices .stars {\n        margin-right: 5px; }\n  .tours-wrapper .tour .tour-prices .stars .s {\n          background-image: url(/content/images/star.svg);\n          background-position: 14px 14px;\n          width: 14px;\n          height: 14px;\n          display: inline-block; }\n  .tours-wrapper .tour .tour-image {\n      margin-top: 10px; }\n  .tours-wrapper .tour .tour-image .small-images {\n        display: inline-block;\n        vertical-align: top; }\n  .tours-wrapper .tour .tour-image .small-images a {\n          position: relative;\n          background-size: cover !important;\n          background-repeat: no-repeat !important;\n          background-position: center !important;\n          padding-top: 50%;\n          text-align: center;\n          display: block;\n          width: 200px;\n          margin: 3px; }\n  .tours-wrapper .tour .tour-image .small-images a .cross-close {\n            position: absolute;\n            right: 0;\n            top: 0;\n            padding: 0px 7px;\n            cursor: pointer;\n            color: white;\n            background-color: rgba(0, 0, 0, 0.7);\n            opacity: 0; }\n  .tours-wrapper .tour .tour-image .small-images a:hover .cross-close {\n          opacity: 1; }\n  .tours-wrapper .tour .tour-image .upload-mage input {\n        display: none; }\n  .tours-wrapper .tour .content-fields .tour-description {\n      height: 100px; }\n  .tours-wrapper .tour .content-fields .tour-content {\n      height: 150px; }\n\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/Administration/Content/Tours/Tour/tour.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"tours-wrapper\">\r\n        <div>\r\n            <div [formGroup]=\"tourForm\" class=\"tour\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-md-6 col-sm-6 tour-descriptions\">\r\n                        <div class=\"mb-3\">\r\n                            <div class=\"input-group-prepend\">\r\n                                <span class=\"input-group-text\">Название</span>\r\n                                <span class=\"required\">*</span>\r\n                            </div>\r\n                            <input type=\"text\" name=\"tourName\" class=\"form-control\" aria-describedby=\"basic-addon1\">\r\n                        </div>\r\n                        <div class=\"mb-3\">\r\n                            <div class=\"input-group-prepend\">\r\n                                <span class=\"input-group-text\">Название для строки запроса(латиницей)</span>\r\n                                <span class=\"required\">*</span>\r\n                            </div>\r\n                            <input type=\"text\" name=\"tourUrlName\" class=\"form-control\" aria-describedby=\"basic-addon1\">\r\n                        </div>\r\n                        <div class=\"mb-3\">\r\n                            <div class=\"input-group-prepend\">\r\n                                <span class=\"input-group-text\">Город</span>\r\n                                <span class=\"required\">*</span>\r\n                            </div>\r\n                            <input type=\"text\" name=\"city\" class=\"form-control\" aria-describedby=\"basic-addon1\">\r\n                        </div>\r\n                        <div class=\"mb-3\">\r\n                            <div class=\"input-group-prepend\">\r\n                                <span class=\"input-group-text\">\r\n                                   Цена\r\n                                </span>\r\n                                <span class=\"required\">*</span>\r\n                            </div>\r\n                            <input type=\"number\" name=\"price\" class=\"form-control\" aria-describedby=\"basic-addon1\">\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"col-md-6 col-sm-6 tour-prices\">\r\n                        <div class=\"mb-3\">\r\n                            <div class=\"input-group-prepend\">\r\n                                <span class=\"input-group-text stars\">\r\n                                    X<span class=\"s\"></span>\r\n                                </span>\r\n                                <span class=\"required\">*</span>\r\n                            </div>\r\n                            <input type=\"number\" name=\"fiveStarsPrice\" class=\"form-control\" aria-describedby=\"basic-addon1\">\r\n                        </div>\r\n                        <div class=\"mb-3\">\r\n                            <div class=\"input-group-prepend\">\r\n                                <span class=\"input-group-text\">Категория</span>\r\n                                <span class=\"required\">*</span>\r\n                            </div>\r\n                            <mat-select formControlName=\"category\" [(ngModel)]=\"category\" placeholder=\"Выберите...\">\r\n                                <mat-option *ngFor=\"let tourTypeKey of tourTypes.keys()\" [value]=\"tourTypeKey\">\r\n                                    {{ tourTypes[tourTypeKey] }}\r\n                                </mat-option>\r\n                            </mat-select>\r\n                        </div>\r\n                        <div class=\"mb-3\">\r\n                            <div class=\"input-group-prepend\">\r\n                                <span class=\"input-group-text\">Страна</span>\r\n                                <span class=\"required\">*</span>\r\n                            </div>\r\n                            <mat-select formControlName=\"country\" [(ngModel)]=\"country\" placeholder=\"Выберите...\">\r\n                                <mat-option *ngFor=\"let countryKey of countries.keys()\" [value]=\"countryKey\">\r\n                                    {{ countries[countryKey] }}\r\n                                </mat-option>\r\n                            </mat-select>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                <div class=\"tour-image\">\r\n                    <div class=\"small-images\" *ngFor=\"let imageUrl of imagesUrls\">\r\n                        <a [style.background]=\"'url(' + imageUrl + ')'\">\r\n                            <div (click)=\"removeImage(imageUrl)\" class=\"cross-close\">&#10005;</div>\r\n                        </a>\r\n                    </div>\r\n\r\n                    <br />\r\n                    <a class=\"link-medium\">\r\n                        <label class=\"upload-mage\">\r\n                            <span>Загрузить изображение</span>\r\n                            <input type=\"file\" (change)=\"onSelectImage($event)\">\r\n                        </label>\r\n                    </a>\r\n                </div>\r\n                <div class=\"content-fields\">\r\n                    <div class=\"mb-3\">\r\n                        <div class=\"input-group-prepend\">\r\n                            <span class=\"input-group-text\">Описание</span>\r\n                            <span class=\"required\">*</span>\r\n                        </div>\r\n                        <textarea type=\"text\" name=\"tourDescription\" class=\"form-control tour-description\" aria-describedby=\"basic-addon1\"></textarea>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/Administration/Content/Tours/Tour/tour.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TourComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_Services_tourType_service__ = __webpack_require__("../../../../../src/app/Common/Services/tourType.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__administrationCommon_Services_country_service__ = __webpack_require__("../../../../../src/app/Administration/Common/Services/country.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var TourComponent = /** @class */ (function () {
+    function TourComponent(tourTypeService, countryService, fb) {
+        this.tourTypeService = tourTypeService;
+        this.countryService = countryService;
+        this.fb = fb;
+        this.imagesUrls = new Array();
+        this.tourTypes = this.tourTypeService.GetTourTypes();
+        this.countries = this.countryService.GetCountries();
+    }
+    TourComponent.prototype.ngOnInit = function () {
+        this.buildForm();
+    };
+    TourComponent.prototype.onSelectImage = function (event) {
+        var _this = this;
+        if (event.target.files && event.target.files[0]) {
+            var reader = new FileReader();
+            reader.readAsDataURL(event.target.files[0]);
+            reader.onload = function () {
+                _this.imagesUrls.push(reader.result);
+                event.target.value = null;
+            };
+        }
+    };
+    TourComponent.prototype.removeImage = function (removeUrl) {
+        this.imagesUrls = this.imagesUrls.filter(function (url) { return url != removeUrl; });
+    };
+    TourComponent.prototype.buildForm = function () {
+        this.tourForm = this.fb.group({
+            //"name": [this.order.name, [
+            //    Validators.required,
+            //    //Validators.minLength(4),
+            //    //Validators.maxLength(15)
+            //]],
+            //"email": [this.order.email, [
+            //    Validators.required,
+            //    Validators.pattern("[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}")
+            //]],
+            //"countryCode": [this.order.countryCode, [
+            //    Validators.required
+            //]],
+            //"phone": [this.order.phone, [
+            //    Validators.required,
+            //    Validators.pattern("\\d+")
+            //]],
+            //"service": [this.order.service, [
+            //    Validators.required
+            //]],
+            //"isTechnicalTaskAvailable": [this.order.isTechnicalTaskAvailable, [
+            //    Validators.required
+            //]],
+            //"isNeedUrgently": [this.order.isNeedUrgently, [
+            //    Validators.required
+            //]],
+            //"description": [this.order.description, [
+            //    Validators.required
+            //]]
+            "category": [this.category, [
+                    __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required
+                ]],
+            "country": [this.country, [
+                    __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required
+                ]],
+        });
+    };
+    TourComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            moduleId: module.i,
+            selector: "tour",
+            template: __webpack_require__("../../../../../src/app/Administration/Content/Tours/Tour/tour.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/Administration/Content/Tours/Tour/tour.component.css")],
+            providers: [__WEBPACK_IMPORTED_MODULE_3__administrationCommon_Services_country_service__["a" /* CountryService */]]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__common_Services_tourType_service__["a" /* TourTypeService */],
+            __WEBPACK_IMPORTED_MODULE_3__administrationCommon_Services_country_service__["a" /* CountryService */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormBuilder"]])
+    ], TourComponent);
+    return TourComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/Administration/Content/Tours/tours.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".tour-text {\n  margin-bottom: 20px; }\n\n.tours-header h2 {\n  display: inline; }\n\n.tours-header a.link-big {\n  float: right;\n  line-height: 33px; }\n\n.tours-header a.link-big i {\n    font-size: 19px; }\n\n.tours-wrapper {\n  margin: 0 20px; }\n\n.tours-wrapper .tour {\n    margin-bottom: 20px; }\n\n.tours-wrapper .tour .image-description .tour-image {\n      margin-top: 10px;\n      margin-right: 40px; }\n\n.tours-wrapper .tour .image-description .tour-image img {\n        width: 340px;\n        height: 250px; }\n\n.tours-wrapper .tour .image-description .tour-descriptions {\n      margin-top: 10px;\n      margin-right: 10px;\n      min-width: 200px; }\n\n.tours-wrapper .tour .image-description .tour-descriptions .stars {\n        margin-right: 5px; }\n\n.tours-wrapper .tour .image-description .tour-descriptions .stars .s {\n          background-image: url(/content/images/star.svg);\n          background-position: 14px 14px;\n          width: 14px;\n          height: 14px;\n          display: inline-block;\n          margin-top: 2px; }\n\n.tours-wrapper .tour .image-description .tour-descriptions a.link-big i {\n        font-size: 19px; }\n\n.tours-wrapper .tour .tour-prices {\n      margin-top: 10px;\n      width: 220px; }\n\n.tours-wrapper .tour .tour-prices div {\n        margin-bottom: 5px; }\n\n@media (min-width: 850px) {\n  .tour {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 850px) {\n  .tour {\n    display: block; } }\n\n@media (min-width: 600px) {\n  .tour .image-description {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 600px) {\n  .tour {\n    width: 340px;\n    margin: 0 auto 20px auto; }\n    .tour .image-description {\n      display: block; } }\n\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/Administration/Content/Tours/tours.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"tours-wrapper\">\r\n        <div class=\"tours-header\">\r\n            <h2>Туры</h2>\r\n            <a [routerLink]=\"[ '/administration/tours/new' ]\" class=\"link-big\">\r\n                <span>Новый тур</span>\r\n                <i class=\"fa fa-plus\" aria-hidden=\"true\"></i>\r\n            </a>\r\n        </div>\r\n        <div>\r\n            <div class=\"tour\">\r\n                <div class=\"image-description\">\r\n                    <div class=\"tour-image\">\r\n                        <img src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                    </div>\r\n                    <div class=\"tour-descriptions\">\r\n                        <div class=\"stars\">\r\n                            <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                        </div>\r\n                        <a [routerLink]=\"[ '/administration/tours/tour1' ]\" class=\"link-big\">\r\n                            <span>Тур 1</span>\r\n                            <i class=\"fa fa-pencil\" aria-hidden=\"true\"></i>\r\n                        </a>\r\n                        <div>City</div>\r\n                        <ul>\r\n                            <li>Все условия для релаксации</li>\r\n                            <li>Прекрасные песчаные пляжи</li>\r\n                            <li>SPA-центры. Аквапарки</li>\r\n                            <li>Водные виды спорта. Серфинг</li>\r\n                        </ul>\r\n                    </div>\r\n                </div>\r\n                <div class=\"tour-prices\">\r\n                    <div>\r\n                        <div>от <strong>1 998,00 р.</strong></div>\r\n                        <div>\r\n                            <i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>\r\n                            <span>от 7 ночей</span>\r\n                        </div>\r\n                        <div>\r\n                            <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                            <span>перелет включен</span>\r\n                        </div>\r\n                    </div>\r\n                    <div>\r\n                        <strong>Пляжный отдых</strong>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"tour\">\r\n                <div class=\"image-description\">\r\n                    <div class=\"tour-image\">\r\n                        <img src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                    </div>\r\n                    <div class=\"tour-descriptions\">\r\n                        <div class=\"stars\">\r\n                            <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                        </div>\r\n                        <a [routerLink]=\"[ '/administration/tours/tour1' ]\" class=\"link-big\">\r\n                            <span>Тур 1</span>\r\n                            <i class=\"fa fa-pencil\" aria-hidden=\"true\"></i>\r\n                        </a>\r\n                        <div>City</div>\r\n                        <ul>\r\n                            <li>Все условия для релаксации</li>\r\n                            <li>Прекрасные песчаные пляжи</li>\r\n                            <li>SPA-центры. Аквапарки</li>\r\n                            <li>Водные виды спорта. Серфинг</li>\r\n                        </ul>\r\n                    </div>\r\n                </div>\r\n                <div class=\"tour-prices\">\r\n                    <div>\r\n                        <div>от <strong>1 998,00 р.</strong></div>\r\n                        <div>\r\n                            <i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>\r\n                            <span>от 7 ночей</span>\r\n                        </div>\r\n                        <div>\r\n                            <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                            <span>перелет включен</span>\r\n                        </div>\r\n                    </div>\r\n                    <div>\r\n                        <strong>Пляжный отдых</strong>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/Administration/Content/Tours/tours.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ToursComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ToursComponent = /** @class */ (function () {
+    function ToursComponent(dialog) {
+        this.dialog = dialog;
+    }
+    ToursComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            moduleId: module.i,
+            selector: "tours",
+            template: __webpack_require__("../../../../../src/app/Administration/Content/Tours/tours.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/Administration/Content/Tours/tours.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MatDialog */]])
+    ], ToursComponent);
+    return ToursComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/Administration/Content/content.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -371,7 +609,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Administration/Header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<header>\r\n    <div class=\"header-content\">\r\n        <div class=\"topHeaderMenu\">\r\n            <div class=\"logo\">\r\n                <a href=\"\">\r\n                    <div>\r\n                        <span>Центр туризма</span>\r\n                    </div>\r\n                </a>\r\n            </div>\r\n            <div class=\"headerMenu\">\r\n                <div clickOutside callbackName=\"onClickOutsideMobileMenu\" [componentContext]=\"this\" class=\"mobileMenu\">\r\n                    <div class=\"mobileMenu-header\">\r\n                        <a (click)=\"toggleMenu()\">\r\n                            <i class=\"fa fa-bars\" aria-hidden=\"true\"></i>\r\n                            <span>\r\n                                Меню\r\n                            </span>\r\n                        </a>\r\n                    </div>\r\n                    <ul *ngIf=\"isMobileMenuVisible\" [@slideInOut] class=\"mobileMenu-list\">\r\n                        <li>\r\n                            <a>\r\n                                <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                                <span>Туры</span>\r\n                            </a>\r\n                        </li>\r\n                        <li>\r\n                            <a>\r\n                                <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                                <span>Заказы</span>\r\n                            </a>\r\n                        </li>\r\n                        <li>\r\n                            <a [routerLink]=\"[ '/administration/countries' ]\">\r\n                                <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                                <span>Страны</span>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n                <ul class=\"mainMenu\">\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                            <span>Туры</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                            <span>Заказы</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a [routerLink]=\"[ '/administration/countries' ]\">\r\n                            <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                            <span>Страны</span>\r\n                        </a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</header>\r\n\r\n"
+module.exports = "<header>\r\n    <div class=\"header-content\">\r\n        <div class=\"topHeaderMenu\">\r\n            <div class=\"logo\">\r\n                <a href=\"\">\r\n                    <div>\r\n                        <span>Центр туризма</span>\r\n                    </div>\r\n                </a>\r\n            </div>\r\n            <div class=\"headerMenu\">\r\n                <div clickOutside callbackName=\"onClickOutsideMobileMenu\" [componentContext]=\"this\" class=\"mobileMenu\">\r\n                    <div class=\"mobileMenu-header\">\r\n                        <a (click)=\"toggleMenu()\">\r\n                            <i class=\"fa fa-bars\" aria-hidden=\"true\"></i>\r\n                            <span>\r\n                                Меню\r\n                            </span>\r\n                        </a>\r\n                    </div>\r\n                    <ul *ngIf=\"isMobileMenuVisible\" [@slideInOut] class=\"mobileMenu-list\">\r\n                        <li [routerLink]=\"[ '/administration/tours' ]\">\r\n                            <a>\r\n                                <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                                <span>Туры</span>\r\n                            </a>\r\n                        </li>\r\n                        <li>\r\n                            <a>\r\n                                <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                                <span>Заказы</span>\r\n                            </a>\r\n                        </li>\r\n                        <li>\r\n                            <a [routerLink]=\"[ '/administration/countries' ]\">\r\n                                <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                                <span>Страны</span>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n                <ul class=\"mainMenu\">\r\n                    <li [routerLink]=\"[ '/administration/tours' ]\">\r\n                        <a>\r\n                            <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                            <span>Туры</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                            <span>Заказы</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a [routerLink]=\"[ '/administration/countries' ]\">\r\n                            <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                            <span>Страны</span>\r\n                        </a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</header>\r\n\r\n"
 
 /***/ }),
 
@@ -510,12 +748,16 @@ var AdministrationComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__Content_Home_home_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Home/home.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__Content_Countries_countries_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Countries/countries.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__Content_Countries_Country_country_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Countries/Country/country.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__Content_Tours_tours_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Tours/tours.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__Content_Tours_Tour_tour_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Tours/Tour/tour.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -557,7 +799,9 @@ var AdministrationModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_13__Content_content_component__["a" /* ContentComponent */],
                 __WEBPACK_IMPORTED_MODULE_14__Content_Home_home_component__["a" /* HomeComponent */],
                 __WEBPACK_IMPORTED_MODULE_15__Content_Countries_countries_component__["a" /* CountriesComponent */],
-                __WEBPACK_IMPORTED_MODULE_16__Content_Countries_Country_country_component__["a" /* CountryComponent */]
+                __WEBPACK_IMPORTED_MODULE_16__Content_Countries_Country_country_component__["a" /* CountryComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__Content_Tours_tours_component__["a" /* ToursComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__Content_Tours_Tour_tour_component__["a" /* TourComponent */]
             ],
             exports: [
                 __WEBPACK_IMPORTED_MODULE_10__administration_component__["a" /* AdministrationComponent */],
@@ -583,6 +827,10 @@ var AdministrationModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Content_Home_home_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Home/home.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Content_Countries_countries_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Countries/countries.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Content_Countries_Country_country_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Countries/Country/country.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Content_Tours_tours_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Tours/tours.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Content_Tours_Tour_tour_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Tours/Tour/tour.component.ts");
+
+
 
 
 
@@ -598,6 +846,14 @@ var routes = [
     {
         path: 'administration/countries/:country',
         component: __WEBPACK_IMPORTED_MODULE_2__Content_Countries_Country_country_component__["a" /* CountryComponent */]
+    },
+    {
+        path: 'administration/tours',
+        component: __WEBPACK_IMPORTED_MODULE_3__Content_Tours_tours_component__["a" /* ToursComponent */]
+    },
+    {
+        path: 'administration/tours/:tour',
+        component: __WEBPACK_IMPORTED_MODULE_4__Content_Tours_Tour_tour_component__["a" /* TourComponent */]
     }
 ];
 

@@ -20,6 +20,8 @@ import { ContentComponent } from "./Content/content.component";
 import { HomeComponent } from "./Content/Home/home.component";
 import { CountriesComponent } from "./Content/Countries/countries.component";
 import { CountryComponent } from "./Content/Countries/Country/country.component";
+import { ToursComponent } from "./Content/Tours/tours.component";
+import { TourComponent } from "./Content/Tours/Tour/tour.component";
 
 @NgModule({
     imports:
@@ -45,7 +47,9 @@ import { CountryComponent } from "./Content/Countries/Country/country.component"
         ContentComponent, 
         HomeComponent,
         CountriesComponent,
-        CountryComponent
+        CountryComponent,
+        ToursComponent,
+        TourComponent
     ],
     exports: [
         AdministrationComponent,

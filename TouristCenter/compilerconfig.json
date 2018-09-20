@@ -134,5 +134,13 @@
   {
     "outputFile": "src/app/Administration/Content/Countries/Country/country.component.css",
     "inputFile": "src/app/Administration/Content/Countries/Country/country.component.scss"
+  },
+  {
+    "outputFile": "src/app/Administration/Content/Tours/tours.component.css",
+    "inputFile": "src/app/Administration/Content/Tours/tours.component.scss"
+  },
+  {
+    "outputFile": "src/app/Administration/Content/Tours/Tour/tour.component.css",
+    "inputFile": "src/app/Administration/Content/Tours/Tour/tour.component.scss"
   }
 ]
