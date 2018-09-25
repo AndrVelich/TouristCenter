@@ -40,6 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Enums\TourTypesEnum.cs" />
+    <Compile Include="Common\Exceptions\UnknownTourTypeException.cs" />
+    <Compile Include="Country\Exceptions\CountryPageContentNotValidException.cs" />
+    <Compile Include="Country\Exceptions\CountryDescriptionNotValidException.cs" />
+    <Compile Include="Country\Exceptions\CountryPriceNotValidException.cs" />
+    <Compile Include="Country\Exceptions\CountryUrlNameNotValidException.cs" />
+    <Compile Include="Country\Exceptions\CountryNameNotValidException.cs" />
     <Compile Include="Order\Exceptions\OrderDescriptionNotValidException.cs" />
     <Compile Include="Order\Exceptions\OrderNameNotValidException.cs" />
     <Compile Include="Order\Exceptions\OrderNotFoundException.cs" />
@@ -47,6 +54,10 @@
     <Compile Include="Order\Managers\IOrderManager.cs" />
     <Compile Include="Order\Models\IOrder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Country\Managers\" />
+    <Folder Include="Country\Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

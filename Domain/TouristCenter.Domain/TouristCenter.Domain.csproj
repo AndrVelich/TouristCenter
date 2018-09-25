@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Converters\TourTypesEnumConverter.cs" />
+    <Compile Include="Country\Models\Country.cs" />
     <Compile Include="Order\Managers\OrderManager.cs" />
     <Compile Include="Order\Models\Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -53,6 +55,9 @@
       <Project>{596284CD-C559-4F30-B746-773C9AFAAC22}</Project>
       <Name>TouristCenter.Domain.Interfaces</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Country\Managers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
