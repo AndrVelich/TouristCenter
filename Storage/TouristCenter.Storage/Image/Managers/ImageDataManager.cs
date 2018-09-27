@@ -14,16 +14,24 @@ namespace TouristCenter.Storage.Image.Managers
             _dbContext = new TouristCenterContext(connectionString);
         }
 
-        public void CreateImage(ImageDataModel imageDataModel)
+        public ImageDataModel CreateImage(ImageDataModel imageDataModel)
         {
-            _dbContext.Images.Add(imageDataModel);
+            var image = _dbContext.Images.Add(imageDataModel);
             _dbContext.SaveChanges();
+
+            return image;
         }
 
         public ImageDataModel GetImage(int imageId)
         {
             var image = _dbContext.Images.FirstOrDefault(i => i.ImageId == imageId);
             return image;
+        }
+
+        public void DeleteImage(ImageDataModel imageDataModel)
+        {
+            _dbContext.Images.Remove(imageDataModel);
+            _dbContext.SaveChanges();
         }
     }
 }

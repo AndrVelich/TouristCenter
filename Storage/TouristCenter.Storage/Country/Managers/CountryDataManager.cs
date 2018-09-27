@@ -32,5 +32,11 @@ namespace TouristCenter.Storage.Country.Managers
             _dbContext.Entry(countryDataModel).State = EntityState.Modified;
             _dbContext.SaveChanges();
         }
+
+        public void DeleteCountry(CountryDataModel countryDataModel)
+        {
+            _dbContext.Countries.Remove(countryDataModel);
+            _dbContext.SaveChanges();
+        }
     }
 }

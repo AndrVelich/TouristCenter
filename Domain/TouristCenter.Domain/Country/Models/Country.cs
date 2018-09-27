@@ -1,14 +1,19 @@
-﻿using TouristCenter.Domain.Common.Converters;
+﻿using System.Collections.Generic;
+using System.Linq;
+using TouristCenter.Domain.Common.Converters;
 using TouristCenter.Domain.Interfaces.Common.Enums;
 using TouristCenter.Domain.Interfaces.Country.Exceptions;
+using TouristCenter.Domain.Interfaces.Country.Models;
 using TouristCenter.Storage.Interfaces.Country.Managers;
 using CountryDataModel = TouristCenter.Storage.Interfaces.Country.Models.Country;
 
 namespace TouristCenter.Domain.Country.Models
 {
-    internal sealed class Country
+    internal sealed class Country : ICountry
     {
         private readonly ICountryDataManager _countryDataManager;
+
+        private bool _isNew;
 
         private string _name;
         private string _urlName;
@@ -113,6 +118,8 @@ namespace TouristCenter.Domain.Country.Models
             }
         }
 
+        public IReadOnlyCollection<int> ImageIdCollection { get; set; }
+
         internal Country(CountryDataModel dataModel, ICountryDataManager countryDataManager)
         {
             _name = dataModel.Name;
@@ -123,7 +130,7 @@ namespace TouristCenter.Domain.Country.Models
             _fiveStarsPrice = dataModel.FiveStarsPrice;
             _description = dataModel.Description;
             _pageContent = dataModel.PageContent;
-
+            ImageIdCollection = dataModel.Images != null ? dataModel.Images.Select(i => i.ImageId).ToList() : new List<int>();
             _countryDataManager = countryDataManager;
         }
 
@@ -132,9 +139,9 @@ namespace TouristCenter.Domain.Country.Models
             string name,
             string urlName,
             TourTypesEnum category,
-            int threeStarsPrice,
-            int fourStarsPrice,
-            int fiveStarsPrice,
+            decimal threeStarsPrice,
+            decimal fourStarsPrice,
+            decimal fiveStarsPrice,
             string description,
             string pageContent
             )
@@ -147,12 +154,49 @@ namespace TouristCenter.Domain.Country.Models
             FiveStarsPrice = fiveStarsPrice;
             Description = description;
             PageContent = pageContent;
-
             _countryDataManager = countryDataManager;
         }
 
+        public void Save()
+        {
+            var countryDataModel = GetCountryDataModel();
 
+            if (_isNew)
+            {
+                _countryDataManager.CreateCountry(countryDataModel);
+            }
+            else
+            {
+                _countryDataManager.UpdateCountry(countryDataModel);
+            }
+        }
 
-        //public List<Image.Models.Image> Images { get; set; }
+        public void Delete()
+        {
+            var countryDataModel = GetCountryDataModel();
+
+            if (!_isNew)
+            {
+                _countryDataManager.DeleteCountry(countryDataModel);
+            }
+        }
+
+        private CountryDataModel GetCountryDataModel()
+        {
+            var countryDataModel = new CountryDataModel
+            {
+                CountryId = CountryId,
+                Name = Name,
+                UrlName = UrlName,
+                Category = TourTypesEnumConverter.ConvertToDbValue(Category),
+                ThreeStarsPrice = ThreeStarsPrice,
+                FourStarsPrice = FourStarsPrice,
+                FiveStarsPrice = FiveStarsPrice,
+                Description = Description,
+                PageContent = PageContent
+            };
+
+            return countryDataModel;
+        }
     }
 }

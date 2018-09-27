@@ -42,11 +42,19 @@
   <ItemGroup>
     <Compile Include="Common\Enums\TourTypesEnum.cs" />
     <Compile Include="Common\Exceptions\UnknownTourTypeException.cs" />
+    <Compile Include="Country\Exceptions\CountryNotFoundException.cs" />
     <Compile Include="Country\Exceptions\CountryPageContentNotValidException.cs" />
     <Compile Include="Country\Exceptions\CountryDescriptionNotValidException.cs" />
     <Compile Include="Country\Exceptions\CountryPriceNotValidException.cs" />
     <Compile Include="Country\Exceptions\CountryUrlNameNotValidException.cs" />
     <Compile Include="Country\Exceptions\CountryNameNotValidException.cs" />
+    <Compile Include="Country\Managers\ICountryManager.cs" />
+    <Compile Include="Country\Models\ICountry.cs" />
+    <Compile Include="Image\Exceptions\ImageDataNotValidException.cs" />
+    <Compile Include="Image\Exceptions\ImageMimeTypeNotValidException.cs" />
+    <Compile Include="Image\Exceptions\ImageNotFoundException.cs" />
+    <Compile Include="Image\Managers\IImageManager.cs" />
+    <Compile Include="Image\Models\IImage.cs" />
     <Compile Include="Order\Exceptions\OrderDescriptionNotValidException.cs" />
     <Compile Include="Order\Exceptions\OrderNameNotValidException.cs" />
     <Compile Include="Order\Exceptions\OrderNotFoundException.cs" />
@@ -55,9 +63,6 @@
     <Compile Include="Order\Models\IOrder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Country\Managers\" />
-    <Folder Include="Country\Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

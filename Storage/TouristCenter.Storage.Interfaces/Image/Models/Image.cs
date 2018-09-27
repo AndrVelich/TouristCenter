@@ -12,7 +12,7 @@ namespace TouristCenter.Storage.Interfaces.Image.Models
 
         public int ImageId { get; set; }
         public Byte[] ImageData { get; set; }
-        public string MymeType { get; set; }
+        public string MimeType { get; set; }
 
         public virtual ICollection<Country.Models.Country> Countries { get; set; }
     }

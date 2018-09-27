@@ -3,6 +3,7 @@
     public interface IImageDataManager
     {
         Models.Image GetImage(int imageId);
-        void CreateImage(Models.Image imageDataModel);
+        Models.Image CreateImage(Models.Image imageDataModel);
+        void DeleteImage(Models.Image imageDataModel);
     }
 }
