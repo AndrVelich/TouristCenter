@@ -15,7 +15,11 @@ export const routes: Routes = [
         component: CountriesComponent
     },
     {
-        path: 'administration/countries/:country',
+        path: 'administration/countries/:tourType/:country',
+        component: CountryComponent
+    },
+    {
+        path: 'administration/countries/new',
         component: CountryComponent
     },
     {

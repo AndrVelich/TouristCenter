@@ -1,6 +1,9 @@
 ﻿using System.Configuration;
 using System.Reflection;
 using System.Web.Http;
+using System.Web.Mvc;
+using System.Web.Optimization;
+using System.Web.Routing;
 using Microsoft.Owin;
 using Ninject;
 using Ninject.Modules;
@@ -21,6 +24,12 @@ namespace TouristCenter
             WebApiConfig.Register(config);
             ConfigureAuth(app);
             RegisterDi(app, config);
+
+            //GlobalConfiguration.Configure(WebApiConfig.Register);
+            AreaRegistration.RegisterAllAreas();
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
         //TODO move to additional Class(DiConfigurator)

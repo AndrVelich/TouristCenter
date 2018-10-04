@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 using TouristCenter.Domain.Interfaces.Country.Exceptions;
 using TouristCenter.Domain.Interfaces.Country.Managers;
@@ -19,6 +20,37 @@ namespace TouristCenter.Controllers
         {
             _countryManager = countryManager;
             _imageManager = imageManager;
+        }
+
+        [HttpGet]
+        [Route("api/country/{tourType}/{countryUrl}")]
+        public CountryViewModel GetCountry(string tourType, string countryUrl)
+        {
+            var tourTypeDomain = TourTypesConverter.ConvertFromString(tourType);
+            var country = _countryManager.GetCountry(tourTypeDomain, countryUrl);
+            var countryViewModel = new CountryViewModel(country);
+
+            return countryViewModel;
+        }
+
+        [HttpGet]
+        [Route("api/countries/{tourType?}")]
+        public List<CountryViewModel> GetCollection(string tourType = null)
+        {
+            IReadOnlyCollection<ICountry> countries;
+            if (string.IsNullOrWhiteSpace(tourType))
+            {
+                countries = _countryManager.GetCountryCollection();
+            }
+            else
+            {
+                var domainTourType = TourTypesConverter.ConvertFromString(tourType);
+                countries = _countryManager.GetCountryCollection(domainTourType);
+            }
+
+            var result = countries.Select(c => new CountryViewModel(c)).ToList();
+
+            return result;
         }
 
         public void Post(CountryViewModel country)
@@ -50,15 +82,24 @@ namespace TouristCenter.Controllers
                     );
             }
 
-            var imageForDeleteCollection = countryModel.ImageIdCollection.Except(country.OldImageCollection);
+            var imageForDeleteCollection = countryModel.ImageCollection.Where(im => !country.OldImageCollection.Contains(im.ImageId)).ToList();
 
-            //parce bace 64
+            foreach (var newImage in country.NewImageCollection)
+            {
+                var mimeType = ImageConverter.GetImageMimeType(newImage);
+                var imageData = ImageConverter.GetImageData(newImage);
 
-            //save new images
+                countryModel.AddImage(imageData, mimeType);
+            }
 
-            //save countries
+            foreach (var newImage in imageForDeleteCollection)
+            {
+                countryModel.DeleteImage(newImage);
+            }
 
-            //delete old images
+            countryModel.Save();
         }
+
+        
     }
 }

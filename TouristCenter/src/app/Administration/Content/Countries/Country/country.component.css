@@ -74,4 +74,9 @@
       height: 100px; }
     .counties-wrapper .country .content-fields .country-content {
       height: 150px; }
+    .counties-wrapper .country .actions {
+      margin: 15px 0; }
+      .counties-wrapper .country .actions button {
+        width: 180px;
+        margin: 10px; }
 

@@ -4,14 +4,18 @@ using TouristCenter.Domain.Common.Converters;
 using TouristCenter.Domain.Interfaces.Common.Enums;
 using TouristCenter.Domain.Interfaces.Country.Exceptions;
 using TouristCenter.Domain.Interfaces.Country.Models;
+using TouristCenter.Domain.Interfaces.Image.Models;
 using TouristCenter.Storage.Interfaces.Country.Managers;
+using TouristCenter.Storage.Interfaces.Image.Managers;
 using CountryDataModel = TouristCenter.Storage.Interfaces.Country.Models.Country;
+using ImageModel = TouristCenter.Domain.Image.Models.Image;
 
 namespace TouristCenter.Domain.Country.Models
 {
     internal sealed class Country : ICountry
     {
         private readonly ICountryDataManager _countryDataManager;
+        private readonly IImageDataManager _imageDataManager;
 
         private bool _isNew;
 
@@ -22,6 +26,7 @@ namespace TouristCenter.Domain.Country.Models
         private decimal _fiveStarsPrice;
         private string _description;
         private string _pageContent;
+        private List<ImageModel> _imageCollection { get; set; }
 
         public int CountryId { get; private set; }
 
@@ -118,10 +123,19 @@ namespace TouristCenter.Domain.Country.Models
             }
         }
 
-        public IReadOnlyCollection<int> ImageIdCollection { get; set; }
-
-        internal Country(CountryDataModel dataModel, ICountryDataManager countryDataManager)
+        public IReadOnlyCollection<IImage> ImageCollection
         {
+            get { return _imageCollection; }
+        }
+
+        internal Country(CountryDataModel dataModel, 
+            ICountryDataManager countryDataManager, 
+            IImageDataManager imageDataManager)
+        {
+            _imageDataManager = imageDataManager;
+            _countryDataManager = countryDataManager;
+
+            CountryId = dataModel.CountryId;
             _name = dataModel.Name;
             _urlName = dataModel.UrlName;
             Category = TourTypesEnumConverter.ConvertToDomainValue(dataModel.Category);
@@ -130,12 +144,14 @@ namespace TouristCenter.Domain.Country.Models
             _fiveStarsPrice = dataModel.FiveStarsPrice;
             _description = dataModel.Description;
             _pageContent = dataModel.PageContent;
-            ImageIdCollection = dataModel.Images != null ? dataModel.Images.Select(i => i.ImageId).ToList() : new List<int>();
-            _countryDataManager = countryDataManager;
+            _imageCollection = dataModel.Images != null ? 
+                dataModel.Images.Select(i => new ImageModel(i, imageDataManager)).ToList() : 
+                new List<ImageModel>();
         }
 
         internal Country(
             ICountryDataManager countryDataManager,
+            IImageDataManager imageDataManager,
             string name,
             string urlName,
             TourTypesEnum category,
@@ -146,6 +162,10 @@ namespace TouristCenter.Domain.Country.Models
             string pageContent
             )
         {
+            _imageDataManager = imageDataManager;
+            _countryDataManager = countryDataManager;
+            _isNew = true;
+
             Name = name;
             UrlName = urlName;
             Category = category;
@@ -154,16 +174,24 @@ namespace TouristCenter.Domain.Country.Models
             FiveStarsPrice = fiveStarsPrice;
             Description = description;
             PageContent = pageContent;
-            _countryDataManager = countryDataManager;
+            _imageCollection = new List<ImageModel>();
         }
 
         public void Save()
         {
             var countryDataModel = GetCountryDataModel();
 
+            var isCountryUnique = _countryDataManager.CheckCountryUnique(countryDataModel);
+
+            if (!isCountryUnique)
+            {
+                throw new CountryNotUniqueException();
+            }
+
             if (_isNew)
             {
-                _countryDataManager.CreateCountry(countryDataModel);
+                var result = _countryDataManager.CreateCountry(countryDataModel);
+                CountryId = result.CountryId;
             }
             else
             {
@@ -181,6 +209,21 @@ namespace TouristCenter.Domain.Country.Models
             }
         }
 
+        public void AddImage(byte[] imageData, string mimeType)
+        {
+            var newImage = new ImageModel(_imageDataManager, imageData, mimeType);
+            _imageCollection.Add(newImage);
+        }
+
+        public void DeleteImage(IImage image)
+        {
+            var imageForRemove = _imageCollection.FirstOrDefault(im => im.ImageId == image.ImageId);
+            if(imageForRemove != null)
+            {
+                _imageCollection.Remove(imageForRemove);
+            }
+        }
+
         private CountryDataModel GetCountryDataModel()
         {
             var countryDataModel = new CountryDataModel
@@ -193,7 +236,8 @@ namespace TouristCenter.Domain.Country.Models
                 FourStarsPrice = FourStarsPrice,
                 FiveStarsPrice = FiveStarsPrice,
                 Description = Description,
-                PageContent = PageContent
+                PageContent = PageContent,
+                Images = _imageCollection.Select(im => im.GetImageDataModel()).ToList()
             };
 
             return countryDataModel;

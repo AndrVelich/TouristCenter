@@ -38,6 +38,7 @@
             .country-descriptions {
                 margin-top: 10px;
                 min-width: 200px;
+                max-width: 500px;
 
                 a.link-big {
 
@@ -51,7 +52,7 @@
         .country-prices {
             margin-top: 10px;
             margin-right: 10px;
-            width: 220px;
+            min-width: 220px;
 
             .hotels {
                 display: flex;

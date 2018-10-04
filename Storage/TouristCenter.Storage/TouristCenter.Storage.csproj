@@ -50,6 +50,7 @@
     <Compile Include="Context\TouristCenterContext.cs" />
     <Compile Include="Country\Managers\CountryDataManager.cs" />
     <Compile Include="Image\Managers\ImageDataManager.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Order\Managers\OrderDataManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

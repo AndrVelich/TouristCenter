@@ -11,7 +11,7 @@ namespace TouristCenter.Storage.Order.Managers
 
         public OrderDataManager(string connectionString)
         {
-            _dbContext = new TouristCenterContext(connectionString);
+            _dbContext = new TouristCenterContext();
         }
 
         public Interfaces.Order.Models.Order GetOrder(int orderId)

@@ -11,7 +11,7 @@ namespace TouristCenter.Storage.Image.Managers
 
         public ImageDataManager(string connectionString)
         {
-            _dbContext = new TouristCenterContext(connectionString);
+            _dbContext = new TouristCenterContext();
         }
 
         public ImageDataModel CreateImage(ImageDataModel imageDataModel)

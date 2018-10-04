@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using TouristCenter.Domain.Interfaces.Common.Enums;
+using TouristCenter.Domain.Interfaces.Image.Models;
 
 namespace TouristCenter.Domain.Interfaces.Country.Models
 {
     public interface ICountry
     {
+        int CountryId { get; }
+
         string Name { get; set; }
 
         string UrlName { get; set; }
@@ -25,10 +24,12 @@ namespace TouristCenter.Domain.Interfaces.Country.Models
 
         string PageContent { get; set; }
 
-        IReadOnlyCollection<int> ImageIdCollection { get; set; }
+        IReadOnlyCollection<IImage> ImageCollection { get; }
 
         void Save();
         void Delete();
 
+        void AddImage(byte[] imageData, string mimeType);
+        void DeleteImage(IImage image);
     }
 }

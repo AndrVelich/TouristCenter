@@ -5,15 +5,16 @@ using OrderDataModel = TouristCenter.Storage.Interfaces.Order.Models.Order;
 
 namespace TouristCenter.Storage.Context
 {
-    internal sealed class TouristCenterContext : DbContext
+    public class TouristCenterContext : DbContext
     {
         public DbSet<OrderDataModel> Orders { get; set; }
         public DbSet<CountryDataModel> Countries { get; set; }
         public DbSet<ImageDataModel> Images { get; set; }
 
-        internal TouristCenterContext(string connection)
-            : base(connection)
+        public TouristCenterContext()
+            : base("DefaultConnection")
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<TouristCenterContext, Migrations.Configuration>());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -2,7 +2,6 @@
 using TouristCenter.Domain.Interfaces.Image.Managers;
 using TouristCenter.Domain.Interfaces.Image.Models;
 using TouristCenter.Storage.Interfaces.Image.Managers;
-using ImageDataModel = TouristCenter.Storage.Interfaces.Image.Models.Image;
 using ImageModel = TouristCenter.Domain.Image.Models.Image;
 
 namespace TouristCenter.Domain.Image.Managers
@@ -23,31 +22,14 @@ namespace TouristCenter.Domain.Image.Managers
             {
                 throw new ImageNotFoundException();
             }
-            var image = new ImageModel(imageDataModel);
+            var image = new ImageModel(imageDataModel, _imageDataManager);
 
             return image;
         }
 
         public IImage CreateImage(string mimeType, byte[] imageData)
         {
-            //TODO A.V. need to replace logic to Model
-            if (string.IsNullOrWhiteSpace(mimeType))
-            {
-                throw new ImageMimeTypeNotValidException();
-            }
-            if (imageData == null)
-            {
-                throw new ImageDataNotValidException();
-            }
-
-            var imageDataManager = new ImageDataModel
-            {
-                MimeType = mimeType,
-                ImageData = imageData
-            };
-
-            var imageDataModel = _imageDataManager.CreateImage(imageDataManager);
-            var image = new ImageModel(imageDataModel);
+            var image = new ImageModel(_imageDataManager, imageData, mimeType);
 
             return image;
         }

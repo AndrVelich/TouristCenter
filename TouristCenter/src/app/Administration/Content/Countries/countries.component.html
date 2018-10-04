@@ -8,22 +8,23 @@
             </a>
         </div>
         <div>
-            <div class="country">
+            <div class="country" *ngFor="let country of countryCollection">
                 <div class="image-description">
                     <div class="country-image">
-                        <img class="counrty-image" src="/Content/Images/tour_category_test1.jpg" />
+                        <img class="counrty-image" [src]="'/api/image/' + country.oldImageCollection[0]" />
                     </div>
                     <div class="country-descriptions">
-                        <a [routerLink]="[ '/administration/countries/bali' ]" class="link-big">
-                            <span>Бали</span>
+                        <a [routerLink]="[ '/administration/countries/' + country.category + '/' + country.urlName ]" class="link-big">
+                            <span [innerHtml]="country.name"></span>
                             <i class="fa fa-pencil" aria-hidden="true"></i>
                         </a>
-                        <ul>
+                        <div [innerHtml]="country.description"></div>
+                        <!--<ul>
                             <li>Все условия для релаксации</li>
                             <li>Прекрасные песчаные пляжи</li>
                             <li>SPA-центры. Аквапарки</li>
                             <li>Водные виды спорта. Серфинг</li>
-                        </ul>
+                        </ul>-->
                     </div>
                 </div>
                 <div class="country-prices">
@@ -44,18 +45,18 @@
                         </div>
                         <div class="price">
                             <ul>
-                                <li>от <strong>1 998,00 р.</strong></li>
-                                <li>от <strong>1 480,00 р.</strong></li>
-                                <li>от <strong>1 618,00 р.</strong></li>
+                                <li>от <strong [innerHtml]="country.fiveStarsPrice"></strong> р.</li>
+                                <li>от <strong [innerHtml]="country.fourStarsPrice"></strong> р.</li>
+                                <li>от <strong [innerHtml]="country.threeStarsPrice"></strong> р.</li>
                             </ul>
                         </div>
                     </div>
                     <div>
-                        <strong>Пляжный отдых</strong>
+                        <strong [innerHtml]="getTourTypeName(country.category)">Пляжный отдых</strong>
                     </div>
                 </div>
             </div>
-            <div class="country">
+            <!--<div class="country">
                 <div class="image-description">
                     <div class="country-image">
                         <img class="counrty-image" src="/Content/Images/tour_category_test1.jpg" />
@@ -101,7 +102,7 @@
                         <strong>Пляжный отдых</strong>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 </div>

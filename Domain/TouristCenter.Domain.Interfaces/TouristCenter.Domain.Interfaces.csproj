@@ -43,6 +43,7 @@
     <Compile Include="Common\Enums\TourTypesEnum.cs" />
     <Compile Include="Common\Exceptions\UnknownTourTypeException.cs" />
     <Compile Include="Country\Exceptions\CountryNotFoundException.cs" />
+    <Compile Include="Country\Exceptions\CountryNotUniqueException.cs" />
     <Compile Include="Country\Exceptions\CountryPageContentNotValidException.cs" />
     <Compile Include="Country\Exceptions\CountryDescriptionNotValidException.cs" />
     <Compile Include="Country\Exceptions\CountryPriceNotValidException.cs" />

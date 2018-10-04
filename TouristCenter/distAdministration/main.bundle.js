@@ -21,9 +21,14 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CountryService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return CountryService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Country; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_Types_Dictionary__ = __webpack_require__("../../../../../src/app/Common/Types/Dictionary.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__ = __webpack_require__("../../../../rxjs/_esm5/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/catch.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -35,27 +40,65 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
+//import {Observable} from 'rxjs/Rx';
+
+
 var CountryService = /** @class */ (function () {
-    function CountryService() {
+    function CountryService(http) {
+        this.http = http;
+        this.url = '/api/country';
         this.countries = new __WEBPACK_IMPORTED_MODULE_1__common_Types_Dictionary__["a" /* Dictionary */]();
-        this.FillTourTypes();
     }
-    CountryService.prototype.FillTourTypes = function () {
+    CountryService.prototype.GetCountries = function () {
         this.countries.add('bali', 'Бали');
-        this.countries.add('Greece', 'Греция');
+        this.countries.add('greece', 'Греция');
         this.countries.add('corporate', 'Испания');
         this.countries.add('individual', 'Индия');
         this.countries.add('newYear', 'Морокко');
         this.countries.add('skiing', 'Мексика');
-    };
-    CountryService.prototype.GetCountries = function () {
         return this.countries;
+    };
+    CountryService.prototype.getCountryCollection = function (tourType) {
+        return this.http.get('api/countries/' + (tourType || ''))
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
+    };
+    CountryService.prototype.getCountry = function (tourType, countryUrlName) {
+        return this.http.get('api/country/' + tourType + '/' + countryUrlName)
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
+    };
+    CountryService.prototype.addCountry = function (country) {
+        return this.http.post(this.url, country)
+            .catch(this.handleError);
+    };
+    CountryService.prototype.handleError = function (error, cought) {
+        var message = "";
+        if (error instanceof __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Response */]) {
+            var errorData = error.json().error || JSON.stringify(error.json());
+            message = error.status + " - " + (error.statusText || '') + " " + errorData;
+        }
+        else {
+            message = error.message ? error.message : error.toString();
+        }
+        console.error(message);
+        return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(message);
     };
     CountryService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
     ], CountryService);
     return CountryService;
+}());
+
+var Country = /** @class */ (function () {
+    function Country() {
+        this.newImageCollection = new Array();
+        this.oldImageCollection = new Array();
+    }
+    return Country;
 }());
 
 
@@ -70,7 +113,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".counties-wrapper {\n  margin: 0 20px; }\n  .counties-wrapper .country {\n    margin-bottom: 20px;\n    /*--mat select--*/ }\n  .counties-wrapper .country ::ng-deep mat-select .mat-select-trigger {\n      display: block;\n      width: 100%;\n      height: 34px;\n      padding: 6px 12px;\n      font-size: 14px;\n      line-height: 1.428571429;\n      color: #555555;\n      vertical-align: middle;\n      background-color: #ffffff;\n      border: 1px solid #cccccc;\n      border-radius: 4px;\n      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n      -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\n      -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;\n      transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;\n      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\n      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s; }\n  .counties-wrapper .country ::ng-deep mat-select .mat-select-trigger span {\n        line-height: 20px; }\n  .counties-wrapper .country .input-group {\n      width: 100%; }\n  .counties-wrapper .country .input-group .form-control {\n        width: 100%; }\n  .counties-wrapper .country .country-descriptions {\n      margin-top: 10px;\n      min-width: 200px; }\n  .counties-wrapper .country .country-descriptions a.link-big i {\n        font-size: 19px; }\n  .counties-wrapper .country .country-prices {\n      margin-top: 10px; }\n  .counties-wrapper .country .country-prices .hotels {\n        margin-bottom: 10px; }\n  .counties-wrapper .country .country-prices .hotels .stars {\n          margin-right: 5px; }\n  .counties-wrapper .country .country-prices .hotels .stars .s {\n            background-image: url(/content/images/star.svg);\n            background-position: 14px 14px;\n            width: 14px;\n            height: 14px;\n            display: inline-block; }\n  .counties-wrapper .country .country-image {\n      margin-top: 10px; }\n  .counties-wrapper .country .country-image .small-images {\n        display: inline-block;\n        vertical-align: top; }\n  .counties-wrapper .country .country-image .small-images a {\n          position: relative;\n          background-size: cover !important;\n          background-repeat: no-repeat !important;\n          background-position: center !important;\n          padding-top: 50%;\n          text-align: center;\n          display: block;\n          width: 200px;\n          margin: 3px; }\n  .counties-wrapper .country .country-image .small-images a .cross-close {\n            position: absolute;\n            right: 0;\n            top: 0;\n            padding: 0px 7px;\n            cursor: pointer;\n            color: white;\n            background-color: rgba(0, 0, 0, 0.7);\n            opacity: 0; }\n  .counties-wrapper .country .country-image .small-images a:hover .cross-close {\n          opacity: 1; }\n  .counties-wrapper .country .country-image .upload-mage input {\n        display: none; }\n  .counties-wrapper .country .content-fields .country-description {\n      height: 100px; }\n  .counties-wrapper .country .content-fields .country-content {\n      height: 150px; }\n\n", ""]);
+exports.push([module.i, ".counties-wrapper {\n  margin: 0 20px; }\n  .counties-wrapper .country {\n    margin-bottom: 20px;\n    /*--mat select--*/ }\n  .counties-wrapper .country ::ng-deep mat-select .mat-select-trigger {\n      display: block;\n      width: 100%;\n      height: 34px;\n      padding: 6px 12px;\n      font-size: 14px;\n      line-height: 1.428571429;\n      color: #555555;\n      vertical-align: middle;\n      background-color: #ffffff;\n      border: 1px solid #cccccc;\n      border-radius: 4px;\n      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n      -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\n      -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;\n      transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;\n      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\n      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s; }\n  .counties-wrapper .country ::ng-deep mat-select .mat-select-trigger span {\n        line-height: 20px; }\n  .counties-wrapper .country .input-group {\n      width: 100%; }\n  .counties-wrapper .country .input-group .form-control {\n        width: 100%; }\n  .counties-wrapper .country .country-descriptions {\n      margin-top: 10px;\n      min-width: 200px; }\n  .counties-wrapper .country .country-descriptions a.link-big i {\n        font-size: 19px; }\n  .counties-wrapper .country .country-prices {\n      margin-top: 10px; }\n  .counties-wrapper .country .country-prices .hotels {\n        margin-bottom: 10px; }\n  .counties-wrapper .country .country-prices .hotels .stars {\n          margin-right: 5px; }\n  .counties-wrapper .country .country-prices .hotels .stars .s {\n            background-image: url(/content/images/star.svg);\n            background-position: 14px 14px;\n            width: 14px;\n            height: 14px;\n            display: inline-block; }\n  .counties-wrapper .country .country-image {\n      margin-top: 10px; }\n  .counties-wrapper .country .country-image .small-images {\n        display: inline-block;\n        vertical-align: top; }\n  .counties-wrapper .country .country-image .small-images a {\n          position: relative;\n          background-size: cover !important;\n          background-repeat: no-repeat !important;\n          background-position: center !important;\n          padding-top: 50%;\n          text-align: center;\n          display: block;\n          width: 200px;\n          margin: 3px; }\n  .counties-wrapper .country .country-image .small-images a .cross-close {\n            position: absolute;\n            right: 0;\n            top: 0;\n            padding: 0px 7px;\n            cursor: pointer;\n            color: white;\n            background-color: rgba(0, 0, 0, 0.7);\n            opacity: 0; }\n  .counties-wrapper .country .country-image .small-images a:hover .cross-close {\n          opacity: 1; }\n  .counties-wrapper .country .country-image .upload-mage input {\n        display: none; }\n  .counties-wrapper .country .content-fields .country-description {\n      height: 100px; }\n  .counties-wrapper .country .content-fields .country-content {\n      height: 150px; }\n  .counties-wrapper .country .actions {\n      margin: 15px 0; }\n  .counties-wrapper .country .actions button {\n        width: 180px;\n        margin: 10px; }\n\n", ""]);
 
 // exports
 
@@ -83,7 +126,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Administration/Content/Countries/Country/country.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"counties-wrapper\">\r\n        <div>\r\n            <div [formGroup]=\"countryForm\" class=\"country\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-md-6 col-sm-6 country-descriptions\">\r\n                        <div class=\"mb-3\">\r\n                            <div class=\"input-group-prepend\">\r\n                                <span class=\"input-group-text\">Название</span>\r\n                                <span class=\"required\">*</span>\r\n                            </div>\r\n                            <input type=\"text\" name=\"countryName\" class=\"form-control\" aria-describedby=\"basic-addon1\">\r\n                        </div>\r\n                        <div class=\"mb-3\">\r\n                            <div class=\"input-group-prepend\">\r\n                                <span class=\"input-group-text\">Название для строки запроса(латиницей)</span>\r\n                                <span class=\"required\">*</span>\r\n                            </div>\r\n                            <input type=\"text\" name=\"countryUrlName\" class=\"form-control\" aria-describedby=\"basic-addon1\">\r\n                        </div>\r\n                        <div class=\"mb-3\">\r\n                            <div class=\"input-group-prepend\">\r\n                                <span class=\"input-group-text\">Категория</span>\r\n                                <span class=\"required\">*</span>\r\n                            </div>\r\n                            <mat-select formControlName=\"category\" [(ngModel)]=\"category\" placeholder=\"Выберите...\">\r\n                                <mat-option *ngFor=\"let tourTypeKey of tourTypes.keys()\" [value]=\"tourTypeKey\">\r\n                                    {{ tourTypes[tourTypeKey] }}\r\n                                </mat-option>\r\n                            </mat-select>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"col-md-6 col-sm-6 country-prices\">\r\n                        <div class=\"hotels\">\r\n                            <div class=\"mb-3\">\r\n                                <div class=\"input-group-prepend\">\r\n                                    <span class=\"input-group-text stars\">\r\n                                        <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                                    </span>\r\n                                    <span class=\"required\">*</span>\r\n                                </div>\r\n                                <input type=\"number\" name=\"fiveStarsPrice\" class=\"form-control\" aria-describedby=\"basic-addon1\">\r\n                            </div>\r\n                            <div class=\"mb-3\">\r\n                                <div class=\"input-group-prepend\">\r\n                                    <span class=\"input-group-text stars\">\r\n                                        <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                                    </span>\r\n                                    <span class=\"required\">*</span>\r\n                                </div>\r\n                                <input type=\"number\" name=\"fourStarsPrice\" class=\"form-control\" aria-describedby=\"basic-addon1\">\r\n                            </div>\r\n                            <div class=\"mb-3\">\r\n                                <div class=\"input-group-prepend\">\r\n                                    <span class=\"input-group-text stars\">\r\n                                        <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                                    </span>\r\n                                    <span class=\"required\">*</span>\r\n                                </div>\r\n                                <input type=\"number\" name=\"threeStarsPrice\" class=\"form-control\" aria-describedby=\"basic-addon1\">\r\n                            </div>\r\n                        </div>\r\n\r\n                    </div>\r\n                </div>\r\n                <div class=\"country-image\">\r\n                    <div class=\"small-images\" *ngFor=\"let imageUrl of imagesUrls\">\r\n                        <a [style.background]=\"'url(' + imageUrl + ')'\">\r\n                            <div (click)=\"removeImage(imageUrl)\" class=\"cross-close\">&#10005;</div>\r\n                        </a>\r\n                    </div>\r\n\r\n                    <br />\r\n                    <a class=\"link-medium\">\r\n                        <label class=\"upload-mage\">\r\n                            <span>Загрузить изображение</span>\r\n                            <input type=\"file\" (change)=\"onSelectImage($event)\">\r\n                        </label>\r\n                    </a>\r\n                </div>\r\n                <div class=\"content-fields\">\r\n                    <div class=\"mb-3\">\r\n                        <div class=\"input-group-prepend\">\r\n                            <span class=\"input-group-text\">Описание</span>\r\n                            <span class=\"required\">*</span>\r\n                        </div>\r\n                        <textarea type=\"text\" name=\"countryDescription\" class=\"form-control country-description\" aria-describedby=\"basic-addon1\"></textarea>\r\n                    </div>\r\n                    <div class=\"mb-3\">\r\n                        <div class=\"input-group-prepend\">\r\n                            <span class=\"input-group-text\">Контент для страницы</span>\r\n                            <span class=\"required\">*</span>\r\n                        </div>\r\n                        <textarea type=\"text\" name=\"countryContent\" class=\"form-control country-content\" aria-describedby=\"basic-addon1\"></textarea>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"counties-wrapper\">\r\n        <div>\r\n            <div [formGroup]=\"countryForm\" class=\"country\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-md-6 col-sm-6 country-descriptions\">\r\n                        <div class=\"mb-3\">\r\n                            <div class=\"input-group-prepend\">\r\n                                <span class=\"input-group-text\">Название</span>\r\n                                <span class=\"required\">*</span>\r\n                            </div>\r\n                            <input type=\"text\"\r\n                                   name=\"name\"\r\n                                   class=\"form-control\"\r\n                                   formControlName=\"name\"\r\n                                   [(ngModel)]=\"country.name\"\r\n                                   aria-describedby=\"basic-addon1\">\r\n                        </div>\r\n                        <div class=\"mb-3\">\r\n                            <div class=\"input-group-prepend\">\r\n                                <span class=\"input-group-text\">Название для строки запроса(латиницей)</span>\r\n                                <span class=\"required\">*</span>\r\n                            </div>\r\n                            <input type=\"text\"\r\n                                   name=\"urlName\"\r\n                                   class=\"form-control\"\r\n                                   formControlName=\"urlName\"\r\n                                   [(ngModel)]=\"country.urlName\"\r\n                                   aria-describedby=\"basic-addon1\">\r\n                        </div>\r\n                        <div class=\"mb-3\">\r\n                            <div class=\"input-group-prepend\">\r\n                                <span class=\"input-group-text\">Категория</span>\r\n                                <span class=\"required\">*</span>\r\n                            </div>\r\n                            <mat-select formControlName=\"category\"\r\n                                        [(ngModel)]=\"country.category\"\r\n                                        placeholder=\"Выберите...\">\r\n                                <mat-option *ngFor=\"let tourTypeKey of tourTypes.keys()\" [value]=\"tourTypeKey\">\r\n                                    {{ tourTypes[tourTypeKey] }}\r\n                                </mat-option>\r\n                            </mat-select>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"col-md-6 col-sm-6 country-prices\">\r\n                        <div class=\"hotels\">\r\n                            <div class=\"mb-3\">\r\n                                <div class=\"input-group-prepend\">\r\n                                    <span class=\"input-group-text stars\">\r\n                                        <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                                    </span>\r\n                                    <span class=\"required\">*</span>\r\n                                </div>\r\n                                <input type=\"number\"\r\n                                       name=\"fiveStarsPrice\"\r\n                                       class=\"form-control\"\r\n                                       formControlName=\"fiveStarsPrice\"\r\n                                       [(ngModel)]=\"country.fiveStarsPrice\"\r\n                                       aria-describedby=\"basic-addon1\">\r\n                            </div>\r\n                            <div class=\"mb-3\">\r\n                                <div class=\"input-group-prepend\">\r\n                                    <span class=\"input-group-text stars\">\r\n                                        <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                                    </span>\r\n                                    <span class=\"required\">*</span>\r\n                                </div>\r\n                                <input type=\"number\"\r\n                                       name=\"fourStarsPrice\"\r\n                                       class=\"form-control\"\r\n                                       formControlName=\"fourStarsPrice\"\r\n                                       [(ngModel)]=\"country.fourStarsPrice\"\r\n                                       aria-describedby=\"basic-addon1\">\r\n                            </div>\r\n                            <div class=\"mb-3\">\r\n                                <div class=\"input-group-prepend\">\r\n                                    <span class=\"input-group-text stars\">\r\n                                        <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                                    </span>\r\n                                    <span class=\"required\">*</span>\r\n                                </div>\r\n                                <input type=\"number\"\r\n                                       name=\"threeStarsPrice\"\r\n                                       class=\"form-control\"\r\n                                       formControlName=\"threeStarsPrice\"\r\n                                       [(ngModel)]=\"country.threeStarsPrice\"\r\n                                       aria-describedby=\"basic-addon1\">\r\n                            </div>\r\n                        </div>\r\n\r\n                    </div>\r\n                </div>\r\n                <div class=\"country-image\">\r\n                    <div class=\"small-images\" *ngFor=\"let imageUrl of country.newImageCollection\">\r\n                        <a [style.background]=\"'url(' + imageUrl + ')'\">\r\n                            <div (click)=\"removeNewImage(imageUrl)\" class=\"cross-close\">&#10005;</div>\r\n                        </a>\r\n                    </div>\r\n                    <div class=\"small-images\" *ngFor=\"let imageUrl of country.oldImageCollection\">\r\n                        <a [style.background]=\"'url(' + '/api/image/' + imageUrl + ')'\">\r\n                            <div (click)=\"removeOldImage(imageUrl)\" class=\"cross-close\">&#10005;</div>\r\n                        </a>\r\n                    </div>\r\n\r\n                    <br />\r\n                    <a class=\"link-medium\">\r\n                        <label class=\"upload-mage\">\r\n                            <span>Загрузить изображение</span>\r\n                            <input type=\"file\" (change)=\"onSelectImage($event)\">\r\n                        </label>\r\n                    </a>\r\n                </div>\r\n                <div class=\"content-fields\">\r\n                    <div class=\"mb-3\">\r\n                        <div class=\"input-group-prepend\">\r\n                            <span class=\"input-group-text\">Описание</span>\r\n                            <span class=\"required\">*</span>\r\n                        </div>\r\n                        <textarea type=\"text\"\r\n                                  name=\"description\"\r\n                                  class=\"form-control country-description\"\r\n                                  formControlName=\"description\"\r\n                                  [(ngModel)]=\"country.description\"\r\n                                  aria-describedby=\"basic-addon1\"></textarea>\r\n                    </div>\r\n                    <div class=\"mb-3\">\r\n                        <div class=\"input-group-prepend\">\r\n                            <span class=\"input-group-text\">Контент для страницы</span>\r\n                            <span class=\"required\">*</span>\r\n                        </div>\r\n                        <textarea type=\"text\"\r\n                                  name=\"pageContent\"\r\n                                  class=\"form-control country-content\"\r\n                                  formControlName=\"pageContent\"\r\n                                  [(ngModel)]=\"country.pageContent\"\r\n                                  aria-describedby=\"basic-addon1\"></textarea>\r\n                    </div>\r\n                </div>\r\n                <div class=\"actions\">\r\n                    <button (click)=\"saveCountry()\" \r\n                            class=\"btn btn-primary\" \r\n                            [disabled]=\"!countryForm.valid\">Сохранить</button>\r\n                    <button routerLink=\"/administration/countries\"\r\n                            class=\"btn btn-secondary\">Отменить</button>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -94,7 +137,9 @@ module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"counties-wra
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CountryComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_Services_tourType_service__ = __webpack_require__("../../../../../src/app/Common/Services/tourType.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_Services_tourType_service__ = __webpack_require__("../../../../../src/app/Common/Services/tourType.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__administrationCommon_Services_country_service__ = __webpack_require__("../../../../../src/app/Administration/Common/Services/country.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -107,14 +152,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
 var CountryComponent = /** @class */ (function () {
-    function CountryComponent(tourTypeService, fb) {
+    function CountryComponent(tourTypeService, countryService, fb, activeRoute, router) {
         this.tourTypeService = tourTypeService;
+        this.countryService = countryService;
         this.fb = fb;
-        this.imagesUrls = new Array();
+        this.activeRoute = activeRoute;
+        this.router = router;
+        this.country = new __WEBPACK_IMPORTED_MODULE_4__administrationCommon_Services_country_service__["a" /* Country */]();
         this.tourTypes = this.tourTypeService.GetTourTypes();
     }
     CountryComponent.prototype.ngOnInit = function () {
+        this.setDataFromRoute();
+        this.getCountry();
         this.buildForm();
     };
     CountryComponent.prototype.onSelectImage = function (event) {
@@ -123,45 +176,66 @@ var CountryComponent = /** @class */ (function () {
             var reader = new FileReader();
             reader.readAsDataURL(event.target.files[0]);
             reader.onload = function () {
-                _this.imagesUrls.push(reader.result);
+                _this.country.newImageCollection.push(reader.result);
                 event.target.value = null;
             };
         }
     };
-    CountryComponent.prototype.removeImage = function (removeUrl) {
-        this.imagesUrls = this.imagesUrls.filter(function (url) { return url != removeUrl; });
+    CountryComponent.prototype.removeNewImage = function (removeUrl) {
+        this.country.newImageCollection = this.country.newImageCollection.filter(function (url) { return url != removeUrl; });
+    };
+    CountryComponent.prototype.removeOldImage = function (removeUrl) {
+        this.country.oldImageCollection = this.country.oldImageCollection.filter(function (url) { return url != removeUrl; });
+    };
+    CountryComponent.prototype.saveCountry = function () {
+        var _this = this;
+        this.countryService.addCountry(this.country)
+            .subscribe(function () {
+            _this.router.navigate(['administration/countries']);
+        }, function (error) { return _this.errorMessage = error; });
+    };
+    CountryComponent.prototype.setDataFromRoute = function () {
+        var _this = this;
+        this.activeRoute.params.subscribe(function (params) {
+            _this.tourType = params['tourType'];
+            _this.countryUrlName = params['country'];
+        });
+    };
+    CountryComponent.prototype.getCountry = function () {
+        var _this = this;
+        if (this.countryUrlName) {
+            this.countryService.getCountry(this.tourType, this.countryUrlName)
+                .subscribe(function (data) { return _this.country = data; });
+        }
     };
     CountryComponent.prototype.buildForm = function () {
         this.countryForm = this.fb.group({
-            //"name": [this.order.name, [
-            //    Validators.required,
-            //    //Validators.minLength(4),
-            //    //Validators.maxLength(15)
-            //]],
-            //"email": [this.order.email, [
-            //    Validators.required,
-            //    Validators.pattern("[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}")
-            //]],
-            //"countryCode": [this.order.countryCode, [
-            //    Validators.required
-            //]],
-            //"phone": [this.order.phone, [
-            //    Validators.required,
-            //    Validators.pattern("\\d+")
-            //]],
-            //"service": [this.order.service, [
-            //    Validators.required
-            //]],
-            //"isTechnicalTaskAvailable": [this.order.isTechnicalTaskAvailable, [
-            //    Validators.required
-            //]],
-            //"isNeedUrgently": [this.order.isNeedUrgently, [
-            //    Validators.required
-            //]],
-            //"description": [this.order.description, [
-            //    Validators.required
-            //]]
-            "category": [this.category, [
+            "name": [this.country.name, [
+                    __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required,
+                ]],
+            "urlName": [this.country.urlName, [
+                    __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required,
+                    __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].pattern('^[a-zA-Z]+$')
+                ]],
+            "threeStarsPrice": [this.country.threeStarsPrice, [
+                    __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required,
+                    __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].min(0)
+                ]],
+            "fourStarsPrice": [this.country.fourStarsPrice, [
+                    __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required,
+                    __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].min(0)
+                ]],
+            "fiveStarsPrice": [this.country.fiveStarsPrice, [
+                    __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required,
+                    __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].min(0)
+                ]],
+            "description": [this.country.description, [
+                    __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required
+                ]],
+            "pageContent": [this.country.pageContent, [
+                    __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required
+                ]],
+            "category": [this.country.category, [
                     __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required
                 ]],
         });
@@ -173,8 +247,11 @@ var CountryComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/Administration/Content/Countries/Country/country.component.html"),
             styles: [__webpack_require__("../../../../../src/app/Administration/Content/Countries/Country/country.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__common_Services_tourType_service__["a" /* TourTypeService */],
-            __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormBuilder"]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__common_Services_tourType_service__["a" /* TourTypeService */],
+            __WEBPACK_IMPORTED_MODULE_4__administrationCommon_Services_country_service__["b" /* CountryService */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormBuilder"],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
     ], CountryComponent);
     return CountryComponent;
 }());
@@ -191,7 +268,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".country-text {\n  margin-bottom: 20px; }\n\n.countries-header h2 {\n  display: inline; }\n\n.countries-header a.link-big {\n  float: right;\n  line-height: 33px; }\n\n.countries-header a.link-big i {\n    font-size: 19px; }\n\n.counties-wrapper {\n  margin: 0 20px; }\n\n.counties-wrapper .country {\n    margin-bottom: 20px; }\n\n.counties-wrapper .country .image-description .country-image {\n      margin-top: 10px;\n      margin-right: 40px; }\n\n.counties-wrapper .country .image-description .country-image img {\n        width: 340px;\n        height: 250px; }\n\n.counties-wrapper .country .image-description .country-descriptions {\n      margin-top: 10px;\n      min-width: 200px; }\n\n.counties-wrapper .country .image-description .country-descriptions a.link-big i {\n        font-size: 19px; }\n\n.counties-wrapper .country .country-prices {\n      margin-top: 10px;\n      margin-right: 10px;\n      width: 220px; }\n\n.counties-wrapper .country .country-prices .hotels {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n        margin-bottom: 10px; }\n\n.counties-wrapper .country .country-prices .hotels li {\n          list-style-type: none; }\n\n.counties-wrapper .country .country-prices .hotels .stars {\n          margin-right: 5px; }\n\n.counties-wrapper .country .country-prices .hotels .stars .s {\n            background-image: url(/content/images/star.svg);\n            background-position: 14px 14px;\n            width: 14px;\n            height: 14px;\n            display: inline-block;\n            margin-top: 2px; }\n\n@media (min-width: 850px) {\n  .country {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 850px) {\n  .country {\n    display: block; } }\n\n@media (min-width: 600px) {\n  .country .image-description {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 600px) {\n  .country {\n    width: 340px;\n    margin: 0 auto 20px auto; }\n    .country .image-description {\n      display: block; } }\n\n", ""]);
+exports.push([module.i, ".country-text {\n  margin-bottom: 20px; }\n\n.countries-header h2 {\n  display: inline; }\n\n.countries-header a.link-big {\n  float: right;\n  line-height: 33px; }\n\n.countries-header a.link-big i {\n    font-size: 19px; }\n\n.counties-wrapper {\n  margin: 0 20px; }\n\n.counties-wrapper .country {\n    margin-bottom: 20px; }\n\n.counties-wrapper .country .image-description .country-image {\n      margin-top: 10px;\n      margin-right: 40px; }\n\n.counties-wrapper .country .image-description .country-image img {\n        width: 340px;\n        height: 250px; }\n\n.counties-wrapper .country .image-description .country-descriptions {\n      margin-top: 10px;\n      min-width: 200px;\n      max-width: 500px; }\n\n.counties-wrapper .country .image-description .country-descriptions a.link-big i {\n        font-size: 19px; }\n\n.counties-wrapper .country .country-prices {\n      margin-top: 10px;\n      margin-right: 10px;\n      min-width: 220px; }\n\n.counties-wrapper .country .country-prices .hotels {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n        margin-bottom: 10px; }\n\n.counties-wrapper .country .country-prices .hotels li {\n          list-style-type: none; }\n\n.counties-wrapper .country .country-prices .hotels .stars {\n          margin-right: 5px; }\n\n.counties-wrapper .country .country-prices .hotels .stars .s {\n            background-image: url(/content/images/star.svg);\n            background-position: 14px 14px;\n            width: 14px;\n            height: 14px;\n            display: inline-block;\n            margin-top: 2px; }\n\n@media (min-width: 850px) {\n  .country {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 850px) {\n  .country {\n    display: block; } }\n\n@media (min-width: 600px) {\n  .country .image-description {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 600px) {\n  .country {\n    width: 340px;\n    margin: 0 auto 20px auto; }\n    .country .image-description {\n      display: block; } }\n", ""]);
 
 // exports
 
@@ -204,7 +281,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Administration/Content/Countries/countries.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"counties-wrapper\">\r\n        <div class=\"countries-header\">\r\n            <h2>Страны</h2>\r\n            <a [routerLink]=\"[ '/administration/countries/new' ]\" class=\"link-big\">\r\n                <span>Новая страна</span>\r\n                <i class=\"fa fa-plus\" aria-hidden=\"true\"></i>\r\n            </a>\r\n        </div>\r\n        <div>\r\n            <div class=\"country\">\r\n                <div class=\"image-description\">\r\n                    <div class=\"country-image\">\r\n                        <img class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                    </div>\r\n                    <div class=\"country-descriptions\">\r\n                        <a [routerLink]=\"[ '/administration/countries/bali' ]\" class=\"link-big\">\r\n                            <span>Бали</span>\r\n                            <i class=\"fa fa-pencil\" aria-hidden=\"true\"></i>\r\n                        </a>\r\n                        <ul>\r\n                            <li>Все условия для релаксации</li>\r\n                            <li>Прекрасные песчаные пляжи</li>\r\n                            <li>SPA-центры. Аквапарки</li>\r\n                            <li>Водные виды спорта. Серфинг</li>\r\n                        </ul>\r\n                    </div>\r\n                </div>\r\n                <div class=\"country-prices\">\r\n                    <p>Отели:</p>\r\n                    <div class=\"hotels\">\r\n                        <div class=\"stars\">\r\n                            <ul>\r\n                                <li>\r\n                                    <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                                </li>\r\n                                <li>\r\n                                    <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                                </li>\r\n                                <li>\r\n                                    <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                                </li>\r\n                            </ul>\r\n                        </div>\r\n                        <div class=\"price\">\r\n                            <ul>\r\n                                <li>от <strong>1 998,00 р.</strong></li>\r\n                                <li>от <strong>1 480,00 р.</strong></li>\r\n                                <li>от <strong>1 618,00 р.</strong></li>\r\n                            </ul>\r\n                        </div>\r\n                    </div>\r\n                    <div>\r\n                        <strong>Пляжный отдых</strong>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"country\">\r\n                <div class=\"image-description\">\r\n                    <div class=\"country-image\">\r\n                        <img class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                    </div>\r\n                    <div class=\"country-descriptions\">\r\n                        <a class=\"link-big\">\r\n                            <span>Бали</span>\r\n                            <i class=\"fa fa-pencil\" aria-hidden=\"true\"></i>\r\n                        </a>\r\n                        <ul>\r\n                            <li>Все условия для релаксации</li>\r\n                            <li>Прекрасные песчаные пляжи</li>\r\n                            <li>SPA-центры. Аквапарки</li>\r\n                            <li>Водные виды спорта. Серфинг</li>\r\n                        </ul>\r\n                    </div>\r\n                </div>\r\n                <div class=\"country-prices\">\r\n                    <p>Отели:</p>\r\n                    <div class=\"hotels\">\r\n                        <div class=\"stars\">\r\n                            <ul>\r\n                                <li>\r\n                                    <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                                </li>\r\n                                <li>\r\n                                    <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                                </li>\r\n                                <li>\r\n                                    <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                                </li>\r\n                            </ul>\r\n                        </div>\r\n                        <div class=\"price\">\r\n                            <ul>\r\n                                <li>от <strong>1 998,00 р.</strong></li>\r\n                                <li>от <strong>1 480,00 р.</strong></li>\r\n                                <li>от <strong>1 618,00 р.</strong></li>\r\n                            </ul>\r\n                        </div>\r\n                    </div>\r\n                    <div>\r\n                        <strong>Пляжный отдых</strong>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"counties-wrapper\">\r\n        <div class=\"countries-header\">\r\n            <h2>Страны</h2>\r\n            <a [routerLink]=\"[ '/administration/countries/new' ]\" class=\"link-big\">\r\n                <span>Новая страна</span>\r\n                <i class=\"fa fa-plus\" aria-hidden=\"true\"></i>\r\n            </a>\r\n        </div>\r\n        <div>\r\n            <div class=\"country\" *ngFor=\"let country of countryCollection\">\r\n                <div class=\"image-description\">\r\n                    <div class=\"country-image\">\r\n                        <img class=\"counrty-image\" [src]=\"'/api/image/' + country.oldImageCollection[0]\" />\r\n                    </div>\r\n                    <div class=\"country-descriptions\">\r\n                        <a [routerLink]=\"[ '/administration/countries/' + country.category + '/' + country.urlName ]\" class=\"link-big\">\r\n                            <span [innerHtml]=\"country.name\"></span>\r\n                            <i class=\"fa fa-pencil\" aria-hidden=\"true\"></i>\r\n                        </a>\r\n                        <div [innerHtml]=\"country.description\"></div>\r\n                        <!--<ul>\r\n                            <li>Все условия для релаксации</li>\r\n                            <li>Прекрасные песчаные пляжи</li>\r\n                            <li>SPA-центры. Аквапарки</li>\r\n                            <li>Водные виды спорта. Серфинг</li>\r\n                        </ul>-->\r\n                    </div>\r\n                </div>\r\n                <div class=\"country-prices\">\r\n                    <p>Отели:</p>\r\n                    <div class=\"hotels\">\r\n                        <div class=\"stars\">\r\n                            <ul>\r\n                                <li>\r\n                                    <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                                </li>\r\n                                <li>\r\n                                    <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                                </li>\r\n                                <li>\r\n                                    <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                                </li>\r\n                            </ul>\r\n                        </div>\r\n                        <div class=\"price\">\r\n                            <ul>\r\n                                <li>от <strong [innerHtml]=\"country.fiveStarsPrice\"></strong> р.</li>\r\n                                <li>от <strong [innerHtml]=\"country.fourStarsPrice\"></strong> р.</li>\r\n                                <li>от <strong [innerHtml]=\"country.threeStarsPrice\"></strong> р.</li>\r\n                            </ul>\r\n                        </div>\r\n                    </div>\r\n                    <div>\r\n                        <strong [innerHtml]=\"getTourTypeName(country.category)\">Пляжный отдых</strong>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <!--<div class=\"country\">\r\n                <div class=\"image-description\">\r\n                    <div class=\"country-image\">\r\n                        <img class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                    </div>\r\n                    <div class=\"country-descriptions\">\r\n                        <a class=\"link-big\">\r\n                            <span>Бали</span>\r\n                            <i class=\"fa fa-pencil\" aria-hidden=\"true\"></i>\r\n                        </a>\r\n                        <ul>\r\n                            <li>Все условия для релаксации</li>\r\n                            <li>Прекрасные песчаные пляжи</li>\r\n                            <li>SPA-центры. Аквапарки</li>\r\n                            <li>Водные виды спорта. Серфинг</li>\r\n                        </ul>\r\n                    </div>\r\n                </div>\r\n                <div class=\"country-prices\">\r\n                    <p>Отели:</p>\r\n                    <div class=\"hotels\">\r\n                        <div class=\"stars\">\r\n                            <ul>\r\n                                <li>\r\n                                    <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                                </li>\r\n                                <li>\r\n                                    <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                                </li>\r\n                                <li>\r\n                                    <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                                </li>\r\n                            </ul>\r\n                        </div>\r\n                        <div class=\"price\">\r\n                            <ul>\r\n                                <li>от <strong>1 998,00 р.</strong></li>\r\n                                <li>от <strong>1 480,00 р.</strong></li>\r\n                                <li>от <strong>1 618,00 р.</strong></li>\r\n                            </ul>\r\n                        </div>\r\n                    </div>\r\n                    <div>\r\n                        <strong>Пляжный отдых</strong>\r\n                    </div>\r\n                </div>\r\n            </div>-->\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -215,6 +292,9 @@ module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"counties-wra
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CountriesComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_Services_tourType_service__ = __webpack_require__("../../../../../src/app/Common/Services/tourType.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__administrationCommon_Services_country_service__ = __webpack_require__("../../../../../src/app/Administration/Common/Services/country.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -226,10 +306,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
+
 var CountriesComponent = /** @class */ (function () {
-    function CountriesComponent(dialog) {
+    function CountriesComponent(dialog, tourTypeService, countryService) {
         this.dialog = dialog;
+        this.tourTypeService = tourTypeService;
+        this.countryService = countryService;
+        this.countryCollection = new Array();
     }
+    CountriesComponent.prototype.ngOnInit = function () {
+        this.tourTypes = this.tourTypeService.GetTourTypes();
+        this.getCountryCollection();
+    };
+    CountriesComponent.prototype.getCountryCollection = function () {
+        var _this = this;
+        this.countryService.getCountryCollection()
+            .subscribe(function (data) { return _this.countryCollection = data; });
+    };
+    CountriesComponent.prototype.getTourTypeName = function (tourTypeKey) {
+        var result = this.tourTypes.keys().filter(function (tt) { return tt == tourTypeKey; })[0];
+        return result;
+    };
     CountriesComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             moduleId: module.i,
@@ -237,7 +336,9 @@ var CountriesComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/Administration/Content/Countries/countries.component.html"),
             styles: [__webpack_require__("../../../../../src/app/Administration/Content/Countries/countries.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MatDialog */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MatDialog */],
+            __WEBPACK_IMPORTED_MODULE_2__common_Services_tourType_service__["a" /* TourTypeService */],
+            __WEBPACK_IMPORTED_MODULE_3__administrationCommon_Services_country_service__["b" /* CountryService */]])
     ], CountriesComponent);
     return CountriesComponent;
 }());
@@ -426,10 +527,10 @@ var TourComponent = /** @class */ (function () {
             selector: "tour",
             template: __webpack_require__("../../../../../src/app/Administration/Content/Tours/Tour/tour.component.html"),
             styles: [__webpack_require__("../../../../../src/app/Administration/Content/Tours/Tour/tour.component.css")],
-            providers: [__WEBPACK_IMPORTED_MODULE_3__administrationCommon_Services_country_service__["a" /* CountryService */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_3__administrationCommon_Services_country_service__["b" /* CountryService */]]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__common_Services_tourType_service__["a" /* TourTypeService */],
-            __WEBPACK_IMPORTED_MODULE_3__administrationCommon_Services_country_service__["a" /* CountryService */],
+            __WEBPACK_IMPORTED_MODULE_3__administrationCommon_Services_country_service__["b" /* CountryService */],
             __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormBuilder"]])
     ], TourComponent);
     return TourComponent;
@@ -750,12 +851,14 @@ var AdministrationComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__Content_Countries_Country_country_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Countries/Country/country.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__Content_Tours_tours_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Tours/tours.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__Content_Tours_Tour_tour_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Tours/Tour/tour.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__Common_Services_country_service__ = __webpack_require__("../../../../../src/app/Administration/Common/Services/country.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -786,10 +889,13 @@ var AdministrationModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_3__angular_forms__["ReactiveFormsModule"],
                 __WEBPACK_IMPORTED_MODULE_7__angular_material__["b" /* MatDialogModule */],
                 __WEBPACK_IMPORTED_MODULE_7__angular_material__["c" /* MatSelectModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_5_angular2_text_mask__["TextMaskModule"],
                 __WEBPACK_IMPORTED_MODULE_8__common_common_module__["a" /* CommonModule */],
-                __WEBPACK_IMPORTED_MODULE_6__angular_router__["a" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_9__administration_routes__["a" /* routes */])
+                __WEBPACK_IMPORTED_MODULE_6__angular_router__["c" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_9__administration_routes__["a" /* routes */])
+            ],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_19__Common_Services_country_service__["b" /* CountryService */]
             ],
             entryComponents: [],
             declarations: [
@@ -807,7 +913,7 @@ var AdministrationModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_10__administration_component__["a" /* AdministrationComponent */],
                 __WEBPACK_IMPORTED_MODULE_7__angular_material__["b" /* MatDialogModule */],
                 __WEBPACK_IMPORTED_MODULE_7__angular_material__["c" /* MatSelectModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* HttpModule */]
+                __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* HttpModule */]
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_10__administration_component__["a" /* AdministrationComponent */]]
         })
@@ -844,7 +950,11 @@ var routes = [
         component: __WEBPACK_IMPORTED_MODULE_1__Content_Countries_countries_component__["a" /* CountriesComponent */]
     },
     {
-        path: 'administration/countries/:country',
+        path: 'administration/countries/:tourType/:country',
+        component: __WEBPACK_IMPORTED_MODULE_2__Content_Countries_Country_country_component__["a" /* CountryComponent */]
+    },
+    {
+        path: 'administration/countries/new',
         component: __WEBPACK_IMPORTED_MODULE_2__Content_Countries_Country_country_component__["a" /* CountryComponent */]
     },
     {

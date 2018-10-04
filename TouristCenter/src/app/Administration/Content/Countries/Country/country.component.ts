@@ -1,8 +1,12 @@
-﻿import { Component, Injectable } from "@angular/core";
+﻿import { Component, Injectable, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { MatSelectModule } from '@angular/material';
+import { Router, ActivatedRoute } from '@angular/router';
+
 import { Dictionary } from "@common/Types/Dictionary";
-import { TourTypeService } from "@common/Services/tourType.service";
+import { TourTypeService } from "@common/Services/tourType.service"; 
+import { CountryService } from "@administrationCommon/Services/country.service";
+import { Country } from "@administrationCommon/Services/country.service";
 
 @Component({
     
@@ -11,22 +15,32 @@ import { TourTypeService } from "@common/Services/tourType.service";
     templateUrl: "country.component.html",
     styleUrls: ["country.component.css"]
 })
-export class CountryComponent {
+export class CountryComponent implements OnInit  {
+    private tourType: string;
+    private countryUrlName: string;
+
     public tourTypes: Dictionary;
     public category: string;
     public countryForm: FormGroup;
-    public imagesUrls: string[] = new Array<string>();
+    public country: Country = new Country();
+    public errorMessage: string;
 
     constructor(
         private tourTypeService: TourTypeService,
-        private fb: FormBuilder
+        private countryService: CountryService,
+        private fb: FormBuilder,
+        private activeRoute: ActivatedRoute,
+        private router: Router
     )
     {
         this.tourTypes = this.tourTypeService.GetTourTypes();
     }
 
     ngOnInit() {
+        this.setDataFromRoute(); 
+        this.getCountry();
         this.buildForm();
+        
     }
 
     public onSelectImage(event) {
@@ -36,47 +50,77 @@ export class CountryComponent {
             reader.readAsDataURL(event.target.files[0]);
 
             reader.onload = () => {
-                this.imagesUrls.push(reader.result);
+                this.country.newImageCollection.push(reader.result);
                 event.target.value = null;
             }
         }
     }
 
-    public removeImage(removeUrl){
-        this.imagesUrls = this.imagesUrls.filter(url => url != removeUrl);
+    public removeNewImage(removeUrl){
+        this.country.newImageCollection = this.country.newImageCollection.filter(url => url != removeUrl);
+    }
+
+    public removeOldImage(removeUrl){
+        this.country.oldImageCollection = this.country.oldImageCollection.filter(url => url != removeUrl);
+    }
+
+    public saveCountry(){
+        this.countryService.addCountry(this.country)
+      //TODO need notifcation
+      .subscribe(
+      () => 
+      {
+            this.router.navigate(['administration/countries'])
+      },
+      error => this.errorMessage = error);
+    }
+
+    private setDataFromRoute(){
+        this.activeRoute.params.subscribe(params => {
+            this.tourType = params['tourType'];
+            this.countryUrlName =  params['country'];
+        });
+    }
+
+    private getCountry()
+    {
+        if(this.countryUrlName)
+        {
+            this.countryService.getCountry(this.tourType, this.countryUrlName)
+            .subscribe(data => this.country = data);
+        }
     }
 
     private buildForm() {
         this.countryForm = this.fb.group({
-            //"name": [this.order.name, [
-            //    Validators.required,
-            //    //Validators.minLength(4),
-            //    //Validators.maxLength(15)
-            //]],
-            //"email": [this.order.email, [
-            //    Validators.required,
-            //    Validators.pattern("[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}")
-            //]],
-            //"countryCode": [this.order.countryCode, [
-            //    Validators.required
-            //]],
-            //"phone": [this.order.phone, [
-            //    Validators.required,
-            //    Validators.pattern("\\d+")
-            //]],
-            //"service": [this.order.service, [
-            //    Validators.required
-            //]],
-            //"isTechnicalTaskAvailable": [this.order.isTechnicalTaskAvailable, [
-            //    Validators.required
-            //]],
-            //"isNeedUrgently": [this.order.isNeedUrgently, [
-            //    Validators.required
-            //]],
-            //"description": [this.order.description, [
-            //    Validators.required
-            //]]
-            "category": [this.category, [
+            "name": [this.country.name, [
+                Validators.required,
+                //Validators.minLength(2),
+                //Validators.maxLength(15)
+            ]],
+            "urlName": [this.country.urlName, [
+                Validators.required,
+                Validators.pattern('^[a-zA-Z]+$')
+            ]],
+            "threeStarsPrice": [this.country.threeStarsPrice, [
+                Validators.required,
+                Validators.min(0)
+            ]],
+            "fourStarsPrice": [this.country.fourStarsPrice, [
+                Validators.required,
+                Validators.min(0)
+            ]],
+            "fiveStarsPrice": [this.country.fiveStarsPrice, [
+                Validators.required,
+                Validators.min(0)
+            ]],
+            "description": [this.country.description, [
+                Validators.required
+            ]],
+            "pageContent": [this.country.pageContent, [
+                Validators.required
+            ]],
+            "category": [this.country.category, [
                 Validators.required
             ]],
         });

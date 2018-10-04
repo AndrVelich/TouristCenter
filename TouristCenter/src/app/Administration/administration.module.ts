@@ -22,6 +22,7 @@ import { CountriesComponent } from "./Content/Countries/countries.component";
 import { CountryComponent } from "./Content/Countries/Country/country.component";
 import { ToursComponent } from "./Content/Tours/tours.component";
 import { TourComponent } from "./Content/Tours/Tour/tour.component";
+import { CountryService } from "./Common/Services/country.service";
 
 @NgModule({
     imports:
@@ -36,6 +37,10 @@ import { TourComponent } from "./Content/Tours/Tour/tour.component";
         CommonModule,
 
         RouterModule.forRoot(routes)
+    ],
+    providers: 
+    [
+        CountryService
     ],
     entryComponents:
     [],

@@ -5,31 +5,26 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using TouristCenter.Domain.Interfaces.Image.Managers;
 
 namespace TouristCenter.Controllers
 {
     public class ImageController : ApiController
     {
-        public ImageController()
+        private readonly IImageManager _imageManager;
+
+        public ImageController(IImageManager imageManager)
         {
-            
+            _imageManager = imageManager;
         }
 
-        [HttpGet()]
-        [ActionName("imageTest")]
-        public HttpResponseMessage GetImageTest()
+        public HttpResponseMessage Get(int id)
         {
-            string filePath = @"e:\MyApplications\TouristCenter\TouristCenter\Content\Images\beach_header.jpg";
-
+            var image = _imageManager.GetImage(id);
             var result = new HttpResponseMessage(HttpStatusCode.OK);
 
-            FileStream fileStream = new FileStream(filePath, FileMode.Open);
-            Image image = Image.FromStream(fileStream);
-            MemoryStream memoryStream = new MemoryStream();
-            image.Save(memoryStream, ImageFormat.Jpeg);
-
-            result.Content = new ByteArrayContent(memoryStream.ToArray());
-            result.Content.Headers.ContentType = new MediaTypeHeaderValue("image/jpeg");
+            result.Content = new ByteArrayContent(image.ImageData);
+            result.Content.Headers.ContentType = new MediaTypeHeaderValue(image.MimeType);
             return result; 
             
 
