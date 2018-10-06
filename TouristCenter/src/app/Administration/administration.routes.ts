@@ -4,6 +4,8 @@ import { CountriesComponent } from "./Content/Countries/countries.component";
 import { CountryComponent } from "./Content/Countries/Country/country.component";
 import { ToursComponent } from "./Content/Tours/tours.component";
 import { TourComponent } from "./Content/Tours/Tour/tour.component";
+import { PromotionsComponent } from "./Content/Promotions/promotions.component";
+import { PromotionComponent } from "./Content/Promotions/Promotion/promotion.component";
 
 export const routes: Routes = [
     {
@@ -27,7 +29,19 @@ export const routes: Routes = [
         component: ToursComponent
     },
     {
-        path: 'administration/tours/:tour',
+        path: 'administration/tours/new',
         component: TourComponent
+    },
+    {
+        path: 'administration/tours/:tourType/:country/:tour',
+        component: TourComponent
+    },
+    {
+        path: 'administration/promotions',
+        component: PromotionsComponent
+    },
+    {
+        path: 'administration/promotions/:promotion',
+        component: PromotionComponent
     }
 ];

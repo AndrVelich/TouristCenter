@@ -41,6 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Converters\TourTypesEnumConverter.cs" />
+    <Compile Include="Promotion\Managers\PromotionManager.cs" />
+    <Compile Include="Promotion\Models\Promotion.cs" />
+    <Compile Include="Tour\Managers\TourManager.cs" />
+    <Compile Include="Tour\Models\Tour.cs" />
     <Compile Include="Country\Managers\CountryManager.cs" />
     <Compile Include="Country\Models\Country.cs" />
     <Compile Include="Image\Managers\ImageManager.cs" />

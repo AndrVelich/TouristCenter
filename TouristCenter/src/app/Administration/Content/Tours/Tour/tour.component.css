@@ -71,4 +71,8 @@
       height: 100px; }
     .tours-wrapper .tour .content-fields .tour-content {
       height: 150px; }
-
+    .tours-wrapper .tour .actions {
+      margin: 15px 0; }
+      .tours-wrapper .tour .actions button {
+        width: 180px;
+        margin: 10px; }

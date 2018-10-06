@@ -17,18 +17,6 @@ export class CountryService{
         
     }
 
-    public GetCountries(){
-        
-        this.countries.add('bali', 'Бали');
-        this.countries.add('greece', 'Греция');
-        this.countries.add('corporate', 'Испания');
-        this.countries.add('individual', 'Индия');
-        this.countries.add('newYear', 'Морокко');
-        this.countries.add('skiing', 'Мексика');
-
-        return this.countries;
-    }
-
     public getCountryCollection(tourType?: string): Observable<Country[]>{
         return this.http.get('api/countries/' + (tourType || ''))
             .map((res: Response) => <Country[]>res.json())

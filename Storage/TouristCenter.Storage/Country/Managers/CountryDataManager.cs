@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Data.Entity.Migrations;
 using System.Data.Entity;
 using System.Linq;
 using TouristCenter.Storage.Context;
 using TouristCenter.Storage.Interfaces.Country.Managers;
 using CountryDataModel = TouristCenter.Storage.Interfaces.Country.Models.Country;
 using ImageDataModel = TouristCenter.Storage.Interfaces.Image.Models.Image;
-using System.Data.Entity.Infrastructure;
 
 namespace TouristCenter.Storage.Country.Managers
 {

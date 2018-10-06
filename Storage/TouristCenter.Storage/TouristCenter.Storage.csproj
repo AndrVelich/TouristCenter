@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\TouristCenterContext.cs" />
+    <Compile Include="Promotion\Managers\PromotionDataManager.cs" />
+    <Compile Include="Tour\Managers\TourDataManager.cs" />
     <Compile Include="Country\Managers\CountryDataManager.cs" />
     <Compile Include="Image\Managers\ImageDataManager.cs" />
     <Compile Include="Migrations\Configuration.cs" />

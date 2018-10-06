@@ -250,6 +250,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdministrationController.cs" />
+    <Compile Include="Controllers\PromotionController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
@@ -264,6 +265,7 @@
     <Compile Include="Helpers\Converters\TourTypesConverter.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Promotion\PromotionViewModel.cs" />
     <Compile Include="Models\Country\CountryViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MeViewModels.cs" />
@@ -350,7 +352,25 @@
     <Content Include="src\app\Administration\administration.component.min.css">
       <DependentUpon>administration.component.css</DependentUpon>
     </Content>
+    <Content Include="src\app\Administration\Common\Services\promotion.service.ts" />
+    <Content Include="src\app\Administration\Common\Services\tour.service.ts" />
     <Content Include="src\app\Administration\Common\Services\country.service.ts" />
+    <Content Include="src\app\Administration\Content\Promotions\promotions.component.css">
+      <DependentUpon>promotions.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Administration\Content\Promotions\promotions.component.html" />
+    <Content Include="src\app\Administration\Content\Promotions\promotions.component.min.css">
+      <DependentUpon>promotions.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Administration\Content\Promotions\promotions.component.ts" />
+    <Content Include="src\app\Administration\Content\Promotions\Promotion\promotion.component.css">
+      <DependentUpon>promotion.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Administration\Content\Promotions\Promotion\promotion.component.html" />
+    <Content Include="src\app\Administration\Content\Promotions\Promotion\promotion.component.min.css">
+      <DependentUpon>promotion.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Administration\Content\Promotions\Promotion\promotion.component.ts" />
     <Content Include="src\app\Administration\Content\Tours\tours.component.css">
       <DependentUpon>tours.component.scss</DependentUpon>
     </Content>
@@ -678,6 +698,8 @@
     <Content Include="src\app\Administration\Content\Countries\Country\country.component.scss" />
     <Content Include="src\app\Administration\Content\Tours\tours.component.scss" />
     <Content Include="src\app\Administration\Content\Tours\Tour\tour.component.scss" />
+    <Content Include="src\app\Administration\Content\Promotions\promotions.component.scss" />
+    <Content Include="src\app\Administration\Content\Promotions\Promotion\promotion.component.scss" />
     <None Include="src\app\Site\Header\header.component.scss" />
     <Content Include="src\app\Site\site.component.scss" />
     <Content Include="Views\Administration\Index.cshtml" />

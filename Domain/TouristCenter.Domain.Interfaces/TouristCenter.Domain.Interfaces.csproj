@@ -42,6 +42,24 @@
   <ItemGroup>
     <Compile Include="Common\Enums\TourTypesEnum.cs" />
     <Compile Include="Common\Exceptions\UnknownTourTypeException.cs" />
+    <Compile Include="Promotion\Exceptions\PromotionDescriptionNotValidException.cs" />
+    <Compile Include="Promotion\Exceptions\PromotionNameNotValidException.cs" />
+    <Compile Include="Promotion\Exceptions\PromotionNotFoundException.cs" />
+    <Compile Include="Promotion\Exceptions\PromotionNotUniqueException.cs" />
+    <Compile Include="Promotion\Exceptions\PromotionUntilDateNotValidException.cs" />
+    <Compile Include="Promotion\Exceptions\PromotionUrlNameNotValidException.cs" />
+    <Compile Include="Promotion\Managers\ICountryManager.cs" />
+    <Compile Include="Promotion\Models\ICountry.cs" />
+    <Compile Include="Tour\Exceptions\StarsNotValidException.cs" />
+    <Compile Include="Tour\Exceptions\TourDescriptionNotValidException.cs" />
+    <Compile Include="Tour\Exceptions\TourNameNotValidException.cs" />
+    <Compile Include="Tour\Exceptions\TourNotFoundException.cs" />
+    <Compile Include="Tour\Exceptions\TourNotUniqueException.cs" />
+    <Compile Include="Tour\Exceptions\TourPriceNotValidException.cs" />
+    <Compile Include="Tour\Exceptions\TourCityNotValidException.cs" />
+    <Compile Include="Tour\Exceptions\TourUrlNameNotValidException.cs" />
+    <Compile Include="Tour\Managers\ITourManager.cs" />
+    <Compile Include="Tour\Models\ITour.cs" />
     <Compile Include="Country\Exceptions\CountryNotFoundException.cs" />
     <Compile Include="Country\Exceptions\CountryNotUniqueException.cs" />
     <Compile Include="Country\Exceptions\CountryPageContentNotValidException.cs" />

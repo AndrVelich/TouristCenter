@@ -1,5 +1,5 @@
 ﻿import { Component, OnInit } from "@angular/core";
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatSelectModule, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Dictionary } from "@common/Types/Dictionary";
 import { TourTypeService } from "@common/Services/tourType.service"; 
 import { CountryService } from "@administrationCommon/Services/country.service";
@@ -19,6 +19,7 @@ import 'rxjs/add/operator/map';
 export class CountriesComponent implements OnInit {
     public errorMessage: string;
     public tourTypes: Dictionary;
+    public activeTourType: string;
     public countryCollection: Array<Country> = new Array<Country>();
 
     constructor(
@@ -32,15 +33,19 @@ export class CountriesComponent implements OnInit {
         this.getCountryCollection();
     }
 
-    private getCountryCollection()
+    private getCountryCollection(tourType?: string)
     {
-        this.countryService.getCountryCollection()
+        this.countryService.getCountryCollection(tourType)
         .subscribe(data => this.countryCollection = data);
     }
 
     public getTourTypeName(tourTypeKey){
         let result = this.tourTypes.keys().filter(tt => tt == tourTypeKey)[0];
         return result;
+    }
+
+    public tourTypeFiterChange(){
+        this.getCountryCollection(this.activeTourType);
     }
 
 }

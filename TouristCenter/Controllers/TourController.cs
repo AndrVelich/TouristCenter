@@ -1,57 +1,125 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
+using TouristCenter.Domain.Interfaces.Country.Managers;
+using TouristCenter.Domain.Interfaces.Image.Managers;
+using TouristCenter.Domain.Interfaces.Tour.Exceptions;
+using TouristCenter.Domain.Interfaces.Tour.Managers;
+using TouristCenter.Domain.Interfaces.Tour.Models;
+using TouristCenter.Helpers.Converters;
 using TouristCenter.Models.Tour;
 
 namespace TouristCenter.Controllers
 {
     public class TourController : ApiController
     {
-        //private readonly ITourManager _tourManager;
+        private readonly ITourManager _tourManager;
+        private readonly ICountryManager _countryManager;
+        private readonly IImageManager _imageManager;
 
-        public TourController(/*ITourManager tourManager*/)
+        public TourController(ITourManager tourManager,
+            ICountryManager countryManager,
+            IImageManager imageManager)
         {
-            //_tourManager = tourManager;
+            _tourManager = tourManager;
+            _countryManager = countryManager;
+            _imageManager = imageManager;
         }
 
-        public List<TourViewModel> Get()
+        [HttpGet]
+        [Route("api/tour/{tourType}/{countryUrl}/{tourUrl}")]
+        public TourViewModel GetTour(string tourType, string countryUrl, string tourUrl)
         {
-            var tour1 = new TourViewModel
+            var tourTypeDomain = TourTypesConverter.ConvertFromString(tourType);
+            var tour = _tourManager.GetTour(tourTypeDomain, countryUrl, tourUrl);
+            var tourViewModel = new TourViewModel(tour);
+
+            return tourViewModel;
+        }
+
+        [HttpGet]
+        [Route("api/tours/allTours")]
+        public List<TourViewModel> GetCollection()
+        {
+            var tours = _tourManager.GetTourCollection();
+
+            var result = tours.Select(c => new TourViewModel(c)).ToList();
+
+            return result;
+        }
+
+        [HttpGet]
+        [Route("api/tours/{tourType}")]
+        public List<TourViewModel> GetCollection(string tourType)
+        {
+            var domainTourType = TourTypesConverter.ConvertFromString(tourType);
+            var tours = _tourManager.GetTourCollection(domainTourType);
+            var result = tours.Select(c => new TourViewModel(c)).ToList();
+
+            return result;
+        }
+
+        [HttpGet]
+        [Route("api/tours/{tourType}/{countryUrl}")]
+        public List<TourViewModel> GetCollection(string tourType, string countryUrl)
+        {
+            var domainTourType = TourTypesConverter.ConvertFromString(tourType);
+            var tours = _tourManager.GetTourCollection(domainTourType, countryUrl);
+            var result = tours.Select(c => new TourViewModel(c)).ToList();
+
+            return result;
+        }
+
+        public void Post(TourViewModel tour)
+        {
+            ITour tourModel;
+            try
             {
-                Name = "Hotel1Name",
-                Description1 = "Hotel 1 Description",
-                Description2 = "Hotel 2 Description",
-                Description3 = "Hotel 3 Description",
-                Stars = 4,
-                Country = "Egypt",
-                City = "Hurghada",
-                Price = 1200,
-                DaysCount = 7,
-                IsTransferIncluded = true,
-
-                ImageIdCollection = new List<string>(),
-            };
-            var tour2 = new TourViewModel
+                tourModel = _tourManager.GetTour(tour.TourId);
+                tourModel.Name = tour.Name;
+                tourModel.UrlName = tour.UrlName;
+                tourModel.City = tour.City;
+                tourModel.Category = TourTypesConverter.ConvertFromString(tour.Category);
+                tourModel.Price = tour.Price;
+                tourModel.Stars = tour.Stars;
+                tourModel.Description = tour.Description;
+                tourModel.Country = tour.Country;
+                tourModel.Nights = tour.Nights;
+                tourModel.IsFlightIncluded = tour.IsFlightIncluded;
+            }
+            catch (TourNotFoundException)
             {
-                Name = "Hotel2Name",
-                Description1 = "Hotel 21 Description",
-                Description2 = "Hotel 22 Description",
-                Description3 = "Hotel 23 Description",
-                Stars = 4,
-                Country = "Egypt2",
-                City = "Hurghada2",
-                Price = 2000,
-                DaysCount = 8,
-                IsTransferIncluded = true,
+                tourModel = _tourManager.CreateTour(
+                        tour.Name,
+                        tour.UrlName,
+                        tour.City,
+                        TourTypesConverter.ConvertFromString(tour.Category),
+                        tour.Price,
+                        tour.Stars,
+                        tour.Description,
+                        tour.Country,
+                        tour.Nights,
+                        tour.IsFlightIncluded
+                    );
+            }
 
-                ImageIdCollection = new List<string>(),
-            
-            };
+            var imageForDeleteCollection = tourModel.ImageCollection.Where(im => !tour.OldImageCollection.Contains(im.ImageId)).ToList();
 
-            var tourCollection = new List<TourViewModel>();
-            tourCollection.Add(tour1);
-            tourCollection.Add(tour2);
+            foreach (var newImage in tour.NewImageCollection)
+            {
+                var mimeType = ImageConverter.GetImageMimeType(newImage);
+                var imageData = ImageConverter.GetImageData(newImage);
 
-            return tourCollection;
+                tourModel.AddImage(imageData, mimeType);
+            }
+
+            foreach (var newImage in imageForDeleteCollection)
+            {
+                tourModel.DeleteImage(newImage);
+            }
+
+            tourModel.Save();
         }
     }
 }
+

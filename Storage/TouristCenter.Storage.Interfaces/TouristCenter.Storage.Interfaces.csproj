@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Promotion\Managers\IPromotionDataManager.cs" />
+    <Compile Include="Promotion\Models\Promotion.cs" />
+    <Compile Include="Tour\Managers\ITourDataManager.cs" />
+    <Compile Include="Tour\Models\Tour.cs" />
     <Compile Include="Country\Managers\ICountryDataManager.cs" />
     <Compile Include="Country\Models\Country.cs" />
     <Compile Include="Image\Managers\IImageDataManager.cs" />

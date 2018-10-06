@@ -7,11 +7,22 @@
                 <i class="fa fa-plus" aria-hidden="true"></i>
             </a>
         </div>
+        <div class="country-filter">
+            <mat-select [(ngModel)]="activeTourType"
+                        (change)="tourTypeFiterChange()"
+                        placeholder="Выберите...">
+                <mat-option *ngFor="let tourTypeKey of tourTypes.keys()" [value]="tourTypeKey">
+                    {{ tourTypes[tourTypeKey] }}
+                </mat-option>
+            </mat-select>
+        </div>
         <div>
             <div class="country" *ngFor="let country of countryCollection">
                 <div class="image-description">
                     <div class="country-image">
-                        <img class="counrty-image" [src]="'/api/image/' + country.oldImageCollection[0]" />
+                        <div class="image"
+                             [style.background]="'url(/api/image/' + country.oldImageCollection[0] + ')'">
+                        </div>
                     </div>
                     <div class="country-descriptions">
                         <a [routerLink]="[ '/administration/countries/' + country.category + '/' + country.urlName ]" class="link-big">
@@ -19,12 +30,6 @@
                             <i class="fa fa-pencil" aria-hidden="true"></i>
                         </a>
                         <div [innerHtml]="country.description"></div>
-                        <!--<ul>
-                            <li>Все условия для релаксации</li>
-                            <li>Прекрасные песчаные пляжи</li>
-                            <li>SPA-центры. Аквапарки</li>
-                            <li>Водные виды спорта. Серфинг</li>
-                        </ul>-->
                     </div>
                 </div>
                 <div class="country-prices">
@@ -56,53 +61,6 @@
                     </div>
                 </div>
             </div>
-            <!--<div class="country">
-                <div class="image-description">
-                    <div class="country-image">
-                        <img class="counrty-image" src="/Content/Images/tour_category_test1.jpg" />
-                    </div>
-                    <div class="country-descriptions">
-                        <a class="link-big">
-                            <span>Бали</span>
-                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                        </a>
-                        <ul>
-                            <li>Все условия для релаксации</li>
-                            <li>Прекрасные песчаные пляжи</li>
-                            <li>SPA-центры. Аквапарки</li>
-                            <li>Водные виды спорта. Серфинг</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="country-prices">
-                    <p>Отели:</p>
-                    <div class="hotels">
-                        <div class="stars">
-                            <ul>
-                                <li>
-                                    <span class="s"></span><span class="s"></span><span class="s"></span><span class="s"></span><span class="s"></span>
-                                </li>
-                                <li>
-                                    <span class="s"></span><span class="s"></span><span class="s"></span><span class="s"></span>
-                                </li>
-                                <li>
-                                    <span class="s"></span><span class="s"></span><span class="s"></span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="price">
-                            <ul>
-                                <li>от <strong>1 998,00 р.</strong></li>
-                                <li>от <strong>1 480,00 р.</strong></li>
-                                <li>от <strong>1 618,00 р.</strong></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div>
-                        <strong>Пляжный отдых</strong>
-                    </div>
-                </div>
-            </div>-->
         </div>
     </div>
 </div>

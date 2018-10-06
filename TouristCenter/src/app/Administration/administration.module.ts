@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import { TextMaskModule } from 'angular2-text-mask';
 import { RouterModule } from "@angular/router";
@@ -9,6 +9,8 @@ import { RouterModule } from "@angular/router";
 import {
   MatDialogModule,
   MatSelectModule,
+  MatDatepickerModule,
+  MatNativeDateModule 
 } from '@angular/material';
 
 import { CommonModule } from "@common/common.module";
@@ -20,9 +22,14 @@ import { ContentComponent } from "./Content/content.component";
 import { HomeComponent } from "./Content/Home/home.component";
 import { CountriesComponent } from "./Content/Countries/countries.component";
 import { CountryComponent } from "./Content/Countries/Country/country.component";
+import { PromotionsComponent } from "./Content/Promotions/promotions.component";
+import { PromotionComponent } from "./Content/Promotions/Promotion/promotion.component";
 import { ToursComponent } from "./Content/Tours/tours.component";
 import { TourComponent } from "./Content/Tours/Tour/tour.component";
+
 import { CountryService } from "./Common/Services/country.service";
+import { TourService } from "./Common/Services/tour.service";
+import { PromotionService } from "./Common/Services/promotion.service";
 
 @NgModule({
     imports:
@@ -30,8 +37,13 @@ import { CountryService } from "./Common/Services/country.service";
         BrowserModule,
         BrowserAnimationsModule,
         ReactiveFormsModule,
+        FormsModule,
+
         MatDialogModule,
         MatSelectModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+
         HttpModule,
         TextMaskModule,
         CommonModule,
@@ -40,7 +52,9 @@ import { CountryService } from "./Common/Services/country.service";
     ],
     providers: 
     [
-        CountryService
+        CountryService,
+        TourService,
+        PromotionService
     ],
     entryComponents:
     [],
@@ -54,7 +68,9 @@ import { CountryService } from "./Common/Services/country.service";
         CountriesComponent,
         CountryComponent,
         ToursComponent,
-        TourComponent
+        TourComponent,
+        PromotionsComponent,
+        PromotionComponent
     ],
     exports: [
         AdministrationComponent,

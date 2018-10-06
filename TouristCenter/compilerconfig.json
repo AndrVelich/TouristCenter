@@ -142,5 +142,17 @@
   {
     "outputFile": "src/app/Administration/Content/Tours/Tour/tour.component.css",
     "inputFile": "src/app/Administration/Content/Tours/Tour/tour.component.scss"
+  },
+  {
+    "outputFile": "src/app/Administration/Content/Promotions/promotion.component.css",
+    "inputFile": "src/app/Administration/Content/Promotions/promotion.component.scss"
+  },
+  {
+    "outputFile": "src/app/Administration/Content/Promotions/promotion/promotion.component.css",
+    "inputFile": "src/app/Administration/Content/Promotions/promotion/promotion.component.scss"
+  },
+  {
+    "outputFile": "src/app/Administration/Content/Promotions/promotions.component.css",
+    "inputFile": "src/app/Administration/Content/Promotions/promotions.component.scss"
   }
 ]

@@ -8,6 +8,7 @@ namespace TouristCenter.Storage.Interfaces.Country.Models
         public Country()
         {
             Images = new HashSet<Image.Models.Image>();
+            Tours = new HashSet<Tour.Models.Tour>();
         }
 
         [Required]
@@ -41,5 +42,6 @@ namespace TouristCenter.Storage.Interfaces.Country.Models
         public string PageContent { get; set; }
 
         public virtual ICollection<Image.Models.Image> Images { get; set; }
+        public virtual ICollection<Tour.Models.Tour> Tours { get; set; }
     }
 }
