@@ -9,7 +9,7 @@ namespace TouristCenter.Helpers.Converters
         private const string bus = "bus";
         private const string corporate = "corporate";
         private const string individual = "individual";
-        private const string newYear = "newYear";
+        private const string newYear = "newyear";
         private const string skiing = "skiing";
 
         public static string ConvertToString(TourTypesEnum tourType)
@@ -34,6 +34,7 @@ namespace TouristCenter.Helpers.Converters
 
         public static TourTypesEnum ConvertFromString(string tourType)
         {
+            tourType = tourType.ToLower();
             switch (tourType)
             {
                 case beach:

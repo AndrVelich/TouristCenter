@@ -438,8 +438,9 @@
     <Content Include="src\app\app.module.ts" />
     <Content Include="src\app\Common\common.module.ts" />
     <Content Include="src\app\Common\Types\Dictionary.ts" />
-    <Content Include="src\app\Site\Common\Services\Models\tour.ts" />
-    <Content Include="src\app\Site\Common\Services\tourService.ts" />
+    <Content Include="src\app\Site\Common\Services\country.service.ts" />
+    <Content Include="src\app\Site\Common\Services\promotion.service.ts" />
+    <Content Include="src\app\Site\Common\Services\tour.service.ts" />
     <Content Include="src\app\Site\Content\ImagesPopup\imagesPopup.component.css">
       <DependentUpon>imagesPopup.component.scss</DependentUpon>
     </Content>
@@ -568,6 +569,14 @@
       <DependentUpon>tourTypes.component.css</DependentUpon>
     </Content>
     <Content Include="src\app\Site\Content\TourTypes\tourTypes.component.ts" />
+    <Content Include="src\app\Site\Countries\countries.component.css">
+      <DependentUpon>countries.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Countries\countries.component.html" />
+    <Content Include="src\app\Site\Countries\countries.component.min.css">
+      <DependentUpon>countries.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Countries\countries.component.ts" />
     <Content Include="src\app\Site\Footer\footer.component.css">
       <DependentUpon>footer.component.scss</DependentUpon>
     </Content>
@@ -612,6 +621,14 @@
     <Content Include="src\app\Site\Order\order.component.ts" />
     <Content Include="src\app\Site\Order\order.service.ts" />
     <Content Include="src\app\Site\Order\order.ts" />
+    <Content Include="src\app\Site\Tours\tours.component.css">
+      <DependentUpon>tours.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Tours\tours.component.html" />
+    <Content Include="src\app\Site\Tours\tours.component.min.css">
+      <DependentUpon>tours.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Tours\tours.component.ts" />
     <Content Include="src\environments\environment.prod.ts" />
     <Content Include="src\environments\environment.ts" />
     <Content Include="src\favicon.ico" />
@@ -700,9 +717,11 @@
     <Content Include="src\app\Administration\Content\Tours\Tour\tour.component.scss" />
     <Content Include="src\app\Administration\Content\Promotions\promotions.component.scss" />
     <Content Include="src\app\Administration\Content\Promotions\Promotion\promotion.component.scss" />
+    <Content Include="src\app\Site\Countries\countries.component.scss" />
     <None Include="src\app\Site\Header\header.component.scss" />
     <Content Include="src\app\Site\site.component.scss" />
     <Content Include="Views\Administration\Index.cshtml" />
+    <Content Include="src\app\Site\Tours\tours.component.scss" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { OrderComponent } from '@siteModule/Order/order.component';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
     
@@ -11,13 +11,4 @@ import { OrderComponent } from '@siteModule/Order/order.component';
 })
 export class BeachCountryComponent {
 
-    constructor(
-        public dialog: MatDialog)
-    {
-        
-    }
-
-    public openOrderPopup() {
-        let dialogRef = this.dialog.open(OrderComponent);
-    }
 }

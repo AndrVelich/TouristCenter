@@ -1,0 +1,117 @@
+﻿.country-text {
+    margin-bottom: 20px;
+}
+
+.counties-wrapper {
+    margin: 0 20px;
+
+    .country {
+        margin-bottom: 20px;
+
+        .image-description {
+
+            .country-image {
+                display: block;
+
+                .image {
+                    background-size: cover !important;
+                    background-repeat: no-repeat !important;
+                    background-position: center !important;
+                    padding-top: 50%;
+                    text-align: center;
+                    display: block;
+                }
+            }
+
+            .country-descriptions {
+                margin-top: 10px;
+                margin-right: 40px;
+                min-width: 200px;
+            }
+        }
+
+        .country-prices {
+            margin-top: 10px;
+            margin-right: 10px;
+            min-width: 220px;
+            max-width: 320px;
+
+            .hotels {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 10px;
+
+                li {
+                    list-style-type: none;
+                }
+
+                .stars {
+                    margin-right: 5px;
+
+                    .s {
+                        background-image: url(/content/images/star.svg);
+                        background-position: 14px 14px;
+                        width: 14px;
+                        height: 14px;
+                        display: inline-block;
+                        margin-top: 2px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media (min-width: 850px) {
+    .country {
+        display: flex;
+        justify-content: space-between;
+
+
+    }
+}
+
+@media (max-width: 850px) {
+    .country {
+        display: block;
+    }
+}
+
+@media (min-width: 600px) {
+    .country {
+
+        .image-description {
+            display: flex;
+            justify-content: space-between;
+
+            .country-image {
+                margin-top: 10px;
+                margin-right: 40px;
+
+                .image {
+                    width: 340px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .country {
+        width: 100%;
+        margin: 0 0 20px 0;
+
+        .image-description {
+            display: block;
+
+            .country-image {
+                margin-top: 10px 0 0 0;
+
+                .image {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

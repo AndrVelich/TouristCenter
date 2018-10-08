@@ -1,23 +1,24 @@
 ﻿<div class="width-wrapper">
-    <div class="text-wrapper promotion-text">
-        АКЦИИ и СПЕЦПРЕДЛОЖЕНИЯ
-    </div>
     <div class="promotions-wrapper">
-        <div class="promotion" style="background-image:url(/Content/Images/promotions_test1.jpg)">
+        <div class="promotion" 
+             [style.background]="'url(/api/image/' + promotion.oldImageCollection[0] + ')'">
             <div class="promotion-name">
-                <a class="link-big">«Счастливые часы на Экзотику»</a>
+                <a class="link-big"
+                   [innerHtml]="promotion.name"></a>
             </div>
 
             <div class="promotion-descriptions">
-                <a class="btn btn-info">Принять участие</a>
-                <div class="until-date"> Действует до <span>30.09.2018</span></div>
+                <a class="btn btn-info"
+                   (click)="openOrderPopup()">Принять участие</a>
+                <div class="until-date"> Действует до <strong>{{promotion.untilDate | date: 'yyyy-MM-dd'}}</strong></div>
             </div>
         </div>
         <div>
-            <p>
-                Привозите интересные магнитики из отпуска нам, а мы в свою очередь будем дарить подарки Вам. Каждый наш турист, который привезет нам магнитик, получит вкуснейший шоколадный подарок!
+            <p [innerHtml]="promotion.description">
             </p>
-            <a class="btn btn-info">Принять участие</a>
+            <a
+               (click)="openOrderPopup()"
+               class="btn btn-info">Принять участие</a>
         </div>
     </div>
 </div>

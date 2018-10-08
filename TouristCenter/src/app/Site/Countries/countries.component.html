@@ -1,0 +1,46 @@
+﻿<div class="counties-wrapper">
+    <div class="country" *ngFor="let country of countryCollection">
+        <div class="image-description">
+            <div class="country-image">
+                <a [routerLink]="[ '/tour/' + country.category + '/' + country.urlName ]"
+                   class="image"
+                     [style.background]="'url(/api/image/' + country.oldImageCollection[0] + ')'">
+                </a>
+            </div>
+            <div class="country-descriptions">
+                <a [routerLink]="[ '/tour/' + country.category + '/' + country.urlName ]"
+                   class="link-big">
+                    <span [innerHtml]="country.name"></span>
+                </a>
+                <div [innerHtml]="country.description"></div>
+            </div>
+        </div>
+        <div class="country-prices">
+            <p>Отели:</p>
+            <div class="hotels">
+                <div class="stars">
+                    <ul>
+                        <li>
+                            <span class="s"></span><span class="s"></span><span class="s"></span><span class="s"></span><span class="s"></span>
+                        </li>
+                        <li>
+                            <span class="s"></span><span class="s"></span><span class="s"></span><span class="s"></span>
+                        </li>
+                        <li>
+                            <span class="s"></span><span class="s"></span><span class="s"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="price">
+                    <ul>
+                        <li>от <strong [innerHtml]="country.fiveStarsPrice"></strong> р.</li>
+                        <li>от <strong [innerHtml]="country.fourStarsPrice"></strong> р.</li>
+                        <li>от <strong [innerHtml]="country.threeStarsPrice"></strong> р.</li>
+                    </ul>
+                </div>
+            </div>
+            <a (click)="openOrderPopup()" 
+               class="btn btn-info">Подробнее</a>
+        </div>
+    </div>
+</div>

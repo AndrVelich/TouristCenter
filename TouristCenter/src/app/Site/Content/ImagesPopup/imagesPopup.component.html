@@ -1,9 +1,12 @@
 <div class="images-popup-wrapper">
-    <div class="arrow to-left">
+    <div *ngIf="isPreviousAvailable()"
+         (click)="toPrevious()"
+         class="arrow to-left">
     </div>
-    <!--<img  [src]="imagePath" />-->
-    <img src="/content/images/beach_header.jpg" />
-    <div class="arrow to-right">
+    <img [src]="getImagePath()" />
+    <div *ngIf="isNextAvailable()"
+         (click)="toNext()" 
+         class="arrow to-right">
     </div>
     <div class="cross-close" (click)="onNoClick()">
     </div>

@@ -3,12 +3,13 @@
   text-align: center; }
 
 .promotions-wrapper {
-  margin: 0 20px; }
+  margin: 0 auto;
+  max-width: 900px; }
   .promotions-wrapper .promotion {
     position: relative;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
     padding-top: 40%;
     text-align: center;
     display: block;
@@ -42,4 +43,3 @@
   .promotion {
     width: 340px;
     margin: 0 auto 20px auto; } }
-

@@ -98,7 +98,6 @@ var TourTypeService = /** @class */ (function () {
     }
     TourTypeService.prototype.FillTourTypes = function () {
         this.tourTypes.add('beach', 'Пляжный отдых');
-        this.tourTypes.add('bus', 'Автобусные туры');
         this.tourTypes.add('corporate', 'Корпоративные туры');
         this.tourTypes.add('individual', 'Индивидуальные туры');
         this.tourTypes.add('newYear', 'Новогодние туры');
@@ -200,6 +199,233 @@ var CommonModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/Site/Common/Services/country.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return CountryService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Country; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_Types_Dictionary__ = __webpack_require__("../../../../../src/app/Common/Types/Dictionary.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__ = __webpack_require__("../../../../rxjs/_esm5/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/catch.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+//import {Observable} from 'rxjs/Rx';
+
+
+var CountryService = /** @class */ (function () {
+    function CountryService(http) {
+        this.http = http;
+        this.url = '/api/country';
+        this.countries = new __WEBPACK_IMPORTED_MODULE_1__common_Types_Dictionary__["a" /* Dictionary */]();
+    }
+    CountryService.prototype.getCountryCollection = function (tourType) {
+        return this.http.get('api/countries/' + (tourType || ''))
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
+    };
+    CountryService.prototype.getCountry = function (tourType, countryUrlName) {
+        return this.http.get('api/country/' + tourType + '/' + countryUrlName)
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
+    };
+    CountryService.prototype.handleError = function (error, cought) {
+        var message = "";
+        if (error instanceof __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Response */]) {
+            var errorData = error.json().error || JSON.stringify(error.json());
+            message = error.status + " - " + (error.statusText || '') + " " + errorData;
+        }
+        else {
+            message = error.message ? error.message : error.toString();
+        }
+        console.error(message);
+        return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(message);
+    };
+    CountryService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
+    ], CountryService);
+    return CountryService;
+}());
+
+var Country = /** @class */ (function () {
+    function Country() {
+        this.newImageCollection = new Array();
+        this.oldImageCollection = new Array();
+    }
+    return Country;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/Site/Common/Services/promotion.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return PromotionService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Promotion; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__("../../../../rxjs/_esm5/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/catch.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+//import {Observable} from 'rxjs/Rx';
+
+
+var PromotionService = /** @class */ (function () {
+    function PromotionService(http) {
+        this.http = http;
+        this.url = '/api/promotion';
+    }
+    PromotionService.prototype.getPromotionCollection = function () {
+        return this.http.get('api/promotions')
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
+    };
+    PromotionService.prototype.getPromotion = function (promotionUrlName) {
+        return this.http.get('api/promotion/' + promotionUrlName)
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
+    };
+    PromotionService.prototype.handleError = function (error, cought) {
+        var message = "";
+        if (error instanceof __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Response */]) {
+            var errorData = error.json().error || JSON.stringify(error.json());
+            message = error.status + " - " + (error.statusText || '') + " " + errorData;
+        }
+        else {
+            message = error.message ? error.message : error.toString();
+        }
+        console.error(message);
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["a" /* Observable */].throw(message);
+    };
+    PromotionService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+    ], PromotionService);
+    return PromotionService;
+}());
+
+var Promotion = /** @class */ (function () {
+    function Promotion() {
+        this.newImageCollection = new Array();
+        this.oldImageCollection = new Array();
+    }
+    return Promotion;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/Site/Common/Services/tour.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TourService; });
+/* unused harmony export Tour */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_Types_Dictionary__ = __webpack_require__("../../../../../src/app/Common/Types/Dictionary.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__ = __webpack_require__("../../../../rxjs/_esm5/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/catch.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+//import {Observable} from 'rxjs/Rx';
+
+
+var TourService = /** @class */ (function () {
+    function TourService(http) {
+        this.http = http;
+        this.countries = new __WEBPACK_IMPORTED_MODULE_1__common_Types_Dictionary__["a" /* Dictionary */]();
+        this.url = 'api/tour/';
+    }
+    TourService.prototype.getTourCollection = function (tourType, country) {
+        return this.http.get('api/tours/' + tourType + '/' + (country || ''))
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
+    };
+    TourService.prototype.getAllTourCollection = function () {
+        return this.http.get('api/tours/allTours')
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
+    };
+    TourService.prototype.getTour = function (tourType, countryUrlName, tourUrlName) {
+        return this.http.get(this.url + tourType + '/' + countryUrlName + '/' + tourUrlName)
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
+    };
+    TourService.prototype.handleError = function (error, cought) {
+        var message = "";
+        if (error instanceof __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Response */]) {
+            var errorData = error.json().error || JSON.stringify(error.json());
+            message = error.status + " - " + (error.statusText || '') + " " + errorData;
+        }
+        else {
+            message = error.message ? error.message : error.toString();
+        }
+        console.error(message);
+        return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(message);
+    };
+    TourService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
+    ], TourService);
+    return TourService;
+}());
+
+var Tour = /** @class */ (function () {
+    function Tour() {
+        this.newImageCollection = new Array();
+        this.oldImageCollection = new Array();
+    }
+    return Tour;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/Site/Content/Home/home.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -293,7 +519,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Site/Content/ImagesPopup/imagesPopup.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"images-popup-wrapper\">\r\n    <div class=\"arrow to-left\">\r\n    </div>\r\n    <!--<img  [src]=\"imagePath\" />-->\r\n    <img src=\"/content/images/beach_header.jpg\" />\r\n    <div class=\"arrow to-right\">\r\n    </div>\r\n    <div class=\"cross-close\" (click)=\"onNoClick()\">\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"images-popup-wrapper\">\r\n    <div *ngIf=\"isPreviousAvailable()\"\r\n         (click)=\"toPrevious()\"\r\n         class=\"arrow to-left\">\r\n    </div>\r\n    <img [src]=\"getImagePath()\" />\r\n    <div *ngIf=\"isNextAvailable()\"\r\n         (click)=\"toNext()\" \r\n         class=\"arrow to-right\">\r\n    </div>\r\n    <div class=\"cross-close\" (click)=\"onNoClick()\">\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -326,6 +552,29 @@ var ImagesPopupComponent = /** @class */ (function () {
         this.renderer.addClass(document.body, 'modal-open');
     }
     ImagesPopupComponent.prototype.ngOnInit = function () {
+        this.index = 0;
+    };
+    ImagesPopupComponent.prototype.toPrevious = function () {
+        if (this.isPreviousAvailable()) {
+            --this.index;
+        }
+    };
+    ImagesPopupComponent.prototype.toNext = function () {
+        if (this.isNextAvailable()) {
+            ++this.index;
+        }
+    };
+    ImagesPopupComponent.prototype.isNextAvailable = function () {
+        var result = this.index < this.data.length - 1;
+        return result;
+    };
+    ImagesPopupComponent.prototype.isPreviousAvailable = function () {
+        var result = this.index > 0;
+        return result;
+    };
+    ImagesPopupComponent.prototype.getImagePath = function () {
+        var result = '/api/image/' + this.data[this.index];
+        return result;
     };
     ImagesPopupComponent.prototype.onNoClick = function () {
         this.dialogRef.close();
@@ -340,7 +589,9 @@ var ImagesPopupComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/Site/Content/ImagesPopup/imagesPopup.component.css")]
         }),
         __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MatDialogRef */], Object, __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer2"]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MatDialogRef */],
+            Array,
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer2"]])
     ], ImagesPopupComponent);
     return ImagesPopupComponent;
 }());
@@ -370,7 +621,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Site/Content/Promotions/PromotionDetails/promotionDetails.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper promotion-text\">\r\n        АКЦИИ и СПЕЦПРЕДЛОЖЕНИЯ\r\n    </div>\r\n    <div class=\"promotions-wrapper\">\r\n        <div class=\"promotion\" style=\"background-image:url(/Content/Images/promotions_test1.jpg)\">\r\n            <div class=\"promotion-name\">\r\n                <a class=\"link-big\">«Счастливые часы на Экзотику»</a>\r\n            </div>\r\n\r\n            <div class=\"promotion-descriptions\">\r\n                <a class=\"btn btn-info\">Принять участие</a>\r\n                <div class=\"until-date\"> Действует до <span>30.09.2018</span></div>\r\n            </div>\r\n        </div>\r\n        <div>\r\n            <p>\r\n                Привозите интересные магнитики из отпуска нам, а мы в свою очередь будем дарить подарки Вам. Каждый наш турист, который привезет нам магнитик, получит вкуснейший шоколадный подарок!\r\n            </p>\r\n            <a class=\"btn btn-info\">Принять участие</a>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"promotions-wrapper\">\r\n        <div class=\"promotion\" \r\n             [style.background]=\"'url(/api/image/' + promotion.oldImageCollection[0] + ')'\">\r\n            <div class=\"promotion-name\">\r\n                <a class=\"link-big\"\r\n                   [innerHtml]=\"promotion.name\"></a>\r\n            </div>\r\n\r\n            <div class=\"promotion-descriptions\">\r\n                <a class=\"btn btn-info\"\r\n                   (click)=\"openOrderPopup()\">Принять участие</a>\r\n                <div class=\"until-date\"> Действует до <strong>{{promotion.untilDate | date: 'yyyy-MM-dd'}}</strong></div>\r\n            </div>\r\n        </div>\r\n        <div>\r\n            <p [innerHtml]=\"promotion.description\">\r\n            </p>\r\n            <a\r\n               (click)=\"openOrderPopup()\"\r\n               class=\"btn btn-info\">Принять участие</a>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -381,7 +632,9 @@ module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PromotionDetailsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Order_order_component__ = __webpack_require__("../../../../../src/app/Site/Order/order.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Order_order_component__ = __webpack_require__("../../../../../src/app/Site/Order/order.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__siteCommon_Services_promotion_service__ = __webpack_require__("../../../../../src/app/Site/Common/Services/promotion.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -394,12 +647,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
 var PromotionDetailsComponent = /** @class */ (function () {
-    function PromotionDetailsComponent(dialog) {
+    function PromotionDetailsComponent(dialog, promotionService, activeRoute, router) {
         this.dialog = dialog;
+        this.promotionService = promotionService;
+        this.activeRoute = activeRoute;
+        this.router = router;
+        this.promotion = new __WEBPACK_IMPORTED_MODULE_4__siteCommon_Services_promotion_service__["a" /* Promotion */]();
     }
+    PromotionDetailsComponent.prototype.ngOnInit = function () {
+        this.setDataFromRoute();
+        this.getPromotion();
+    };
+    PromotionDetailsComponent.prototype.setDataFromRoute = function () {
+        var _this = this;
+        this.activeRoute.params.subscribe(function (params) {
+            _this.promotion.urlName = params['promotion'];
+        });
+    };
+    PromotionDetailsComponent.prototype.getPromotion = function () {
+        var _this = this;
+        this.promotionService.getPromotion(this.promotion.urlName)
+            .subscribe(function (data) { return _this.promotion = data; });
+    };
     PromotionDetailsComponent.prototype.openOrderPopup = function () {
-        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_2__Order_order_component__["a" /* OrderComponent */]);
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__Order_order_component__["a" /* OrderComponent */]);
     };
     PromotionDetailsComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -408,7 +683,10 @@ var PromotionDetailsComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/Site/Content/Promotions/PromotionDetails/promotionDetails.component.html"),
             styles: [__webpack_require__("../../../../../src/app/Site/Content/Promotions/PromotionDetails/promotionDetails.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */],
+            __WEBPACK_IMPORTED_MODULE_4__siteCommon_Services_promotion_service__["b" /* PromotionService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
     ], PromotionDetailsComponent);
     return PromotionDetailsComponent;
 }());
@@ -425,7 +703,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".promotion-text {\n  margin-bottom: 20px;\n  text-align: center; }\n\n.promotions-wrapper {\n  margin: 0 20px; }\n\n.promotions-wrapper .promotion {\n    position: relative;\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-position: center;\n    padding-top: 40%;\n    text-align: center;\n    display: block;\n    margin-bottom: 20px; }\n\n.promotions-wrapper .promotion .promotion-name {\n      position: absolute;\n      top: 0;\n      width: 100%;\n      background-color: rgba(255, 255, 255, 0.8); }\n\n.promotions-wrapper .promotion .promotion-descriptions {\n      position: relative;\n      bottom: 25px;\n      width: 100%;\n      background-color: rgba(255, 255, 255, 0.8);\n      padding: 5px; }\n\n.promotions-wrapper .promotion .promotion-descriptions .until-date {\n        position: absolute;\n        top: 12px;\n        right: 10px; }\n\n@media (min-width: 850px) {\n  .promotion {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 850px) {\n  .promotion {\n    display: block; } }\n\n@media (max-width: 600px) {\n  .promotion {\n    width: 340px;\n    margin: 0 auto 20px auto; } }\n\n", ""]);
+exports.push([module.i, ".promotion-text {\n  margin-bottom: 20px;\n  text-align: center; }\n\n.promotions-wrapper {\n  margin: 0 auto;\n  max-width: 900px; }\n\n.promotions-wrapper .promotion {\n    position: relative;\n    background-size: cover !important;\n    background-repeat: no-repeat !important;\n    background-position: center !important;\n    padding-top: 40%;\n    text-align: center;\n    display: block;\n    margin-bottom: 20px; }\n\n.promotions-wrapper .promotion .promotion-name {\n      position: absolute;\n      top: 0;\n      width: 100%;\n      background-color: rgba(255, 255, 255, 0.8); }\n\n.promotions-wrapper .promotion .promotion-descriptions {\n      position: relative;\n      bottom: 25px;\n      width: 100%;\n      background-color: rgba(255, 255, 255, 0.8);\n      padding: 5px; }\n\n.promotions-wrapper .promotion .promotion-descriptions .until-date {\n        position: absolute;\n        top: 12px;\n        right: 10px; }\n\n@media (min-width: 850px) {\n  .promotion {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 850px) {\n  .promotion {\n    display: block; } }\n\n@media (max-width: 600px) {\n  .promotion {\n    width: 340px;\n    margin: 0 auto 20px auto; } }\n", ""]);
 
 // exports
 
@@ -438,7 +716,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Site/Content/Promotions/promotions.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper promotion-text\">\r\n        АКЦИИ и СПЕЦПРЕДЛОЖЕНИЯ\r\n    </div>\r\n    <div class=\"promotions-wrapper\">\r\n        <div class=\"promotion\" style=\"background-image:url(/Content/Images/promotions_test1.jpg)\">\r\n            <div class=\"promotion-name\">\r\n                <a [routerLink]=\"[ 'prom1' ]\" class=\"link-big\">«Счастливые часы на Экзотику»</a>\r\n            </div>\r\n\r\n            <div class=\"promotion-descriptions\">\r\n                <a class=\"btn btn-info\">Принять участие</a>\r\n                <div class=\"until-date\"> Действует до <span>30.09.2018</span></div>\r\n            </div>\r\n            \r\n        </div>\r\n        <div class=\"promotion\" style=\"background-image:url(/Content/Images/tour_category_test1.jpg)\">\r\n            <div class=\"promotion-name\">\r\n                <a class=\"link-big\">«Счастливые часы на Экзотику»</a>\r\n            </div>\r\n\r\n            <div class=\"promotion-descriptions\">\r\n                <a [routerLink]=\"[ 'prom2' ]\" class=\"btn btn-info\">Принять участие</a>\r\n                <div class=\"until-date\"> Действует до <span>30.09.2018</span></div>\r\n            </div>\r\n\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper promotion-text\">\r\n        АКЦИИ и СПЕЦПРЕДЛОЖЕНИЯ\r\n    </div>\r\n    <div class=\"promotions-wrapper\">\r\n        <div *ngFor=\"let promotion of promotionCollection\">\r\n            <div class=\"promotion\"\r\n                 [style.background]=\"'url(/api/image/' + promotion.oldImageCollection[0] + ')'\">\r\n                <div class=\"promotion-name\">\r\n                    <a [routerLink]=\"[ promotion.urlName ]\"\r\n                       [innerHtml]=\"promotion.name\"\r\n                       class=\"link-big\">\r\n                    </a>\r\n                </div>\r\n\r\n                <div class=\"promotion-descriptions\">\r\n                    <a class=\"btn btn-info\"\r\n                       (click)=\"openOrderPopup()\">Принять участие</a>\r\n                    <div class=\"until-date\"> Действует до <strong>{{promotion.untilDate | date: 'yyyy-MM-dd'}}</strong></div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        \r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -450,7 +728,7 @@ module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Order_order_component__ = __webpack_require__("../../../../../src/app/Site/Order/order.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ImagesPopup_imagesPopup_component__ = __webpack_require__("../../../../../src/app/Site/Content/ImagesPopup/imagesPopup.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__siteCommon_Services_promotion_service__ = __webpack_require__("../../../../../src/app/Site/Common/Services/promotion.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -465,14 +743,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var PromotionsComponent = /** @class */ (function () {
-    function PromotionsComponent(dialog) {
+    function PromotionsComponent(dialog, promotionService) {
         this.dialog = dialog;
+        this.promotionService = promotionService;
+        this.promotionCollection = new Array();
     }
+    PromotionsComponent.prototype.ngOnInit = function () {
+        this.getPromotionCollection();
+    };
+    PromotionsComponent.prototype.getPromotionCollection = function () {
+        var _this = this;
+        this.promotionService.getPromotionCollection()
+            .subscribe(function (data) { return _this.promotionCollection = data; });
+    };
     PromotionsComponent.prototype.openOrderPopup = function () {
         var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_2__Order_order_component__["a" /* OrderComponent */]);
-    };
-    PromotionsComponent.prototype.openImagesPopup = function () {
-        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__ImagesPopup_imagesPopup_component__["a" /* ImagesPopupComponent */]);
     };
     PromotionsComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -481,7 +766,8 @@ var PromotionsComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/Site/Content/Promotions/promotions.component.html"),
             styles: [__webpack_require__("../../../../../src/app/Site/Content/Promotions/promotions.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */],
+            __WEBPACK_IMPORTED_MODULE_3__siteCommon_Services_promotion_service__["b" /* PromotionService */]])
     ], PromotionsComponent);
     return PromotionsComponent;
 }());
@@ -498,7 +784,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".country-text {\n  margin-bottom: 20px; }\n\n.counties-wrapper {\n  margin: 0 20px; }\n\n.counties-wrapper .country {\n    margin-bottom: 20px; }\n\n.counties-wrapper .country .image-description .country-image {\n      margin-top: 10px;\n      margin-right: 40px; }\n\n.counties-wrapper .country .image-description .country-image img {\n        width: 340px;\n        height: 250px; }\n\n.counties-wrapper .country .image-description .country-descriptions {\n      margin-top: 10px;\n      min-width: 200px; }\n\n.counties-wrapper .country .country-prices {\n      margin-top: 10px;\n      margin-right: 10px;\n      width: 220px; }\n\n.counties-wrapper .country .country-prices .hotels {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n        margin-bottom: 10px; }\n\n.counties-wrapper .country .country-prices .hotels li {\n          list-style-type: none; }\n\n.counties-wrapper .country .country-prices .hotels .stars {\n          margin-right: 5px; }\n\n.counties-wrapper .country .country-prices .hotels .stars .s {\n            background-image: url(/content/images/star.svg);\n            background-position: 14px 14px;\n            width: 14px;\n            height: 14px;\n            display: inline-block;\n            margin-top: 2px; }\n\n@media (min-width: 850px) {\n  .country {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 850px) {\n  .country {\n    display: block; } }\n\n@media (min-width: 600px) {\n  .country .image-description {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 600px) {\n  .country {\n    width: 340px;\n    margin: 0 auto 20px auto; }\n    .country .image-description {\n      display: block; } }\n\n", ""]);
+exports.push([module.i, ".country-text {\n  margin-bottom: 20px; }\n", ""]);
 
 // exports
 
@@ -511,7 +797,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Site/Content/TourTypes/Beach/Country/beachCountry.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper country-text\">\r\n        Что нужно для отличного отдыха? Море, солнце, великолепный сервис в отелях, предлагающих удобную систему «все включено», обширная развлекательная программа, умопомрачительные ночные дискотеки, лучшие блюда национальной кухни дарят путешественникам лучшие дни отдыха под жарким солнцем.\r\n    </div>\r\n    <div class=\"counties-wrapper\">\r\n        <div class=\"country\">\r\n            <div class=\"image-description\">\r\n                <div class=\"country-image\">\r\n                    <img class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                </div>\r\n                <div class=\"country-descriptions\">\r\n                    <a [routerLink]=\"[ '/tour/beach/bali' ]\" class=\"link-big\">Бали</a>\r\n                    <ul>\r\n                        <li>Все условия для релаксации</li>\r\n                        <li>Прекрасные песчаные пляжи</li>\r\n                        <li>SPA-центры. Аквапарки</li>\r\n                        <li>Водные виды спорта. Серфинг</li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <div class=\"country-prices\">\r\n                <p>Отели:</p>\r\n                <div class=\"hotels\">\r\n                    <div class=\"stars\">\r\n                        <ul>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                        </ul>\r\n                    </div>\r\n                    <div class=\"price\">\r\n                        <ul>\r\n                            <li>от <strong>1 998,00 р.</strong></li>\r\n                            <li>от <strong>1 480,00 р.</strong></li>\r\n                            <li>от <strong>1 618,00 р.</strong></li>\r\n                        </ul>\r\n                    </div>\r\n                </div>\r\n                <a class=\"btn btn-info\">Подробнее</a>\r\n            </div>\r\n        </div>\r\n        <div class=\"country\">\r\n            <div class=\"image-description\">\r\n                <div class=\"country-image\">\r\n                    <img class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                </div>\r\n                <div class=\"country-descriptions\">\r\n                    <a [routerLink]=\"[ '/tour/beach/bali' ]\" class=\"link-big\">Бали</a>\r\n                    <ul>\r\n                        <li>Все условия для релаксации</li>\r\n                        <li>Прекрасные песчаные пляжи</li>\r\n                        <li>SPA-центры. Аквапарки</li>\r\n                        <li>Водные виды спорта. Серфинг</li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <div class=\"country-prices\">\r\n                <p>Отели:</p>\r\n                <div class=\"hotels\">\r\n                    <div class=\"stars\">\r\n                        <ul>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                        </ul>\r\n                    </div>\r\n                    <div class=\"price\">\r\n                        <ul>\r\n                            <li>от <strong>1 998,00 р.</strong></li>\r\n                            <li>от <strong>1 480,00 р.</strong></li>\r\n                            <li>от <strong>1 618,00 р.</strong></li>\r\n                        </ul>\r\n                    </div>\r\n                </div>\r\n                <a class=\"btn btn-info\">Подробнее</a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper country-text\">\r\n        Текст страницы\r\n    </div>\r\n    <countriesComponent></countriesComponent>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -521,35 +807,23 @@ module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BeachCountryComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__siteModule_Order_order_component__ = __webpack_require__("../../../../../src/app/Site/Order/order.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
 
 var BeachCountryComponent = /** @class */ (function () {
-    function BeachCountryComponent(dialog) {
-        this.dialog = dialog;
+    function BeachCountryComponent() {
     }
-    BeachCountryComponent.prototype.openOrderPopup = function () {
-        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_2__siteModule_Order_order_component__["a" /* OrderComponent */]);
-    };
     BeachCountryComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             moduleId: module.i,
             selector: "beachCountry",
             template: __webpack_require__("../../../../../src/app/Site/Content/TourTypes/Beach/Country/beachCountry.component.html"),
             styles: [__webpack_require__("../../../../../src/app/Site/Content/TourTypes/Beach/Country/beachCountry.component.css")]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */]])
+        })
     ], BeachCountryComponent);
     return BeachCountryComponent;
 }());
@@ -566,7 +840,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".tour-text {\n  margin-bottom: 20px; }\n\n.tours-wrapper {\n  margin: 0 20px; }\n\n.tours-wrapper .tour {\n    margin-bottom: 20px; }\n\n.tours-wrapper .tour .image-description .tour-image {\n      margin-top: 10px;\n      margin-right: 40px; }\n\n.tours-wrapper .tour .image-description .tour-image img {\n        width: 340px;\n        height: 250px; }\n\n.tours-wrapper .tour .image-description .tour-descriptions {\n      margin-top: 10px;\n      margin-right: 10px;\n      min-width: 200px; }\n\n.tours-wrapper .tour .image-description .tour-descriptions .stars {\n        margin-right: 5px; }\n\n.tours-wrapper .tour .image-description .tour-descriptions .stars .s {\n          background-image: url(/content/images/star.svg);\n          background-position: 14px 14px;\n          width: 14px;\n          height: 14px;\n          display: inline-block;\n          margin-top: 2px; }\n\n.tours-wrapper .tour .tour-prices {\n      margin-top: 10px;\n      width: 220px; }\n\n.tours-wrapper .tour .tour-prices div {\n        margin-bottom: 5px; }\n\n@media (min-width: 850px) {\n  .tour {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 850px) {\n  .tour {\n    display: block; } }\n\n@media (min-width: 600px) {\n  .tour .image-description {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 600px) {\n  .tour {\n    width: 340px;\n    margin: 0 auto 20px auto; }\n    .tour .image-description {\n      display: block; } }\n\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -579,7 +853,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Site/Content/TourTypes/Beach/Tours/beachTours.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper tour-text\">\r\n        Что нужно для отличного отдыха? Море, солнце, великолепный сервис в отелях, предлагающих удобную систему «все включено», обширная развлекательная программа, умопомрачительные ночные дискотеки, лучшие блюда национальной кухни дарят путешественникам лучшие дни отдыха под жарким солнцем.\r\n    </div>\r\n    <div class=\"tours-wrapper\">\r\n        <div class=\"tour\">\r\n            <div class=\"image-description\">\r\n                <div class=\"tour-image\">\r\n                    <img (click)=\"openImagesPopup()\" class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                </div>\r\n                <div class=\"tour-descriptions\">\r\n                    <div class=\"stars\">\r\n                        <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                    </div>\r\n                    <a class=\"link-big\">BEST WESTERN KUTA VILLA</a>\r\n                    <div>City</div>\r\n                    <ul>\r\n                        <li>Рядом с ТЦ и ресторанами</li>\r\n                        <li>Просторные оборудованные номера</li>\r\n                        <li>Прокат автомобилей</li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <div class=\"tour-prices\">\r\n                <div>\r\n                    <div>от <strong>1 998,00 р.</strong></div>\r\n                    <div>\r\n                        <i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>\r\n                        <span>от 7 ночей</span>\r\n                    </div>\r\n                    <div>\r\n                        <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                        <span>перелет включен</span>\r\n                    </div>\r\n                </div>\r\n                <a class=\"btn btn-info\">Подробнее</a>\r\n            </div>\r\n        </div>\r\n        <div class=\"tour\">\r\n            <div class=\"image-description\">\r\n                <div class=\"tour-image\">\r\n                    <a (click)=\"openImagesPopup()\">\r\n                        <img class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                    </a>                  \r\n                </div>\r\n                <div class=\"tour-descriptions\">\r\n                    <div class=\"stars\">\r\n                        <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                    </div>\r\n                    <a (click)=\"openOrderPopup()\" class=\"link-big\">BEST WESTERN KUTA VILLA</a>\r\n                    <div>City</div>\r\n                    <ul>\r\n                        <li>Рядом с ТЦ и ресторанами</li>\r\n                        <li>Просторные оборудованные номера</li>\r\n                        <li>Прокат автомобилей</li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <div class=\"tour-prices\">\r\n                <div>\r\n                    <div>от <strong>1 998,00 р.</strong></div>\r\n                    <div>\r\n                        <i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>\r\n                        <span>от 7 ночей</span>\r\n                    </div>\r\n                    <div>\r\n                        <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                        <span>перелет включен</span>\r\n                    </div>\r\n                </div>\r\n                <a (click)=\"openOrderPopup()\" class=\"btn btn-info\">Подробнее</a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<toursComponent></toursComponent>"
 
 /***/ }),
 
@@ -589,40 +863,23 @@ module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BeachToursComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__siteModule_Order_order_component__ = __webpack_require__("../../../../../src/app/Site/Order/order.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__siteModule_Content_ImagesPopup_imagesPopup_component__ = __webpack_require__("../../../../../src/app/Site/Content/ImagesPopup/imagesPopup.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
 
 var BeachToursComponent = /** @class */ (function () {
-    function BeachToursComponent(dialog) {
-        this.dialog = dialog;
+    function BeachToursComponent() {
     }
-    BeachToursComponent.prototype.openOrderPopup = function () {
-        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_2__siteModule_Order_order_component__["a" /* OrderComponent */]);
-    };
-    BeachToursComponent.prototype.openImagesPopup = function () {
-        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__siteModule_Content_ImagesPopup_imagesPopup_component__["a" /* ImagesPopupComponent */]);
-    };
     BeachToursComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             moduleId: module.i,
             selector: "beachTours",
             template: __webpack_require__("../../../../../src/app/Site/Content/TourTypes/Beach/Tours/beachTours.component.html"),
             styles: [__webpack_require__("../../../../../src/app/Site/Content/TourTypes/Beach/Tours/beachTours.component.css")]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */]])
+        })
     ], BeachToursComponent);
     return BeachToursComponent;
 }());
@@ -712,7 +969,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".country-text {\n  margin-bottom: 20px; }\n\n.counties-wrapper {\n  margin: 0 20px; }\n\n.counties-wrapper .country {\n    margin-bottom: 20px; }\n\n.counties-wrapper .country .image-description .country-image {\n      margin-top: 10px;\n      margin-right: 40px; }\n\n.counties-wrapper .country .image-description .country-image img {\n        width: 340px;\n        height: 250px; }\n\n.counties-wrapper .country .image-description .country-descriptions {\n      margin-top: 10px;\n      min-width: 200px; }\n\n.counties-wrapper .country .country-prices {\n      margin-top: 10px;\n      margin-right: 10px;\n      width: 220px; }\n\n.counties-wrapper .country .country-prices .hotels {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n        margin-bottom: 10px; }\n\n.counties-wrapper .country .country-prices .hotels li {\n          list-style-type: none; }\n\n.counties-wrapper .country .country-prices .hotels .stars {\n          margin-right: 5px; }\n\n.counties-wrapper .country .country-prices .hotels .stars .s {\n            background-image: url(/content/images/star.svg);\n            background-position: 14px 14px;\n            width: 14px;\n            height: 14px;\n            display: inline-block;\n            margin-top: 2px; }\n\n@media (min-width: 850px) {\n  .country {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 850px) {\n  .country {\n    display: block; } }\n\n@media (min-width: 600px) {\n  .country .image-description {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 600px) {\n  .country {\n    width: 340px;\n    margin: 0 auto 20px auto; }\n    .country .image-description {\n      display: block; } }\n\n", ""]);
+exports.push([module.i, ".country-text {\n  margin-bottom: 20px; }\n", ""]);
 
 // exports
 
@@ -725,7 +982,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Site/Content/TourTypes/Corporate/Country/corporateCountry.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper country-text\">\r\n        Что нужно для отличного отдыха? Море, солнце, великолепный сервис в отелях, предлагающих удобную систему «все включено», обширная развлекательная программа, умопомрачительные ночные дискотеки, лучшие блюда национальной кухни дарят путешественникам лучшие дни отдыха под жарким солнцем.\r\n    </div>\r\n    <div class=\"counties-wrapper\">\r\n        <div class=\"country\">\r\n            <div class=\"image-description\">\r\n                <div class=\"country-image\">\r\n                    <img class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                </div>\r\n                <div class=\"country-descriptions\">\r\n                    <a [routerLink]=\"[ '/tour/beach/bali' ]\" class=\"link-big\">Бали</a>\r\n                    <ul>\r\n                        <li>Все условия для релаксации</li>\r\n                        <li>Прекрасные песчаные пляжи</li>\r\n                        <li>SPA-центры. Аквапарки</li>\r\n                        <li>Водные виды спорта. Серфинг</li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <div class=\"country-prices\">\r\n                <p>Отели:</p>\r\n                <div class=\"hotels\">\r\n                    <div class=\"stars\">\r\n                        <ul>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                        </ul>\r\n                    </div>\r\n                    <div class=\"price\">\r\n                        <ul>\r\n                            <li>от <strong>1 998,00 р.</strong></li>\r\n                            <li>от <strong>1 480,00 р.</strong></li>\r\n                            <li>от <strong>1 618,00 р.</strong></li>\r\n                        </ul>\r\n                    </div>\r\n                </div>\r\n                <a class=\"btn btn-info\">Подробнее</a>\r\n            </div>\r\n        </div>\r\n        <div class=\"country\">\r\n            <div class=\"image-description\">\r\n                <div class=\"country-image\">\r\n                    <img class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                </div>\r\n                <div class=\"country-descriptions\">\r\n                    <a [routerLink]=\"[ '/tour/beach/bali' ]\" class=\"link-big\">Бали</a>\r\n                    <ul>\r\n                        <li>Все условия для релаксации</li>\r\n                        <li>Прекрасные песчаные пляжи</li>\r\n                        <li>SPA-центры. Аквапарки</li>\r\n                        <li>Водные виды спорта. Серфинг</li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <div class=\"country-prices\">\r\n                <p>Отели:</p>\r\n                <div class=\"hotels\">\r\n                    <div class=\"stars\">\r\n                        <ul>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                        </ul>\r\n                    </div>\r\n                    <div class=\"price\">\r\n                        <ul>\r\n                            <li>от <strong>1 998,00 р.</strong></li>\r\n                            <li>от <strong>1 480,00 р.</strong></li>\r\n                            <li>от <strong>1 618,00 р.</strong></li>\r\n                        </ul>\r\n                    </div>\r\n                </div>\r\n                <a class=\"btn btn-info\">Подробнее</a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper country-text\">\r\n        Текст страницы\r\n    </div>\r\n    <countriesComponent></countriesComponent>\r\n</div>"
 
 /***/ }),
 
@@ -735,35 +992,23 @@ module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CorporateCountryComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__siteModule_Order_order_component__ = __webpack_require__("../../../../../src/app/Site/Order/order.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
 
 var CorporateCountryComponent = /** @class */ (function () {
-    function CorporateCountryComponent(dialog) {
-        this.dialog = dialog;
+    function CorporateCountryComponent() {
     }
-    CorporateCountryComponent.prototype.openOrderPopup = function () {
-        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_2__siteModule_Order_order_component__["a" /* OrderComponent */]);
-    };
     CorporateCountryComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             moduleId: module.i,
             selector: "corporateCountry",
             template: __webpack_require__("../../../../../src/app/Site/Content/TourTypes/Corporate/Country/corporateCountry.component.html"),
             styles: [__webpack_require__("../../../../../src/app/Site/Content/TourTypes/Corporate/Country/corporateCountry.component.css")]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */]])
+        })
     ], CorporateCountryComponent);
     return CorporateCountryComponent;
 }());
@@ -780,7 +1025,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".tour-text {\n  margin-bottom: 20px; }\n\n.tours-wrapper {\n  margin: 0 20px; }\n\n.tours-wrapper .tour {\n    margin-bottom: 20px; }\n\n.tours-wrapper .tour .image-description .tour-image {\n      margin-top: 10px;\n      margin-right: 40px; }\n\n.tours-wrapper .tour .image-description .tour-image img {\n        width: 340px;\n        height: 250px; }\n\n.tours-wrapper .tour .image-description .tour-descriptions {\n      margin-top: 10px;\n      margin-right: 10px;\n      min-width: 200px; }\n\n.tours-wrapper .tour .image-description .tour-descriptions .stars {\n        margin-right: 5px; }\n\n.tours-wrapper .tour .image-description .tour-descriptions .stars .s {\n          background-image: url(/content/images/star.svg);\n          background-position: 14px 14px;\n          width: 14px;\n          height: 14px;\n          display: inline-block;\n          margin-top: 2px; }\n\n.tours-wrapper .tour .tour-prices {\n      margin-top: 10px;\n      width: 220px; }\n\n.tours-wrapper .tour .tour-prices div {\n        margin-bottom: 5px; }\n\n@media (min-width: 850px) {\n  .tour {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 850px) {\n  .tour {\n    display: block; } }\n\n@media (min-width: 600px) {\n  .tour .image-description {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 600px) {\n  .tour {\n    width: 340px;\n    margin: 0 auto 20px auto; }\n    .tour .image-description {\n      display: block; } }\n\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -793,7 +1038,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Site/Content/TourTypes/Corporate/Tours/corporateTours.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper tour-text\">\r\n        Что нужно для отличного отдыха? Море, солнце, великолепный сервис в отелях, предлагающих удобную систему «все включено», обширная развлекательная программа, умопомрачительные ночные дискотеки, лучшие блюда национальной кухни дарят путешественникам лучшие дни отдыха под жарким солнцем.\r\n    </div>\r\n    <div class=\"tours-wrapper\">\r\n        <div class=\"tour\">\r\n            <div class=\"image-description\">\r\n                <div class=\"tour-image\">\r\n                    <img (click)=\"openImagesPopup()\" class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                </div>\r\n                <div class=\"tour-descriptions\">\r\n                    <div class=\"stars\">\r\n                        <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                    </div>\r\n                    <a class=\"link-big\">BEST WESTERN KUTA VILLA</a>\r\n                    <div>City</div>\r\n                    <ul>\r\n                        <li>Рядом с ТЦ и ресторанами</li>\r\n                        <li>Просторные оборудованные номера</li>\r\n                        <li>Прокат автомобилей</li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <div class=\"tour-prices\">\r\n                <div>\r\n                    <div>от <strong>1 998,00 р.</strong></div>\r\n                    <div>\r\n                        <i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>\r\n                        <span>от 7 ночей</span>\r\n                    </div>\r\n                    <div>\r\n                        <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                        <span>перелет включен</span>\r\n                    </div>\r\n                </div>\r\n                <a class=\"btn btn-info\">Подробнее</a>\r\n            </div>\r\n        </div>\r\n        <div class=\"tour\">\r\n            <div class=\"image-description\">\r\n                <div class=\"tour-image\">\r\n                    <a (click)=\"openImagesPopup()\">\r\n                        <img class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                    </a>                  \r\n                </div>\r\n                <div class=\"tour-descriptions\">\r\n                    <div class=\"stars\">\r\n                        <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                    </div>\r\n                    <a (click)=\"openOrderPopup()\" class=\"link-big\">BEST WESTERN KUTA VILLA</a>\r\n                    <div>City</div>\r\n                    <ul>\r\n                        <li>Рядом с ТЦ и ресторанами</li>\r\n                        <li>Просторные оборудованные номера</li>\r\n                        <li>Прокат автомобилей</li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <div class=\"tour-prices\">\r\n                <div>\r\n                    <div>от <strong>1 998,00 р.</strong></div>\r\n                    <div>\r\n                        <i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>\r\n                        <span>от 7 ночей</span>\r\n                    </div>\r\n                    <div>\r\n                        <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                        <span>перелет включен</span>\r\n                    </div>\r\n                </div>\r\n                <a (click)=\"openOrderPopup()\" class=\"btn btn-info\">Подробнее</a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<toursComponent></toursComponent>"
 
 /***/ }),
 
@@ -803,40 +1048,23 @@ module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CorporateToursComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__siteModule_Order_order_component__ = __webpack_require__("../../../../../src/app/Site/Order/order.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__siteModule_Content_ImagesPopup_imagesPopup_component__ = __webpack_require__("../../../../../src/app/Site/Content/ImagesPopup/imagesPopup.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
 
 var CorporateToursComponent = /** @class */ (function () {
-    function CorporateToursComponent(dialog) {
-        this.dialog = dialog;
+    function CorporateToursComponent() {
     }
-    CorporateToursComponent.prototype.openOrderPopup = function () {
-        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_2__siteModule_Order_order_component__["a" /* OrderComponent */]);
-    };
-    CorporateToursComponent.prototype.openImagesPopup = function () {
-        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__siteModule_Content_ImagesPopup_imagesPopup_component__["a" /* ImagesPopupComponent */]);
-    };
     CorporateToursComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             moduleId: module.i,
             selector: "corporateTours",
             template: __webpack_require__("../../../../../src/app/Site/Content/TourTypes/Corporate/Tours/corporateTours.component.html"),
             styles: [__webpack_require__("../../../../../src/app/Site/Content/TourTypes/Corporate/Tours/corporateTours.component.css")]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */]])
+        })
     ], CorporateToursComponent);
     return CorporateToursComponent;
 }());
@@ -853,7 +1081,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".country-text {\n  margin-bottom: 20px; }\n\n.counties-wrapper {\n  margin: 0 20px; }\n\n.counties-wrapper .country {\n    margin-bottom: 20px; }\n\n.counties-wrapper .country .image-description .country-image {\n      margin-top: 10px;\n      margin-right: 40px; }\n\n.counties-wrapper .country .image-description .country-image img {\n        width: 340px;\n        height: 250px; }\n\n.counties-wrapper .country .image-description .country-descriptions {\n      margin-top: 10px;\n      min-width: 200px; }\n\n.counties-wrapper .country .country-prices {\n      margin-top: 10px;\n      margin-right: 10px;\n      width: 220px; }\n\n.counties-wrapper .country .country-prices .hotels {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n        margin-bottom: 10px; }\n\n.counties-wrapper .country .country-prices .hotels li {\n          list-style-type: none; }\n\n.counties-wrapper .country .country-prices .hotels .stars {\n          margin-right: 5px; }\n\n.counties-wrapper .country .country-prices .hotels .stars .s {\n            background-image: url(/content/images/star.svg);\n            background-position: 14px 14px;\n            width: 14px;\n            height: 14px;\n            display: inline-block;\n            margin-top: 2px; }\n\n@media (min-width: 850px) {\n  .country {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 850px) {\n  .country {\n    display: block; } }\n\n@media (min-width: 600px) {\n  .country .image-description {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 600px) {\n  .country {\n    width: 340px;\n    margin: 0 auto 20px auto; }\n    .country .image-description {\n      display: block; } }\n\n", ""]);
+exports.push([module.i, ".country-text {\n  margin-bottom: 20px; }\n", ""]);
 
 // exports
 
@@ -866,7 +1094,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Site/Content/TourTypes/Individual/Country/individualCountry.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper country-text\">\r\n        Что нужно для отличного отдыха? Море, солнце, великолепный сервис в отелях, предлагающих удобную систему «все включено», обширная развлекательная программа, умопомрачительные ночные дискотеки, лучшие блюда национальной кухни дарят путешественникам лучшие дни отдыха под жарким солнцем.\r\n    </div>\r\n    <div class=\"counties-wrapper\">\r\n        <div class=\"country\">\r\n            <div class=\"image-description\">\r\n                <div class=\"country-image\">\r\n                    <img class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                </div>\r\n                <div class=\"country-descriptions\">\r\n                    <a [routerLink]=\"[ '/tour/beach/bali' ]\" class=\"link-big\">Бали</a>\r\n                    <ul>\r\n                        <li>Все условия для релаксации</li>\r\n                        <li>Прекрасные песчаные пляжи</li>\r\n                        <li>SPA-центры. Аквапарки</li>\r\n                        <li>Водные виды спорта. Серфинг</li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <div class=\"country-prices\">\r\n                <p>Отели:</p>\r\n                <div class=\"hotels\">\r\n                    <div class=\"stars\">\r\n                        <ul>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                        </ul>\r\n                    </div>\r\n                    <div class=\"price\">\r\n                        <ul>\r\n                            <li>от <strong>1 998,00 р.</strong></li>\r\n                            <li>от <strong>1 480,00 р.</strong></li>\r\n                            <li>от <strong>1 618,00 р.</strong></li>\r\n                        </ul>\r\n                    </div>\r\n                </div>\r\n                <a class=\"btn btn-info\">Подробнее</a>\r\n            </div>\r\n        </div>\r\n        <div class=\"country\">\r\n            <div class=\"image-description\">\r\n                <div class=\"country-image\">\r\n                    <img class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                </div>\r\n                <div class=\"country-descriptions\">\r\n                    <a [routerLink]=\"[ '/tour/beach/bali' ]\" class=\"link-big\">Бали</a>\r\n                    <ul>\r\n                        <li>Все условия для релаксации</li>\r\n                        <li>Прекрасные песчаные пляжи</li>\r\n                        <li>SPA-центры. Аквапарки</li>\r\n                        <li>Водные виды спорта. Серфинг</li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <div class=\"country-prices\">\r\n                <p>Отели:</p>\r\n                <div class=\"hotels\">\r\n                    <div class=\"stars\">\r\n                        <ul>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                        </ul>\r\n                    </div>\r\n                    <div class=\"price\">\r\n                        <ul>\r\n                            <li>от <strong>1 998,00 р.</strong></li>\r\n                            <li>от <strong>1 480,00 р.</strong></li>\r\n                            <li>от <strong>1 618,00 р.</strong></li>\r\n                        </ul>\r\n                    </div>\r\n                </div>\r\n                <a class=\"btn btn-info\">Подробнее</a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper country-text\">\r\n        Текст страницы\r\n    </div>\r\n    <countriesComponent></countriesComponent>\r\n</div>"
 
 /***/ }),
 
@@ -876,35 +1104,23 @@ module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IndividualCountryComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__siteModule_Order_order_component__ = __webpack_require__("../../../../../src/app/Site/Order/order.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
 
 var IndividualCountryComponent = /** @class */ (function () {
-    function IndividualCountryComponent(dialog) {
-        this.dialog = dialog;
+    function IndividualCountryComponent() {
     }
-    IndividualCountryComponent.prototype.openOrderPopup = function () {
-        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_2__siteModule_Order_order_component__["a" /* OrderComponent */]);
-    };
     IndividualCountryComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             moduleId: module.i,
             selector: "individualCountry",
             template: __webpack_require__("../../../../../src/app/Site/Content/TourTypes/Individual/Country/individualCountry.component.html"),
             styles: [__webpack_require__("../../../../../src/app/Site/Content/TourTypes/Individual/Country/individualCountry.component.css")]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */]])
+        })
     ], IndividualCountryComponent);
     return IndividualCountryComponent;
 }());
@@ -921,7 +1137,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".tour-text {\n  margin-bottom: 20px; }\n\n.tours-wrapper {\n  margin: 0 20px; }\n\n.tours-wrapper .tour {\n    margin-bottom: 20px; }\n\n.tours-wrapper .tour .image-description .tour-image {\n      margin-top: 10px;\n      margin-right: 40px; }\n\n.tours-wrapper .tour .image-description .tour-image img {\n        width: 340px;\n        height: 250px; }\n\n.tours-wrapper .tour .image-description .tour-descriptions {\n      margin-top: 10px;\n      margin-right: 10px;\n      min-width: 200px; }\n\n.tours-wrapper .tour .image-description .tour-descriptions .stars {\n        margin-right: 5px; }\n\n.tours-wrapper .tour .image-description .tour-descriptions .stars .s {\n          background-image: url(/content/images/star.svg);\n          background-position: 14px 14px;\n          width: 14px;\n          height: 14px;\n          display: inline-block;\n          margin-top: 2px; }\n\n.tours-wrapper .tour .tour-prices {\n      margin-top: 10px;\n      width: 220px; }\n\n.tours-wrapper .tour .tour-prices div {\n        margin-bottom: 5px; }\n\n@media (min-width: 850px) {\n  .tour {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 850px) {\n  .tour {\n    display: block; } }\n\n@media (min-width: 600px) {\n  .tour .image-description {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 600px) {\n  .tour {\n    width: 340px;\n    margin: 0 auto 20px auto; }\n    .tour .image-description {\n      display: block; } }\n\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -934,7 +1150,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Site/Content/TourTypes/Individual/Tours/individualTours.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper tour-text\">\r\n        Что нужно для отличного отдыха? Море, солнце, великолепный сервис в отелях, предлагающих удобную систему «все включено», обширная развлекательная программа, умопомрачительные ночные дискотеки, лучшие блюда национальной кухни дарят путешественникам лучшие дни отдыха под жарким солнцем.\r\n    </div>\r\n    <div class=\"tours-wrapper\">\r\n        <div class=\"tour\">\r\n            <div class=\"image-description\">\r\n                <div class=\"tour-image\">\r\n                    <img (click)=\"openImagesPopup()\" class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                </div>\r\n                <div class=\"tour-descriptions\">\r\n                    <div class=\"stars\">\r\n                        <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                    </div>\r\n                    <a class=\"link-big\">BEST WESTERN KUTA VILLA</a>\r\n                    <div>City</div>\r\n                    <ul>\r\n                        <li>Рядом с ТЦ и ресторанами</li>\r\n                        <li>Просторные оборудованные номера</li>\r\n                        <li>Прокат автомобилей</li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <div class=\"tour-prices\">\r\n                <div>\r\n                    <div>от <strong>1 998,00 р.</strong></div>\r\n                    <div>\r\n                        <i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>\r\n                        <span>от 7 ночей</span>\r\n                    </div>\r\n                    <div>\r\n                        <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                        <span>перелет включен</span>\r\n                    </div>\r\n                </div>\r\n                <a class=\"btn btn-info\">Подробнее</a>\r\n            </div>\r\n        </div>\r\n        <div class=\"tour\">\r\n            <div class=\"image-description\">\r\n                <div class=\"tour-image\">\r\n                    <a (click)=\"openImagesPopup()\">\r\n                        <img class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                    </a>                  \r\n                </div>\r\n                <div class=\"tour-descriptions\">\r\n                    <div class=\"stars\">\r\n                        <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                    </div>\r\n                    <a (click)=\"openOrderPopup()\" class=\"link-big\">BEST WESTERN KUTA VILLA</a>\r\n                    <div>City</div>\r\n                    <ul>\r\n                        <li>Рядом с ТЦ и ресторанами</li>\r\n                        <li>Просторные оборудованные номера</li>\r\n                        <li>Прокат автомобилей</li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <div class=\"tour-prices\">\r\n                <div>\r\n                    <div>от <strong>1 998,00 р.</strong></div>\r\n                    <div>\r\n                        <i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>\r\n                        <span>от 7 ночей</span>\r\n                    </div>\r\n                    <div>\r\n                        <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                        <span>перелет включен</span>\r\n                    </div>\r\n                </div>\r\n                <a (click)=\"openOrderPopup()\" class=\"btn btn-info\">Подробнее</a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<toursComponent></toursComponent>"
 
 /***/ }),
 
@@ -944,40 +1160,23 @@ module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IndividualToursComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__siteModule_Order_order_component__ = __webpack_require__("../../../../../src/app/Site/Order/order.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__siteModule_Content_ImagesPopup_imagesPopup_component__ = __webpack_require__("../../../../../src/app/Site/Content/ImagesPopup/imagesPopup.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
 
 var IndividualToursComponent = /** @class */ (function () {
-    function IndividualToursComponent(dialog) {
-        this.dialog = dialog;
+    function IndividualToursComponent() {
     }
-    IndividualToursComponent.prototype.openOrderPopup = function () {
-        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_2__siteModule_Order_order_component__["a" /* OrderComponent */]);
-    };
-    IndividualToursComponent.prototype.openImagesPopup = function () {
-        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__siteModule_Content_ImagesPopup_imagesPopup_component__["a" /* ImagesPopupComponent */]);
-    };
     IndividualToursComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             moduleId: module.i,
             selector: "individualTours",
             template: __webpack_require__("../../../../../src/app/Site/Content/TourTypes/Individual/Tours/individualTours.component.html"),
             styles: [__webpack_require__("../../../../../src/app/Site/Content/TourTypes/Individual/Tours/individualTours.component.css")]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */]])
+        })
     ], IndividualToursComponent);
     return IndividualToursComponent;
 }());
@@ -994,7 +1193,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".country-text {\n  margin-bottom: 20px; }\n\n.counties-wrapper {\n  margin: 0 20px; }\n\n.counties-wrapper .country {\n    margin-bottom: 20px; }\n\n.counties-wrapper .country .image-description .country-image {\n      margin-top: 10px;\n      margin-right: 40px; }\n\n.counties-wrapper .country .image-description .country-image img {\n        width: 340px;\n        height: 250px; }\n\n.counties-wrapper .country .image-description .country-descriptions {\n      margin-top: 10px;\n      min-width: 200px; }\n\n.counties-wrapper .country .country-prices {\n      margin-top: 10px;\n      margin-right: 10px;\n      width: 220px; }\n\n.counties-wrapper .country .country-prices .hotels {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n        margin-bottom: 10px; }\n\n.counties-wrapper .country .country-prices .hotels li {\n          list-style-type: none; }\n\n.counties-wrapper .country .country-prices .hotels .stars {\n          margin-right: 5px; }\n\n.counties-wrapper .country .country-prices .hotels .stars .s {\n            background-image: url(/content/images/star.svg);\n            background-position: 14px 14px;\n            width: 14px;\n            height: 14px;\n            display: inline-block;\n            margin-top: 2px; }\n\n@media (min-width: 850px) {\n  .country {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 850px) {\n  .country {\n    display: block; } }\n\n@media (min-width: 600px) {\n  .country .image-description {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 600px) {\n  .country {\n    width: 340px;\n    margin: 0 auto 20px auto; }\n    .country .image-description {\n      display: block; } }\n\n", ""]);
+exports.push([module.i, ".country-text {\n  margin-bottom: 20px; }\n", ""]);
 
 // exports
 
@@ -1007,7 +1206,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Site/Content/TourTypes/NewYear/Country/newYearCountry.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper country-text\">\r\n        Что нужно для отличного отдыха? Море, солнце, великолепный сервис в отелях, предлагающих удобную систему «все включено», обширная развлекательная программа, умопомрачительные ночные дискотеки, лучшие блюда национальной кухни дарят путешественникам лучшие дни отдыха под жарким солнцем.\r\n    </div>\r\n    <div class=\"counties-wrapper\">\r\n        <div class=\"country\">\r\n            <div class=\"image-description\">\r\n                <div class=\"country-image\">\r\n                    <img class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                </div>\r\n                <div class=\"country-descriptions\">\r\n                    <a [routerLink]=\"[ '/tour/beach/bali' ]\" class=\"link-big\">Бали</a>\r\n                    <ul>\r\n                        <li>Все условия для релаксации</li>\r\n                        <li>Прекрасные песчаные пляжи</li>\r\n                        <li>SPA-центры. Аквапарки</li>\r\n                        <li>Водные виды спорта. Серфинг</li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <div class=\"country-prices\">\r\n                <p>Отели:</p>\r\n                <div class=\"hotels\">\r\n                    <div class=\"stars\">\r\n                        <ul>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                        </ul>\r\n                    </div>\r\n                    <div class=\"price\">\r\n                        <ul>\r\n                            <li>от <strong>1 998,00 р.</strong></li>\r\n                            <li>от <strong>1 480,00 р.</strong></li>\r\n                            <li>от <strong>1 618,00 р.</strong></li>\r\n                        </ul>\r\n                    </div>\r\n                </div>\r\n                <a class=\"btn btn-info\">Подробнее</a>\r\n            </div>\r\n        </div>\r\n        <div class=\"country\">\r\n            <div class=\"image-description\">\r\n                <div class=\"country-image\">\r\n                    <img class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                </div>\r\n                <div class=\"country-descriptions\">\r\n                    <a [routerLink]=\"[ '/tour/beach/bali' ]\" class=\"link-big\">Бали</a>\r\n                    <ul>\r\n                        <li>Все условия для релаксации</li>\r\n                        <li>Прекрасные песчаные пляжи</li>\r\n                        <li>SPA-центры. Аквапарки</li>\r\n                        <li>Водные виды спорта. Серфинг</li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <div class=\"country-prices\">\r\n                <p>Отели:</p>\r\n                <div class=\"hotels\">\r\n                    <div class=\"stars\">\r\n                        <ul>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                        </ul>\r\n                    </div>\r\n                    <div class=\"price\">\r\n                        <ul>\r\n                            <li>от <strong>1 998,00 р.</strong></li>\r\n                            <li>от <strong>1 480,00 р.</strong></li>\r\n                            <li>от <strong>1 618,00 р.</strong></li>\r\n                        </ul>\r\n                    </div>\r\n                </div>\r\n                <a class=\"btn btn-info\">Подробнее</a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper country-text\">\r\n        Текст страницы\r\n    </div>\r\n    <countriesComponent></countriesComponent>\r\n</div>"
 
 /***/ }),
 
@@ -1017,35 +1216,23 @@ module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewYearCountryComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__siteModule_Order_order_component__ = __webpack_require__("../../../../../src/app/Site/Order/order.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
 
 var NewYearCountryComponent = /** @class */ (function () {
-    function NewYearCountryComponent(dialog) {
-        this.dialog = dialog;
+    function NewYearCountryComponent() {
     }
-    NewYearCountryComponent.prototype.openOrderPopup = function () {
-        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_2__siteModule_Order_order_component__["a" /* OrderComponent */]);
-    };
     NewYearCountryComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             moduleId: module.i,
             selector: "newYearCountry",
             template: __webpack_require__("../../../../../src/app/Site/Content/TourTypes/NewYear/Country/newYearCountry.component.html"),
             styles: [__webpack_require__("../../../../../src/app/Site/Content/TourTypes/NewYear/Country/newYearCountry.component.css")]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */]])
+        })
     ], NewYearCountryComponent);
     return NewYearCountryComponent;
 }());
@@ -1062,7 +1249,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".tour-text {\n  margin-bottom: 20px; }\n\n.tours-wrapper {\n  margin: 0 20px; }\n\n.tours-wrapper .tour {\n    margin-bottom: 20px; }\n\n.tours-wrapper .tour .image-description .tour-image {\n      margin-top: 10px;\n      margin-right: 40px; }\n\n.tours-wrapper .tour .image-description .tour-image img {\n        width: 340px;\n        height: 250px; }\n\n.tours-wrapper .tour .image-description .tour-descriptions {\n      margin-top: 10px;\n      margin-right: 10px;\n      min-width: 200px; }\n\n.tours-wrapper .tour .image-description .tour-descriptions .stars {\n        margin-right: 5px; }\n\n.tours-wrapper .tour .image-description .tour-descriptions .stars .s {\n          background-image: url(/content/images/star.svg);\n          background-position: 14px 14px;\n          width: 14px;\n          height: 14px;\n          display: inline-block;\n          margin-top: 2px; }\n\n.tours-wrapper .tour .tour-prices {\n      margin-top: 10px;\n      width: 220px; }\n\n.tours-wrapper .tour .tour-prices div {\n        margin-bottom: 5px; }\n\n@media (min-width: 850px) {\n  .tour {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 850px) {\n  .tour {\n    display: block; } }\n\n@media (min-width: 600px) {\n  .tour .image-description {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 600px) {\n  .tour {\n    width: 340px;\n    margin: 0 auto 20px auto; }\n    .tour .image-description {\n      display: block; } }\n\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -1075,7 +1262,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Site/Content/TourTypes/NewYear/Tours/newYearTours.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper tour-text\">\r\n        Что нужно для отличного отдыха? Море, солнце, великолепный сервис в отелях, предлагающих удобную систему «все включено», обширная развлекательная программа, умопомрачительные ночные дискотеки, лучшие блюда национальной кухни дарят путешественникам лучшие дни отдыха под жарким солнцем.\r\n    </div>\r\n    <div class=\"tours-wrapper\">\r\n        <div class=\"tour\">\r\n            <div class=\"image-description\">\r\n                <div class=\"tour-image\">\r\n                    <img (click)=\"openImagesPopup()\" class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                </div>\r\n                <div class=\"tour-descriptions\">\r\n                    <div class=\"stars\">\r\n                        <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                    </div>\r\n                    <a class=\"link-big\">BEST WESTERN KUTA VILLA</a>\r\n                    <div>City</div>\r\n                    <ul>\r\n                        <li>Рядом с ТЦ и ресторанами</li>\r\n                        <li>Просторные оборудованные номера</li>\r\n                        <li>Прокат автомобилей</li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <div class=\"tour-prices\">\r\n                <div>\r\n                    <div>от <strong>1 998,00 р.</strong></div>\r\n                    <div>\r\n                        <i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>\r\n                        <span>от 7 ночей</span>\r\n                    </div>\r\n                    <div>\r\n                        <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                        <span>перелет включен</span>\r\n                    </div>\r\n                </div>\r\n                <a class=\"btn btn-info\">Подробнее</a>\r\n            </div>\r\n        </div>\r\n        <div class=\"tour\">\r\n            <div class=\"image-description\">\r\n                <div class=\"tour-image\">\r\n                    <a (click)=\"openImagesPopup()\">\r\n                        <img class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                    </a>                  \r\n                </div>\r\n                <div class=\"tour-descriptions\">\r\n                    <div class=\"stars\">\r\n                        <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                    </div>\r\n                    <a (click)=\"openOrderPopup()\" class=\"link-big\">BEST WESTERN KUTA VILLA</a>\r\n                    <div>City</div>\r\n                    <ul>\r\n                        <li>Рядом с ТЦ и ресторанами</li>\r\n                        <li>Просторные оборудованные номера</li>\r\n                        <li>Прокат автомобилей</li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <div class=\"tour-prices\">\r\n                <div>\r\n                    <div>от <strong>1 998,00 р.</strong></div>\r\n                    <div>\r\n                        <i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>\r\n                        <span>от 7 ночей</span>\r\n                    </div>\r\n                    <div>\r\n                        <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                        <span>перелет включен</span>\r\n                    </div>\r\n                </div>\r\n                <a (click)=\"openOrderPopup()\" class=\"btn btn-info\">Подробнее</a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<toursComponent></toursComponent>"
 
 /***/ }),
 
@@ -1085,40 +1272,23 @@ module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewYearToursComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__siteModule_Order_order_component__ = __webpack_require__("../../../../../src/app/Site/Order/order.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__siteModule_Content_ImagesPopup_imagesPopup_component__ = __webpack_require__("../../../../../src/app/Site/Content/ImagesPopup/imagesPopup.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
 
 var NewYearToursComponent = /** @class */ (function () {
-    function NewYearToursComponent(dialog) {
-        this.dialog = dialog;
+    function NewYearToursComponent() {
     }
-    NewYearToursComponent.prototype.openOrderPopup = function () {
-        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_2__siteModule_Order_order_component__["a" /* OrderComponent */]);
-    };
-    NewYearToursComponent.prototype.openImagesPopup = function () {
-        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__siteModule_Content_ImagesPopup_imagesPopup_component__["a" /* ImagesPopupComponent */]);
-    };
     NewYearToursComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             moduleId: module.i,
             selector: "newYearTours",
             template: __webpack_require__("../../../../../src/app/Site/Content/TourTypes/NewYear/Tours/newYearTours.component.html"),
             styles: [__webpack_require__("../../../../../src/app/Site/Content/TourTypes/NewYear/Tours/newYearTours.component.css")]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */]])
+        })
     ], NewYearToursComponent);
     return NewYearToursComponent;
 }());
@@ -1135,7 +1305,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".country-text {\n  margin-bottom: 20px; }\n\n.counties-wrapper {\n  margin: 0 20px; }\n\n.counties-wrapper .country {\n    margin-bottom: 20px; }\n\n.counties-wrapper .country .image-description .country-image {\n      margin-top: 10px;\n      margin-right: 40px; }\n\n.counties-wrapper .country .image-description .country-image img {\n        width: 340px;\n        height: 250px; }\n\n.counties-wrapper .country .image-description .country-descriptions {\n      margin-top: 10px;\n      min-width: 200px; }\n\n.counties-wrapper .country .country-prices {\n      margin-top: 10px;\n      margin-right: 10px;\n      width: 220px; }\n\n.counties-wrapper .country .country-prices .hotels {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n        margin-bottom: 10px; }\n\n.counties-wrapper .country .country-prices .hotels li {\n          list-style-type: none; }\n\n.counties-wrapper .country .country-prices .hotels .stars {\n          margin-right: 5px; }\n\n.counties-wrapper .country .country-prices .hotels .stars .s {\n            background-image: url(/content/images/star.svg);\n            background-position: 14px 14px;\n            width: 14px;\n            height: 14px;\n            display: inline-block;\n            margin-top: 2px; }\n\n@media (min-width: 850px) {\n  .country {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 850px) {\n  .country {\n    display: block; } }\n\n@media (min-width: 600px) {\n  .country .image-description {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 600px) {\n  .country {\n    width: 340px;\n    margin: 0 auto 20px auto; }\n    .country .image-description {\n      display: block; } }\n\n", ""]);
+exports.push([module.i, ".country-text {\n  margin-bottom: 20px; }\n", ""]);
 
 // exports
 
@@ -1148,7 +1318,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Site/Content/TourTypes/Skiing/Country/skiingCountry.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper country-text\">\r\n        Что нужно для отличного отдыха? Море, солнце, великолепный сервис в отелях, предлагающих удобную систему «все включено», обширная развлекательная программа, умопомрачительные ночные дискотеки, лучшие блюда национальной кухни дарят путешественникам лучшие дни отдыха под жарким солнцем.\r\n    </div>\r\n    <div class=\"counties-wrapper\">\r\n        <div class=\"country\">\r\n            <div class=\"image-description\">\r\n                <div class=\"country-image\">\r\n                    <img class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                </div>\r\n                <div class=\"country-descriptions\">\r\n                    <a [routerLink]=\"[ '/tour/beach/bali' ]\" class=\"link-big\">Бали</a>\r\n                    <ul>\r\n                        <li>Все условия для релаксации</li>\r\n                        <li>Прекрасные песчаные пляжи</li>\r\n                        <li>SPA-центры. Аквапарки</li>\r\n                        <li>Водные виды спорта. Серфинг</li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <div class=\"country-prices\">\r\n                <p>Отели:</p>\r\n                <div class=\"hotels\">\r\n                    <div class=\"stars\">\r\n                        <ul>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                        </ul>\r\n                    </div>\r\n                    <div class=\"price\">\r\n                        <ul>\r\n                            <li>от <strong>1 998,00 р.</strong></li>\r\n                            <li>от <strong>1 480,00 р.</strong></li>\r\n                            <li>от <strong>1 618,00 р.</strong></li>\r\n                        </ul>\r\n                    </div>\r\n                </div>\r\n                <a class=\"btn btn-info\">Подробнее</a>\r\n            </div>\r\n        </div>\r\n        <div class=\"country\">\r\n            <div class=\"image-description\">\r\n                <div class=\"country-image\">\r\n                    <img class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                </div>\r\n                <div class=\"country-descriptions\">\r\n                    <a [routerLink]=\"[ '/tour/beach/bali' ]\" class=\"link-big\">Бали</a>\r\n                    <ul>\r\n                        <li>Все условия для релаксации</li>\r\n                        <li>Прекрасные песчаные пляжи</li>\r\n                        <li>SPA-центры. Аквапарки</li>\r\n                        <li>Водные виды спорта. Серфинг</li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <div class=\"country-prices\">\r\n                <p>Отели:</p>\r\n                <div class=\"hotels\">\r\n                    <div class=\"stars\">\r\n                        <ul>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                            <li>\r\n                                <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                            </li>\r\n                        </ul>\r\n                    </div>\r\n                    <div class=\"price\">\r\n                        <ul>\r\n                            <li>от <strong>1 998,00 р.</strong></li>\r\n                            <li>от <strong>1 480,00 р.</strong></li>\r\n                            <li>от <strong>1 618,00 р.</strong></li>\r\n                        </ul>\r\n                    </div>\r\n                </div>\r\n                <a class=\"btn btn-info\">Подробнее</a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper country-text\">\r\n        Текст страницы\r\n    </div>\r\n    <countriesComponent></countriesComponent>\r\n</div>"
 
 /***/ }),
 
@@ -1158,35 +1328,23 @@ module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SkiingCountryComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__siteModule_Order_order_component__ = __webpack_require__("../../../../../src/app/Site/Order/order.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
 
 var SkiingCountryComponent = /** @class */ (function () {
-    function SkiingCountryComponent(dialog) {
-        this.dialog = dialog;
+    function SkiingCountryComponent() {
     }
-    SkiingCountryComponent.prototype.openOrderPopup = function () {
-        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_2__siteModule_Order_order_component__["a" /* OrderComponent */]);
-    };
     SkiingCountryComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             moduleId: module.i,
             selector: "skiingCountry",
             template: __webpack_require__("../../../../../src/app/Site/Content/TourTypes/Skiing/Country/skiingCountry.component.html"),
             styles: [__webpack_require__("../../../../../src/app/Site/Content/TourTypes/Skiing/Country/skiingCountry.component.css")]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */]])
+        })
     ], SkiingCountryComponent);
     return SkiingCountryComponent;
 }());
@@ -1203,7 +1361,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".tour-text {\n  margin-bottom: 20px; }\n\n.tours-wrapper {\n  margin: 0 20px; }\n\n.tours-wrapper .tour {\n    margin-bottom: 20px; }\n\n.tours-wrapper .tour .image-description .tour-image {\n      margin-top: 10px;\n      margin-right: 40px; }\n\n.tours-wrapper .tour .image-description .tour-image img {\n        width: 340px;\n        height: 250px; }\n\n.tours-wrapper .tour .image-description .tour-descriptions {\n      margin-top: 10px;\n      margin-right: 10px;\n      min-width: 200px; }\n\n.tours-wrapper .tour .image-description .tour-descriptions .stars {\n        margin-right: 5px; }\n\n.tours-wrapper .tour .image-description .tour-descriptions .stars .s {\n          background-image: url(/content/images/star.svg);\n          background-position: 14px 14px;\n          width: 14px;\n          height: 14px;\n          display: inline-block;\n          margin-top: 2px; }\n\n.tours-wrapper .tour .tour-prices {\n      margin-top: 10px;\n      width: 220px; }\n\n.tours-wrapper .tour .tour-prices div {\n        margin-bottom: 5px; }\n\n@media (min-width: 850px) {\n  .tour {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 850px) {\n  .tour {\n    display: block; } }\n\n@media (min-width: 600px) {\n  .tour .image-description {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 600px) {\n  .tour {\n    width: 340px;\n    margin: 0 auto 20px auto; }\n    .tour .image-description {\n      display: block; } }\n\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -1216,7 +1374,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Site/Content/TourTypes/Skiing/Tours/skiingTours.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper tour-text\">\r\n        Что нужно для отличного отдыха? Море, солнце, великолепный сервис в отелях, предлагающих удобную систему «все включено», обширная развлекательная программа, умопомрачительные ночные дискотеки, лучшие блюда национальной кухни дарят путешественникам лучшие дни отдыха под жарким солнцем.\r\n    </div>\r\n    <div class=\"tours-wrapper\">\r\n        <div class=\"tour\">\r\n            <div class=\"image-description\">\r\n                <div class=\"tour-image\">\r\n                    <img (click)=\"openImagesPopup()\" class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                </div>\r\n                <div class=\"tour-descriptions\">\r\n                    <div class=\"stars\">\r\n                        <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                    </div>\r\n                    <a class=\"link-big\">BEST WESTERN KUTA VILLA</a>\r\n                    <div>City</div>\r\n                    <ul>\r\n                        <li>Рядом с ТЦ и ресторанами</li>\r\n                        <li>Просторные оборудованные номера</li>\r\n                        <li>Прокат автомобилей</li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <div class=\"tour-prices\">\r\n                <div>\r\n                    <div>от <strong>1 998,00 р.</strong></div>\r\n                    <div>\r\n                        <i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>\r\n                        <span>от 7 ночей</span>\r\n                    </div>\r\n                    <div>\r\n                        <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                        <span>перелет включен</span>\r\n                    </div>\r\n                </div>\r\n                <a class=\"btn btn-info\">Подробнее</a>\r\n            </div>\r\n        </div>\r\n        <div class=\"tour\">\r\n            <div class=\"image-description\">\r\n                <div class=\"tour-image\">\r\n                    <a (click)=\"openImagesPopup()\">\r\n                        <img class=\"counrty-image\" src=\"/Content/Images/tour_category_test1.jpg\" />\r\n                    </a>                  \r\n                </div>\r\n                <div class=\"tour-descriptions\">\r\n                    <div class=\"stars\">\r\n                        <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                    </div>\r\n                    <a (click)=\"openOrderPopup()\" class=\"link-big\">BEST WESTERN KUTA VILLA</a>\r\n                    <div>City</div>\r\n                    <ul>\r\n                        <li>Рядом с ТЦ и ресторанами</li>\r\n                        <li>Просторные оборудованные номера</li>\r\n                        <li>Прокат автомобилей</li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <div class=\"tour-prices\">\r\n                <div>\r\n                    <div>от <strong>1 998,00 р.</strong></div>\r\n                    <div>\r\n                        <i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>\r\n                        <span>от 7 ночей</span>\r\n                    </div>\r\n                    <div>\r\n                        <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                        <span>перелет включен</span>\r\n                    </div>\r\n                </div>\r\n                <a (click)=\"openOrderPopup()\" class=\"btn btn-info\">Подробнее</a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<toursComponent></toursComponent>"
 
 /***/ }),
 
@@ -1226,40 +1384,23 @@ module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SkiingToursComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__siteModule_Order_order_component__ = __webpack_require__("../../../../../src/app/Site/Order/order.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__siteModule_Content_ImagesPopup_imagesPopup_component__ = __webpack_require__("../../../../../src/app/Site/Content/ImagesPopup/imagesPopup.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
 
 var SkiingToursComponent = /** @class */ (function () {
-    function SkiingToursComponent(dialog) {
-        this.dialog = dialog;
+    function SkiingToursComponent() {
     }
-    SkiingToursComponent.prototype.openOrderPopup = function () {
-        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_2__siteModule_Order_order_component__["a" /* OrderComponent */]);
-    };
-    SkiingToursComponent.prototype.openImagesPopup = function () {
-        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__siteModule_Content_ImagesPopup_imagesPopup_component__["a" /* ImagesPopupComponent */]);
-    };
     SkiingToursComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             moduleId: module.i,
             selector: "skiingTours",
             template: __webpack_require__("../../../../../src/app/Site/Content/TourTypes/Skiing/Tours/skiingTours.component.html"),
             styles: [__webpack_require__("../../../../../src/app/Site/Content/TourTypes/Skiing/Tours/skiingTours.component.css")]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */]])
+        })
     ], SkiingToursComponent);
     return SkiingToursComponent;
 }());
@@ -1289,7 +1430,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Site/Content/TourTypes/tourTypes.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper\">\r\n        <p>Сегодня уже не совсем модно, да и не комфортно, проводить отдых в Крыму или в том же Сочи, некоторые люде желают приятно провести время не зависимо от погодных условий своего региона. Выход поможет найти Центр туризма. </p>\r\n        <p>Очень давно и много раз мы слышали от врачей и психологов, что смена обстановки благотворно влияет, как на весь организм на уровне физиологического здоровья, так и помогает \"отдохнуть мозгу\" от постоянных картинок, которые просто приелись от обыденной жизни.</p>\r\n        <p>Если не прислушиваться умным советам врачей возможны расстройство основных систем: дыхательной (загрязненный воздух), сердечно-сосудистой и опорно-двигательной (малоподвижный образ жизни) и т.д., писать можно много, но на данных примерах легко видно, что чистый морской воздух и обилие растительности \"прочистит\" легкие, а активный образ жизни (плавание или просто ходьба и прогулка по новым достопримечательностям) восстановят опорно-двигательную систему, и суставы еще долго не дадут о себе знать. Ведущие психологи мира давно делали акцент лечения всех неврозов на смену обстановки. </p>\r\n        <p>\r\n            Выбор страны для путешествий достаточно велик. ВТО выделяет четко шесть, отличных по составу в географии, туристских центров мира:<br>\r\n            - Американский. Сюда входят страны Северной, Южной и Центральной Америки, территории Карибского бассейна и островные государства;<br>\r\n            - Европейский. Это страны Западной, Южной, Северной, Восточной и Центральной Европы (плюс бывшие республики СССР, а также Израиль, Кипр, Турция - государства Восточного Средиземноморья);<br>\r\n            - Азиатско-Тихоокеанский. Среди его - страны Юго-Восточной и Восточной Азии, Океания и Австралия;<br>\r\n            - Южно - Азиатский - все страны Южной Азии;<br>\r\n            - Африканский - страны Африки, но кроме Египта и Ливии;<br>\r\n            - Ближне - Восточный. К нему относят Египет и Ливию (страны Западной и Юго-Западной Азии).\r\n        </p>\r\n        <p>Присмотревшись сразу видны одни положительные качества туристических путешествий, будь то Турция, Египет, Тунис, ОАЭ, Куба, Тайланд, Шри Ланка или Мальдивы вы однозначно получите массу положительных эмоций!</p>\r\n    </div>\r\n</div>\r\n<div class=\"row\">\r\n    <div class=\"category col-md-4 col-sm-6 col-xs-12\">\r\n        <a [routerLink]=\"[ '/tour/beach' ]\" style=\"background-image: url(/Content/Images/tour_category_test1.jpg)\">\r\n            <div>Пляжный отдых</div>\r\n        </a>\r\n    </div>\r\n    <div class=\"category col-md-4 col-sm-6 col-xs-12\">\r\n        <a [routerLink]=\"[ '/tour/bus' ]\" style=\"background-image: url(/Content/Images/tour_category_test2.jpg)\">\r\n            <div>Автобусные туры</div>\r\n        </a>\r\n    </div>\r\n    <div class=\"category col-md-4 col-sm-6 col-xs-12\">\r\n        <a [routerLink]=\"[ '/tour/skiing' ]\" style=\"background-image: url(/Content/Images/tour_category_test2.jpg)\">\r\n            <div>Горнолыжные туры</div>\r\n        </a>\r\n    </div>\r\n    <div class=\"category col-md-4 col-sm-6 col-xs-12\">\r\n        <a [routerLink]=\"[ '/tour/newyear' ]\" style=\"background-image: url(/Content/Images/tour_category_test2.jpg)\">\r\n            <div>Новогодние туры</div>\r\n        </a>\r\n    </div>\r\n    <div class=\"category col-md-4 col-sm-6 col-xs-12\">\r\n        <a [routerLink]=\"[ '/tour/individual' ]\" style=\"background-image: url(/Content/Images/tour_category_test2.jpg)\">\r\n            <div>Индивидуальные туры</div>\r\n        </a>\r\n    </div>\r\n    <div class=\"category col-md-4 col-sm-6 col-xs-12\">\r\n        <a [routerLink]=\"[ '/tour/corporate' ]\" style=\"background-image: url(/Content/Images/tour_category_test2.jpg)\">\r\n            <div>Корпоративный отдых</div>\r\n        </a>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper\">\r\n        Текст страницы\r\n    </div>\r\n</div>\r\n<div class=\"row\">\r\n    <div class=\"category col-md-4 col-sm-6 col-xs-12\">\r\n        <a [routerLink]=\"[ '/tour/beach' ]\" style=\"background-image: url(/Content/Images/tour_category_test1.jpg)\">\r\n            <div>Пляжный отдых</div>\r\n        </a>\r\n    </div>\r\n    <div class=\"category col-md-4 col-sm-6 col-xs-12\">\r\n        <a [routerLink]=\"[ '/tour/bus' ]\" style=\"background-image: url(/Content/Images/tour_category_test2.jpg)\">\r\n            <div>Автобусные туры</div>\r\n        </a>\r\n    </div>\r\n    <div class=\"category col-md-4 col-sm-6 col-xs-12\">\r\n        <a [routerLink]=\"[ '/tour/skiing' ]\" style=\"background-image: url(/Content/Images/tour_category_test2.jpg)\">\r\n            <div>Горнолыжные туры</div>\r\n        </a>\r\n    </div>\r\n    <div class=\"category col-md-4 col-sm-6 col-xs-12\">\r\n        <a [routerLink]=\"[ '/tour/newyear' ]\" style=\"background-image: url(/Content/Images/tour_category_test2.jpg)\">\r\n            <div>Новогодние туры</div>\r\n        </a>\r\n    </div>\r\n    <div class=\"category col-md-4 col-sm-6 col-xs-12\">\r\n        <a [routerLink]=\"[ '/tour/individual' ]\" style=\"background-image: url(/Content/Images/tour_category_test2.jpg)\">\r\n            <div>Индивидуальные туры</div>\r\n        </a>\r\n    </div>\r\n    <div class=\"category col-md-4 col-sm-6 col-xs-12\">\r\n        <a [routerLink]=\"[ '/tour/corporate' ]\" style=\"background-image: url(/Content/Images/tour_category_test2.jpg)\">\r\n            <div>Корпоративный отдых</div>\r\n        </a>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -1360,6 +1501,109 @@ var ContentComponent = /** @class */ (function () {
         })
     ], ContentComponent);
     return ContentComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/Site/Countries/countries.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".country-text {\n  margin-bottom: 20px; }\n\n.counties-wrapper {\n  margin: 0 20px; }\n\n.counties-wrapper .country {\n    margin-bottom: 20px; }\n\n.counties-wrapper .country .image-description .country-image {\n      display: block; }\n\n.counties-wrapper .country .image-description .country-image .image {\n        background-size: cover !important;\n        background-repeat: no-repeat !important;\n        background-position: center !important;\n        padding-top: 50%;\n        text-align: center;\n        display: block; }\n\n.counties-wrapper .country .image-description .country-descriptions {\n      margin-top: 10px;\n      margin-right: 40px;\n      min-width: 200px; }\n\n.counties-wrapper .country .country-prices {\n      margin-top: 10px;\n      margin-right: 10px;\n      min-width: 220px;\n      max-width: 320px; }\n\n.counties-wrapper .country .country-prices .hotels {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n        margin-bottom: 10px; }\n\n.counties-wrapper .country .country-prices .hotels li {\n          list-style-type: none; }\n\n.counties-wrapper .country .country-prices .hotels .stars {\n          margin-right: 5px; }\n\n.counties-wrapper .country .country-prices .hotels .stars .s {\n            background-image: url(/content/images/star.svg);\n            background-position: 14px 14px;\n            width: 14px;\n            height: 14px;\n            display: inline-block;\n            margin-top: 2px; }\n\n@media (min-width: 850px) {\n  .country {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 850px) {\n  .country {\n    display: block; } }\n\n@media (min-width: 600px) {\n  .country .image-description {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; }\n    .country .image-description .country-image {\n      margin-top: 10px;\n      margin-right: 40px; }\n      .country .image-description .country-image .image {\n        width: 340px; } }\n\n@media (max-width: 600px) {\n  .country {\n    width: 100%;\n    margin: 0 0 20px 0; }\n    .country .image-description {\n      display: block; }\n      .country .image-description .country-image {\n        margin-top: 10px 0 0 0; }\n        .country .image-description .country-image .image {\n          width: 100%; } }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/Site/Countries/countries.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"counties-wrapper\">\r\n    <div class=\"country\" *ngFor=\"let country of countryCollection\">\r\n        <div class=\"image-description\">\r\n            <div class=\"country-image\">\r\n                <a [routerLink]=\"[ '/tour/' + country.category + '/' + country.urlName ]\"\r\n                   class=\"image\"\r\n                     [style.background]=\"'url(/api/image/' + country.oldImageCollection[0] + ')'\">\r\n                </a>\r\n            </div>\r\n            <div class=\"country-descriptions\">\r\n                <a [routerLink]=\"[ '/tour/' + country.category + '/' + country.urlName ]\"\r\n                   class=\"link-big\">\r\n                    <span [innerHtml]=\"country.name\"></span>\r\n                </a>\r\n                <div [innerHtml]=\"country.description\"></div>\r\n            </div>\r\n        </div>\r\n        <div class=\"country-prices\">\r\n            <p>Отели:</p>\r\n            <div class=\"hotels\">\r\n                <div class=\"stars\">\r\n                    <ul>\r\n                        <li>\r\n                            <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                        </li>\r\n                        <li>\r\n                            <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                        </li>\r\n                        <li>\r\n                            <span class=\"s\"></span><span class=\"s\"></span><span class=\"s\"></span>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n                <div class=\"price\">\r\n                    <ul>\r\n                        <li>от <strong [innerHtml]=\"country.fiveStarsPrice\"></strong> р.</li>\r\n                        <li>от <strong [innerHtml]=\"country.fourStarsPrice\"></strong> р.</li>\r\n                        <li>от <strong [innerHtml]=\"country.threeStarsPrice\"></strong> р.</li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <a (click)=\"openOrderPopup()\" \r\n               class=\"btn btn-info\">Подробнее</a>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/Site/Countries/countries.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CountriesComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__siteModule_Order_order_component__ = __webpack_require__("../../../../../src/app/Site/Order/order.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_Services_tourType_service__ = __webpack_require__("../../../../../src/app/Common/Services/tourType.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__siteCommon_Services_country_service__ = __webpack_require__("../../../../../src/app/Site/Common/Services/country.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var CountriesComponent = /** @class */ (function () {
+    function CountriesComponent(dialog, tourTypeService, countryService, activeRoute, router) {
+        this.dialog = dialog;
+        this.tourTypeService = tourTypeService;
+        this.countryService = countryService;
+        this.activeRoute = activeRoute;
+        this.router = router;
+        this.countryCollection = new Array();
+    }
+    CountriesComponent.prototype.ngOnInit = function () {
+        this.tourTypes = this.tourTypeService.GetTourTypes();
+        this.setDataFromRoute();
+        this.getCountryCollection();
+    };
+    CountriesComponent.prototype.setDataFromRoute = function () {
+        var _this = this;
+        this.activeRoute.pathFromRoot[1].url.subscribe(function (val) {
+            _this.tourType = val[1].path;
+        });
+    };
+    CountriesComponent.prototype.getCountryCollection = function () {
+        var _this = this;
+        this.countryService.getCountryCollection(this.tourType)
+            .subscribe(function (data) { return _this.countryCollection = data; });
+    };
+    CountriesComponent.prototype.getTourTypeName = function (tourTypeKey) {
+        var result = this.tourTypes.keys().filter(function (tt) { return tt == tourTypeKey; })[0];
+        return result;
+    };
+    CountriesComponent.prototype.openOrderPopup = function () {
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__siteModule_Order_order_component__["a" /* OrderComponent */]);
+    };
+    CountriesComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            moduleId: module.i,
+            selector: "countriesComponent",
+            template: __webpack_require__("../../../../../src/app/Site/Countries/countries.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/Site/Countries/countries.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */],
+            __WEBPACK_IMPORTED_MODULE_4__common_Services_tourType_service__["a" /* TourTypeService */],
+            __WEBPACK_IMPORTED_MODULE_5__siteCommon_Services_country_service__["b" /* CountryService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
+    ], CountriesComponent);
+    return CountriesComponent;
 }());
 
 
@@ -1688,6 +1932,128 @@ var Order = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/Site/Tours/tours.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".tour-text {\n  margin-bottom: 20px; }\n\n.tours-wrapper {\n  margin: 0 20px; }\n\n.tours-wrapper .tour {\n    margin-bottom: 20px; }\n\n.tours-wrapper .tour .image-description .tour-image .image {\n      background-size: cover !important;\n      background-repeat: no-repeat !important;\n      background-position: center !important;\n      padding-top: 50%;\n      text-align: center;\n      display: block; }\n\n.tours-wrapper .tour .image-description .tour-descriptions {\n      margin-top: 10px;\n      margin-right: 40px;\n      min-width: 200px; }\n\n.tours-wrapper .tour .image-description .tour-descriptions .stars {\n        margin-right: 5px; }\n\n.tours-wrapper .tour .image-description .tour-descriptions .stars .s {\n          background-image: url(/content/images/star.svg);\n          background-position: 14px 14px;\n          width: 14px;\n          height: 14px;\n          display: inline-block;\n          margin-top: 2px; }\n\n.tours-wrapper .tour .tour-prices {\n      margin-top: 10px;\n      min-width: 220px; }\n\n.tours-wrapper .tour .tour-prices div {\n        margin-bottom: 5px; }\n\n@media (min-width: 850px) {\n  .tour {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 850px) {\n  .tour {\n    display: block; } }\n\n@media (min-width: 600px) {\n  .tour .image-description {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; }\n    .tour .image-description .tour-image {\n      margin-top: 10px;\n      margin-right: 40px; }\n      .tour .image-description .tour-image .image {\n        width: 340px; } }\n\n@media (max-width: 600px) {\n  .tour {\n    width: 100%;\n    margin: 0 0 20px 0; }\n    .tour .image-description {\n      display: block; }\n      .tour .image-description .tour-image {\n        margin-top: 10px 0 0 0; }\n        .tour .image-description .tour-image .image {\n          width: 100%; } }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/Site/Tours/tours.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper tour-text\"\r\n         [innerHtml]=\"country.contentPage\">\r\n    </div>\r\n    <div class=\"tours-wrapper\">\r\n        <div class=\"tour\"\r\n             *ngFor=\"let tour of tourCollection\">\r\n            <div class=\"image-description\">\r\n                <div class=\"tour-image\">\r\n                    <div class=\"image open-image-popup\"\r\n                         (click)=\"openImagesPopup(tour.oldImageCollection)\"\r\n                         [style.background]=\"'url(/api/image/' + tour.oldImageCollection[0] + ')'\">\r\n                    </div>\r\n                </div>\r\n                <div class=\"tour-descriptions\">\r\n                    <div class=\"stars\">\r\n                        <span *ngFor=\"let i of starsArray(tour.stars).fill('star')\" class=\"s\"></span>\r\n                    </div>\r\n                    <a [routerLink]=\"[ '/tour/' + tour.category + '/' + tour.country +'/' + tour.urlName ]\"\r\n                       class=\"link-big\">\r\n                        <span [innerHtml]=\"tour.name\"></span>\r\n                    </a>\r\n                    <div [innerHtml]=\"tour.city\"></div>\r\n                    <div [innerHtml]=\"tour.description\"></div>\r\n                </div>\r\n            </div>\r\n            <div class=\"tour-prices\">\r\n                <div>\r\n                    <div>от <strong [innerHtml]=\"tour.price\"></strong>р.</div>\r\n                    <div>\r\n                        <i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>\r\n                        <span>от <span [innerHtml]=\"tour.nights\"></span> ночей</span>\r\n                    </div>\r\n                    <div *ngIf=\"tour.isFlightIncluded\">\r\n                        <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                        <span>перелет включен</span>\r\n                    </div>\r\n                </div>\r\n                <a (click)=\"openOrderPopup()\" \r\n                   class=\"btn btn-info\">Подробнее</a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/Site/Tours/tours.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ToursComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__siteModule_Content_ImagesPopup_imagesPopup_component__ = __webpack_require__("../../../../../src/app/Site/Content/ImagesPopup/imagesPopup.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__siteModule_Order_order_component__ = __webpack_require__("../../../../../src/app/Site/Order/order.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__common_Services_tourType_service__ = __webpack_require__("../../../../../src/app/Common/Services/tourType.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__siteCommon_Services_country_service__ = __webpack_require__("../../../../../src/app/Site/Common/Services/country.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__siteCommon_Services_tour_service__ = __webpack_require__("../../../../../src/app/Site/Common/Services/tour.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+var ToursComponent = /** @class */ (function () {
+    function ToursComponent(dialog, tourService, tourTypeService, countryService, activeRoute, router) {
+        this.dialog = dialog;
+        this.tourService = tourService;
+        this.tourTypeService = tourTypeService;
+        this.countryService = countryService;
+        this.activeRoute = activeRoute;
+        this.router = router;
+        this.starsArray = Array;
+        this.country = new __WEBPACK_IMPORTED_MODULE_6__siteCommon_Services_country_service__["a" /* Country */]();
+        this.tourCollection = new Array();
+    }
+    ToursComponent.prototype.ngOnInit = function () {
+        this.tourTypes = this.tourTypeService.GetTourTypes();
+        this.setDataFromRoute();
+        this.getCountry();
+        this.getTourCollection();
+    };
+    ToursComponent.prototype.setDataFromRoute = function () {
+        var _this = this;
+        this.activeRoute.params.subscribe(function (params) {
+            _this.country.urlName = params['country'];
+        });
+        this.activeRoute.pathFromRoot[1].url.subscribe(function (val) {
+            _this.tourType = val[1].path;
+        });
+    };
+    ToursComponent.prototype.getCountry = function () {
+        var _this = this;
+        this.countryService.getCountry(this.tourType, this.country.urlName)
+            .subscribe(function (data) { return _this.country = data; });
+    };
+    ToursComponent.prototype.getTourCollection = function () {
+        var _this = this;
+        this.tourService.getTourCollection(this.tourType, this.country.urlName)
+            .subscribe(function (data) { return _this.tourCollection = data; });
+    };
+    ToursComponent.prototype.openOrderPopup = function () {
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_4__siteModule_Order_order_component__["a" /* OrderComponent */]);
+    };
+    ToursComponent.prototype.openImagesPopup = function (imageIds) {
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__siteModule_Content_ImagesPopup_imagesPopup_component__["a" /* ImagesPopupComponent */], {
+            data: imageIds
+        });
+    };
+    ToursComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            moduleId: module.i,
+            selector: "toursComponent",
+            template: __webpack_require__("../../../../../src/app/Site/Tours/tours.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/Site/Tours/tours.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */],
+            __WEBPACK_IMPORTED_MODULE_7__siteCommon_Services_tour_service__["a" /* TourService */],
+            __WEBPACK_IMPORTED_MODULE_5__common_Services_tourType_service__["a" /* TourTypeService */],
+            __WEBPACK_IMPORTED_MODULE_6__siteCommon_Services_country_service__["b" /* CountryService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
+    ], ToursComponent);
+    return ToursComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/Site/site.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1763,31 +2129,41 @@ var SiteComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__site_component__ = __webpack_require__("../../../../../src/app/Site/site.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__Header_header_component__ = __webpack_require__("../../../../../src/app/Site/Header/header.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__Order_order_component__ = __webpack_require__("../../../../../src/app/Site/Order/order.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__Footer_footer_component__ = __webpack_require__("../../../../../src/app/Site/Footer/footer.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__Content_content_component__ = __webpack_require__("../../../../../src/app/Site/Content/content.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__Content_Home_home_component__ = __webpack_require__("../../../../../src/app/Site/Content/Home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__Content_TourTypes_tourTypes_component__ = __webpack_require__("../../../../../src/app/Site/Content/TourTypes/tourTypes.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__Content_TourTypes_Beach_Country_beachCountry_component__ = __webpack_require__("../../../../../src/app/Site/Content/TourTypes/Beach/Country/beachCountry.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__Content_TourTypes_Beach_Tours_beachTours_component__ = __webpack_require__("../../../../../src/app/Site/Content/TourTypes/Beach/Tours/beachTours.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__Content_TourTypes_Bus_Tours_busTours_component__ = __webpack_require__("../../../../../src/app/Site/Content/TourTypes/Bus/Tours/busTours.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__Content_TourTypes_Corporate_Country_corporateCountry_component__ = __webpack_require__("../../../../../src/app/Site/Content/TourTypes/Corporate/Country/corporateCountry.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__Content_TourTypes_Corporate_Tours_corporateTours_component__ = __webpack_require__("../../../../../src/app/Site/Content/TourTypes/Corporate/Tours/corporateTours.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__Content_TourTypes_Individual_Country_individualCountry_component__ = __webpack_require__("../../../../../src/app/Site/Content/TourTypes/Individual/Country/individualCountry.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__Content_TourTypes_Individual_Tours_individualTours_component__ = __webpack_require__("../../../../../src/app/Site/Content/TourTypes/Individual/Tours/individualTours.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__Content_TourTypes_NewYear_Country_newYearCountry_component__ = __webpack_require__("../../../../../src/app/Site/Content/TourTypes/NewYear/Country/newYearCountry.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__Content_TourTypes_NewYear_Tours_newYearTours_component__ = __webpack_require__("../../../../../src/app/Site/Content/TourTypes/NewYear/Tours/newYearTours.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__Content_TourTypes_Skiing_Country_skiingCountry_component__ = __webpack_require__("../../../../../src/app/Site/Content/TourTypes/Skiing/Country/skiingCountry.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__Content_TourTypes_Skiing_Tours_skiingTours_component__ = __webpack_require__("../../../../../src/app/Site/Content/TourTypes/Skiing/Tours/skiingTours.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__Content_Promotions_promotions_component__ = __webpack_require__("../../../../../src/app/Site/Content/Promotions/promotions.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__Content_Promotions_PromotionDetails_promotionDetails_component__ = __webpack_require__("../../../../../src/app/Site/Content/Promotions/PromotionDetails/promotionDetails.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__Content_ImagesPopup_imagesPopup_component__ = __webpack_require__("../../../../../src/app/Site/Content/ImagesPopup/imagesPopup.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_ng_simple_slideshow__ = __webpack_require__("../../../../ng-simple-slideshow/ng-simple-slideshow.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__Countries_countries_component__ = __webpack_require__("../../../../../src/app/Site/Countries/countries.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__Tours_tours_component__ = __webpack_require__("../../../../../src/app/Site/Tours/tours.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__Footer_footer_component__ = __webpack_require__("../../../../../src/app/Site/Footer/footer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__Content_content_component__ = __webpack_require__("../../../../../src/app/Site/Content/content.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__Content_Home_home_component__ = __webpack_require__("../../../../../src/app/Site/Content/Home/home.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__Content_TourTypes_tourTypes_component__ = __webpack_require__("../../../../../src/app/Site/Content/TourTypes/tourTypes.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__Content_TourTypes_Beach_Country_beachCountry_component__ = __webpack_require__("../../../../../src/app/Site/Content/TourTypes/Beach/Country/beachCountry.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__Content_TourTypes_Beach_Tours_beachTours_component__ = __webpack_require__("../../../../../src/app/Site/Content/TourTypes/Beach/Tours/beachTours.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__Content_TourTypes_Bus_Tours_busTours_component__ = __webpack_require__("../../../../../src/app/Site/Content/TourTypes/Bus/Tours/busTours.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__Content_TourTypes_Corporate_Country_corporateCountry_component__ = __webpack_require__("../../../../../src/app/Site/Content/TourTypes/Corporate/Country/corporateCountry.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__Content_TourTypes_Corporate_Tours_corporateTours_component__ = __webpack_require__("../../../../../src/app/Site/Content/TourTypes/Corporate/Tours/corporateTours.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__Content_TourTypes_Individual_Country_individualCountry_component__ = __webpack_require__("../../../../../src/app/Site/Content/TourTypes/Individual/Country/individualCountry.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__Content_TourTypes_Individual_Tours_individualTours_component__ = __webpack_require__("../../../../../src/app/Site/Content/TourTypes/Individual/Tours/individualTours.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__Content_TourTypes_NewYear_Country_newYearCountry_component__ = __webpack_require__("../../../../../src/app/Site/Content/TourTypes/NewYear/Country/newYearCountry.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__Content_TourTypes_NewYear_Tours_newYearTours_component__ = __webpack_require__("../../../../../src/app/Site/Content/TourTypes/NewYear/Tours/newYearTours.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__Content_TourTypes_Skiing_Country_skiingCountry_component__ = __webpack_require__("../../../../../src/app/Site/Content/TourTypes/Skiing/Country/skiingCountry.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__Content_TourTypes_Skiing_Tours_skiingTours_component__ = __webpack_require__("../../../../../src/app/Site/Content/TourTypes/Skiing/Tours/skiingTours.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__Content_Promotions_promotions_component__ = __webpack_require__("../../../../../src/app/Site/Content/Promotions/promotions.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__Content_Promotions_PromotionDetails_promotionDetails_component__ = __webpack_require__("../../../../../src/app/Site/Content/Promotions/PromotionDetails/promotionDetails.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__Content_ImagesPopup_imagesPopup_component__ = __webpack_require__("../../../../../src/app/Site/Content/ImagesPopup/imagesPopup.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_ng_simple_slideshow__ = __webpack_require__("../../../../ng-simple-slideshow/ng-simple-slideshow.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__Common_Services_country_service__ = __webpack_require__("../../../../../src/app/Site/Common/Services/country.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__Common_Services_tour_service__ = __webpack_require__("../../../../../src/app/Site/Common/Services/tour.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__Common_Services_promotion_service__ = __webpack_require__("../../../../../src/app/Site/Common/Services/promotion.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
+
 
 
 
@@ -1834,50 +2210,57 @@ var SiteModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_5_angular2_text_mask__["TextMaskModule"],
                 __WEBPACK_IMPORTED_MODULE_8__Common_common_module__["a" /* CommonModule */],
-                __WEBPACK_IMPORTED_MODULE_31_ng_simple_slideshow__["a" /* SlideshowModule */],
-                __WEBPACK_IMPORTED_MODULE_6__angular_router__["a" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_9__site_routes__["a" /* routes */])
+                __WEBPACK_IMPORTED_MODULE_33_ng_simple_slideshow__["a" /* SlideshowModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_router__["c" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_9__site_routes__["a" /* routes */])
+            ],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_34__Common_Services_country_service__["b" /* CountryService */],
+                __WEBPACK_IMPORTED_MODULE_35__Common_Services_tour_service__["a" /* TourService */],
+                __WEBPACK_IMPORTED_MODULE_36__Common_Services_promotion_service__["b" /* PromotionService */]
             ],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_16__Content_TourTypes_tourTypes_component__["a" /* TourTypesComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__Content_TourTypes_tourTypes_component__["a" /* TourTypesComponent */],
                 __WEBPACK_IMPORTED_MODULE_11__Header_header_component__["a" /* HeaderComponent */],
                 __WEBPACK_IMPORTED_MODULE_12__Order_order_component__["a" /* OrderComponent */],
-                __WEBPACK_IMPORTED_MODULE_17__Content_TourTypes_Beach_Country_beachCountry_component__["a" /* BeachCountryComponent */],
-                __WEBPACK_IMPORTED_MODULE_18__Content_TourTypes_Beach_Tours_beachTours_component__["a" /* BeachToursComponent */],
-                __WEBPACK_IMPORTED_MODULE_19__Content_TourTypes_Bus_Tours_busTours_component__["a" /* BusToursComponent */],
-                __WEBPACK_IMPORTED_MODULE_20__Content_TourTypes_Corporate_Country_corporateCountry_component__["a" /* CorporateCountryComponent */],
-                __WEBPACK_IMPORTED_MODULE_21__Content_TourTypes_Corporate_Tours_corporateTours_component__["a" /* CorporateToursComponent */],
-                __WEBPACK_IMPORTED_MODULE_22__Content_TourTypes_Individual_Country_individualCountry_component__["a" /* IndividualCountryComponent */],
-                __WEBPACK_IMPORTED_MODULE_23__Content_TourTypes_Individual_Tours_individualTours_component__["a" /* IndividualToursComponent */],
-                __WEBPACK_IMPORTED_MODULE_24__Content_TourTypes_NewYear_Country_newYearCountry_component__["a" /* NewYearCountryComponent */],
-                __WEBPACK_IMPORTED_MODULE_25__Content_TourTypes_NewYear_Tours_newYearTours_component__["a" /* NewYearToursComponent */],
-                __WEBPACK_IMPORTED_MODULE_26__Content_TourTypes_Skiing_Country_skiingCountry_component__["a" /* SkiingCountryComponent */],
-                __WEBPACK_IMPORTED_MODULE_27__Content_TourTypes_Skiing_Tours_skiingTours_component__["a" /* SkiingToursComponent */],
-                __WEBPACK_IMPORTED_MODULE_30__Content_ImagesPopup_imagesPopup_component__["a" /* ImagesPopupComponent */],
-                __WEBPACK_IMPORTED_MODULE_28__Content_Promotions_promotions_component__["a" /* PromotionsComponent */],
-                __WEBPACK_IMPORTED_MODULE_29__Content_Promotions_PromotionDetails_promotionDetails_component__["a" /* PromotionDetailsComponent */]
+                __WEBPACK_IMPORTED_MODULE_19__Content_TourTypes_Beach_Country_beachCountry_component__["a" /* BeachCountryComponent */],
+                __WEBPACK_IMPORTED_MODULE_20__Content_TourTypes_Beach_Tours_beachTours_component__["a" /* BeachToursComponent */],
+                __WEBPACK_IMPORTED_MODULE_21__Content_TourTypes_Bus_Tours_busTours_component__["a" /* BusToursComponent */],
+                __WEBPACK_IMPORTED_MODULE_22__Content_TourTypes_Corporate_Country_corporateCountry_component__["a" /* CorporateCountryComponent */],
+                __WEBPACK_IMPORTED_MODULE_23__Content_TourTypes_Corporate_Tours_corporateTours_component__["a" /* CorporateToursComponent */],
+                __WEBPACK_IMPORTED_MODULE_24__Content_TourTypes_Individual_Country_individualCountry_component__["a" /* IndividualCountryComponent */],
+                __WEBPACK_IMPORTED_MODULE_25__Content_TourTypes_Individual_Tours_individualTours_component__["a" /* IndividualToursComponent */],
+                __WEBPACK_IMPORTED_MODULE_26__Content_TourTypes_NewYear_Country_newYearCountry_component__["a" /* NewYearCountryComponent */],
+                __WEBPACK_IMPORTED_MODULE_27__Content_TourTypes_NewYear_Tours_newYearTours_component__["a" /* NewYearToursComponent */],
+                __WEBPACK_IMPORTED_MODULE_28__Content_TourTypes_Skiing_Country_skiingCountry_component__["a" /* SkiingCountryComponent */],
+                __WEBPACK_IMPORTED_MODULE_29__Content_TourTypes_Skiing_Tours_skiingTours_component__["a" /* SkiingToursComponent */],
+                __WEBPACK_IMPORTED_MODULE_32__Content_ImagesPopup_imagesPopup_component__["a" /* ImagesPopupComponent */],
+                __WEBPACK_IMPORTED_MODULE_30__Content_Promotions_promotions_component__["a" /* PromotionsComponent */],
+                __WEBPACK_IMPORTED_MODULE_31__Content_Promotions_PromotionDetails_promotionDetails_component__["a" /* PromotionDetailsComponent */]
             ],
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_10__site_component__["a" /* SiteComponent */],
                 __WEBPACK_IMPORTED_MODULE_11__Header_header_component__["a" /* HeaderComponent */],
                 __WEBPACK_IMPORTED_MODULE_12__Order_order_component__["a" /* OrderComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__Footer_footer_component__["a" /* FooterComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__Content_content_component__["a" /* ContentComponent */],
-                __WEBPACK_IMPORTED_MODULE_15__Content_Home_home_component__["a" /* HomeComponent */],
-                __WEBPACK_IMPORTED_MODULE_16__Content_TourTypes_tourTypes_component__["a" /* TourTypesComponent */],
-                __WEBPACK_IMPORTED_MODULE_17__Content_TourTypes_Beach_Country_beachCountry_component__["a" /* BeachCountryComponent */],
-                __WEBPACK_IMPORTED_MODULE_18__Content_TourTypes_Beach_Tours_beachTours_component__["a" /* BeachToursComponent */],
-                __WEBPACK_IMPORTED_MODULE_19__Content_TourTypes_Bus_Tours_busTours_component__["a" /* BusToursComponent */],
-                __WEBPACK_IMPORTED_MODULE_20__Content_TourTypes_Corporate_Country_corporateCountry_component__["a" /* CorporateCountryComponent */],
-                __WEBPACK_IMPORTED_MODULE_21__Content_TourTypes_Corporate_Tours_corporateTours_component__["a" /* CorporateToursComponent */],
-                __WEBPACK_IMPORTED_MODULE_22__Content_TourTypes_Individual_Country_individualCountry_component__["a" /* IndividualCountryComponent */],
-                __WEBPACK_IMPORTED_MODULE_23__Content_TourTypes_Individual_Tours_individualTours_component__["a" /* IndividualToursComponent */],
-                __WEBPACK_IMPORTED_MODULE_24__Content_TourTypes_NewYear_Country_newYearCountry_component__["a" /* NewYearCountryComponent */],
-                __WEBPACK_IMPORTED_MODULE_25__Content_TourTypes_NewYear_Tours_newYearTours_component__["a" /* NewYearToursComponent */],
-                __WEBPACK_IMPORTED_MODULE_26__Content_TourTypes_Skiing_Country_skiingCountry_component__["a" /* SkiingCountryComponent */],
-                __WEBPACK_IMPORTED_MODULE_27__Content_TourTypes_Skiing_Tours_skiingTours_component__["a" /* SkiingToursComponent */],
-                __WEBPACK_IMPORTED_MODULE_30__Content_ImagesPopup_imagesPopup_component__["a" /* ImagesPopupComponent */],
-                __WEBPACK_IMPORTED_MODULE_28__Content_Promotions_promotions_component__["a" /* PromotionsComponent */],
-                __WEBPACK_IMPORTED_MODULE_29__Content_Promotions_PromotionDetails_promotionDetails_component__["a" /* PromotionDetailsComponent */]
+                __WEBPACK_IMPORTED_MODULE_15__Footer_footer_component__["a" /* FooterComponent */],
+                __WEBPACK_IMPORTED_MODULE_16__Content_content_component__["a" /* ContentComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__Content_Home_home_component__["a" /* HomeComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__Content_TourTypes_tourTypes_component__["a" /* TourTypesComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__Countries_countries_component__["a" /* CountriesComponent */],
+                __WEBPACK_IMPORTED_MODULE_14__Tours_tours_component__["a" /* ToursComponent */],
+                __WEBPACK_IMPORTED_MODULE_19__Content_TourTypes_Beach_Country_beachCountry_component__["a" /* BeachCountryComponent */],
+                __WEBPACK_IMPORTED_MODULE_20__Content_TourTypes_Beach_Tours_beachTours_component__["a" /* BeachToursComponent */],
+                __WEBPACK_IMPORTED_MODULE_21__Content_TourTypes_Bus_Tours_busTours_component__["a" /* BusToursComponent */],
+                __WEBPACK_IMPORTED_MODULE_22__Content_TourTypes_Corporate_Country_corporateCountry_component__["a" /* CorporateCountryComponent */],
+                __WEBPACK_IMPORTED_MODULE_23__Content_TourTypes_Corporate_Tours_corporateTours_component__["a" /* CorporateToursComponent */],
+                __WEBPACK_IMPORTED_MODULE_24__Content_TourTypes_Individual_Country_individualCountry_component__["a" /* IndividualCountryComponent */],
+                __WEBPACK_IMPORTED_MODULE_25__Content_TourTypes_Individual_Tours_individualTours_component__["a" /* IndividualToursComponent */],
+                __WEBPACK_IMPORTED_MODULE_26__Content_TourTypes_NewYear_Country_newYearCountry_component__["a" /* NewYearCountryComponent */],
+                __WEBPACK_IMPORTED_MODULE_27__Content_TourTypes_NewYear_Tours_newYearTours_component__["a" /* NewYearToursComponent */],
+                __WEBPACK_IMPORTED_MODULE_28__Content_TourTypes_Skiing_Country_skiingCountry_component__["a" /* SkiingCountryComponent */],
+                __WEBPACK_IMPORTED_MODULE_29__Content_TourTypes_Skiing_Tours_skiingTours_component__["a" /* SkiingToursComponent */],
+                __WEBPACK_IMPORTED_MODULE_32__Content_ImagesPopup_imagesPopup_component__["a" /* ImagesPopupComponent */],
+                __WEBPACK_IMPORTED_MODULE_30__Content_Promotions_promotions_component__["a" /* PromotionsComponent */],
+                __WEBPACK_IMPORTED_MODULE_31__Content_Promotions_PromotionDetails_promotionDetails_component__["a" /* PromotionDetailsComponent */]
             ],
             exports: [
                 __WEBPACK_IMPORTED_MODULE_7__angular_material__["c" /* MatDialogModule */],

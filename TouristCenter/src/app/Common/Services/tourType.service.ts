@@ -11,7 +11,6 @@ export class TourTypeService{
 
     private FillTourTypes(){
         this.tourTypes.add('beach', 'Пляжный отдых');
-        this.tourTypes.add('bus', 'Автобусные туры');
         this.tourTypes.add('corporate', 'Корпоративные туры');
         this.tourTypes.add('individual', 'Индивидуальные туры');
         this.tourTypes.add('newYear', 'Новогодние туры');

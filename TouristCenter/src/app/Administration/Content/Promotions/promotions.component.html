@@ -22,7 +22,7 @@
                         </a>
                         <div [innerHtml]="promotion.description"></div>
                         <div>
-                            <strong [innerHtml]="promotion.untilDate"></strong>
+                            <div class="until-date"> Действует до <strong>{{promotion.untilDate | date: 'yyyy-MM-dd'}}</strong></div>
                         </div>
                     </div>
                 </div>

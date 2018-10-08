@@ -17,6 +17,8 @@ import { SiteComponent } from "./site.component";
 import { HeaderComponent } from "./Header/header.component";
 import { OrderComponent } from "./Order/order.component";
 import { OrderService } from "./Order/order.service";
+import { CountriesComponent } from "./Countries/countries.component";
+import { ToursComponent } from "./Tours/tours.component";
 import { FooterComponent } from "./Footer/footer.component";
 import { ContentComponent } from "./Content/content.component";
 import { HomeComponent } from "./Content/Home/home.component";
@@ -39,6 +41,10 @@ import { PromotionDetailsComponent } from "./Content/Promotions/PromotionDetails
 import { ImagesPopupComponent } from "./Content/ImagesPopup/imagesPopup.component";
 import { SlideshowModule } from 'ng-simple-slideshow';
 
+import { CountryService } from "./Common/Services/country.service";
+import { TourService } from "./Common/Services/tour.service";
+import { PromotionService } from "./Common/Services/promotion.service";
+
 @NgModule({
     imports:
     [
@@ -53,6 +59,12 @@ import { SlideshowModule } from 'ng-simple-slideshow';
         SlideshowModule,
 
         RouterModule.forRoot(routes)
+    ],
+    providers: 
+    [
+        CountryService,
+        TourService,
+        PromotionService
     ],
     entryComponents:
     [
@@ -85,6 +97,8 @@ import { SlideshowModule } from 'ng-simple-slideshow';
         ContentComponent, 
         HomeComponent,
         TourTypesComponent,
+        CountriesComponent,
+        ToursComponent,
 
         BeachCountryComponent,
         BeachToursComponent,

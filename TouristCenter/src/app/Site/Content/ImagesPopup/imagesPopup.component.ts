@@ -2,7 +2,10 @@ import {
     Component,
     Inject,
     OnDestroy,
-    Renderer2
+    Renderer2,
+
+    ElementRef, Input, Output, EventEmitter, HostListener
+
 } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { MatDialog, MatSelectModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
@@ -13,25 +16,64 @@ import { MatDialog, MatSelectModule, MatDialogRef, MAT_DIALOG_DATA } from '@angu
     styleUrls: ["imagesPopup.component.css"]
 })
 export class ImagesPopupComponent implements OnDestroy {
+    private index: number;
 
     constructor(
       public dialogRef: MatDialogRef<ImagesPopupComponent>,
-      @Inject(MAT_DIALOG_DATA) public data: any,
+      @Inject(MAT_DIALOG_DATA) public data: Array<number>,
       private renderer: Renderer2
       )
     {
-      this.renderer.addClass(document.body, 'modal-open');
+        this.renderer.addClass(document.body, 'modal-open');
     }
 
-    ngOnInit() {
-        
+    ngOnInit() 
+    {
+        this.index = 0;
+    }
+
+    public toPrevious() : void
+    {
+        if(this.isPreviousAvailable())
+        {
+            --this.index;
+        }
+    }
+
+    public toNext() : void
+    {
+        if(this.isNextAvailable())
+        {
+            ++this.index;
+        }
+    }
+
+    public isNextAvailable() : boolean
+    {
+        var result = this.index < this.data.length - 1;
+        return result;
+    }
+
+    public isPreviousAvailable() : boolean
+    {
+        var result = this.index > 0;
+        return result;
+    }
+
+    public getImagePath() : string
+    {
+        var result = '/api/image/' + this.data[this.index];
+        return result;
     }
  
-    onNoClick(): void {
+    onNoClick(): void 
+    {
        this.dialogRef.close();
     }
 
-    ngOnDestroy() {
-      this.renderer.removeClass(document.body, 'modal-open');
+    ngOnDestroy() 
+    {
+       this.renderer.removeClass(document.body, 'modal-open');
     }
+
 }
