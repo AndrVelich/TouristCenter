@@ -26,10 +26,14 @@ import { PromotionsComponent } from "./Content/Promotions/promotions.component";
 import { PromotionComponent } from "./Content/Promotions/Promotion/promotion.component";
 import { ToursComponent } from "./Content/Tours/tours.component";
 import { TourComponent } from "./Content/Tours/Tour/tour.component";
+import { LoginComponent } from "./Content/Login/login.component";
+import { RegisterComponent } from "./Content/Register/register.component";
 
 import { CountryService } from "./Common/Services/country.service";
 import { TourService } from "./Common/Services/tour.service";
 import { PromotionService } from "./Common/Services/promotion.service";
+import { LoginService } from "./Common/Services/login.service";
+import { RegisterService } from "./Common/Services/register.service";
 
 @NgModule({
     imports:
@@ -54,7 +58,9 @@ import { PromotionService } from "./Common/Services/promotion.service";
     [
         CountryService,
         TourService,
-        PromotionService
+        PromotionService,
+        LoginService,
+        RegisterService,
     ],
     entryComponents:
     [],
@@ -70,7 +76,9 @@ import { PromotionService } from "./Common/Services/promotion.service";
         ToursComponent,
         TourComponent,
         PromotionsComponent,
-        PromotionComponent
+        PromotionComponent,
+        LoginComponent,
+        RegisterComponent,
     ],
     exports: [
         AdministrationComponent,

@@ -42,6 +42,7 @@ namespace TouristCenter.Controllers
             return result;
         }
 
+        [Authorize]
         public void Post(PromotionViewModel promotion)
         {
             IPromotion promotionModel;

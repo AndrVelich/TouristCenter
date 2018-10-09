@@ -6,6 +6,8 @@ import { ToursComponent } from "./Content/Tours/tours.component";
 import { TourComponent } from "./Content/Tours/Tour/tour.component";
 import { PromotionsComponent } from "./Content/Promotions/promotions.component";
 import { PromotionComponent } from "./Content/Promotions/Promotion/promotion.component";
+import { LoginComponent } from "./Content/Login/login.component";
+import { RegisterComponent } from "./Content/Register/register.component";
 
 export const routes: Routes = [
     {
@@ -43,5 +45,13 @@ export const routes: Routes = [
     {
         path: 'administration/promotions/:promotion',
         component: PromotionComponent
-    }
+    },
+    {
+        path: 'administration/login',
+        component: LoginComponent
+    },
+    {
+        path: 'administration/register',
+        component: RegisterComponent
+    },
 ];

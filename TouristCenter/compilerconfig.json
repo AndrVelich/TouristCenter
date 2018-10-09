@@ -162,5 +162,13 @@
   {
     "outputFile": "src/app/Site/Tours/tours.component.css",
     "inputFile": "src/app/Site/Tours/tours.component.scss"
+  },
+  {
+    "outputFile": "src/app/Administration/Content/Login/login.component.css",
+    "inputFile": "src/app/Administration/Content/Login/login.component.scss"
+  },
+  {
+    "outputFile": "src/app/Administration/Content/Register/register.component.css",
+    "inputFile": "src/app/Administration/Content/Register/register.component.scss"
   }
 ]

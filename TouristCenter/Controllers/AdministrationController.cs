@@ -13,9 +13,23 @@ namespace TouristCenter.Controllers
         [Route("administration/tours/{tourType}/{country}/{tour}")]
         [Route("administration/promotions")]
         [Route("administration/promotions/{promotion}")]
+        [Authorize]
         public ActionResult Index()
         {
             return View();
+        }
+
+        [Route("administration/login")]
+        public ActionResult Login()
+        {
+            return View("Index");
+        }
+
+        //TODO A.V. ned to delete after first registration
+        [Route("administration/register")]
+        public ActionResult Register()
+        {
+            return View("Index");
         }
     }
 }

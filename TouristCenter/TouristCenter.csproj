@@ -58,6 +58,9 @@
       <Private>True</Private>
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -65,11 +68,11 @@
     <Reference Include="Microsoft.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Host.SystemWeb">
-      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.0\lib\net451\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security">
-      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    <Reference Include="Microsoft.Owin.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.0\lib\net451\Microsoft.Owin.Security.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Security.Cookies">
       <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
@@ -217,6 +220,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -249,6 +253,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AccountControllerApi.cs" />
     <Compile Include="Controllers\AdministrationController.cs" />
     <Compile Include="Controllers\PromotionController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
@@ -265,6 +270,7 @@
     <Compile Include="Helpers\Converters\TourTypesConverter.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Promotion\PromotionViewModel.cs" />
     <Compile Include="Models\Country\CountryViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -352,9 +358,27 @@
     <Content Include="src\app\Administration\administration.component.min.css">
       <DependentUpon>administration.component.css</DependentUpon>
     </Content>
+    <Content Include="src\app\Administration\Common\Services\register.service.ts" />
+    <Content Include="src\app\Administration\Common\Services\login.service.ts" />
     <Content Include="src\app\Administration\Common\Services\promotion.service.ts" />
     <Content Include="src\app\Administration\Common\Services\tour.service.ts" />
     <Content Include="src\app\Administration\Common\Services\country.service.ts" />
+    <Content Include="src\app\Administration\Content\Register\register.component.css">
+      <DependentUpon>register.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Administration\Content\Register\register.component.html" />
+    <Content Include="src\app\Administration\Content\Register\register.component.min.css">
+      <DependentUpon>register.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Administration\Content\Register\register.component.ts" />
+    <Content Include="src\app\Administration\Content\Login\login.component.css">
+      <DependentUpon>login.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Administration\Content\Login\login.component.html" />
+    <Content Include="src\app\Administration\Content\Login\login.component.min.css">
+      <DependentUpon>login.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Administration\Content\Login\login.component.ts" />
     <Content Include="src\app\Administration\Content\Promotions\promotions.component.css">
       <DependentUpon>promotions.component.scss</DependentUpon>
     </Content>
@@ -718,6 +742,8 @@
     <Content Include="src\app\Administration\Content\Promotions\promotions.component.scss" />
     <Content Include="src\app\Administration\Content\Promotions\Promotion\promotion.component.scss" />
     <Content Include="src\app\Site\Countries\countries.component.scss" />
+    <Content Include="src\app\Administration\Content\Login\login.component.scss" />
+    <Content Include="src\app\Administration\Content\Register\register.component.scss" />
     <None Include="src\app\Site\Header\header.component.scss" />
     <Content Include="src\app\Site\site.component.scss" />
     <Content Include="Views\Administration\Index.cshtml" />
@@ -740,10 +766,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AccountService\AccountService.Interfaces\AccountService.Interfaces.csproj">
-      <Project>{21f0ca1a-c152-4fe5-b92b-d824542ee7c6}</Project>
-      <Name>AccountService.Interfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DI\DiConfiguration\DiConfiguration.csproj">
       <Project>{2D39C03E-2F55-4C00-8D2D-66012AE4DFFF}</Project>
       <Name>DiConfiguration</Name>

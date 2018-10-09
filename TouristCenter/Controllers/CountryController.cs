@@ -53,6 +53,7 @@ namespace TouristCenter.Controllers
             return result;
         }
 
+        [Authorize]
         public void Post(CountryViewModel country)
         {
             ICountry countryModel;

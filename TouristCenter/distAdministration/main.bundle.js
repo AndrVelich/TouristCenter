@@ -96,6 +96,70 @@ var Country = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/Administration/Common/Services/login.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return LoginService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Login; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__("../../../../rxjs/_esm5/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/catch.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+//import {Observable} from 'rxjs/Rx';
+
+
+var LoginService = /** @class */ (function () {
+    function LoginService(http) {
+        this.http = http;
+        this.url = '/api/account/login';
+    }
+    LoginService.prototype.login = function (login) {
+        return this.http.post(this.url, login)
+            .catch(this.handleError);
+    };
+    LoginService.prototype.handleError = function (error, cought) {
+        var message = "";
+        if (error instanceof __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Response */]) {
+            var errorData = error.json().error || JSON.stringify(error.json());
+            message = error.status + " - " + (error.statusText || '') + " " + errorData;
+        }
+        else {
+            message = error.message ? error.message : error.toString();
+        }
+        console.error(message);
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["a" /* Observable */].throw(message);
+    };
+    LoginService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+    ], LoginService);
+    return LoginService;
+}());
+
+var Login = /** @class */ (function () {
+    function Login() {
+    }
+    return Login;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/Administration/Common/Services/promotion.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -166,6 +230,70 @@ var Promotion = /** @class */ (function () {
         this.oldImageCollection = new Array();
     }
     return Promotion;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/Administration/Common/Services/register.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return RegisterService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Register; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__("../../../../rxjs/_esm5/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/catch.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+//import {Observable} from 'rxjs/Rx';
+
+
+var RegisterService = /** @class */ (function () {
+    function RegisterService(http) {
+        this.http = http;
+        this.url = '/api/account/register';
+    }
+    RegisterService.prototype.register = function (register) {
+        return this.http.post(this.url, register)
+            .catch(this.handleError);
+    };
+    RegisterService.prototype.handleError = function (error, cought) {
+        var message = "";
+        if (error instanceof __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Response */]) {
+            var errorData = error.json().error || JSON.stringify(error.json());
+            message = error.status + " - " + (error.statusText || '') + " " + errorData;
+        }
+        else {
+            message = error.message ? error.message : error.toString();
+        }
+        console.error(message);
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["a" /* Observable */].throw(message);
+    };
+    RegisterService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+    ], RegisterService);
+    return RegisterService;
+}());
+
+var Register = /** @class */ (function () {
+    function Register() {
+    }
+    return Register;
 }());
 
 
@@ -264,7 +392,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".counties-wrapper {\n  margin: 0 20px; }\n  .counties-wrapper .country {\n    margin-bottom: 20px;\n    /*--mat select--*/ }\n  .counties-wrapper .country ::ng-deep mat-select .mat-select-trigger {\n      display: block;\n      width: 100%;\n      height: 34px;\n      padding: 6px 12px;\n      font-size: 14px;\n      line-height: 1.428571429;\n      color: #555555;\n      vertical-align: middle;\n      background-color: #ffffff;\n      border: 1px solid #cccccc;\n      border-radius: 4px;\n      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n      -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\n      -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;\n      transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;\n      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\n      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s; }\n  .counties-wrapper .country ::ng-deep mat-select .mat-select-trigger span {\n        line-height: 20px; }\n  .counties-wrapper .country .input-group {\n      width: 100%; }\n  .counties-wrapper .country .input-group .form-control {\n        width: 100%; }\n  .counties-wrapper .country .country-descriptions {\n      margin-top: 10px;\n      min-width: 200px; }\n  .counties-wrapper .country .country-descriptions a.link-big i {\n        font-size: 19px; }\n  .counties-wrapper .country .country-prices {\n      margin-top: 10px; }\n  .counties-wrapper .country .country-prices .hotels {\n        margin-bottom: 10px; }\n  .counties-wrapper .country .country-prices .hotels .stars {\n          margin-right: 5px; }\n  .counties-wrapper .country .country-prices .hotels .stars .s {\n            background-image: url(/content/images/star.svg);\n            background-position: 14px 14px;\n            width: 14px;\n            height: 14px;\n            display: inline-block; }\n  .counties-wrapper .country .country-image {\n      margin-top: 10px; }\n  .counties-wrapper .country .country-image .small-images {\n        display: inline-block;\n        vertical-align: top; }\n  .counties-wrapper .country .country-image .small-images a {\n          position: relative;\n          background-size: cover !important;\n          background-repeat: no-repeat !important;\n          background-position: center !important;\n          padding-top: 50%;\n          text-align: center;\n          display: block;\n          width: 200px;\n          margin: 3px; }\n  .counties-wrapper .country .country-image .small-images a .cross-close {\n            position: absolute;\n            right: 0;\n            top: 0;\n            padding: 0px 7px;\n            cursor: pointer;\n            color: white;\n            background-color: rgba(0, 0, 0, 0.7);\n            opacity: 0; }\n  .counties-wrapper .country .country-image .small-images a:hover .cross-close {\n          opacity: 1; }\n  .counties-wrapper .country .country-image .upload-mage input {\n        display: none; }\n  .counties-wrapper .country .content-fields .country-description {\n      height: 100px; }\n  .counties-wrapper .country .content-fields .country-content {\n      height: 150px; }\n  .counties-wrapper .country .actions {\n      margin: 15px 0; }\n  .counties-wrapper .country .actions button {\n        width: 180px;\n        margin: 10px; }\n\n", ""]);
+exports.push([module.i, ".counties-wrapper {\r\n  margin: 0 20px; }\r\n  .counties-wrapper .country {\r\n    margin-bottom: 20px;\r\n    /*--mat select--*/ }\r\n  .counties-wrapper .country ::ng-deep mat-select .mat-select-trigger {\r\n      display: block;\r\n      width: 100%;\r\n      height: 34px;\r\n      padding: 6px 12px;\r\n      font-size: 14px;\r\n      line-height: 1.428571429;\r\n      color: #555555;\r\n      vertical-align: middle;\r\n      background-color: #ffffff;\r\n      border: 1px solid #cccccc;\r\n      border-radius: 4px;\r\n      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\r\n      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\r\n      -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\r\n      -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;\r\n      transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;\r\n      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\r\n      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s; }\r\n  .counties-wrapper .country ::ng-deep mat-select .mat-select-trigger span {\r\n        line-height: 20px; }\r\n  .counties-wrapper .country .input-group {\r\n      width: 100%; }\r\n  .counties-wrapper .country .input-group .form-control {\r\n        width: 100%; }\r\n  .counties-wrapper .country .country-descriptions {\r\n      margin-top: 10px;\r\n      min-width: 200px; }\r\n  .counties-wrapper .country .country-descriptions a.link-big i {\r\n        font-size: 19px; }\r\n  .counties-wrapper .country .country-prices {\r\n      margin-top: 10px; }\r\n  .counties-wrapper .country .country-prices .hotels {\r\n        margin-bottom: 10px; }\r\n  .counties-wrapper .country .country-prices .hotels .stars {\r\n          margin-right: 5px; }\r\n  .counties-wrapper .country .country-prices .hotels .stars .s {\r\n            background-image: url(/content/images/star.svg);\r\n            background-position: 14px 14px;\r\n            width: 14px;\r\n            height: 14px;\r\n            display: inline-block; }\r\n  .counties-wrapper .country .country-image {\r\n      margin-top: 10px; }\r\n  .counties-wrapper .country .country-image .small-images {\r\n        display: inline-block;\r\n        vertical-align: top; }\r\n  .counties-wrapper .country .country-image .small-images a {\r\n          position: relative;\r\n          background-size: cover !important;\r\n          background-repeat: no-repeat !important;\r\n          background-position: center !important;\r\n          padding-top: 50%;\r\n          text-align: center;\r\n          display: block;\r\n          width: 200px;\r\n          margin: 3px; }\r\n  .counties-wrapper .country .country-image .small-images a .cross-close {\r\n            position: absolute;\r\n            right: 0;\r\n            top: 0;\r\n            padding: 0px 7px;\r\n            cursor: pointer;\r\n            color: white;\r\n            background-color: rgba(0, 0, 0, 0.7);\r\n            opacity: 0; }\r\n  .counties-wrapper .country .country-image .small-images a:hover .cross-close {\r\n          opacity: 1; }\r\n  .counties-wrapper .country .country-image .upload-mage input {\r\n        display: none; }\r\n  .counties-wrapper .country .content-fields .country-description {\r\n      height: 100px; }\r\n  .counties-wrapper .country .content-fields .country-content {\r\n      height: 150px; }\r\n  .counties-wrapper .country .actions {\r\n      margin: 15px 0; }\r\n  .counties-wrapper .country .actions button {\r\n        width: 180px;\r\n        margin: 10px; }\r\n\r\n", ""]);
 
 // exports
 
@@ -419,7 +547,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/*--mat select--*/\n::ng-deep mat-select .mat-select-trigger {\n  display: block;\n  width: 100%;\n  height: 34px;\n  padding: 6px 12px;\n  font-size: 14px;\n  line-height: 1.428571429;\n  color: #555555;\n  vertical-align: middle;\n  background-color: #ffffff;\n  border: 1px solid #cccccc;\n  border-radius: 4px;\n  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\n  -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;\n  transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;\n  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\n  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s; }\n::ng-deep mat-select .mat-select-trigger span {\n    line-height: 20px; }\n.country-text {\n  margin-bottom: 20px; }\n.countries-header h2 {\n  display: inline; }\n.countries-header a.link-big {\n  float: right;\n  line-height: 33px; }\n.countries-header a.link-big i {\n    font-size: 19px; }\n.country-filter {\n  margin: 10px 0;\n  width: 340px; }\n.counties-wrapper {\n  margin: 0 20px; }\n.counties-wrapper .country {\n    margin-bottom: 20px; }\n.counties-wrapper .country .image-description .country-image {\n      margin-top: 10px;\n      margin-right: 40px; }\n.counties-wrapper .country .image-description .country-image .image {\n        width: 340px;\n        background-size: cover !important;\n        background-repeat: no-repeat !important;\n        background-position: center !important;\n        padding-top: 50%;\n        text-align: center;\n        display: block; }\n.counties-wrapper .country .image-description .country-descriptions {\n      margin-top: 10px;\n      min-width: 200px;\n      max-width: 500px; }\n.counties-wrapper .country .image-description .country-descriptions a.link-big i {\n        font-size: 19px; }\n.counties-wrapper .country .country-prices {\n      margin-top: 10px;\n      margin-right: 10px;\n      min-width: 220px; }\n.counties-wrapper .country .country-prices .hotels {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n        margin-bottom: 10px; }\n.counties-wrapper .country .country-prices .hotels li {\n          list-style-type: none; }\n.counties-wrapper .country .country-prices .hotels .stars {\n          margin-right: 5px; }\n.counties-wrapper .country .country-prices .hotels .stars .s {\n            background-image: url(/content/images/star.svg);\n            background-position: 14px 14px;\n            width: 14px;\n            height: 14px;\n            display: inline-block;\n            margin-top: 2px; }\n@media (min-width: 850px) {\n  .country {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n@media (max-width: 850px) {\n  .country {\n    display: block; } }\n@media (min-width: 600px) {\n  .country .image-description {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n@media (max-width: 600px) {\n  .country {\n    width: 340px;\n    margin: 0 auto 20px auto; }\n    .country .image-description {\n      display: block; } }\n", ""]);
+exports.push([module.i, "/*--mat select--*/\r\n::ng-deep mat-select .mat-select-trigger {\r\n  display: block;\r\n  width: 100%;\r\n  height: 34px;\r\n  padding: 6px 12px;\r\n  font-size: 14px;\r\n  line-height: 1.428571429;\r\n  color: #555555;\r\n  vertical-align: middle;\r\n  background-color: #ffffff;\r\n  border: 1px solid #cccccc;\r\n  border-radius: 4px;\r\n  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\r\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\r\n  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\r\n  -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;\r\n  transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;\r\n  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\r\n  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s; }\r\n::ng-deep mat-select .mat-select-trigger span {\r\n    line-height: 20px; }\r\n.country-text {\r\n  margin-bottom: 20px; }\r\n.countries-header h2 {\r\n  display: inline; }\r\n.countries-header a.link-big {\r\n  float: right;\r\n  line-height: 33px; }\r\n.countries-header a.link-big i {\r\n    font-size: 19px; }\r\n.country-filter {\r\n  margin: 10px 0;\r\n  width: 340px; }\r\n.counties-wrapper {\r\n  margin: 0 20px; }\r\n.counties-wrapper .country {\r\n    margin-bottom: 20px; }\r\n.counties-wrapper .country .image-description .country-image {\r\n      margin-top: 10px;\r\n      margin-right: 40px; }\r\n.counties-wrapper .country .image-description .country-image .image {\r\n        width: 340px;\r\n        background-size: cover !important;\r\n        background-repeat: no-repeat !important;\r\n        background-position: center !important;\r\n        padding-top: 50%;\r\n        text-align: center;\r\n        display: block; }\r\n.counties-wrapper .country .image-description .country-descriptions {\r\n      margin-top: 10px;\r\n      min-width: 200px;\r\n      max-width: 500px; }\r\n.counties-wrapper .country .image-description .country-descriptions a.link-big i {\r\n        font-size: 19px; }\r\n.counties-wrapper .country .country-prices {\r\n      margin-top: 10px;\r\n      margin-right: 10px;\r\n      min-width: 220px; }\r\n.counties-wrapper .country .country-prices .hotels {\r\n        display: -webkit-box;\r\n        display: -ms-flexbox;\r\n        display: flex;\r\n        -webkit-box-pack: justify;\r\n            -ms-flex-pack: justify;\r\n                justify-content: space-between;\r\n        margin-bottom: 10px; }\r\n.counties-wrapper .country .country-prices .hotels li {\r\n          list-style-type: none; }\r\n.counties-wrapper .country .country-prices .hotels .stars {\r\n          margin-right: 5px; }\r\n.counties-wrapper .country .country-prices .hotels .stars .s {\r\n            background-image: url(/content/images/star.svg);\r\n            background-position: 14px 14px;\r\n            width: 14px;\r\n            height: 14px;\r\n            display: inline-block;\r\n            margin-top: 2px; }\r\n@media (min-width: 850px) {\r\n  .country {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: justify;\r\n        -ms-flex-pack: justify;\r\n            justify-content: space-between; } }\r\n@media (max-width: 850px) {\r\n  .country {\r\n    display: block; } }\r\n@media (min-width: 600px) {\r\n  .country .image-description {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: justify;\r\n        -ms-flex-pack: justify;\r\n            justify-content: space-between; } }\r\n@media (max-width: 600px) {\r\n  .country {\r\n    width: 340px;\r\n    margin: 0 auto 20px auto; }\r\n    .country .image-description {\r\n      display: block; } }\r\n", ""]);
 
 // exports
 
@@ -564,6 +692,104 @@ var HomeComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/Administration/Content/Login/login.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".login-wrapper {\n  margin: 0 20px; }\n  .login-wrapper .login {\n    margin-bottom: 20px; }\n  .login-wrapper .login .login-fields {\n      width: 340px; }\n  .login-wrapper .login .login-fields .input-group {\n        width: 100%; }\n  .login-wrapper .login .login-fields .input-group .form-control {\n          width: 100%; }\n  .login-wrapper .login .actions {\n      margin: 15px 0; }\n  .login-wrapper .login .actions button {\n        width: 180px;\n        margin: 10px 20px 10px 0; }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/Administration/Content/Login/login.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"login-wrapper\">\r\n        <div [formGroup]=\"loginForm\" class=\"login\">\r\n            <div class=\"login-fields\">\r\n                    <div class=\"mb-3\">\r\n                        <div class=\"input-group-prepend\">\r\n                            <span class=\"input-group-text\">Email</span>\r\n                            <span class=\"required\">*</span>\r\n                        </div>\r\n                        <input type=\"text\"\r\n                               name=\"name\"\r\n                               class=\"form-control\"\r\n                               formControlName=\"email\"\r\n                               [(ngModel)]=\"loginModel.email\"\r\n                               aria-describedby=\"basic-addon1\">\r\n                    </div>\r\n                    <div class=\"mb-3\">\r\n                        <div class=\"input-group-prepend\">\r\n                            <span class=\"input-group-text\">Password</span>\r\n                            <span class=\"required\">*</span>\r\n                        </div>\r\n                        <input type=\"text\"\r\n                               name=\"urlName\"\r\n                               class=\"form-control\"\r\n                               formControlName=\"password\"\r\n                               [(ngModel)]=\"loginModel.password\"\r\n                               aria-describedby=\"basic-addon1\">\r\n                    </div>\r\n            </div>\r\n            <div class=\"actions\">\r\n                <button (click)=\"login()\"\r\n                        class=\"btn btn-primary\"\r\n                        [disabled]=\"!loginForm.valid\">\r\n                    Сохранить\r\n                </button>\r\n                <button routerLink=\"/administration/logins\"\r\n                        class=\"btn btn-secondary\">\r\n                    Отменить\r\n                </button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/Administration/Content/Login/login.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__administrationCommon_Services_login_service__ = __webpack_require__("../../../../../src/app/Administration/Common/Services/login.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var LoginComponent = /** @class */ (function () {
+    function LoginComponent(loginService, fb, router) {
+        this.loginService = loginService;
+        this.fb = fb;
+        this.router = router;
+        this.loginModel = new __WEBPACK_IMPORTED_MODULE_3__administrationCommon_Services_login_service__["a" /* Login */]();
+    }
+    LoginComponent.prototype.ngOnInit = function () {
+        this.buildForm();
+    };
+    LoginComponent.prototype.login = function () {
+        var _this = this;
+        this.loginService.login(this.loginModel)
+            .subscribe(function (data) {
+            if (data._body == 'success') {
+                _this.router.navigate(['administration']);
+            }
+            else {
+                _this.errorMessage = data;
+            }
+        }, function (error) { return _this.errorMessage = error; });
+    };
+    LoginComponent.prototype.buildForm = function () {
+        this.loginForm = this.fb.group({
+            "email": [this.loginModel.email, [
+                    __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required
+                ]],
+            "password": [this.loginModel.password, [
+                    __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required
+                ]],
+        });
+    };
+    LoginComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            moduleId: module.i,
+            selector: "login",
+            template: __webpack_require__("../../../../../src/app/Administration/Content/Login/login.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/Administration/Content/Login/login.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__administrationCommon_Services_login_service__["b" /* LoginService */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormBuilder"],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
+    ], LoginComponent);
+    return LoginComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/Administration/Content/Promotions/Promotion/promotion.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -572,7 +798,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".promotion-wrapper {\n  margin: 0 20px; }\n  .promotion-wrapper .promotion {\n    margin-bottom: 20px; }\n  .promotion-wrapper .promotion .input-group {\n      width: 100%; }\n  .promotion-wrapper .promotion .input-group .form-control {\n        width: 100%; }\n  .promotion-wrapper .promotion .promotion-descriptions {\n      margin-top: 10px;\n      min-width: 200px; }\n  .promotion-wrapper .promotion .promotion-descriptions a.link-big i {\n        font-size: 19px; }\n  .promotion-wrapper .promotion .promotion-image {\n      margin-top: 10px; }\n  .promotion-wrapper .promotion .promotion-image .small-images {\n        display: inline-block;\n        vertical-align: top; }\n  .promotion-wrapper .promotion .promotion-image .small-images a {\n          position: relative;\n          background-size: cover !important;\n          background-repeat: no-repeat !important;\n          background-position: center !important;\n          padding-top: 50%;\n          text-align: center;\n          display: block;\n          width: 200px;\n          margin: 3px; }\n  .promotion-wrapper .promotion .promotion-image .small-images a .cross-close {\n            position: absolute;\n            right: 0;\n            top: 0;\n            padding: 0px 7px;\n            cursor: pointer;\n            color: white;\n            background-color: rgba(0, 0, 0, 0.7);\n            opacity: 0; }\n  .promotion-wrapper .promotion .promotion-image .small-images a:hover .cross-close {\n          opacity: 1; }\n  .promotion-wrapper .promotion .promotion-image .upload-mage input {\n        display: none; }\n  .promotion-wrapper .promotion .content-fields .promotion-description {\n      height: 100px; }\n  .promotion-wrapper .promotion .actions {\n      margin: 15px 0; }\n  .promotion-wrapper .promotion .actions button {\n        width: 180px;\n        margin: 10px; }\n", ""]);
+exports.push([module.i, ".promotion-wrapper {\r\n  margin: 0 20px; }\r\n  .promotion-wrapper .promotion {\r\n    margin-bottom: 20px; }\r\n  .promotion-wrapper .promotion .input-group {\r\n      width: 100%; }\r\n  .promotion-wrapper .promotion .input-group .form-control {\r\n        width: 100%; }\r\n  .promotion-wrapper .promotion .promotion-descriptions {\r\n      margin-top: 10px;\r\n      min-width: 200px; }\r\n  .promotion-wrapper .promotion .promotion-descriptions a.link-big i {\r\n        font-size: 19px; }\r\n  .promotion-wrapper .promotion .promotion-image {\r\n      margin-top: 10px; }\r\n  .promotion-wrapper .promotion .promotion-image .small-images {\r\n        display: inline-block;\r\n        vertical-align: top; }\r\n  .promotion-wrapper .promotion .promotion-image .small-images a {\r\n          position: relative;\r\n          background-size: cover !important;\r\n          background-repeat: no-repeat !important;\r\n          background-position: center !important;\r\n          padding-top: 50%;\r\n          text-align: center;\r\n          display: block;\r\n          width: 200px;\r\n          margin: 3px; }\r\n  .promotion-wrapper .promotion .promotion-image .small-images a .cross-close {\r\n            position: absolute;\r\n            right: 0;\r\n            top: 0;\r\n            padding: 0px 7px;\r\n            cursor: pointer;\r\n            color: white;\r\n            background-color: rgba(0, 0, 0, 0.7);\r\n            opacity: 0; }\r\n  .promotion-wrapper .promotion .promotion-image .small-images a:hover .cross-close {\r\n          opacity: 1; }\r\n  .promotion-wrapper .promotion .promotion-image .upload-mage input {\r\n        display: none; }\r\n  .promotion-wrapper .promotion .content-fields .promotion-description {\r\n      height: 100px; }\r\n  .promotion-wrapper .promotion .actions {\r\n      margin: 15px 0; }\r\n  .promotion-wrapper .promotion .actions button {\r\n        width: 180px;\r\n        margin: 10px; }\r\n", ""]);
 
 // exports
 
@@ -709,7 +935,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".promotions-header h2 {\n  display: inline; }\n\n.promotions-header a.link-big {\n  float: right;\n  line-height: 33px; }\n\n.promotions-header a.link-big i {\n    font-size: 19px; }\n\n.promotions-wrapper {\n  margin: 0 20px; }\n\n.promotions-wrapper .promotion {\n    margin-bottom: 20px; }\n\n.promotions-wrapper .promotion .image-description .promotion-image {\n      margin-top: 10px;\n      margin-right: 40px; }\n\n.promotions-wrapper .promotion .image-description .promotion-image .image {\n        width: 340px;\n        background-size: cover !important;\n        background-repeat: no-repeat !important;\n        background-position: center !important;\n        padding-top: 50%;\n        text-align: center;\n        display: block; }\n\n.promotions-wrapper .promotion .image-description .promotion-descriptions {\n      margin-top: 10px;\n      min-width: 200px;\n      max-width: 500px; }\n\n.promotions-wrapper .promotion .image-description .promotion-descriptions a.link-big i {\n        font-size: 19px; }\n\n@media (min-width: 850px) {\n  .promotion {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 850px) {\n  .promotion {\n    display: block; } }\n\n@media (min-width: 600px) {\n  .promotion .image-description {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n\n@media (max-width: 600px) {\n  .promotion {\n    width: 340px;\n    margin: 0 auto 20px auto; }\n    .promotion .image-description {\n      display: block; } }\n", ""]);
+exports.push([module.i, ".promotions-header h2 {\r\n  display: inline; }\r\n\r\n.promotions-header a.link-big {\r\n  float: right;\r\n  line-height: 33px; }\r\n\r\n.promotions-header a.link-big i {\r\n    font-size: 19px; }\r\n\r\n.promotions-wrapper {\r\n  margin: 0 20px; }\r\n\r\n.promotions-wrapper .promotion {\r\n    margin-bottom: 20px; }\r\n\r\n.promotions-wrapper .promotion .image-description .promotion-image {\r\n      margin-top: 10px;\r\n      margin-right: 40px; }\r\n\r\n.promotions-wrapper .promotion .image-description .promotion-image .image {\r\n        width: 340px;\r\n        background-size: cover !important;\r\n        background-repeat: no-repeat !important;\r\n        background-position: center !important;\r\n        padding-top: 50%;\r\n        text-align: center;\r\n        display: block; }\r\n\r\n.promotions-wrapper .promotion .image-description .promotion-descriptions {\r\n      margin-top: 10px;\r\n      min-width: 200px;\r\n      max-width: 500px; }\r\n\r\n.promotions-wrapper .promotion .image-description .promotion-descriptions a.link-big i {\r\n        font-size: 19px; }\r\n\r\n@media (min-width: 850px) {\r\n  .promotion {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: justify;\r\n        -ms-flex-pack: justify;\r\n            justify-content: space-between; } }\r\n\r\n@media (max-width: 850px) {\r\n  .promotion {\r\n    display: block; } }\r\n\r\n@media (min-width: 600px) {\r\n  .promotion .image-description {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: justify;\r\n        -ms-flex-pack: justify;\r\n            justify-content: space-between; } }\r\n\r\n@media (max-width: 600px) {\r\n  .promotion {\r\n    width: 340px;\r\n    margin: 0 auto 20px auto; }\r\n    .promotion .image-description {\r\n      display: block; } }\r\n", ""]);
 
 // exports
 
@@ -779,6 +1005,107 @@ var PromotionsComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/Administration/Content/Register/register.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".register-wrapper {\n  margin: 0 20px; }\n  .register-wrapper .register {\n    margin-bottom: 20px; }\n  .register-wrapper .register .register-fields .input-group {\n      width: 100%; }\n  .register-wrapper .register .register-fields .input-group .form-control {\n        width: 100%; }\n  .register-wrapper .register .actions {\n      margin: 15px 0; }\n  .register-wrapper .register .actions button {\n        width: 180px;\n        margin: 10px 20px 10px 0; }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/Administration/Content/Register/register.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"register-wrapper\">\r\n        <div [formGroup]=\"registerForm\" class=\"register\">\r\n            <div class=\"register-fields\">\r\n                <div class=\"mb-3\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\">Email</span>\r\n                        <span class=\"required\">*</span>\r\n                    </div>\r\n                    <input type=\"text\"\r\n                           name=\"name\"\r\n                           class=\"form-control\"\r\n                           formControlName=\"email\"\r\n                           [(ngModel)]=\"registerModel.email\"\r\n                           aria-describedby=\"basic-addon1\">\r\n                </div>\r\n                <div class=\"mb-3\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\">Password</span>\r\n                        <span class=\"required\">*</span>\r\n                    </div>\r\n                    <input type=\"text\"\r\n                           name=\"urlName\"\r\n                           class=\"form-control\"\r\n                           formControlName=\"password\"\r\n                           [(ngModel)]=\"registerModel.password\"\r\n                           aria-describedby=\"basic-addon1\">\r\n                </div>\r\n                <div class=\"mb-3\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\">Confirm Password</span>\r\n                        <span class=\"required\">*</span>\r\n                    </div>\r\n                    <input type=\"text\"\r\n                           name=\"urlName\"\r\n                           class=\"form-control\"\r\n                           formControlName=\"confirmPassword\"\r\n                           [(ngModel)]=\"registerModel.confirmPassword\"\r\n                           aria-describedby=\"basic-addon1\">\r\n                </div>\r\n            </div>\r\n            <div class=\"actions\">\r\n                <button (click)=\"register()\"\r\n                        class=\"btn btn-primary\"\r\n                        [disabled]=\"!registerForm.valid\">\r\n                    Сохранить\r\n                </button>\r\n                <button routerLink=\"/administration\"\r\n                        class=\"btn btn-secondary\">\r\n                    Отменить\r\n                </button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/Administration/Content/Register/register.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__administrationCommon_Services_register_service__ = __webpack_require__("../../../../../src/app/Administration/Common/Services/register.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var RegisterComponent = /** @class */ (function () {
+    function RegisterComponent(registerService, fb, router) {
+        this.registerService = registerService;
+        this.fb = fb;
+        this.router = router;
+        this.registerModel = new __WEBPACK_IMPORTED_MODULE_3__administrationCommon_Services_register_service__["a" /* Register */]();
+    }
+    RegisterComponent.prototype.ngOnInit = function () {
+        this.buildForm();
+    };
+    RegisterComponent.prototype.register = function () {
+        var _this = this;
+        this.registerService.register(this.registerModel)
+            .subscribe(function (data) {
+            if (data._body == 'success') {
+                _this.router.navigate(['administration']);
+            }
+            else {
+                _this.errorMessage = data;
+            }
+        }, function (error) { return _this.errorMessage = error; });
+    };
+    RegisterComponent.prototype.buildForm = function () {
+        this.registerForm = this.fb.group({
+            "email": [this.registerModel.email, [
+                    __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required
+                ]],
+            "password": [this.registerModel.password, [
+                    __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required
+                ]],
+            "confirmPassword": [this.registerModel.confirmPassword, [
+                    __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required
+                ]],
+        });
+    };
+    RegisterComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            moduleId: module.i,
+            selector: "register",
+            template: __webpack_require__("../../../../../src/app/Administration/Content/Register/register.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/Administration/Content/Register/register.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__administrationCommon_Services_register_service__["b" /* RegisterService */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormBuilder"],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
+    ], RegisterComponent);
+    return RegisterComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/Administration/Content/Tours/Tour/tour.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -787,7 +1114,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".tours-wrapper {\n  margin: 0 20px; }\n  .tours-wrapper .tour {\n    margin-bottom: 20px;\n    /*--mat select--*/ }\n  .tours-wrapper .tour ::ng-deep mat-select .mat-select-trigger {\n      display: block;\n      width: 100%;\n      height: 34px;\n      padding: 6px 12px;\n      font-size: 14px;\n      line-height: 1.428571429;\n      color: #555555;\n      vertical-align: middle;\n      background-color: #ffffff;\n      border: 1px solid #cccccc;\n      border-radius: 4px;\n      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n      -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\n      -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;\n      transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;\n      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\n      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s; }\n  .tours-wrapper .tour ::ng-deep mat-select .mat-select-trigger span {\n        line-height: 20px; }\n  .tours-wrapper .tour .input-group {\n      width: 100%; }\n  .tours-wrapper .tour .input-group .form-control {\n        width: 100%; }\n  .tours-wrapper .tour .tour-descriptions {\n      min-width: 200px; }\n  .tours-wrapper .tour .tour-descriptions a.link-big i {\n        font-size: 19px; }\n  .tours-wrapper .tour .tour-prices {\n      margin-top: 10px 0; }\n  .tours-wrapper .tour .tour-prices .stars {\n        margin-right: 5px; }\n  .tours-wrapper .tour .tour-prices .stars .s {\n          background-image: url(/content/images/star.svg);\n          background-position: 14px 14px;\n          width: 14px;\n          height: 14px;\n          display: inline-block; }\n  .tours-wrapper .tour .tour-image {\n      margin-top: 10px; }\n  .tours-wrapper .tour .tour-image .small-images {\n        display: inline-block;\n        vertical-align: top; }\n  .tours-wrapper .tour .tour-image .small-images a {\n          position: relative;\n          background-size: cover !important;\n          background-repeat: no-repeat !important;\n          background-position: center !important;\n          padding-top: 50%;\n          text-align: center;\n          display: block;\n          width: 200px;\n          margin: 3px; }\n  .tours-wrapper .tour .tour-image .small-images a .cross-close {\n            position: absolute;\n            right: 0;\n            top: 0;\n            padding: 0px 7px;\n            cursor: pointer;\n            color: white;\n            background-color: rgba(0, 0, 0, 0.7);\n            opacity: 0; }\n  .tours-wrapper .tour .tour-image .small-images a:hover .cross-close {\n          opacity: 1; }\n  .tours-wrapper .tour .tour-image .upload-mage input {\n        display: none; }\n  .tours-wrapper .tour .content-fields .tour-description {\n      height: 100px; }\n  .tours-wrapper .tour .content-fields .tour-content {\n      height: 150px; }\n  .tours-wrapper .tour .actions {\n      margin: 15px 0; }\n  .tours-wrapper .tour .actions button {\n        width: 180px;\n        margin: 10px; }\n", ""]);
+exports.push([module.i, ".tours-wrapper {\r\n  margin: 0 20px; }\r\n  .tours-wrapper .tour {\r\n    margin-bottom: 20px;\r\n    /*--mat select--*/ }\r\n  .tours-wrapper .tour ::ng-deep mat-select .mat-select-trigger {\r\n      display: block;\r\n      width: 100%;\r\n      height: 34px;\r\n      padding: 6px 12px;\r\n      font-size: 14px;\r\n      line-height: 1.428571429;\r\n      color: #555555;\r\n      vertical-align: middle;\r\n      background-color: #ffffff;\r\n      border: 1px solid #cccccc;\r\n      border-radius: 4px;\r\n      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\r\n      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\r\n      -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\r\n      -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;\r\n      transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;\r\n      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\r\n      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s; }\r\n  .tours-wrapper .tour ::ng-deep mat-select .mat-select-trigger span {\r\n        line-height: 20px; }\r\n  .tours-wrapper .tour .input-group {\r\n      width: 100%; }\r\n  .tours-wrapper .tour .input-group .form-control {\r\n        width: 100%; }\r\n  .tours-wrapper .tour .tour-descriptions {\r\n      min-width: 200px; }\r\n  .tours-wrapper .tour .tour-descriptions a.link-big i {\r\n        font-size: 19px; }\r\n  .tours-wrapper .tour .tour-prices {\r\n      margin-top: 10px 0; }\r\n  .tours-wrapper .tour .tour-prices .stars {\r\n        margin-right: 5px; }\r\n  .tours-wrapper .tour .tour-prices .stars .s {\r\n          background-image: url(/content/images/star.svg);\r\n          background-position: 14px 14px;\r\n          width: 14px;\r\n          height: 14px;\r\n          display: inline-block; }\r\n  .tours-wrapper .tour .tour-image {\r\n      margin-top: 10px; }\r\n  .tours-wrapper .tour .tour-image .small-images {\r\n        display: inline-block;\r\n        vertical-align: top; }\r\n  .tours-wrapper .tour .tour-image .small-images a {\r\n          position: relative;\r\n          background-size: cover !important;\r\n          background-repeat: no-repeat !important;\r\n          background-position: center !important;\r\n          padding-top: 50%;\r\n          text-align: center;\r\n          display: block;\r\n          width: 200px;\r\n          margin: 3px; }\r\n  .tours-wrapper .tour .tour-image .small-images a .cross-close {\r\n            position: absolute;\r\n            right: 0;\r\n            top: 0;\r\n            padding: 0px 7px;\r\n            cursor: pointer;\r\n            color: white;\r\n            background-color: rgba(0, 0, 0, 0.7);\r\n            opacity: 0; }\r\n  .tours-wrapper .tour .tour-image .small-images a:hover .cross-close {\r\n          opacity: 1; }\r\n  .tours-wrapper .tour .tour-image .upload-mage input {\r\n        display: none; }\r\n  .tours-wrapper .tour .content-fields .tour-description {\r\n      height: 100px; }\r\n  .tours-wrapper .tour .content-fields .tour-content {\r\n      height: 150px; }\r\n  .tours-wrapper .tour .actions {\r\n      margin: 15px 0; }\r\n  .tours-wrapper .tour .actions button {\r\n        width: 180px;\r\n        margin: 10px; }\r\n", ""]);
 
 // exports
 
@@ -976,7 +1303,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/*--mat select--*/\n::ng-deep mat-select .mat-select-trigger {\n  display: block;\n  width: 100%;\n  height: 34px;\n  padding: 6px 12px;\n  font-size: 14px;\n  line-height: 1.428571429;\n  color: #555555;\n  vertical-align: middle;\n  background-color: #ffffff;\n  border: 1px solid #cccccc;\n  border-radius: 4px;\n  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\n  -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;\n  transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;\n  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\n  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s; }\n::ng-deep mat-select .mat-select-trigger span {\n    line-height: 20px; }\n.tour-text {\n  margin-bottom: 20px; }\n.tours-header h2 {\n  display: inline; }\n.tours-header a.link-big {\n  float: right;\n  line-height: 33px; }\n.tours-header a.link-big i {\n    font-size: 19px; }\n.tour-filter {\n  margin: 10px 0; }\n.tour-filter .filter-control {\n    width: 340px;\n    display: inline-block; }\n.tours-wrapper {\n  margin: 0 20px; }\n.tours-wrapper .tour {\n    margin-bottom: 20px; }\n.tours-wrapper .tour .image-description .tour-image {\n      margin-top: 10px;\n      margin-right: 40px; }\n.tours-wrapper .tour .image-description .tour-image .image {\n        width: 340px;\n        background-size: cover !important;\n        background-repeat: no-repeat !important;\n        background-position: center !important;\n        padding-top: 50%;\n        text-align: center;\n        display: block; }\n.tours-wrapper .tour .image-description .tour-descriptions {\n      margin-top: 10px;\n      margin-right: 10px;\n      min-width: 200px; }\n.tours-wrapper .tour .image-description .tour-descriptions .stars {\n        margin-right: 5px; }\n.tours-wrapper .tour .image-description .tour-descriptions .stars .s {\n          background-image: url(/content/images/star.svg);\n          background-position: 14px 14px;\n          width: 14px;\n          height: 14px;\n          display: inline-block;\n          margin-top: 2px; }\n.tours-wrapper .tour .image-description .tour-descriptions a.link-big i {\n        font-size: 19px; }\n.tours-wrapper .tour .tour-prices {\n      margin-top: 10px;\n      width: 220px; }\n.tours-wrapper .tour .tour-prices div {\n        margin-bottom: 5px; }\n@media (min-width: 850px) {\n  .tour {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n@media (max-width: 850px) {\n  .tour {\n    display: block; } }\n@media (min-width: 600px) {\n  .tour .image-description {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n@media (max-width: 600px) {\n  .tour {\n    width: 340px;\n    margin: 0 auto 20px auto; }\n    .tour .image-description {\n      display: block; } }\n", ""]);
+exports.push([module.i, "/*--mat select--*/\r\n::ng-deep mat-select .mat-select-trigger {\r\n  display: block;\r\n  width: 100%;\r\n  height: 34px;\r\n  padding: 6px 12px;\r\n  font-size: 14px;\r\n  line-height: 1.428571429;\r\n  color: #555555;\r\n  vertical-align: middle;\r\n  background-color: #ffffff;\r\n  border: 1px solid #cccccc;\r\n  border-radius: 4px;\r\n  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\r\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\r\n  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\r\n  -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;\r\n  transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;\r\n  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\r\n  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s; }\r\n::ng-deep mat-select .mat-select-trigger span {\r\n    line-height: 20px; }\r\n.tour-text {\r\n  margin-bottom: 20px; }\r\n.tours-header h2 {\r\n  display: inline; }\r\n.tours-header a.link-big {\r\n  float: right;\r\n  line-height: 33px; }\r\n.tours-header a.link-big i {\r\n    font-size: 19px; }\r\n.tour-filter {\r\n  margin: 10px 0; }\r\n.tour-filter .filter-control {\r\n    width: 340px;\r\n    display: inline-block; }\r\n.tours-wrapper {\r\n  margin: 0 20px; }\r\n.tours-wrapper .tour {\r\n    margin-bottom: 20px; }\r\n.tours-wrapper .tour .image-description .tour-image {\r\n      margin-top: 10px;\r\n      margin-right: 40px; }\r\n.tours-wrapper .tour .image-description .tour-image .image {\r\n        width: 340px;\r\n        background-size: cover !important;\r\n        background-repeat: no-repeat !important;\r\n        background-position: center !important;\r\n        padding-top: 50%;\r\n        text-align: center;\r\n        display: block; }\r\n.tours-wrapper .tour .image-description .tour-descriptions {\r\n      margin-top: 10px;\r\n      margin-right: 10px;\r\n      min-width: 200px; }\r\n.tours-wrapper .tour .image-description .tour-descriptions .stars {\r\n        margin-right: 5px; }\r\n.tours-wrapper .tour .image-description .tour-descriptions .stars .s {\r\n          background-image: url(/content/images/star.svg);\r\n          background-position: 14px 14px;\r\n          width: 14px;\r\n          height: 14px;\r\n          display: inline-block;\r\n          margin-top: 2px; }\r\n.tours-wrapper .tour .image-description .tour-descriptions a.link-big i {\r\n        font-size: 19px; }\r\n.tours-wrapper .tour .tour-prices {\r\n      margin-top: 10px;\r\n      width: 220px; }\r\n.tours-wrapper .tour .tour-prices div {\r\n        margin-bottom: 5px; }\r\n@media (min-width: 850px) {\r\n  .tour {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: justify;\r\n        -ms-flex-pack: justify;\r\n            justify-content: space-between; } }\r\n@media (max-width: 850px) {\r\n  .tour {\r\n    display: block; } }\r\n@media (min-width: 600px) {\r\n  .tour .image-description {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: justify;\r\n        -ms-flex-pack: justify;\r\n            justify-content: space-between; } }\r\n@media (max-width: 600px) {\r\n  .tour {\r\n    width: 340px;\r\n    margin: 0 auto 20px auto; }\r\n    .tour .image-description {\r\n      display: block; } }\r\n", ""]);
 
 // exports
 
@@ -1138,7 +1465,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Administration/Footer/footer.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<footer>\r\n    <div class=\"footerLeft\">\r\n        <div class=\"footerLogo\">\r\n            <a href=\"\">\r\n                <div>\r\n                    <i class=\"fa fa-code\" aria-hidden=\"true\"></i>\r\n                    <span>Центр туризма</span>\r\n                </div>\r\n            </a>\r\n        </div>\r\n        <div class=\"footerContact\">\r\n            <div class=\"phone\">\r\n                <i class=\"fa fa-phone\" aria-hidden=\"true\"></i>\r\n                <span>+375 (44) 444-44-44</span>\r\n            </div>\r\n            <div class=\"email\">\r\n                <i class=\"fa fa-envelope\" aria-hidden=\"true\"></i>\r\n                <span>mail@gmail.com</span>\r\n            </div>\r\n            <div class=\"skype\">\r\n                <i class=\"fa fa-skype\" aria-hidden=\"true\"></i>\r\n                <span>skype</span>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"footerRight\">\r\n        <ul class=\"footerMenu\">\r\n            <li>\r\n                <a>Туры</a>\r\n            </li>\r\n            <li>\r\n                <a>Услуги</a>\r\n            </li>\r\n            <li>\r\n                <a>Акции</a>\r\n            </li>\r\n            <li>\r\n                <a>О Компании</a>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</footer>"
+module.exports = "<footer>\r\n    <div class=\"footerLogo\">\r\n        <a href=\"\">\r\n            <div>\r\n                <i class=\"fa fa-code\" aria-hidden=\"true\"></i>\r\n                <span>Центр туризма</span>\r\n            </div>\r\n        </a>\r\n    </div>\r\n    <div class=\"footerRight\">\r\n        <ul class=\"footerMenu\">\r\n            <li [routerLink]=\"[ '/administration/tours' ]\">\r\n                <a>\r\n                    <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                    <span>Туры</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a>\r\n                    <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                    <span>Заказы</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a [routerLink]=\"[ '/administration/countries' ]\">\r\n                    <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                    <span>Страны</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a [routerLink]=\"[ '/administration/promotions' ]\">\r\n                    <i class=\"fa fa-percent\" aria-hidden=\"true\"></i>\r\n                    <span>Акции</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"/account/Register\">\r\n                    <i class=\"fa fa-registered\" aria-hidden=\"true\"></i>\r\n                    <span>Регистрация</span>\r\n                </a>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</footer>"
 
 /***/ }),
 
@@ -1181,7 +1508,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "header .header-content {\n  max-width: 1200px;\n  margin: 0 auto;\n  position: relative; }\n  header .header-content .logo {\n    display: inline-block;\n    padding-top: 15px;\n    margin-left: 40px;\n    font-size: 22px;\n    width: 190px; }\n  header .header-content .headerMenu {\n    padding-top: 15px;\n    float: right; }\n  header .header-content .mobileMenu {\n    display: none; }\n  header .header-content .mainMenu li {\n    display: inline-block;\n    vertical-align: top;\n    text-align: center;\n    margin: 0px 15px;\n    font-size: 18px; }\n  header .header-content .middleHeaderMenu {\n    height: 300px;\n    margin: 15px 0;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n    color: white; }\n  header .header-content .middleHeaderMenu .putOrder {\n      margin: 15px;\n      width: 180px; }\n  header .header-content .middleHeaderMenu .putOrder button {\n        margin: 10px 0; }\n  header .header-content .middleHeaderMenu .contact {\n      margin: 15px;\n      width: 230px;\n      /*margin: 15px;\r\n                  width: 240px;\r\n                  color: #428bca;\r\n                  height: 95px;\r\n                  padding: 0 20px;\r\n                  border-radius: 2px;\r\n                  background-color: white;*/ }\n  header .header-content .middleHeaderMenu .contact div {\n        padding-top: 5px; }\n  header .header-content .middleHeaderMenu .contact span {\n        font-size: 18px; }\n  header .header-content .middleHeaderMenu .contact i {\n        font-size: 22px;\n        margin-right: 5px; }\n  @media (max-width: 600px) {\n  header .header-background {\n    background-size: cover; }\n  header .header-content .logo {\n    display: block;\n    margin: 0 auto;\n    width: 250px;\n    padding-top: 50px;\n    text-align: center; }\n  header .header-content .headerMenu a {\n    color: #fff;\n    font-size: 16px;\n    font-family: 'Exo 2',sans-serif;\n    text-decoration: none;\n    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);\n    text-transform: uppercase;\n    line-height: 25px;\n    padding: 0 25px;\n    cursor: pointer;\n    -webkit-transition: font-size 0.1s;\n    transition: font-size 0.1s; }\n  header .header-content .headerMenu a:hover {\n    font-size: 17px; }\n  header .header-content .headerMenu .mobileMenu {\n    display: block;\n    position: fixed;\n    top: 0;\n    width: 100%;\n    z-index: 50; }\n    header .header-content .headerMenu .mobileMenu-header {\n      width: 100%;\n      background: #2B3037;\n      position: relative;\n      height: 42px;\n      line-height: 42px;\n      z-index: 51;\n      border-bottom: 2px solid #fff;\n      font-weight: 700; }\n    header .header-content .headerMenu .mobileMenu-list {\n      background: #2B3037;\n      width: 100%; }\n      header .header-content .headerMenu .mobileMenu-list li {\n        display: block;\n        text-align: left;\n        margin: 0;\n        padding: 5px 0;\n        border-bottom: 1px solid #fff; }\n  header .header-content .headerMenu .mainMenu {\n    display: none; }\n  header .header-content .middleHeaderMenu {\n    margin-top: 35px;\n    display: block; }\n    header .header-content .middleHeaderMenu .putOrder {\n      width: 300px;\n      margin: 0 auto; }\n      header .header-content .middleHeaderMenu .putOrder button {\n        height: 40px;\n        width: 300px;\n        text-transform: uppercase;\n        font-size: 18px;\n        margin: 10px auto; }\n    header .header-content .middleHeaderMenu .contact {\n      margin: 20px auto;\n      position: relative; } }\n  @media (max-width: 960px) {\n  header .header-background {\n    margin-top: 90px;\n    height: 280px;\n    margin-bottom: -370px; }\n    header .header-background .header-background-image {\n      height: 280px; } }\n  @media (max-width: 960px) and (min-width: 601px) {\n  header .header-content .logo {\n    display: block;\n    padding-top: 7px;\n    margin: 0 auto;\n    width: 400px;\n    text-align: center; } }\n  @media (max-width: 960px) {\n  header .header-content .headerMenu {\n    padding-top: 10px;\n    float: none; }\n  header .header-content .mainMenu {\n    text-align: center; } }\n  @media (max-width: 960px) and (min-width: 600px) {\n    header .header-content .mainMenu li {\n      margin: 0 10px; } }\n\n", ""]);
+exports.push([module.i, "header .header-content {\r\n  max-width: 1200px;\r\n  margin: 0 auto;\r\n  position: relative; }\r\n  header .header-content .logo {\r\n    display: inline-block;\r\n    padding-top: 15px;\r\n    margin-left: 40px;\r\n    font-size: 22px;\r\n    width: 190px; }\r\n  header .header-content .headerMenu {\r\n    padding-top: 15px;\r\n    float: right; }\r\n  header .header-content .mobileMenu {\r\n    display: none; }\r\n  header .header-content .mainMenu li {\r\n    display: inline-block;\r\n    vertical-align: top;\r\n    text-align: center;\r\n    margin: 0px 15px;\r\n    font-size: 18px; }\r\n  header .header-content .middleHeaderMenu {\r\n    height: 300px;\r\n    margin: 15px 0;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: justify;\r\n        -ms-flex-pack: justify;\r\n            justify-content: space-between;\r\n    color: white; }\r\n  header .header-content .middleHeaderMenu .putOrder {\r\n      margin: 15px;\r\n      width: 180px; }\r\n  header .header-content .middleHeaderMenu .putOrder button {\r\n        margin: 10px 0; }\r\n  header .header-content .middleHeaderMenu .contact {\r\n      margin: 15px;\r\n      width: 230px;\r\n      /*margin: 15px;\r\n                  width: 240px;\r\n                  color: #428bca;\r\n                  height: 95px;\r\n                  padding: 0 20px;\r\n                  border-radius: 2px;\r\n                  background-color: white;*/ }\r\n  header .header-content .middleHeaderMenu .contact div {\r\n        padding-top: 5px; }\r\n  header .header-content .middleHeaderMenu .contact span {\r\n        font-size: 18px; }\r\n  header .header-content .middleHeaderMenu .contact i {\r\n        font-size: 22px;\r\n        margin-right: 5px; }\r\n  @media (max-width: 600px) {\r\n  header .header-background {\r\n    background-size: cover; }\r\n  header .header-content .logo {\r\n    display: block;\r\n    margin: 0 auto;\r\n    width: 250px;\r\n    padding-top: 50px;\r\n    text-align: center; }\r\n  header .header-content .headerMenu a {\r\n    color: #fff;\r\n    font-size: 16px;\r\n    font-family: 'Exo 2',sans-serif;\r\n    text-decoration: none;\r\n    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);\r\n    text-transform: uppercase;\r\n    line-height: 25px;\r\n    padding: 0 25px;\r\n    cursor: pointer;\r\n    -webkit-transition: font-size 0.1s;\r\n    transition: font-size 0.1s; }\r\n  header .header-content .headerMenu a:hover {\r\n    font-size: 17px; }\r\n  header .header-content .headerMenu .mobileMenu {\r\n    display: block;\r\n    position: fixed;\r\n    top: 0;\r\n    width: 100%;\r\n    z-index: 50; }\r\n    header .header-content .headerMenu .mobileMenu-header {\r\n      width: 100%;\r\n      background: #2B3037;\r\n      position: relative;\r\n      height: 42px;\r\n      line-height: 42px;\r\n      z-index: 51;\r\n      border-bottom: 2px solid #fff;\r\n      font-weight: 700; }\r\n    header .header-content .headerMenu .mobileMenu-list {\r\n      background: #2B3037;\r\n      width: 100%; }\r\n      header .header-content .headerMenu .mobileMenu-list li {\r\n        display: block;\r\n        text-align: left;\r\n        margin: 0;\r\n        padding: 5px 0;\r\n        border-bottom: 1px solid #fff; }\r\n  header .header-content .headerMenu .mainMenu {\r\n    display: none; }\r\n  header .header-content .middleHeaderMenu {\r\n    margin-top: 35px;\r\n    display: block; }\r\n    header .header-content .middleHeaderMenu .putOrder {\r\n      width: 300px;\r\n      margin: 0 auto; }\r\n      header .header-content .middleHeaderMenu .putOrder button {\r\n        height: 40px;\r\n        width: 300px;\r\n        text-transform: uppercase;\r\n        font-size: 18px;\r\n        margin: 10px auto; }\r\n    header .header-content .middleHeaderMenu .contact {\r\n      margin: 20px auto;\r\n      position: relative; } }\r\n  @media (max-width: 960px) {\r\n  header .header-background {\r\n    margin-top: 90px;\r\n    height: 280px;\r\n    margin-bottom: -370px; }\r\n    header .header-background .header-background-image {\r\n      height: 280px; } }\r\n  @media (max-width: 960px) and (min-width: 601px) {\r\n  header .header-content .logo {\r\n    display: block;\r\n    padding-top: 7px;\r\n    margin: 0 auto;\r\n    width: 400px;\r\n    text-align: center; } }\r\n  @media (max-width: 960px) {\r\n  header .header-content .headerMenu {\r\n    padding-top: 10px;\r\n    float: none; }\r\n  header .header-content .mainMenu {\r\n    text-align: center; } }\r\n  @media (max-width: 960px) and (min-width: 600px) {\r\n    header .header-content .mainMenu li {\r\n      margin: 0 10px; } }\r\n\r\n", ""]);
 
 // exports
 
@@ -1194,7 +1521,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Administration/Header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<header>\r\n    <div class=\"header-content\">\r\n        <div class=\"topHeaderMenu\">\r\n            <div class=\"logo\">\r\n                <a href=\"\">\r\n                    <div>\r\n                        <span>Центр туризма</span>\r\n                    </div>\r\n                </a>\r\n            </div>\r\n            <div class=\"headerMenu\">\r\n                <div clickOutside callbackName=\"onClickOutsideMobileMenu\" [componentContext]=\"this\" class=\"mobileMenu\">\r\n                    <div class=\"mobileMenu-header\">\r\n                        <a (click)=\"toggleMenu()\">\r\n                            <i class=\"fa fa-bars\" aria-hidden=\"true\"></i>\r\n                            <span>\r\n                                Меню\r\n                            </span>\r\n                        </a>\r\n                    </div>\r\n                    <ul *ngIf=\"isMobileMenuVisible\" [@slideInOut] class=\"mobileMenu-list\">\r\n                        <li [routerLink]=\"[ '/administration/tours' ]\">\r\n                            <a>\r\n                                <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                                <span>Туры</span>\r\n                            </a>\r\n                        </li>\r\n                        <li>\r\n                            <a>\r\n                                <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                                <span>Заказы</span>\r\n                            </a>\r\n                        </li>\r\n                        <li>\r\n                            <a [routerLink]=\"[ '/administration/countries' ]\">\r\n                                <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                                <span>Страны</span>\r\n                            </a>\r\n                        </li>\r\n                        <li>\r\n                            <a [routerLink]=\"[ '/administration/promotions' ]\">\r\n                                <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                                <span>Акции</span>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n                <ul class=\"mainMenu\">\r\n                    <li [routerLink]=\"[ '/administration/tours' ]\">\r\n                        <a>\r\n                            <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                            <span>Туры</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                            <span>Заказы</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a [routerLink]=\"[ '/administration/countries' ]\">\r\n                            <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                            <span>Страны</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a [routerLink]=\"[ '/administration/promotions' ]\">\r\n                            <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                            <span>Акции</span>\r\n                        </a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</header>\r\n\r\n"
+module.exports = "<header>\r\n    <div class=\"header-content\">\r\n        <div class=\"topHeaderMenu\">\r\n            <div class=\"logo\">\r\n                <a href=\"\">\r\n                    <div>\r\n                        <span>Центр туризма</span>\r\n                    </div>\r\n                </a>\r\n            </div>\r\n            <div class=\"headerMenu\">\r\n                <div clickOutside callbackName=\"onClickOutsideMobileMenu\" [componentContext]=\"this\" class=\"mobileMenu\">\r\n                    <div class=\"mobileMenu-header\">\r\n                        <a (click)=\"toggleMenu()\">\r\n                            <i class=\"fa fa-bars\" aria-hidden=\"true\"></i>\r\n                            <span>\r\n                                Меню\r\n                            </span>\r\n                        </a>\r\n                    </div>\r\n                    <ul *ngIf=\"isMobileMenuVisible\" [@slideInOut] class=\"mobileMenu-list\">\r\n                        <li [routerLink]=\"[ '/administration/tours' ]\">\r\n                            <a>\r\n                                <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                                <span>Туры</span>\r\n                            </a>\r\n                        </li>\r\n                        <li>\r\n                            <a>\r\n                                <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                                <span>Заказы</span>\r\n                            </a>\r\n                        </li>\r\n                        <li>\r\n                            <a [routerLink]=\"[ '/administration/countries' ]\">\r\n                                <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                                <span>Страны</span>\r\n                            </a>\r\n                        </li>\r\n                        <li>\r\n                            <a [routerLink]=\"[ '/administration/promotions' ]\">\r\n                                <i class=\"fa fa-percent\" aria-hidden=\"true\"></i>\r\n                                <span>Акции</span>\r\n                            </a>\r\n                        </li>\r\n                        <li>\r\n                            <a href=\"/account/Register\">\r\n                                <i class=\"fa fa-registered\" aria-hidden=\"true\"></i>\r\n                                <span>Регистрация</span>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n                <ul class=\"mainMenu\">\r\n                    <li [routerLink]=\"[ '/administration/tours' ]\">\r\n                        <a>\r\n                            <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                            <span>Туры</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                            <span>Заказы</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a [routerLink]=\"[ '/administration/countries' ]\">\r\n                            <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                            <span>Страны</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a [routerLink]=\"[ '/administration/promotions' ]\">\r\n                            <i class=\"fa fa-percent\" aria-hidden=\"true\"></i>\r\n                            <span>Акции</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a href=\"/account/Register\">\r\n                            <i class=\"fa fa-registered\" aria-hidden=\"true\"></i>\r\n                            <span>Регистрация</span>\r\n                        </a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</header>\r\n\r\n"
 
 /***/ }),
 
@@ -1337,15 +1664,23 @@ var AdministrationComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__Content_Promotions_Promotion_promotion_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Promotions/Promotion/promotion.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__Content_Tours_tours_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Tours/tours.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__Content_Tours_Tour_tour_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Tours/Tour/tour.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__Common_Services_country_service__ = __webpack_require__("../../../../../src/app/Administration/Common/Services/country.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__Common_Services_tour_service__ = __webpack_require__("../../../../../src/app/Administration/Common/Services/tour.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__Common_Services_promotion_service__ = __webpack_require__("../../../../../src/app/Administration/Common/Services/promotion.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__Content_Login_login_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__Content_Register_register_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Register/register.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__Common_Services_country_service__ = __webpack_require__("../../../../../src/app/Administration/Common/Services/country.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__Common_Services_tour_service__ = __webpack_require__("../../../../../src/app/Administration/Common/Services/tour.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__Common_Services_promotion_service__ = __webpack_require__("../../../../../src/app/Administration/Common/Services/promotion.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__Common_Services_login_service__ = __webpack_require__("../../../../../src/app/Administration/Common/Services/login.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__Common_Services_register_service__ = __webpack_require__("../../../../../src/app/Administration/Common/Services/register.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
 
 
 
@@ -1390,9 +1725,11 @@ var AdministrationModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_6__angular_router__["c" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_9__administration_routes__["a" /* routes */])
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_21__Common_Services_country_service__["b" /* CountryService */],
-                __WEBPACK_IMPORTED_MODULE_22__Common_Services_tour_service__["b" /* TourService */],
-                __WEBPACK_IMPORTED_MODULE_23__Common_Services_promotion_service__["b" /* PromotionService */]
+                __WEBPACK_IMPORTED_MODULE_23__Common_Services_country_service__["b" /* CountryService */],
+                __WEBPACK_IMPORTED_MODULE_24__Common_Services_tour_service__["b" /* TourService */],
+                __WEBPACK_IMPORTED_MODULE_25__Common_Services_promotion_service__["b" /* PromotionService */],
+                __WEBPACK_IMPORTED_MODULE_26__Common_Services_login_service__["b" /* LoginService */],
+                __WEBPACK_IMPORTED_MODULE_27__Common_Services_register_service__["b" /* RegisterService */],
             ],
             entryComponents: [],
             declarations: [
@@ -1406,7 +1743,9 @@ var AdministrationModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_19__Content_Tours_tours_component__["a" /* ToursComponent */],
                 __WEBPACK_IMPORTED_MODULE_20__Content_Tours_Tour_tour_component__["a" /* TourComponent */],
                 __WEBPACK_IMPORTED_MODULE_17__Content_Promotions_promotions_component__["a" /* PromotionsComponent */],
-                __WEBPACK_IMPORTED_MODULE_18__Content_Promotions_Promotion_promotion_component__["a" /* PromotionComponent */]
+                __WEBPACK_IMPORTED_MODULE_18__Content_Promotions_Promotion_promotion_component__["a" /* PromotionComponent */],
+                __WEBPACK_IMPORTED_MODULE_21__Content_Login_login_component__["a" /* LoginComponent */],
+                __WEBPACK_IMPORTED_MODULE_22__Content_Register_register_component__["a" /* RegisterComponent */],
             ],
             exports: [
                 __WEBPACK_IMPORTED_MODULE_10__administration_component__["a" /* AdministrationComponent */],
@@ -1436,6 +1775,10 @@ var AdministrationModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Content_Tours_Tour_tour_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Tours/Tour/tour.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Content_Promotions_promotions_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Promotions/promotions.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Content_Promotions_Promotion_promotion_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Promotions/Promotion/promotion.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Content_Login_login_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Content_Register_register_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Register/register.component.ts");
+
+
 
 
 
@@ -1479,7 +1822,15 @@ var routes = [
     {
         path: 'administration/promotions/:promotion',
         component: __WEBPACK_IMPORTED_MODULE_6__Content_Promotions_Promotion_promotion_component__["a" /* PromotionComponent */]
-    }
+    },
+    {
+        path: 'administration/login',
+        component: __WEBPACK_IMPORTED_MODULE_7__Content_Login_login_component__["a" /* LoginComponent */]
+    },
+    {
+        path: 'administration/register',
+        component: __WEBPACK_IMPORTED_MODULE_8__Content_Register_register_component__["a" /* RegisterComponent */]
+    },
 ];
 
 

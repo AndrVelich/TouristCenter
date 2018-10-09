@@ -1,4 +1,5 @@
 ﻿using System.Configuration;
+using System.Data.Entity;
 using System.Reflection;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -18,6 +19,7 @@ namespace TouristCenter
 {
     public partial class Startup
     {
+
         public void Configuration(IAppBuilder app)
         {
             var config = new HttpConfiguration();

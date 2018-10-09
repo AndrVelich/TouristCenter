@@ -70,6 +70,7 @@ namespace TouristCenter.Controllers
             return result;
         }
 
+        [Authorize]
         public void Post(TourViewModel tour)
         {
             ITour tourModel;
