@@ -271,6 +271,7 @@
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Order\OrdersPage.cs" />
     <Compile Include="Models\Promotion\PromotionViewModel.cs" />
     <Compile Include="Models\Country\CountryViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -358,11 +359,20 @@
     <Content Include="src\app\Administration\administration.component.min.css">
       <DependentUpon>administration.component.css</DependentUpon>
     </Content>
+    <Content Include="src\app\Administration\Common\Services\order.service.ts" />
     <Content Include="src\app\Administration\Common\Services\register.service.ts" />
     <Content Include="src\app\Administration\Common\Services\login.service.ts" />
     <Content Include="src\app\Administration\Common\Services\promotion.service.ts" />
     <Content Include="src\app\Administration\Common\Services\tour.service.ts" />
     <Content Include="src\app\Administration\Common\Services\country.service.ts" />
+    <Content Include="src\app\Administration\Content\Orders\orders.component.css">
+      <DependentUpon>orders.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Administration\Content\Orders\orders.component.html" />
+    <Content Include="src\app\Administration\Content\Orders\orders.component.min.css">
+      <DependentUpon>orders.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Administration\Content\Orders\orders.component.ts" />
     <Content Include="src\app\Administration\Content\Register\register.component.css">
       <DependentUpon>register.component.scss</DependentUpon>
     </Content>
@@ -744,6 +754,7 @@
     <Content Include="src\app\Site\Countries\countries.component.scss" />
     <Content Include="src\app\Administration\Content\Login\login.component.scss" />
     <Content Include="src\app\Administration\Content\Register\register.component.scss" />
+    <Content Include="src\app\Administration\Content\Orders\orders.component.scss" />
     <None Include="src\app\Site\Header\header.component.scss" />
     <Content Include="src\app\Site\site.component.scss" />
     <Content Include="Views\Administration\Index.cshtml" />

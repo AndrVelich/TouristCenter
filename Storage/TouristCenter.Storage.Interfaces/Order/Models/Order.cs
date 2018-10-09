@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace TouristCenter.Storage.Interfaces.Order.Models
 {
@@ -14,5 +15,7 @@ namespace TouristCenter.Storage.Interfaces.Order.Models
         public string Phone { get; set; }
         [MaxLength(500)]
         public string Description { get; set; }
+        [Required]
+        public DateTime CreatedDateTime { get; set; }
     }
 }

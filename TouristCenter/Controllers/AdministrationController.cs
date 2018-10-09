@@ -5,6 +5,7 @@ namespace TouristCenter.Controllers
     public class AdministrationController : Controller
     {
         [Route("administration")]
+        [Route("administration/orders")]
         [Route("administration/countries")]
         [Route("administration/countries/new")]
         [Route("administration/countries/{tourType}/{country}")]

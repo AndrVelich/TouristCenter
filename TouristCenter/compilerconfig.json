@@ -170,5 +170,9 @@
   {
     "outputFile": "src/app/Administration/Content/Register/register.component.css",
     "inputFile": "src/app/Administration/Content/Register/register.component.scss"
+  },
+  {
+    "outputFile": "src/app/Administration/Content/Orders/orders.component.css",
+    "inputFile": "src/app/Administration/Content/Orders/orders.component.scss"
   }
 ]

@@ -1,4 +1,5 @@
-﻿using TouristCenter.Domain.Interfaces.Order.Exceptions;
+﻿using System;
+using TouristCenter.Domain.Interfaces.Order.Exceptions;
 using TouristCenter.Domain.Interfaces.Order.Models;
 using TouristCenter.Storage.Interfaces.Order.Managers;
 
@@ -40,11 +41,14 @@ namespace TouristCenter.Domain.Order.Models
 
         public string Description { get; set; }
 
+        public DateTime CreatedDateTime { get; private set; }
+
         internal Order(Storage.Interfaces.Order.Models.Order dataModel, IOrderDataManager orderDataManager)
         {
             _name = dataModel.Name;
             _phone = dataModel.Phone;
             Description = dataModel.Description;
+            CreatedDateTime = dataModel.CreatedDateTime;
             _orderDataManager = orderDataManager;
         }
 
@@ -57,6 +61,7 @@ namespace TouristCenter.Domain.Order.Models
             Name = name;
             Phone = phone;
             Description = description;
+            CreatedDateTime = DateTime.Now;
             _orderDataManager = orderDataManager;
         }
 
@@ -81,7 +86,8 @@ namespace TouristCenter.Domain.Order.Models
                 OrderId = OrderId,
                 Name = Name,
                 Phone = Phone,
-                Description = Description
+                Description = Description,
+                CreatedDateTime = CreatedDateTime
             };
             return orderDataModel;
         }

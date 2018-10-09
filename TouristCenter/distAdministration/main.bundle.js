@@ -160,6 +160,78 @@ var Login = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/Administration/Common/Services/order.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OrderService; });
+/* unused harmony export Order */
+/* unused harmony export OrdersPage */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__("../../../../rxjs/_esm5/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/catch.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+//import {Observable} from 'rxjs/Rx';
+
+
+var OrderService = /** @class */ (function () {
+    function OrderService(http) {
+        this.http = http;
+        this.url = '/api/order';
+    }
+    OrderService.prototype.getOrdersPage = function (skip, take) {
+        return this.http.get('api/ordersPage/' + skip + '/' + take)
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
+    };
+    OrderService.prototype.handleError = function (error, cought) {
+        var message = "";
+        if (error instanceof __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Response */]) {
+            var errorData = error.json().error || JSON.stringify(error.json());
+            message = error.status + " - " + (error.statusText || '') + " " + errorData;
+        }
+        else {
+            message = error.message ? error.message : error.toString();
+        }
+        console.error(message);
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["a" /* Observable */].throw(message);
+    };
+    OrderService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+    ], OrderService);
+    return OrderService;
+}());
+
+var Order = /** @class */ (function () {
+    function Order() {
+    }
+    return Order;
+}());
+
+var OrdersPage = /** @class */ (function () {
+    function OrdersPage() {
+    }
+    return OrdersPage;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/Administration/Common/Services/promotion.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -700,7 +772,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".login-wrapper {\n  margin: 0 20px; }\n  .login-wrapper .login {\n    margin-bottom: 20px; }\n  .login-wrapper .login .login-fields {\n      width: 340px; }\n  .login-wrapper .login .login-fields .input-group {\n        width: 100%; }\n  .login-wrapper .login .login-fields .input-group .form-control {\n          width: 100%; }\n  .login-wrapper .login .actions {\n      margin: 15px 0; }\n  .login-wrapper .login .actions button {\n        width: 180px;\n        margin: 10px 20px 10px 0; }\n", ""]);
+exports.push([module.i, ".login-wrapper {\r\n  margin: 0 20px; }\r\n  .login-wrapper .login {\r\n    margin-bottom: 20px; }\r\n  .login-wrapper .login .login-fields {\r\n      width: 340px; }\r\n  .login-wrapper .login .login-fields .input-group {\r\n        width: 100%; }\r\n  .login-wrapper .login .login-fields .input-group .form-control {\r\n          width: 100%; }\r\n  .login-wrapper .login .actions {\r\n      margin: 15px 0; }\r\n  .login-wrapper .login .actions button {\r\n        width: 180px;\r\n        margin: 10px 20px 10px 0; }\r\n", ""]);
 
 // exports
 
@@ -786,6 +858,141 @@ var LoginComponent = /** @class */ (function () {
     return LoginComponent;
 }());
 
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/Administration/Content/Orders/orders.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".phone {\n  width: 140px; }\n\n.createdDateTime {\n  width: 100px; }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/Administration/Content/Orders/orders.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<h1>Список заказов</h1>\r\n<table class=\"table table-striped\">\r\n    <thead>\r\n        <tr>\r\n            <td>Имя</td>\r\n            <td>Телефон</td>\r\n            <td>Описание</td>\r\n            <td>Дата отправки</td>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr *ngFor=\"let order of orderCollection\">\r\n            <td>{{order.name}}</td>\r\n            <td class=\"phone\">{{order.phone}}</td>\r\n            <td>{{order.description}}</td>\r\n            <td class=\"createdDateTime\">{{order.createdDateTime | date: 'yyyy-MM-dd hh:mm'}}</td>\r\n        </tr>\r\n    </tbody>\r\n\r\n</table>\r\n\r\n<ul *ngIf=\"pager.pages.length\" class=\"pagination\">\r\n    <li [class.disabled]=\"pager.currentPage === 1\">\r\n        <a (click)=\"setPage(1)\">First</a>\r\n    </li>\r\n    <li [class.disabled]=\"pager.currentPage === 1\">\r\n        <a (click)=\"setPage(pager.currentPage - 1)\">Previous</a>\r\n    </li>\r\n    <li *ngFor=\"let page of pager.pages\" [class.active]=\"pager.currentPage === page\">\r\n        <a (click)=\"setPage(page)\">{{page}}</a>\r\n    </li>\r\n    <li [class.disabled]=\"pager.currentPage === pager.totalPages\">\r\n        <a (click)=\"setPage(pager.currentPage + 1)\">Next</a>\r\n    </li>\r\n    <li [class.disabled]=\"pager.currentPage === pager.totalPages\">\r\n        <a (click)=\"setPage(pager.totalPages)\">Last</a>\r\n    </li>\r\n</ul>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/Administration/Content/Orders/orders.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OrdersComponent; });
+/* unused harmony export Pager */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_Services_tourType_service__ = __webpack_require__("../../../../../src/app/Common/Services/tourType.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__administrationCommon_Services_order_service__ = __webpack_require__("../../../../../src/app/Administration/Common/Services/order.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var OrdersComponent = /** @class */ (function () {
+    function OrdersComponent(dialog, tourTypeService, orderService) {
+        this.dialog = dialog;
+        this.tourTypeService = tourTypeService;
+        this.orderService = orderService;
+        this.take = 20;
+        this.currentPage = 1;
+        this.ordersCount = 0;
+        this.orderCollection = new Array();
+    }
+    OrdersComponent.prototype.ngOnInit = function () {
+        this.getOrdersPage();
+    };
+    OrdersComponent.prototype.getOrdersPage = function () {
+        var _this = this;
+        var skip = (this.currentPage - 1) * this.take;
+        this.orderService.getOrdersPage(skip, this.take)
+            .subscribe(function (data) {
+            _this.orderCollection = data.orderCollection;
+            _this.ordersCount = data.ordersCount;
+            _this.pager = _this.GetPager(_this.ordersCount, _this.orderCollection, _this.take);
+        });
+    };
+    OrdersComponent.prototype.setPage = function (page) {
+        if (page > 0 || page <= this.pager.totalPages) {
+            this.currentPage = page;
+            this.getOrdersPage();
+        }
+    };
+    OrdersComponent.prototype.GetPager = function (totalItems, currentPage, pageSize) {
+        var pager = new Pager();
+        pager.currentPage = currentPage;
+        pager.pageSize = pageSize;
+        pager.totalPages = Math.ceil(totalItems / pager.pageSize);
+        if (pager.totalPages <= pageSize) {
+            pager.startPage = 1;
+            pager.endPage = pager.totalPages;
+        }
+        else {
+            if (pager.currentPage <= 6) {
+                pager.startPage = 1;
+                pager.endPage = 10;
+            }
+            else if (pager.currentPage + 4 >= pager.totalPages) {
+                pager.startPage = pager.totalPages - 9;
+                pager.endPage = pager.totalPages;
+            }
+            else {
+                pager.startPage = pager.currentPage - 5;
+                pager.endPage = pager.currentPage + 4;
+            }
+        }
+        // calculate start and end item indexes
+        pager.startIndex = (pager.currentPage - 1) * pager.pageSize;
+        pager.endIndex = Math.min(pager.startIndex + pager.pageSize - 1, totalItems - 1);
+        // create an array of pages to ng-repeat in the pager control
+        pager.pages = new Array(pager.endPage - pager.startPage + 1).fill(0).map(function (x, i) { return i + 1; });
+        // return object with all pager properties required by the view
+        return pager;
+    };
+    OrdersComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            moduleId: module.i,
+            selector: "orders",
+            template: __webpack_require__("../../../../../src/app/Administration/Content/Orders/orders.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/Administration/Content/Orders/orders.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */],
+            __WEBPACK_IMPORTED_MODULE_2__common_Services_tourType_service__["a" /* TourTypeService */],
+            __WEBPACK_IMPORTED_MODULE_3__administrationCommon_Services_order_service__["a" /* OrderService */]])
+    ], OrdersComponent);
+    return OrdersComponent;
+}());
+
+var Pager = /** @class */ (function () {
+    function Pager() {
+    }
+    return Pager;
+}());
+
+;
 
 
 /***/ }),
@@ -1013,7 +1220,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".register-wrapper {\n  margin: 0 20px; }\n  .register-wrapper .register {\n    margin-bottom: 20px; }\n  .register-wrapper .register .register-fields .input-group {\n      width: 100%; }\n  .register-wrapper .register .register-fields .input-group .form-control {\n        width: 100%; }\n  .register-wrapper .register .actions {\n      margin: 15px 0; }\n  .register-wrapper .register .actions button {\n        width: 180px;\n        margin: 10px 20px 10px 0; }\n", ""]);
+exports.push([module.i, ".register-wrapper {\r\n  margin: 0 20px; }\r\n  .register-wrapper .register {\r\n    margin-bottom: 20px; }\r\n  .register-wrapper .register .register-fields .input-group {\r\n      width: 100%; }\r\n  .register-wrapper .register .register-fields .input-group .form-control {\r\n        width: 100%; }\r\n  .register-wrapper .register .actions {\r\n      margin: 15px 0; }\r\n  .register-wrapper .register .actions button {\r\n        width: 180px;\r\n        margin: 10px 20px 10px 0; }\r\n", ""]);
 
 // exports
 
@@ -1465,7 +1672,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Administration/Footer/footer.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<footer>\r\n    <div class=\"footerLogo\">\r\n        <a href=\"\">\r\n            <div>\r\n                <i class=\"fa fa-code\" aria-hidden=\"true\"></i>\r\n                <span>Центр туризма</span>\r\n            </div>\r\n        </a>\r\n    </div>\r\n    <div class=\"footerRight\">\r\n        <ul class=\"footerMenu\">\r\n            <li [routerLink]=\"[ '/administration/tours' ]\">\r\n                <a>\r\n                    <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                    <span>Туры</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a>\r\n                    <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                    <span>Заказы</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a [routerLink]=\"[ '/administration/countries' ]\">\r\n                    <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                    <span>Страны</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a [routerLink]=\"[ '/administration/promotions' ]\">\r\n                    <i class=\"fa fa-percent\" aria-hidden=\"true\"></i>\r\n                    <span>Акции</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"/account/Register\">\r\n                    <i class=\"fa fa-registered\" aria-hidden=\"true\"></i>\r\n                    <span>Регистрация</span>\r\n                </a>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</footer>"
+module.exports = "<footer>\r\n    <div class=\"footerLogo\">\r\n        <a href=\"\">\r\n            <div>\r\n                <i class=\"fa fa-code\" aria-hidden=\"true\"></i>\r\n                <span>Центр туризма</span>\r\n            </div>\r\n        </a>\r\n    </div>\r\n    <!--<div class=\"footerRight\">\r\n        <ul class=\"footerMenu\">\r\n            <li [routerLink]=\"[ '/administration/tours' ]\">\r\n                <a>\r\n                    <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                    <span>Туры</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a [routerLink]=\"[ '/administration/orders' ]\">\r\n                    <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                    <span>Заказы</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a [routerLink]=\"[ '/administration/countries' ]\">\r\n                    <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                    <span>Страны</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a [routerLink]=\"[ '/administration/promotions' ]\">\r\n                    <i class=\"fa fa-percent\" aria-hidden=\"true\"></i>\r\n                    <span>Акции</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"/account/Register\">\r\n                    <i class=\"fa fa-registered\" aria-hidden=\"true\"></i>\r\n                    <span>Регистрация</span>\r\n                </a>\r\n            </li>\r\n        </ul>\r\n    </div>-->\r\n</footer>"
 
 /***/ }),
 
@@ -1521,7 +1728,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Administration/Header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<header>\r\n    <div class=\"header-content\">\r\n        <div class=\"topHeaderMenu\">\r\n            <div class=\"logo\">\r\n                <a href=\"\">\r\n                    <div>\r\n                        <span>Центр туризма</span>\r\n                    </div>\r\n                </a>\r\n            </div>\r\n            <div class=\"headerMenu\">\r\n                <div clickOutside callbackName=\"onClickOutsideMobileMenu\" [componentContext]=\"this\" class=\"mobileMenu\">\r\n                    <div class=\"mobileMenu-header\">\r\n                        <a (click)=\"toggleMenu()\">\r\n                            <i class=\"fa fa-bars\" aria-hidden=\"true\"></i>\r\n                            <span>\r\n                                Меню\r\n                            </span>\r\n                        </a>\r\n                    </div>\r\n                    <ul *ngIf=\"isMobileMenuVisible\" [@slideInOut] class=\"mobileMenu-list\">\r\n                        <li [routerLink]=\"[ '/administration/tours' ]\">\r\n                            <a>\r\n                                <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                                <span>Туры</span>\r\n                            </a>\r\n                        </li>\r\n                        <li>\r\n                            <a>\r\n                                <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                                <span>Заказы</span>\r\n                            </a>\r\n                        </li>\r\n                        <li>\r\n                            <a [routerLink]=\"[ '/administration/countries' ]\">\r\n                                <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                                <span>Страны</span>\r\n                            </a>\r\n                        </li>\r\n                        <li>\r\n                            <a [routerLink]=\"[ '/administration/promotions' ]\">\r\n                                <i class=\"fa fa-percent\" aria-hidden=\"true\"></i>\r\n                                <span>Акции</span>\r\n                            </a>\r\n                        </li>\r\n                        <li>\r\n                            <a href=\"/account/Register\">\r\n                                <i class=\"fa fa-registered\" aria-hidden=\"true\"></i>\r\n                                <span>Регистрация</span>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n                <ul class=\"mainMenu\">\r\n                    <li [routerLink]=\"[ '/administration/tours' ]\">\r\n                        <a>\r\n                            <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                            <span>Туры</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a>\r\n                            <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                            <span>Заказы</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a [routerLink]=\"[ '/administration/countries' ]\">\r\n                            <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                            <span>Страны</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a [routerLink]=\"[ '/administration/promotions' ]\">\r\n                            <i class=\"fa fa-percent\" aria-hidden=\"true\"></i>\r\n                            <span>Акции</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a href=\"/account/Register\">\r\n                            <i class=\"fa fa-registered\" aria-hidden=\"true\"></i>\r\n                            <span>Регистрация</span>\r\n                        </a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</header>\r\n\r\n"
+module.exports = "<header>\r\n    <div class=\"header-content\">\r\n        <div class=\"topHeaderMenu\">\r\n            <div class=\"logo\">\r\n                <a href=\"\">\r\n                    <div>\r\n                        <span>Центр туризма</span>\r\n                    </div>\r\n                </a>\r\n            </div>\r\n            <div class=\"headerMenu\">\r\n                <div clickOutside callbackName=\"onClickOutsideMobileMenu\" [componentContext]=\"this\" class=\"mobileMenu\">\r\n                    <div class=\"mobileMenu-header\">\r\n                        <a (click)=\"toggleMenu()\">\r\n                            <i class=\"fa fa-bars\" aria-hidden=\"true\"></i>\r\n                            <span>\r\n                                Меню\r\n                            </span>\r\n                        </a>\r\n                    </div>\r\n                    <ul *ngIf=\"isMobileMenuVisible\" [@slideInOut] class=\"mobileMenu-list\">\r\n                        <li [routerLink]=\"[ '/administration/tours' ]\">\r\n                            <a>\r\n                                <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                                <span>Туры</span>\r\n                            </a>\r\n                        </li>\r\n                        <li>\r\n                            <a [routerLink]=\"[ '/administration/orders' ]\">\r\n                                <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                                <span>Заказы</span>\r\n                            </a>\r\n                        </li>\r\n                        <li>\r\n                            <a [routerLink]=\"[ '/administration/countries' ]\">\r\n                                <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                                <span>Страны</span>\r\n                            </a>\r\n                        </li>\r\n                        <li>\r\n                            <a [routerLink]=\"[ '/administration/promotions' ]\">\r\n                                <i class=\"fa fa-percent\" aria-hidden=\"true\"></i>\r\n                                <span>Акции</span>\r\n                            </a>\r\n                        </li>\r\n                        <li>\r\n                            <a href=\"/account/Register\">\r\n                                <i class=\"fa fa-registered\" aria-hidden=\"true\"></i>\r\n                                <span>Регистрация</span>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n                <ul class=\"mainMenu\">\r\n                    <li [routerLink]=\"[ '/administration/tours' ]\">\r\n                        <a>\r\n                            <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                            <span>Туры</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a [routerLink]=\"[ '/administration/orders' ]\">\r\n                            <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                            <span>Заказы</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a [routerLink]=\"[ '/administration/countries' ]\">\r\n                            <i class=\"fa fa-plane\" aria-hidden=\"true\"></i>\r\n                            <span>Страны</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a [routerLink]=\"[ '/administration/promotions' ]\">\r\n                            <i class=\"fa fa-percent\" aria-hidden=\"true\"></i>\r\n                            <span>Акции</span>\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a href=\"/account/Register\">\r\n                            <i class=\"fa fa-registered\" aria-hidden=\"true\"></i>\r\n                            <span>Регистрация</span>\r\n                        </a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</header>\r\n\r\n"
 
 /***/ }),
 
@@ -1666,17 +1873,21 @@ var AdministrationComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__Content_Tours_Tour_tour_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Tours/Tour/tour.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__Content_Login_login_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Login/login.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__Content_Register_register_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Register/register.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__Common_Services_country_service__ = __webpack_require__("../../../../../src/app/Administration/Common/Services/country.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__Common_Services_tour_service__ = __webpack_require__("../../../../../src/app/Administration/Common/Services/tour.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__Common_Services_promotion_service__ = __webpack_require__("../../../../../src/app/Administration/Common/Services/promotion.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__Common_Services_login_service__ = __webpack_require__("../../../../../src/app/Administration/Common/Services/login.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__Common_Services_register_service__ = __webpack_require__("../../../../../src/app/Administration/Common/Services/register.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__Content_Orders_orders_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Orders/orders.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__Common_Services_country_service__ = __webpack_require__("../../../../../src/app/Administration/Common/Services/country.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__Common_Services_tour_service__ = __webpack_require__("../../../../../src/app/Administration/Common/Services/tour.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__Common_Services_promotion_service__ = __webpack_require__("../../../../../src/app/Administration/Common/Services/promotion.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__Common_Services_login_service__ = __webpack_require__("../../../../../src/app/Administration/Common/Services/login.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__Common_Services_register_service__ = __webpack_require__("../../../../../src/app/Administration/Common/Services/register.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__Common_Services_order_service__ = __webpack_require__("../../../../../src/app/Administration/Common/Services/order.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -1725,11 +1936,12 @@ var AdministrationModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_6__angular_router__["c" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_9__administration_routes__["a" /* routes */])
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_23__Common_Services_country_service__["b" /* CountryService */],
-                __WEBPACK_IMPORTED_MODULE_24__Common_Services_tour_service__["b" /* TourService */],
-                __WEBPACK_IMPORTED_MODULE_25__Common_Services_promotion_service__["b" /* PromotionService */],
-                __WEBPACK_IMPORTED_MODULE_26__Common_Services_login_service__["b" /* LoginService */],
-                __WEBPACK_IMPORTED_MODULE_27__Common_Services_register_service__["b" /* RegisterService */],
+                __WEBPACK_IMPORTED_MODULE_24__Common_Services_country_service__["b" /* CountryService */],
+                __WEBPACK_IMPORTED_MODULE_25__Common_Services_tour_service__["b" /* TourService */],
+                __WEBPACK_IMPORTED_MODULE_26__Common_Services_promotion_service__["b" /* PromotionService */],
+                __WEBPACK_IMPORTED_MODULE_27__Common_Services_login_service__["b" /* LoginService */],
+                __WEBPACK_IMPORTED_MODULE_28__Common_Services_register_service__["b" /* RegisterService */],
+                __WEBPACK_IMPORTED_MODULE_29__Common_Services_order_service__["a" /* OrderService */],
             ],
             entryComponents: [],
             declarations: [
@@ -1746,6 +1958,7 @@ var AdministrationModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_18__Content_Promotions_Promotion_promotion_component__["a" /* PromotionComponent */],
                 __WEBPACK_IMPORTED_MODULE_21__Content_Login_login_component__["a" /* LoginComponent */],
                 __WEBPACK_IMPORTED_MODULE_22__Content_Register_register_component__["a" /* RegisterComponent */],
+                __WEBPACK_IMPORTED_MODULE_23__Content_Orders_orders_component__["a" /* OrdersComponent */],
             ],
             exports: [
                 __WEBPACK_IMPORTED_MODULE_10__administration_component__["a" /* AdministrationComponent */],
@@ -1768,15 +1981,15 @@ var AdministrationModule = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routes; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Content_Home_home_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Content_Countries_countries_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Countries/countries.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Content_Countries_Country_country_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Countries/Country/country.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Content_Tours_tours_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Tours/tours.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Content_Tours_Tour_tour_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Tours/Tour/tour.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Content_Promotions_promotions_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Promotions/promotions.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Content_Promotions_Promotion_promotion_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Promotions/Promotion/promotion.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Content_Login_login_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Login/login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Content_Register_register_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Register/register.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Content_Countries_countries_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Countries/countries.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Content_Countries_Country_country_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Countries/Country/country.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Content_Tours_tours_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Tours/tours.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Content_Tours_Tour_tour_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Tours/Tour/tour.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Content_Promotions_promotions_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Promotions/promotions.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Content_Promotions_Promotion_promotion_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Promotions/Promotion/promotion.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Content_Login_login_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Content_Register_register_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Register/register.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Content_Orders_orders_component__ = __webpack_require__("../../../../../src/app/Administration/Content/Orders/orders.component.ts");
 
 
 
@@ -1789,47 +2002,51 @@ var AdministrationModule = /** @class */ (function () {
 var routes = [
     {
         path: 'administration',
-        component: __WEBPACK_IMPORTED_MODULE_0__Content_Home_home_component__["a" /* HomeComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_8__Content_Orders_orders_component__["a" /* OrdersComponent */]
     },
     {
         path: 'administration/countries',
-        component: __WEBPACK_IMPORTED_MODULE_1__Content_Countries_countries_component__["a" /* CountriesComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_0__Content_Countries_countries_component__["a" /* CountriesComponent */]
     },
     {
         path: 'administration/countries/:tourType/:country',
-        component: __WEBPACK_IMPORTED_MODULE_2__Content_Countries_Country_country_component__["a" /* CountryComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_1__Content_Countries_Country_country_component__["a" /* CountryComponent */]
     },
     {
         path: 'administration/countries/new',
-        component: __WEBPACK_IMPORTED_MODULE_2__Content_Countries_Country_country_component__["a" /* CountryComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_1__Content_Countries_Country_country_component__["a" /* CountryComponent */]
     },
     {
         path: 'administration/tours',
-        component: __WEBPACK_IMPORTED_MODULE_3__Content_Tours_tours_component__["a" /* ToursComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_2__Content_Tours_tours_component__["a" /* ToursComponent */]
     },
     {
         path: 'administration/tours/new',
-        component: __WEBPACK_IMPORTED_MODULE_4__Content_Tours_Tour_tour_component__["a" /* TourComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_3__Content_Tours_Tour_tour_component__["a" /* TourComponent */]
     },
     {
         path: 'administration/tours/:tourType/:country/:tour',
-        component: __WEBPACK_IMPORTED_MODULE_4__Content_Tours_Tour_tour_component__["a" /* TourComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_3__Content_Tours_Tour_tour_component__["a" /* TourComponent */]
     },
     {
         path: 'administration/promotions',
-        component: __WEBPACK_IMPORTED_MODULE_5__Content_Promotions_promotions_component__["a" /* PromotionsComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_4__Content_Promotions_promotions_component__["a" /* PromotionsComponent */]
     },
     {
         path: 'administration/promotions/:promotion',
-        component: __WEBPACK_IMPORTED_MODULE_6__Content_Promotions_Promotion_promotion_component__["a" /* PromotionComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_5__Content_Promotions_Promotion_promotion_component__["a" /* PromotionComponent */]
     },
     {
         path: 'administration/login',
-        component: __WEBPACK_IMPORTED_MODULE_7__Content_Login_login_component__["a" /* LoginComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_6__Content_Login_login_component__["a" /* LoginComponent */]
     },
     {
         path: 'administration/register',
-        component: __WEBPACK_IMPORTED_MODULE_8__Content_Register_register_component__["a" /* RegisterComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_7__Content_Register_register_component__["a" /* RegisterComponent */]
+    },
+    {
+        path: 'administration/orders',
+        component: __WEBPACK_IMPORTED_MODULE_8__Content_Orders_orders_component__["a" /* OrdersComponent */]
     },
 ];
 

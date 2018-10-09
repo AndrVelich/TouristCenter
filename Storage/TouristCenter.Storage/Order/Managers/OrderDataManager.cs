@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using TouristCenter.Storage.Context;
 using TouristCenter.Storage.Interfaces.Order.Managers;
@@ -18,6 +19,22 @@ namespace TouristCenter.Storage.Order.Managers
         {
             var order = _dbContext.Orders.FirstOrDefault(o => o.OrderId == orderId);
             return order;
+        }
+
+        public IReadOnlyCollection<Interfaces.Order.Models.Order> GetOrderCollection(int skip, int take)
+        {
+            var orders = _dbContext.Orders.OrderByDescending(o => o.CreatedDateTime)
+                .Skip(skip)
+                .Take(take)
+                .ToList();
+
+            return orders;
+        }
+
+        public int GetOrdersCount()
+        {
+            var result = _dbContext.Orders.Count();
+            return result;
         }
 
         public void CreateOrder(Interfaces.Order.Models.Order orderDataModel)

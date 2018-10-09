@@ -7,12 +7,13 @@ import { TourComponent } from "./Content/Tours/Tour/tour.component";
 import { PromotionsComponent } from "./Content/Promotions/promotions.component";
 import { PromotionComponent } from "./Content/Promotions/Promotion/promotion.component";
 import { LoginComponent } from "./Content/Login/login.component";
-import { RegisterComponent } from "./Content/Register/register.component";
+import { RegisterComponent } from "./Content/Register/register.component"; 
+import { OrdersComponent } from "./Content/Orders/orders.component";
 
 export const routes: Routes = [
     {
         path: 'administration',
-        component: HomeComponent
+        component: OrdersComponent
     },
     {
         path: 'administration/countries',
@@ -53,5 +54,9 @@ export const routes: Routes = [
     {
         path: 'administration/register',
         component: RegisterComponent
+    },
+    {
+        path: 'administration/orders',
+        component: OrdersComponent
     },
 ];
