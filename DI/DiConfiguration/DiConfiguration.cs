@@ -1,6 +1,4 @@
-﻿using AccountService;
-using AccountService.Interfaces.Managers;
-using Ninject.Modules;
+﻿using Ninject.Modules;
 using TouristCenter.Domain.Country.Managers;
 using TouristCenter.Domain.Image.Managers;
 using TouristCenter.Domain.Interfaces.Country.Managers;
@@ -46,8 +44,6 @@ namespace VirtualBuisnessCard.DI
             Bind<ITourManager>().To<TourManager>();
             Bind<IPromotionManager>().To<PromotionManager>();
             Bind<IImageManager>().To<ImageManager>();
-
-            Bind<IAccountManager>().To<AccountManager>();
 
         }
 

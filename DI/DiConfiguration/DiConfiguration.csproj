@@ -51,14 +51,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\AccountService\AccountService.Interfaces\AccountService.Interfaces.csproj">
-      <Project>{21F0CA1A-C152-4FE5-B92B-D824542EE7C6}</Project>
-      <Name>AccountService.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\AccountService\AccountService\AccountService.csproj">
-      <Project>{8DAD8D5F-C9D2-46BA-AE43-CB3686C3B11C}</Project>
-      <Name>AccountService</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Domain\TouristCenter.Domain.Interfaces\TouristCenter.Domain.Interfaces.csproj">
       <Project>{596284CD-C559-4F30-B746-773C9AFAAC22}</Project>
       <Name>TouristCenter.Domain.Interfaces</Name>
