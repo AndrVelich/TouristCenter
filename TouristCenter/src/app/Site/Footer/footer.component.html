@@ -1,45 +1,102 @@
-﻿<footer>
-    <div class="width-wrapper text-wrapper">
-        <div class="footerLeft">
-            <div class="footerLogo">
-                <a href="">
-                    <div>
-                        <i class="fa fa-code" aria-hidden="true"></i>
-                        <span>Центр туризма</span>
-                    </div>
-                </a>
+﻿<footer class="font-PFDinDisplayPro-Light">
+    <div class="width-wrapper">
+        <div class="footer-top">
+            <div class="footer-left">
+                <div class="logo">
+                    <a [routerLink]="[ '/' ]">
+                        <img src="/Content/Images/logo.png" />
+                    </a>
+                </div>
+                <div class="footerContact">
+                    <div>+375 (44) 444-44-44</div>
+                    <div>Минск, м. Фрунзенская</div>
+                    <div>Мельникайте 15, офис 505</div>
+                    <div>Будние: 10:00-20:00</div>
+                    <div>Суббота: 10:00-18:00</div>
+                </div>
             </div>
-            <div class="footerContact">
-                <div class="phone">
-                    <i class="fa fa-phone" aria-hidden="true"></i>
-                    <span>+375 (44) 444-44-44</span>
+            <div class="footer-right">
+                <div class="tours footer-right-column">
+                    <h5>
+                        ТУРЫ И ПУТЕВКИ
+                    </h5>
+                    <ul>
+                        <li>
+                            <a [routerLink]="[ '/tour' ]">Поиск тура</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="[ '/tour/beach' ]">Отдых на море</a>
+                        </li>
+                        <li>
+                            <a (click)="openOrderPopup()">Автобусные маршруты</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="[ '/tour/beach' ]">Семейный отдых</a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="email">
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                    <span>mail@gmail.com</span>
+                <div class="separator separator-vertical"></div>
+                <div class="promotions footer-right-column">
+                    <h5>
+                        АКЦИИ
+                    </h5>
+                    <ul class="footerMenu">
+                        <li>
+                            <a>Горящие Туры</a>
+                        </li>
+                        <li>
+                            <a>Раннее Бронирование</a>
+                        </li>
+                        <li>
+                            <a>Подарочный сертификат</a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="skype">
-                    <i class="fa fa-skype" aria-hidden="true"></i>
-                    <span>skype</span>
+                <div class="separator separator-vertical"></div>
+                <div class="social footer-right-column">
+                    <h5>
+                        МЫ В СОЦСЕТЯХ
+                    </h5>
+                    <ul class="footerMenu">
+                        <li>
+                            <a class="vk-link" href="https://www.vk.com" target="_blank"
+                               onmouseover="document.getElementsByClassName('vk-img')[0].src = '/Content/Icons/vk_ak.png';"
+                               onmouseout="document.getElementsByClassName('vk-img')[0].src = '/Content/Icons/vk_neak.png';">
+                                <img class="vk-img" src="/Content/Icons/vk_neak.png" />
+                                <span>Вконтакте</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="inst-link" href="https://www.instagram.com" target="_blank"
+                               onmouseover="document.getElementsByClassName('inst-img')[0].src = '/Content/Icons/Insta_ak.png';"
+                               onmouseout="document.getElementsByClassName('inst-img')[0].src = '/Content/Icons/Insta_neak.png';">
+                                <img class="inst-img" src="/Content/Icons/Insta_neak.png" />
+                                <span>Instagram</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="fb-link" href="https://www.facebook.com" target="_blank"
+                               onmouseover="document.getElementsByClassName('fb-img')[0].src = '/Content/Icons/fb_ak.png';"
+                               onmouseout="document.getElementsByClassName('fb-img')[0].src = '/Content/Icons/fb_neak.png';">
+                                <img class="fb-img" src="/Content/Icons/fb_neak.png" />
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
+
             </div>
         </div>
-        <div class="footerRight">
-            <ul class="footerMenu">
-                <li>
-                    <a>Туры</a>
-                </li>
-                <li>
-                    <a>Услуги</a>
-                </li>
-                <li>
-                    <a>Акции</a>
-                </li>
-                <li>
-                    <a>О Компании</a>
-                </li>
-            </ul>
+        <div class="separator separator-horizontal"></div>
+        <div class="footer-bottom">
+            <div class="footer-left">
+                <div>ООО "Центр организации отдыха Тревел Икс" 2018</div>
+                <div>Все права защищены.</div>
+            </div>
+            <div class="footer-right">
+                <div>Разработка сайта: Мистер Эндрю</div>
+                <div>Дизайн: Анастасия Азроян</div>
+            </div>
         </div>
     </div>
-    
 </footer>

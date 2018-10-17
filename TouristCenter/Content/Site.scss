@@ -91,15 +91,49 @@ body .cdk-overlay-pane {
 
 
 @font-face {
-  font-family: 'exo';
-  src: url(../fonts/Exo2Regular.woff);
-  font-weight: normal;
-  font-style: italic;
+    font-family: 'Akrobat-ExtraBold';
+    src: url(../fonts/Akrobat-ExtraBold.otf);
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PFDinDisplayPro-Light';
+    src: url(../fonts/PFDinDisplayPro-Light.ttf);
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PFDinDisplayPro-Reg';
+    src: url(../fonts/PFDinDisplayPro-Reg.ttf);
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PFDinDisplayPro-Thin';
+    src: url(../fonts/PFDinDisplayPro-Thin.ttf);
+    font-weight: normal;
+    font-style: italic;
 }
 
 body {
-    font-family: 'exo', sans-serif;
+    position: relative;
+    font-family: 'PFDinDisplayPro-Thin', sans-serif;
     min-width: 400px;
+
+    .font-Akrobat-ExtraBold {
+        font-family: 'PFDinDisplayPro-ExtraBold', sans-serif;
+    }
+
+    .font-PFDinDisplayPro-Light {
+        font-family: 'PFDinDisplayPro-Light', sans-serif;
+    }
+
+    .font-PFDinDisplayPro-Reg {
+        font-family: 'PFDinDisplayPro-Reg', sans-serif;
+    }
 
     .width-wrapper {
         max-width: 1400px;
@@ -121,5 +155,33 @@ body {
 
     a.link-medium {
         font-size: 17px;
+    }
+
+    .body-content {
+        margin: 0 !important
+    }
+}
+
+@media (min-width: 1000px) {
+    body {
+        .body-content {
+            padding-top: 133px;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    body {
+        .body-content {
+            padding-top: 200px;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        .body-content {
+            padding-top: 0;
+        }
     }
 }

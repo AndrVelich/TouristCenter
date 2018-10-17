@@ -1,102 +1,143 @@
 ﻿footer {
-    max-width: 1400px;
-    margin: 0 auto;
+    background-color: #181e45;
+    border-top: 15px solid #feb849;
+    color: white;
+    padding: 30px 10px;
+    font-size: 16px;
 
-    .footerLeft {
-        width: 270px;
-        display: inline-block;
-        vertical-align: top;
 
-        .footerLogo {
-            font-size: 20px;
+    .width-wrapper {
+
+        .separator {
+            background-color: #6471c5;
         }
 
-        .footerContact {
-            margin-top: 15px;
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
 
-            div {
-                padding-top: 5px;
+            .footer-left {
+                .logo {
+                    margin-bottom: 25px;
+
+                    img {
+                        width: 180px;
+                    }
+                }
+
+                .footerContact {
+                    padding-left: 30px;
+
+                    div {
+                        margin-top: 10px;
+                    }
+                }
             }
 
-            span {
-                font-size: 16px;
-            }
+            .footer-right {
+                display: flex;
+                justify-content: space-between;
+                width: 60%;
 
-            i {
-                position: relative;
-                top: 4px;
-                font-size: 22px;
-                margin-right: 5px;
+                .footer-right-column {
+                    margin: 0 10px;
+
+                    li {
+                        margin-top: 10px;
+                    }
+                }
+
+                h5 {
+                    font-size: 18px;
+                }
+
+                .separator-vertical {
+                    width: 1px;
+                    height: 180px;
+                }
+
+                .tours {
+                    h5 {
+                        color: #feb849;
+                    }
+                }
+
+                .social {
+                    img {
+                        width: 25px;
+                    }
+
+                    .vk-link:hover, .fb-link:hover {
+                        color: #2b9bff;
+                    }
+
+                    .inst-link:hover {
+                        color: #d862ff;
+                    }
+                }
             }
         }
-    }
 
-    .footerRight {
-        width: 650px;
-        display: inline-block;
-        vertical-align: top;
+        .separator-horizontal {
+            width: 100%;
+            height: 1px;
+            margin: 15px 0;
+        }
 
-        .footerMenu {
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
 
-
-            li {
-                list-style: none;
-                display: inline-block;
-                vertical-align: top;
-                margin-left: 15px;
-                font-size: 16px;
+            .footer-right {
+                text-align: right;
             }
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        a {
+            color: white;
         }
     }
 }
 
-@media (max-width: 600px) {
+@media (min-width: 600px) {
 
     footer {
-        .footerLeft {
-            display: block;
-            text-align: center;
-            margin: 0 auto;
+        .footer-top {
+            .footer-right {
 
-            .footerLogo {
-            }
+                .separator:first-child {
+                    display: block;
+                }
 
-            .footerContact {
-            }
-        }
-
-        .footerRight {
-            width: 300px;
-            display: block;
-            text-align: center;
-            margin: 20px auto;
-            float: none;
-
-            .footerMenu {
-
-                li {
+                .promotions {
                     display: block;
                 }
             }
         }
     }
+
 }
 
-@media (max-width: 960px) {
+@media (max-width: 600px) {
+
     footer {
-        @media (min-width: 600px) {
-            .footerRight {
-                float: right;
-                width: 250px;
-                text-align: right;
+        .footer-top {
 
-                .footerMenu {
+            .footer-right {
 
-                    li {
-                        display: block;
-                    }
+                .separator:first-child {
+                    display: none;
+                }
+
+                .promotions {
+                    display: none;
                 }
             }
         }
     }
+
 }

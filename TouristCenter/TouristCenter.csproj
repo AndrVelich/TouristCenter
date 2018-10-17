@@ -292,10 +292,19 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fa-svg-with-js.css" />
+    <Content Include="Content\Icons\fb_ak.png" />
+    <Content Include="Content\Icons\fb_neak.png" />
     <Content Include="Content\Icons\fontawesome-all.js" />
     <Content Include="Content\Icons\fontAwesome.js" />
+    <Content Include="Content\Icons\Insta_ak.png" />
+    <Content Include="Content\Icons\Insta_neak.png" />
+    <Content Include="Content\Icons\vk_ak.png" />
+    <Content Include="Content\Icons\vk_neak.png" />
     <Content Include="Content\Images\admin_header.jpg" />
     <Content Include="Content\Images\beach_header.jpg" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\promotions_test1.jpg" />
+    <Content Include="Content\Images\promotions_test2.jpg" />
     <Content Include="Content\Images\pv_layer_controls.png" />
     <Content Include="Content\Images\star.svg" />
     <Content Include="Content\Images\tour_category_test1.jpg" />
@@ -344,6 +353,10 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="fonts\Akrobat-ExtraBold.otf" />
+    <Content Include="fonts\PFDinDisplayPro-Light.ttf" />
+    <Content Include="fonts\PFDinDisplayPro-Reg.ttf" />
+    <Content Include="fonts\PFDinDisplayPro-Thin.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

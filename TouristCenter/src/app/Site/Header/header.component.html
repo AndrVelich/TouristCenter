@@ -1,31 +1,88 @@
 <header>
     <div class="header-content">
         <div class="topHeaderMenu">
-            <div class="width-wrapper">
-                <div class="logo">
-                    <a href="">
-                        <div>
-                            <span>Центр туризма</span>
-                        </div>
+            <div class="width-wrapper header-md">
+                <div class="header-item logo">
+                    <a [routerLink]="[ '/' ]">
+                        <img src="/Content/Images/logo.png" />
                     </a>
                 </div>
-                <div class="contact">
+                <div class="header-item phones font-PFDinDisplayPro-Reg">
                     <div class="phone">
-                        <i class="fa fa-phone" aria-hidden="true"></i>
                         <span>+375 (44) 444-44-44</span>
                     </div>
-                    <div class="email">
-                        <i class="fa fa-envelope" aria-hidden="true"></i>
-                        <span>mail@gmail.com</span>
+                    <div class="phone">
+                        <span>+375 (44) 444-44-44</span>
                     </div>
-                    <div class="skype">
-                        <i class="fa fa-skype" aria-hidden="true"></i>
-                        <span>skype</span>
+                </div>
+                <div class="separator"></div>
+                <div class="header-item address">
+                    <h4 class="font-PFDinDisplayPro-Reg">
+                        <span>Адрес</span>
+                    </h4>
+                    <div>
+                        <div>Минск, м. Фрунзенская</div>
+                        <div>Мельникайте 15, офис 505</div>
+                    </div>
+                </div>
+                <div class="separator"></div>
+                <div class="header-item work-time">
+                    <h4 class="font-PFDinDisplayPro-Reg">
+                        <span>Время работы</span>
+                    </h4>
+                    <div>
+                        <div>Будние: 10:00-20:00</div>
+                        <div>Суббота: 10:00-18:00</div>
+                    </div>
+                </div>
+                <div class="header-item order-btn-wrapper font-PFDinDisplayPro-Light">
+                    <button type="button" (click)="openOrderPopup()" class="order-btn">ХОЧУ НА ОТДЫХ!</button>
+                </div>
+            </div>
+            <div class="width-wrapper header-sm-xs">
+                <div class="header-item level">
+                    <div class="header-item logo">
+                        <a [routerLink]="[ '/' ]">
+                            <img src="/Content/Images/logo.png" />
+                        </a>
+                    </div>
+                    <div class="header-item order-btn-wrapper font-PFDinDisplayPro-Light">
+                        <button type="button" (click)="openOrderPopup()" class="order-btn">ХОЧУ НА ОТДЫХ!</button>
+                    </div>
+                </div>
+                <div class="level">
+                    <div class="header-item phones font-PFDinDisplayPro-Reg">
+                        <div class="phone">
+                            <span>+375 (44) 444-44-44</span>
+                        </div>
+                        <div class="header-item phone">
+                            <span>+375 (44) 444-44-44</span>
+                        </div>
+                    </div>
+                    <div class="separator"></div>
+                    <div class="header-item address">
+                        <h4 class="font-PFDinDisplayPro-Reg">
+                            <span>Адрес</span>
+                        </h4>
+                        <div>
+                            <div>Минск, м. Фрунзенская</div>
+                            <div>Мельникайте 15, офис 505</div>
+                        </div>
+                    </div>
+                    <div class="separator"></div>
+                    <div class="header-item work-time">
+                        <h4 class="font-PFDinDisplayPro-Reg">
+                            <span>Время работы</span>
+                        </h4>
+                        <div>
+                            <div>Будние: 10:00-20:00</div>
+                            <div>Суббота: 10:00-18:00</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="middleHeaderMenu">
+        <div class="middleHeaderMenu font-PFDinDisplayPro-Light">
             <div clickOutside callbackName="onClickOutsideMobileMenu" [componentContext]="this" class="mobileMenu">
                 <div class="mobileMenu-header">
                     <a (click)="toggleMenu()">
@@ -37,32 +94,27 @@
                 </div>
                 <ul *ngIf="isMobileMenuVisible" [@slideInOut] class="mobileMenu-list">
                     <li>
+                        <a [routerLink]="[ '/tour/beach' ]">
+                            <span>Страны</span>
+                        </a>
+                    </li>
+                    <li>
                         <a [routerLink]="[ '/tour' ]">
-                            <i class="fa fa-plane" aria-hidden="true"></i>
                             <span>Туры</span>
                         </a>
                     </li>
                     <li>
-                        <a>
-                            <i class="fa fa-cogs" aria-hidden="true"></i>
-                            <span>Услуги</span>
-                        </a>
-                    </li>
-                    <li>
                         <a [routerLink]="[ '/promotions' ]">
-                            <i class="fa fa-percent" aria-hidden="true"></i>
                             <span>Акции</span>
                         </a>
                     </li>
                     <li>
                         <a>
-                            <i class="fa fa-users" aria-hidden="true"></i>
-                            <span>О компании</span>
+                            <span>Услуги</span>
                         </a>
                     </li>
                     <li>
                         <a>
-                            <i class="fa fa-mobile" aria-hidden="true"></i>
                             <span>Контакты</span>
                         </a>
                     </li>
@@ -71,32 +123,27 @@
             <div class="mainMenu">
                 <ul class="width-wrapper">
                     <li>
+                        <a [routerLink]="[ '/tour/beach' ]">
+                            <span>Страны</span>
+                        </a>
+                    </li>
+                    <li>
                         <a [routerLink]="[ '/tour' ]">
-                            <i class="fa fa-plane" aria-hidden="true"></i>
                             <span>Туры</span>
                         </a>
                     </li>
                     <li>
-                        <a>
-                            <i class="fa fa-cogs" aria-hidden="true"></i>
-                            <span>Услуги</span>
-                        </a>
-                    </li>
-                    <li>
                         <a [routerLink]="[ '/promotions' ]">
-                            <i class="fa fa-percent" aria-hidden="true"></i>
                             <span>Акции</span>
                         </a>
                     </li>
                     <li>
                         <a>
-                            <i class="fa fa-users" aria-hidden="true"></i>
-                            <span>О компании</span>
+                            <span>Услуги</span>
                         </a>
                     </li>
                     <li>
                         <a>
-                            <i class="fa fa-mobile" aria-hidden="true"></i>
                             <span>Контакты</span>
                         </a>
                     </li>
