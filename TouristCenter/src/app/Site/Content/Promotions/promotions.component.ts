@@ -5,6 +5,7 @@ import { OrderComponent } from '../../Order/order.component';
 import { ImagesPopupComponent } from '../ImagesPopup/imagesPopup.component';
 import { PromotionService } from "@siteCommon/Services/promotion.service";
 import { Promotion } from "@siteCommon/Services/promotion.service";
+import { PreloaderService } from "@common/Services/preloader.service";
 
 @Component({
     
@@ -19,7 +20,8 @@ export class PromotionsComponent {
 
     constructor(
         public dialog: MatDialog,
-        private promotionService: PromotionService)
+        private promotionService: PromotionService,
+        public preloaderService : PreloaderService)
     { }
 
     ngOnInit() {
@@ -28,8 +30,11 @@ export class PromotionsComponent {
 
     private getPromotionCollection()
     {
+        this.preloaderService.startPreloader();
         this.promotionService.getPromotionCollection()
-        .subscribe(data => this.promotionCollection = data);
+        .subscribe(data => this.promotionCollection = data,
+                    (err)=> console.log(err),
+                    ()=> this.preloaderService.finishPreloader());
     }
 
     public openOrderPopup() {

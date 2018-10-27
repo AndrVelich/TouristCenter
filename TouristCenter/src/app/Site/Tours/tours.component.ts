@@ -10,6 +10,7 @@ import { CountryService } from "@siteCommon/Services/country.service";
 import { Country } from "@siteCommon/Services/country.service";
 import { TourService } from "@siteCommon/Services/tour.service";
 import { Tour } from "@siteCommon/Services/tour.service";
+import { PreloaderService } from "@common/Services/preloader.service";
 
 @Component({
     
@@ -28,12 +29,13 @@ export class ToursComponent {
     public tourCollection: Array<Tour> = new Array<Tour>();
 
     constructor(
-        public dialog: MatDialog,
         private tourService: TourService,
         private tourTypeService: TourTypeService,
         private countryService: CountryService,
         private activeRoute: ActivatedRoute,
-        private router: Router)
+        private router: Router,
+        public dialog: MatDialog,
+        public preloaderService : PreloaderService)
     { }
 
     ngOnInit() 
@@ -61,8 +63,11 @@ export class ToursComponent {
 
     private getTourCollection()
     {
+        this.preloaderService.startPreloader();
         this.tourService.getTourCollection(this.tourType, this.country.urlName)
-        .subscribe(data => this.tourCollection = data);
+        .subscribe(data => this.tourCollection = data,
+                    (err)=> console.log(err),
+                    ()=> this.preloaderService.finishPreloader());
     }
 
     public openOrderPopup() {

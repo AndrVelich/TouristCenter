@@ -15,13 +15,7 @@ export class HomeComponent {
         public dialog: MatDialog)
     {
         
-    }
-
-    public imageSources: string[] = [
-     '/Content/Images/beach_header.jpg', 
-     '/Content/Images/admin_header.jpg'
-    ];
- 
+    } 
 
     public openOrderPopup() {
         let dialogRef = this.dialog.open(OrderComponent);

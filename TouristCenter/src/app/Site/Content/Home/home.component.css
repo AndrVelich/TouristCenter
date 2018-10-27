@@ -1,115 +1,116 @@
 ﻿.banner-carousel {
-  max-height: 300px;
-  overflow: hidden; }
+  max-width: 1400px;
+  margin: 0 auto; }
   .banner-carousel img {
     width: 100%; }
 
-@media (max-width: 960px) and (min-width: 600px) {
-  .benefits-description {
-    max-width: 700px;
-    margin: 15px auto; } }
+h1 {
+  max-width: 720px;
+  margin: 20px auto;
+  text-align: center; }
 
-.benefits ul li {
-  list-style: none;
-  display: inline-block;
-  vertical-align: top;
-  width: 33%;
-  margin-top: 40px; }
-  .benefits ul li .benefitItemContainer {
-    margin: 0 auto;
-    width: 240px; }
-  .benefits ul li h5 {
-    font-size: 16px;
-    font-weight: 600;
-    text-transform: uppercase;
-    line-height: 18px; }
-  .benefits ul li .benTxt {
-    display: inline-block;
-    vertical-align: top;
-    width: 220px; }
-  .benefits ul li i {
-    margin-right: 15px;
-    margin-bottom: 10px;
-    font-size: 30px;
-    width: 30px; }
-  @media (max-width: 600px) {
-    .benefits ul li .benefitItemContainer {
-      margin: 0 auto;
-      width: 400px; }
-    .benefits ul li .benTxt {
-      width: 300px;
-      margin: 10px; }
-    .benefits ul li i {
-      position: relative;
-      top: 10px; } }
+.benefits-top .benefit-top {
+  display: flex; }
+  .benefits-top .benefit-top img {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px; }
+  .benefits-top .benefit-top h3 {
+    line-height: 100px; }
 
-@media (max-width: 960px) and (min-width: 600px) {
-  .benefits ul li {
-    width: 49%; } }
-
-@media (max-width: 600px) {
-  .benefits ul li {
-    width: 100%; } }
-
-.services {
-  max-width: 1100px;
-  margin: 20px auto; }
-  .services h3 {
-    color: #2b2a29;
-    font-size: 30px;
-    font-weight: 700;
-    text-transform: uppercase;
-    text-align: center;
-    padding-bottom: 20px;
-    padding-top: 50px;
-    margin-top: -13px; }
-  .services p {
-    margin-top: 17px;
-    font-size: 14px;
-    line-height: 20px; }
-
-.serviceList {
-  max-width: 1100px;
-  margin: 20px auto; }
-  .serviceList h3 {
-    font-size: 30px;
-    font-weight: 700;
-    text-transform: uppercase;
-    text-align: center;
-    margin-top: 50px;
-    margin-bottom: 30px; }
-  .serviceList .listContainer {
-    margin: 20px 0; }
-    .serviceList .listContainer .list {
-      width: 49%;
-      display: inline-block;
-      vertical-align: top; }
-      .serviceList .listContainer .list ul {
-        width: 450px;
-        margin: 0 auto; }
-        .serviceList .listContainer .list ul li {
-          list-style-type: none;
-          padding-left: 30px !important;
-          padding-bottom: 20px !important;
-          position: relative; }
-          .serviceList .listContainer .list ul li i {
-            position: absolute;
-            top: 5px;
-            left: 0;
-            font-size: 15px; }
-    @media (max-width: 960px) {
-      .serviceList .listContainer .list {
-        width: 100%; } }
-
-.putOrderBottom {
-  margin: 30px auto;
+.put-order {
   text-align: center;
-  max-width: 900px; }
-  .putOrderBottom p {
-    margin: 20px; }
-  .putOrderBottom .btn {
-    height: 40px;
-    width: 300px;
-    text-transform: uppercase;
-    font-size: 18px; }
+  margin: 30px 0; }
+  .put-order h4 {
+    margin-bottom: 10px; }
+  .put-order .order-btn {
+    background-color: white;
+    color: #fc3b3c;
+    border: 1px solid #fc3b3c;
+    width: 250px;
+    line-height: 35px;
+    font-size: 20px; }
 
+.tour-types {
+  text-align: center;
+  min-width: 530px; }
+  .tour-types .tour-types-text {
+    font-size: 18px;
+    font-weight: 600; }
+  .tour-types .tour-type {
+    position: relative;
+    text-align: center;
+    color: white; }
+    .tour-types .tour-type .tour-type-info {
+      position: absolute;
+      top: 35%;
+      width: 100%;
+      right: 0; }
+      .tour-types .tour-type .tour-type-info .tour-type-name {
+        font-size: 28px;
+        font-family: 'PFDinDisplayPro-ExtraBold', sans-serif; }
+      .tour-types .tour-type .tour-type-info .separator {
+        height: 1px;
+        background-color: white;
+        width: 30px;
+        margin: 5px auto 15px auto; }
+      .tour-types .tour-type .tour-type-info a {
+        font-size: 24px;
+        color: white;
+        border: 2px solid white;
+        padding: 2px 10px; }
+    .tour-types .tour-type img {
+      margin: 10px 0;
+      width: 100%; }
+
+.benefits-bottom h2 {
+  text-align: center;
+  max-width: 600px;
+  margin: 10px auto; }
+
+.benefits-bottom .benefits-bottom-text {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600; }
+
+.benefits-bottom .benefits .benefit {
+  margin: 20px 0; }
+  .benefits-bottom .benefits .benefit .benifit-header {
+    display: flex;
+    margin: 5px; }
+    .benefits-bottom .benefits .benefit .benifit-header img {
+      width: 60px;
+      height: 24px;
+      margin-right: 10px; }
+    .benefits-bottom .benefits .benefit .benifit-header h3 {
+      color: #118B91; }
+  .benefits-bottom .benefits .benefit .benefit-text {
+    font-size: 20px; }
+
+.benefits-bottom .benefits .benefit.space {
+  margin-left: 30px; }
+
+.benefits-bottom .benefits .put-order-wrapper {
+  background-color: #138D90;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px; }
+  .benefits-bottom .benefits .put-order-wrapper .text {
+    font-size: 28px; }
+  .benefits-bottom .benefits .put-order-wrapper .order-btn {
+    background-color: #fc3b3c;
+    color: white;
+    border: 1px solid white;
+    width: 100px;
+    line-height: 35px;
+    font-size: 20px; }
+
+.expert-from .expert-img {
+  width: 100%; }
+
+@media (max-width: 770px) {
+  .benefits-top .benefit-top {
+    justify-content: center; }
+  .benefits-top .benefit-bottom {
+    text-align: center; } }

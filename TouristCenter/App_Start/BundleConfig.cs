@@ -16,12 +16,6 @@ namespace TouristCenter
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
-                      "~/node_modules/core-js/client/shim.min.js",
-                      "~/node_modules/reflect-metadata/Reflect.js",
-                      "~/node_modules/systemjs/dist/system.src.js",
-                      "~/node_modules/zone.js/dist/zone.js"));
-
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));

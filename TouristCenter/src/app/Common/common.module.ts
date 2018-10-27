@@ -1,8 +1,11 @@
 import { NgModule } from "@angular/core";
 
 import { ClickOutsideDirective } from "./Directives/clickOutside.directive";
-import { TourTypeService } from "./Services/tourType.service";
 import { Dictionary } from "./Types/Dictionary";
+
+import { TourTypeService } from "./Services/tourType.service";
+import { PreloaderService } from "./Services/preloader.service";
+
 
 @NgModule({
     imports:
@@ -11,7 +14,8 @@ import { Dictionary } from "./Types/Dictionary";
     [],
     providers: 
     [
-        TourTypeService
+        TourTypeService,
+        PreloaderService,
     ],
     declarations:
     [

@@ -1,180 +1,235 @@
 <div class="banner-carousel">
-    <slideshow [height]="'300px'"
-               [minHeight]="'200px'"
-               [autoPlay]="true"
-               [showArrows]="true"
-               [imageUrls]="imageSources"
-               [lazyLoad]="imageSources?.length > 1"
-               [autoPlayWaitForLazyLoad]="true">
-    </slideshow>
+    <div id="home-carousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#home-carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#home-carousel" data-slide-to="1"></li>
+            <li data-target="#home-carousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="/Content/Images/Home/MainBanner/banner1.jpg">
+            </div>
+
+            <div class="item">
+                <img src="/Content/Images/Home/MainBanner/banner2.jpg">
+            </div>
+
+            <div class="item">
+                <img src="/Content/Images/Home/MainBanner/banner3.jpg">
+            </div>
+        </div>
+        <a class="left carousel-control" href="#home-carousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#home-carousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
 </div>
 <div class="width-wrapper">
     <div class="text-wrapper">
-        <div class="benefits">
-            <div>
-                <ul>
-                    <li>
-                        <div class="benefitItemContainer">
-                            <i class="fa fa-money" aria-hidden="true"></i>
-                            <div class="benTxt">
-                                <h5>
-                                    Гарантируем честные цены
-                                </h5>
-                                <div>
-                                    Цены у нас такие же, как у туроператоров, или ниже — вы никогда не переплачиваете
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="benefitItemContainer">
-                            <i class="fa fa-users" aria-hidden="true"></i>
-                            <div class="benTxt">
-                                <h5>
-                                    Вас обслуживают лучшие специалисты
-                                </h5>
-                                <div>
-                                    Все сотрудники имеют обширный опыт работы в сфере туризма
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="benefitItemContainer">
-                            <i class="fa fa-phone" aria-hidden="true"></i>
-                            <div class="benTxt">
-                                <h5>
-                                    Круглосуточный прием заявок
-                                </h5>
-                                <div>
-                                    Всегда на связи по телефону и в мессенджерах
-                                    СМС и email информирование туристов
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="benefitItemContainer">
-                            <i class="fa fa-clock-o" aria-hidden="true"></i>
-                            <div class="benTxt">
-                                <h5>
-                                    Оперативная поддержка туристов
-                                </h5>
-                                <div>
-                                    Поддержка персонального менеджера во время путешествия
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="benefitItemContainer">
-                            <i class="fa fa-check-circle" aria-hidden="true"></i>
-                            <div class="benTxt">
-                                <h5>
-                                    Европейские стандарты сервиса
-                                </h5>
-                                <div>
-                                    На всех этапах работы с клиентом компания привносит европейские стандарты обслуживания и высокий уровень сервиса
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="benefitItemContainer">
-                            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                            <div class="benTxt">
-                                <h5>
-                                    Надежность
-                                </h5>
-                                <div>
-                                    Мы предлагаем туры только от проверенных партнеров
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+        <h1>
+            С Центром организации отдыха «Travel X»
+            Вы будете спокойны за свое путешествие!
+        </h1>
+        <div class="benefits-top row">
+            <div class="col-xs-12 col-sm-4">
+                <div class="benefit-top">
+                    <img src="/Content/Images/Home/Benefits/reliability.png" />
+                    <h3>Надежность</h3>
+                </div>
+                <div class="benefit-bottom">
+                    Ответственный подход к делу позволяет нам сотрудничать только с проверенными партнерами: от принимающих сторон
+                    до визовых специалистов.
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                <div class="benefit-top">
+                    <img src="/Content/Images/Home/Benefits/expertise.png" />
+                    <h3>Экспертность</h3>
+                </div>
+                <div class="benefit-bottom">
+                    Каждый наш специалист работает в туризме более 4 лет и много путешествует!
+                    Такой практический опыт делает
+                    Ваш отпуск легким и беззаботным.
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                <div class="benefit-top">
+                    <img src="/Content/Images/Home/Benefits/speed.png" />
+                    <h3>Скорость</h3>
+                </div>
+                <div class="benefit-bottom">
+                    Доверив свое путешествие нашему эксперту, Вы значительно сэкономите время.
+                    Менеджер быстро свяжется с Вами
+                    и организует отдых в кратчайшие сроки.
+                </div>
             </div>
         </div>
-
-        <div class="benefits-description">
-            <p>
-                Ваша выгода очевидна! Среди всех туристических фирм Минска, только у нас Вы сможете быстро решить все вопросы, касающиеся Вашего путешествия!
-                Один Ваш звонок решит, насколько выгодное предложение достанется именно Вам.
-                Позвоните нам прямо сейчас, и успейте заказать лучшие места для отдыха.
-                Экономьте Ваше время в Центре туризма!
-            </p>
-            <p>
-                График работы нашего офиса позволяет Вам выбрать путевку в любое удобное для Вас время!
-                Наши менеджеры станут Вашей правой рукой и будут на связи с Вами на всех этапах Вашего путешествия.
-                Наши специалисты имеют опыт работы за рубежом, поэтому с легкостью посоветуют Вам интересные места для отдыха, экскурсий и шопинга.
-                Профессиональные секреты Центра туризма – гарантия Вашего удачного отдыха.
-            </p>
-            <p class="bold">
-                ЗВОНИТЕ!МЫ ПОЙМЕМ ВАС С ПОЛУСЛОВА И ПРЕДЛОЖИМ ЛУЧШЕЕ РЕШЕНИЕ ВАШЕГО ВОПРОСА!
-            </p>
+        <div class="put-order">
+            <h4>Мы – что-то большее, чем просто бронирование тура!</h4>
+            <div class="font-PFDinDisplayPro-Light">
+                <button type="button" (click)="openOrderPopup()" class="order-btn">ОРГАНИЗУЙТЕ МНЕ ОТДЫХ</button>
+            </div>
         </div>
+        <div class="tour-types">
+            <h2>Виды туров</h2>
+            <div class="tour-types-text">
+                Выберите интересующее Вас направление отдыха и жмите на кнопку!
+                Сморите предложения!
+            </div>
+            <div class="tour-types-wrapper row">
+                <div class="tour-type col-xs-6 col-sm-6 col-md-4">
+                    <div class="tour-type-info">
+                        <div class="tour-type-name">
+                            Пляжный отдых
+                        </div>
+                        <div class="separator">
+                        </div>
+                        <a [routerLink]="[ '/tour/beach' ]" class="tour-type-button-link">СМОТРЕТЬ</a>
+                    </div>
+                    <img src="/Content/Images/Home/TourTypes/beach.jpg" />
+                </div>
+                <div class="tour-type col-xs-6 col-sm-6 col-md-4">
+                    <div class="tour-type-info">
+                        <div class="tour-type-name">
+                            Автобусные туры
+                        </div>
+                        <div class="separator">
+                        </div>
+                        <a (click)="openOrderPopup()" class="tour-type-button-link">СМОТРЕТЬ</a>
+                    </div>
+                    <img src="/Content/Images/Home/TourTypes/bus.jpg" />
+                </div>
+                <div class="tour-type col-xs-6 col-sm-6 col-md-4">
+                    <div class="tour-type-info">
+                        <div class="tour-type-name">
+                            Горнолыжные туры
+                        </div>
+                        <div class="separator">
+                        </div>
+                        <a [routerLink]="[ '/tour/skiing' ]" class="tour-type-button-link">СМОТРЕТЬ</a>
+                    </div>
+                    <img src="/Content/Images/Home/TourTypes/skiing.jpg" />
+                </div>
+                <div class="tour-type col-xs-6 col-sm-6 col-md-4">
+                    <div class="tour-type-info">
+                        <div class="tour-type-name">
+                            Новогодние туры
+                        </div>
+                        <div class="separator">
+                        </div>
+                        <a [routerLink]="[ '/tour/newyear' ]" class="tour-type-button-link">СМОТРЕТЬ</a>
+                    </div>
+                    <img src="/Content/Images/Home/TourTypes/newYear.jpg" />
+                </div>
+                <div class="tour-type col-xs-6 col-sm-6 col-md-4">
+                    <div class="tour-type-info">
+                        <div class="tour-type-name">
+                            Индивидуальный отдых
+                        </div>
+                        <div class="separator">
+                        </div>
+                        <a [routerLink]="[ '/tour/individual' ]" class="tour-type-button-link">СМОТРЕТЬ</a>
+                    </div>
+                    <img src="/Content/Images/Home/TourTypes/individual.jpg" />
+                </div>
+                <div class="tour-type col-xs-6 col-sm-6 col-md-4">
+                    <div class="tour-type-info">
+                        <div class="tour-type-name">
+                            Корпоративные туры
+                        </div>
+                        <div class="separator">
+                        </div>
+                        <a [routerLink]="[ '/tour/corporate' ]" class="tour-type-button-link">СМОТРЕТЬ</a>
+                    </div>
+                    <img src="/Content/Images/Home/TourTypes/corporate.jpg" />
+                </div>
+            </div>
 
-        <div class="serviceList">
-            <h3>
-                <i class="fa fa-cogs" aria-hidden="true"></i>
-                <span>Услуги</span>
-            </h3>
-            <div class="listContainer">
-                <div class="left list">
-                    <ul>
-                        <li class="fir">
-                            <i class="fa fa-check" aria-hidden="true"></i>
-                            Бронирование авиабилетов по всем направлениям
-                        </li>
-                        <li>
-                            <i class="fa fa-check" aria-hidden="true"></i>
-                            Туры и отдых в рвссрочку без переплат и
-                            процентов!
-                        </li>
-                        <li>
-                            <i class="fa fa-check" aria-hidden="true"></i>
-                            Профессиональная помощь в выборе отеля
-                        </li>
-                        <li>
-                            <i class="fa fa-check" aria-hidden="true"></i>
-                            Оформление подарочного сертификата
-                        </li>
-                        <li class="las">
-                            <i class="fa fa-check" aria-hidden="true"></i>
-                            Трансфер в аэропорты Москвы, Киева и Вильнюса
-                        </li>
-                    </ul>
+        </div>
+        <div class="put-order">
+            <h4>Какое бы направление отдыха Вы ни выбрали, мы всегда будем рядом, чтоб помочь Вам в поиске тура!</h4>
+            <div class="font-PFDinDisplayPro-Light">
+                <button type="button" (click)="openOrderPopup()" class="order-btn">
+                    НАЙДИТЕ МНЕ ТУР!
+                </button>
+            </div>
+        </div>
+        <div class="benefits-bottom">
+            <h2>
+                Центр организации отдыха «Travel X»
+                отличается от других турфирм и турагентств Минска
+            </h2>
+            <div class="benefits-bottom-text">
+                Чем именно? Читайте!
+            </div>
+            <div class="benefits">
+                <div class="benefit space">
+                    <div class="benifit-header">
+                        <img src="/Content/Images/Home/arrows.png" />
+                    </div>
+                    <div class="benefit-text">
+                        <div>
+                            Давайте о выгодах!
+                        </div>
+                        <div>
+                            Бронируя путевку у нас, Вы экономите до 29% своего бюджета. За счет прямых соглашений
+                            с авиакомпаниями и отелями мы получаем дополнительные бонусы, с которыми впоследствии
+                            делимся с Вами.
+                        </div>
+                    </div>
                 </div>
-                <div class="right list">
-                    <ul>
-                        <li class="fir">
-                            <i class="fa fa-check" aria-hidden="true"></i>
-                            Визовая поддержка. Помощь в оформлении виз
-                        </li>
-                        <li>
-                            <i class="fa fa-check" aria-hidden="true"></i>
-                            Медицинское страхование для туристов
-                        </li>
-                        <li>
-                            <i class="fa fa-check" aria-hidden="true"></i>
-                            Симкарты с бесплатными входящими звонками в роуминге
-                        </li>
-                        <li class="las">
-                            <i class="fa fa-check" aria-hidden="true"></i>
-                            Автобусные билеты. Международные маршруты
-                        </li>
-                    </ul>
+                <div class="benefit">
+                    <div class="benifit-header">
+                        <img src="/Content/Images/Home/arrows.png" />
+                        <h3>Все предложения в одном месте</h3>
+                    </div>
+                    <div class="benefit-text">
+                        <div>
+                            Поговорим об актуальном!
+                        </div>
+                        <div>
+                            В нашей базе более 16 300 туров, которые ежедневно обновляются. Широкое разнообразие предложений позволит специалистам найти подходящий именно Вам вариант перелета, проживания и питания.
+                        </div>
+                    </div>
                 </div>
+                <div class="put-order-wrapper">
+                    <div class="text font-Akrobat-ExtraBold">Забронировать тур прямо сейчас</div>
+                    <button type="button" (click)="openOrderPopup()" class="order-btn">ДА!</button>
+                </div>
+                <div class="benefit space">
+                    <div class="benifit-header">
+                        <img src="/Content/Images/Home/arrows.png" />
+                        <h3>Индивидуальный конструктор тура</h3>
+                    </div>
+                    <div class="benefit-text">
+                        <div>Тут все просто!</div>
+                        <div>
+                            Вы сочиняете свой идеальный маршрут, а мы воплощаем его в жизнь.
+                            Поделитесь своими идеями к поездке, и тур будет подобран согласно Вашим ожиданиям.
+                        </div>
+                    </div>
+                </div>
+                <div class="benefit">
+                    <div class="benifit-header">
+                        <img src="/Content/Images/Home/arrows.png" />
+                        <h3>Долгосрочные отношенияx</h3>
+                    </div>
+                    <div class="benefit-text">
+                        <div>Добавим щепотку душевности!</div>
+                        <div>
+                            Мы остаемся с Вами не только на протяжении поездки, но и далеко после. Акцент на качество – это именно та вещь, которую ставит во главе своей работы каждый сотрудник нашей компании.
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
-    
-</div>
-
-<div class="putOrderBottom">
-    <p>
-        Оставьте заявку. Мы свяжемся с вами по указанным контактам в форме
-        и детально обсудим все интересующие Вас вопросы.
-    </p>
-    <button type="button" (click)="openOrderPopup()" class="btn btn-primary ">Отправить заявку</button>
+    <div class="expert-from">
+        <img class="expert-img" src="/Content/Images/Home/expert.jpg" />
+    </div>
 </div>

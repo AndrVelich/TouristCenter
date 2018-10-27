@@ -73,6 +73,48 @@ var ClickOutsideDirective = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/Common/Services/preloader.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PreloaderService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var PreloaderService = /** @class */ (function () {
+    function PreloaderService() {
+        this.isInProgress = false;
+    }
+    PreloaderService.prototype.isPreloaderInProgress = function () {
+        return this.isInProgress;
+    };
+    PreloaderService.prototype.startPreloader = function () {
+        this.isInProgress = true;
+        //var bodyContentClassList = document.getElementsByClassName("preloader");
+        //if(!bodyContentClassList.contains("preloader"))
+        //{
+        //   bodyContentClassList.add("preloader");
+        //}
+    };
+    PreloaderService.prototype.finishPreloader = function () {
+        this.isInProgress = false;
+        //document.getElementsByClassName("body-content")[0].classList.remove("preloader");
+    };
+    PreloaderService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+    ], PreloaderService);
+    return PreloaderService;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/Common/Services/tourType.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -165,12 +207,14 @@ var Dictionary = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Directives_clickOutside_directive__ = __webpack_require__("../../../../../src/app/Common/Directives/clickOutside.directive.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Services_tourType_service__ = __webpack_require__("../../../../../src/app/Common/Services/tourType.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Services_preloader_service__ = __webpack_require__("../../../../../src/app/Common/Services/preloader.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -182,7 +226,8 @@ var CommonModule = /** @class */ (function () {
             imports: [],
             entryComponents: [],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_2__Services_tourType_service__["a" /* TourTypeService */]
+                __WEBPACK_IMPORTED_MODULE_2__Services_tourType_service__["a" /* TourTypeService */],
+                __WEBPACK_IMPORTED_MODULE_3__Services_preloader_service__["a" /* PreloaderService */],
             ],
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_1__Directives_clickOutside_directive__["a" /* ClickOutsideDirective */]
@@ -434,7 +479,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".banner-carousel {\n  max-height: 300px;\n  overflow: hidden; }\n  .banner-carousel img {\n    width: 100%; }\n  @media (max-width: 960px) and (min-width: 600px) {\n  .benefits-description {\n    max-width: 700px;\n    margin: 15px auto; } }\n  .benefits ul li {\n  list-style: none;\n  display: inline-block;\n  vertical-align: top;\n  width: 33%;\n  margin-top: 40px; }\n  .benefits ul li .benefitItemContainer {\n    margin: 0 auto;\n    width: 240px; }\n  .benefits ul li h5 {\n    font-size: 16px;\n    font-weight: 600;\n    text-transform: uppercase;\n    line-height: 18px; }\n  .benefits ul li .benTxt {\n    display: inline-block;\n    vertical-align: top;\n    width: 220px; }\n  .benefits ul li i {\n    margin-right: 15px;\n    margin-bottom: 10px;\n    font-size: 30px;\n    width: 30px; }\n  @media (max-width: 600px) {\n    .benefits ul li .benefitItemContainer {\n      margin: 0 auto;\n      width: 400px; }\n    .benefits ul li .benTxt {\n      width: 300px;\n      margin: 10px; }\n    .benefits ul li i {\n      position: relative;\n      top: 10px; } }\n  @media (max-width: 960px) and (min-width: 600px) {\n  .benefits ul li {\n    width: 49%; } }\n  @media (max-width: 600px) {\n  .benefits ul li {\n    width: 100%; } }\n  .services {\n  max-width: 1100px;\n  margin: 20px auto; }\n  .services h3 {\n    color: #2b2a29;\n    font-size: 30px;\n    font-weight: 700;\n    text-transform: uppercase;\n    text-align: center;\n    padding-bottom: 20px;\n    padding-top: 50px;\n    margin-top: -13px; }\n  .services p {\n    margin-top: 17px;\n    font-size: 14px;\n    line-height: 20px; }\n  .serviceList {\n  max-width: 1100px;\n  margin: 20px auto; }\n  .serviceList h3 {\n    font-size: 30px;\n    font-weight: 700;\n    text-transform: uppercase;\n    text-align: center;\n    margin-top: 50px;\n    margin-bottom: 30px; }\n  .serviceList .listContainer {\n    margin: 20px 0; }\n  .serviceList .listContainer .list {\n      width: 49%;\n      display: inline-block;\n      vertical-align: top; }\n  .serviceList .listContainer .list ul {\n        width: 450px;\n        margin: 0 auto; }\n  .serviceList .listContainer .list ul li {\n          list-style-type: none;\n          padding-left: 30px !important;\n          padding-bottom: 20px !important;\n          position: relative; }\n  .serviceList .listContainer .list ul li i {\n            position: absolute;\n            top: 5px;\n            left: 0;\n            font-size: 15px; }\n  @media (max-width: 960px) {\n      .serviceList .listContainer .list {\n        width: 100%; } }\n  .putOrderBottom {\n  margin: 30px auto;\n  text-align: center;\n  max-width: 900px; }\n  .putOrderBottom p {\n    margin: 20px; }\n  .putOrderBottom .btn {\n    height: 40px;\n    width: 300px;\n    text-transform: uppercase;\n    font-size: 18px; }\n\n", ""]);
+exports.push([module.i, ".banner-carousel {\n  max-width: 1400px;\n  margin: 0 auto; }\n  .banner-carousel img {\n    width: 100%; }\n  h1 {\n  max-width: 720px;\n  margin: 20px auto;\n  text-align: center; }\n  .benefits-top .benefit-top {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex; }\n  .benefits-top .benefit-top img {\n    width: 100px;\n    height: 100px;\n    margin-right: 20px; }\n  .benefits-top .benefit-top h3 {\n    line-height: 100px; }\n  .put-order {\n  text-align: center;\n  margin: 30px 0; }\n  .put-order h4 {\n    margin-bottom: 10px; }\n  .put-order .order-btn {\n    background-color: white;\n    color: #fc3b3c;\n    border: 1px solid #fc3b3c;\n    width: 250px;\n    line-height: 35px;\n    font-size: 20px; }\n  .tour-types {\n  text-align: center;\n  min-width: 530px; }\n  .tour-types .tour-types-text {\n    font-size: 18px;\n    font-weight: 600; }\n  .tour-types .tour-type {\n    position: relative;\n    text-align: center;\n    color: white; }\n  .tour-types .tour-type .tour-type-info {\n      position: absolute;\n      top: 35%;\n      width: 100%;\n      right: 0; }\n  .tour-types .tour-type .tour-type-info .tour-type-name {\n        font-size: 28px;\n        font-family: 'PFDinDisplayPro-ExtraBold', sans-serif; }\n  .tour-types .tour-type .tour-type-info .separator {\n        height: 1px;\n        background-color: white;\n        width: 30px;\n        margin: 5px auto 15px auto; }\n  .tour-types .tour-type .tour-type-info a {\n        font-size: 24px;\n        color: white;\n        border: 2px solid white;\n        padding: 2px 10px; }\n  .tour-types .tour-type img {\n      margin: 10px 0;\n      width: 100%; }\n  .benefits-bottom h2 {\n  text-align: center;\n  max-width: 600px;\n  margin: 10px auto; }\n  .benefits-bottom .benefits-bottom-text {\n  text-align: center;\n  font-size: 18px;\n  font-weight: 600; }\n  .benefits-bottom .benefits .benefit {\n  margin: 20px 0; }\n  .benefits-bottom .benefits .benefit .benifit-header {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    margin: 5px; }\n  .benefits-bottom .benefits .benefit .benifit-header img {\n      width: 60px;\n      height: 24px;\n      margin-right: 10px; }\n  .benefits-bottom .benefits .benefit .benifit-header h3 {\n      color: #118B91; }\n  .benefits-bottom .benefits .benefit .benefit-text {\n    font-size: 20px; }\n  .benefits-bottom .benefits .benefit.space {\n  margin-left: 30px; }\n  .benefits-bottom .benefits .put-order-wrapper {\n  background-color: #138D90;\n  color: white;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  padding: 15px; }\n  .benefits-bottom .benefits .put-order-wrapper .text {\n    font-size: 28px; }\n  .benefits-bottom .benefits .put-order-wrapper .order-btn {\n    background-color: #fc3b3c;\n    color: white;\n    border: 1px solid white;\n    width: 100px;\n    line-height: 35px;\n    font-size: 20px; }\n  .expert-from .expert-img {\n  width: 100%; }\n  @media (max-width: 770px) {\n  .benefits-top .benefit-top {\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center; }\n  .benefits-top .benefit-bottom {\n    text-align: center; } }\n", ""]);
 
 // exports
 
@@ -447,7 +492,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Site/Content/Home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"banner-carousel\">\r\n    <slideshow [height]=\"'300px'\"\r\n               [minHeight]=\"'200px'\"\r\n               [autoPlay]=\"true\"\r\n               [showArrows]=\"true\"\r\n               [imageUrls]=\"imageSources\"\r\n               [lazyLoad]=\"imageSources?.length > 1\"\r\n               [autoPlayWaitForLazyLoad]=\"true\">\r\n    </slideshow>\r\n</div>\r\n<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper\">\r\n        <div class=\"benefits\">\r\n            <div>\r\n                <ul>\r\n                    <li>\r\n                        <div class=\"benefitItemContainer\">\r\n                            <i class=\"fa fa-money\" aria-hidden=\"true\"></i>\r\n                            <div class=\"benTxt\">\r\n                                <h5>\r\n                                    Гарантируем честные цены\r\n                                </h5>\r\n                                <div>\r\n                                    Цены у нас такие же, как у туроператоров, или ниже — вы никогда не переплачиваете\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </li>\r\n                    <li>\r\n                        <div class=\"benefitItemContainer\">\r\n                            <i class=\"fa fa-users\" aria-hidden=\"true\"></i>\r\n                            <div class=\"benTxt\">\r\n                                <h5>\r\n                                    Вас обслуживают лучшие специалисты\r\n                                </h5>\r\n                                <div>\r\n                                    Все сотрудники имеют обширный опыт работы в сфере туризма\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </li>\r\n                    <li>\r\n                        <div class=\"benefitItemContainer\">\r\n                            <i class=\"fa fa-phone\" aria-hidden=\"true\"></i>\r\n                            <div class=\"benTxt\">\r\n                                <h5>\r\n                                    Круглосуточный прием заявок\r\n                                </h5>\r\n                                <div>\r\n                                    Всегда на связи по телефону и в мессенджерах\r\n                                    СМС и email информирование туристов\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </li>\r\n                    <li>\r\n                        <div class=\"benefitItemContainer\">\r\n                            <i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i>\r\n                            <div class=\"benTxt\">\r\n                                <h5>\r\n                                    Оперативная поддержка туристов\r\n                                </h5>\r\n                                <div>\r\n                                    Поддержка персонального менеджера во время путешествия\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </li>\r\n                    <li>\r\n                        <div class=\"benefitItemContainer\">\r\n                            <i class=\"fa fa-check-circle\" aria-hidden=\"true\"></i>\r\n                            <div class=\"benTxt\">\r\n                                <h5>\r\n                                    Европейские стандарты сервиса\r\n                                </h5>\r\n                                <div>\r\n                                    На всех этапах работы с клиентом компания привносит европейские стандарты обслуживания и высокий уровень сервиса\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </li>\r\n                    <li>\r\n                        <div class=\"benefitItemContainer\">\r\n                            <i class=\"fa fa-thumbs-up\" aria-hidden=\"true\"></i>\r\n                            <div class=\"benTxt\">\r\n                                <h5>\r\n                                    Надежность\r\n                                </h5>\r\n                                <div>\r\n                                    Мы предлагаем туры только от проверенных партнеров\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"benefits-description\">\r\n            <p>\r\n                Ваша выгода очевидна! Среди всех туристических фирм Минска, только у нас Вы сможете быстро решить все вопросы, касающиеся Вашего путешествия!\r\n                Один Ваш звонок решит, насколько выгодное предложение достанется именно Вам.\r\n                Позвоните нам прямо сейчас, и успейте заказать лучшие места для отдыха.\r\n                Экономьте Ваше время в Центре туризма!\r\n            </p>\r\n            <p>\r\n                График работы нашего офиса позволяет Вам выбрать путевку в любое удобное для Вас время!\r\n                Наши менеджеры станут Вашей правой рукой и будут на связи с Вами на всех этапах Вашего путешествия.\r\n                Наши специалисты имеют опыт работы за рубежом, поэтому с легкостью посоветуют Вам интересные места для отдыха, экскурсий и шопинга.\r\n                Профессиональные секреты Центра туризма – гарантия Вашего удачного отдыха.\r\n            </p>\r\n            <p class=\"bold\">\r\n                ЗВОНИТЕ!МЫ ПОЙМЕМ ВАС С ПОЛУСЛОВА И ПРЕДЛОЖИМ ЛУЧШЕЕ РЕШЕНИЕ ВАШЕГО ВОПРОСА!\r\n            </p>\r\n        </div>\r\n\r\n        <div class=\"serviceList\">\r\n            <h3>\r\n                <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>\r\n                <span>Услуги</span>\r\n            </h3>\r\n            <div class=\"listContainer\">\r\n                <div class=\"left list\">\r\n                    <ul>\r\n                        <li class=\"fir\">\r\n                            <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\r\n                            Бронирование авиабилетов по всем направлениям\r\n                        </li>\r\n                        <li>\r\n                            <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\r\n                            Туры и отдых в рвссрочку без переплат и\r\n                            процентов!\r\n                        </li>\r\n                        <li>\r\n                            <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\r\n                            Профессиональная помощь в выборе отеля\r\n                        </li>\r\n                        <li>\r\n                            <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\r\n                            Оформление подарочного сертификата\r\n                        </li>\r\n                        <li class=\"las\">\r\n                            <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\r\n                            Трансфер в аэропорты Москвы, Киева и Вильнюса\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n                <div class=\"right list\">\r\n                    <ul>\r\n                        <li class=\"fir\">\r\n                            <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\r\n                            Визовая поддержка. Помощь в оформлении виз\r\n                        </li>\r\n                        <li>\r\n                            <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\r\n                            Медицинское страхование для туристов\r\n                        </li>\r\n                        <li>\r\n                            <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\r\n                            Симкарты с бесплатными входящими звонками в роуминге\r\n                        </li>\r\n                        <li class=\"las\">\r\n                            <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\r\n                            Автобусные билеты. Международные маршруты\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    \r\n</div>\r\n\r\n<div class=\"putOrderBottom\">\r\n    <p>\r\n        Оставьте заявку. Мы свяжемся с вами по указанным контактам в форме\r\n        и детально обсудим все интересующие Вас вопросы.\r\n    </p>\r\n    <button type=\"button\" (click)=\"openOrderPopup()\" class=\"btn btn-primary \">Отправить заявку</button>\r\n</div>"
+module.exports = "<div class=\"banner-carousel\">\r\n    <div id=\"home-carousel\" class=\"carousel slide\" data-ride=\"carousel\">\r\n        <ol class=\"carousel-indicators\">\r\n            <li data-target=\"#home-carousel\" data-slide-to=\"0\" class=\"active\"></li>\r\n            <li data-target=\"#home-carousel\" data-slide-to=\"1\"></li>\r\n            <li data-target=\"#home-carousel\" data-slide-to=\"2\"></li>\r\n        </ol>\r\n        <div class=\"carousel-inner\">\r\n            <div class=\"item active\">\r\n                <img src=\"/Content/Images/Home/MainBanner/banner1.jpg\">\r\n            </div>\r\n\r\n            <div class=\"item\">\r\n                <img src=\"/Content/Images/Home/MainBanner/banner2.jpg\">\r\n            </div>\r\n\r\n            <div class=\"item\">\r\n                <img src=\"/Content/Images/Home/MainBanner/banner3.jpg\">\r\n            </div>\r\n        </div>\r\n        <a class=\"left carousel-control\" href=\"#home-carousel\" data-slide=\"prev\">\r\n            <span class=\"glyphicon glyphicon-chevron-left\"></span>\r\n            <span class=\"sr-only\">Previous</span>\r\n        </a>\r\n        <a class=\"right carousel-control\" href=\"#home-carousel\" data-slide=\"next\">\r\n            <span class=\"glyphicon glyphicon-chevron-right\"></span>\r\n            <span class=\"sr-only\">Next</span>\r\n        </a>\r\n    </div>\r\n</div>\r\n<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper\">\r\n        <h1>\r\n            С Центром организации отдыха «Travel X»\r\n            Вы будете спокойны за свое путешествие!\r\n        </h1>\r\n        <div class=\"benefits-top row\">\r\n            <div class=\"col-xs-12 col-sm-4\">\r\n                <div class=\"benefit-top\">\r\n                    <img src=\"/Content/Images/Home/Benefits/reliability.png\" />\r\n                    <h3>Надежность</h3>\r\n                </div>\r\n                <div class=\"benefit-bottom\">\r\n                    Ответственный подход к делу позволяет нам сотрудничать только с проверенными партнерами: от принимающих сторон\r\n                    до визовых специалистов.\r\n                </div>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-4\">\r\n                <div class=\"benefit-top\">\r\n                    <img src=\"/Content/Images/Home/Benefits/expertise.png\" />\r\n                    <h3>Экспертность</h3>\r\n                </div>\r\n                <div class=\"benefit-bottom\">\r\n                    Каждый наш специалист работает в туризме более 4 лет и много путешествует!\r\n                    Такой практический опыт делает\r\n                    Ваш отпуск легким и беззаботным.\r\n                </div>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-4\">\r\n                <div class=\"benefit-top\">\r\n                    <img src=\"/Content/Images/Home/Benefits/speed.png\" />\r\n                    <h3>Скорость</h3>\r\n                </div>\r\n                <div class=\"benefit-bottom\">\r\n                    Доверив свое путешествие нашему эксперту, Вы значительно сэкономите время.\r\n                    Менеджер быстро свяжется с Вами\r\n                    и организует отдых в кратчайшие сроки.\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"put-order\">\r\n            <h4>Мы – что-то большее, чем просто бронирование тура!</h4>\r\n            <div class=\"font-PFDinDisplayPro-Light\">\r\n                <button type=\"button\" (click)=\"openOrderPopup()\" class=\"order-btn\">ОРГАНИЗУЙТЕ МНЕ ОТДЫХ</button>\r\n            </div>\r\n        </div>\r\n        <div class=\"tour-types\">\r\n            <h2>Виды туров</h2>\r\n            <div class=\"tour-types-text\">\r\n                Выберите интересующее Вас направление отдыха и жмите на кнопку!\r\n                Сморите предложения!\r\n            </div>\r\n            <div class=\"tour-types-wrapper row\">\r\n                <div class=\"tour-type col-xs-6 col-sm-6 col-md-4\">\r\n                    <div class=\"tour-type-info\">\r\n                        <div class=\"tour-type-name\">\r\n                            Пляжный отдых\r\n                        </div>\r\n                        <div class=\"separator\">\r\n                        </div>\r\n                        <a [routerLink]=\"[ '/tour/beach' ]\" class=\"tour-type-button-link\">СМОТРЕТЬ</a>\r\n                    </div>\r\n                    <img src=\"/Content/Images/Home/TourTypes/beach.jpg\" />\r\n                </div>\r\n                <div class=\"tour-type col-xs-6 col-sm-6 col-md-4\">\r\n                    <div class=\"tour-type-info\">\r\n                        <div class=\"tour-type-name\">\r\n                            Автобусные туры\r\n                        </div>\r\n                        <div class=\"separator\">\r\n                        </div>\r\n                        <a (click)=\"openOrderPopup()\" class=\"tour-type-button-link\">СМОТРЕТЬ</a>\r\n                    </div>\r\n                    <img src=\"/Content/Images/Home/TourTypes/bus.jpg\" />\r\n                </div>\r\n                <div class=\"tour-type col-xs-6 col-sm-6 col-md-4\">\r\n                    <div class=\"tour-type-info\">\r\n                        <div class=\"tour-type-name\">\r\n                            Горнолыжные туры\r\n                        </div>\r\n                        <div class=\"separator\">\r\n                        </div>\r\n                        <a [routerLink]=\"[ '/tour/skiing' ]\" class=\"tour-type-button-link\">СМОТРЕТЬ</a>\r\n                    </div>\r\n                    <img src=\"/Content/Images/Home/TourTypes/skiing.jpg\" />\r\n                </div>\r\n                <div class=\"tour-type col-xs-6 col-sm-6 col-md-4\">\r\n                    <div class=\"tour-type-info\">\r\n                        <div class=\"tour-type-name\">\r\n                            Новогодние туры\r\n                        </div>\r\n                        <div class=\"separator\">\r\n                        </div>\r\n                        <a [routerLink]=\"[ '/tour/newyear' ]\" class=\"tour-type-button-link\">СМОТРЕТЬ</a>\r\n                    </div>\r\n                    <img src=\"/Content/Images/Home/TourTypes/newYear.jpg\" />\r\n                </div>\r\n                <div class=\"tour-type col-xs-6 col-sm-6 col-md-4\">\r\n                    <div class=\"tour-type-info\">\r\n                        <div class=\"tour-type-name\">\r\n                            Индивидуальный отдых\r\n                        </div>\r\n                        <div class=\"separator\">\r\n                        </div>\r\n                        <a [routerLink]=\"[ '/tour/individual' ]\" class=\"tour-type-button-link\">СМОТРЕТЬ</a>\r\n                    </div>\r\n                    <img src=\"/Content/Images/Home/TourTypes/individual.jpg\" />\r\n                </div>\r\n                <div class=\"tour-type col-xs-6 col-sm-6 col-md-4\">\r\n                    <div class=\"tour-type-info\">\r\n                        <div class=\"tour-type-name\">\r\n                            Корпоративные туры\r\n                        </div>\r\n                        <div class=\"separator\">\r\n                        </div>\r\n                        <a [routerLink]=\"[ '/tour/corporate' ]\" class=\"tour-type-button-link\">СМОТРЕТЬ</a>\r\n                    </div>\r\n                    <img src=\"/Content/Images/Home/TourTypes/corporate.jpg\" />\r\n                </div>\r\n            </div>\r\n\r\n        </div>\r\n        <div class=\"put-order\">\r\n            <h4>Какое бы направление отдыха Вы ни выбрали, мы всегда будем рядом, чтоб помочь Вам в поиске тура!</h4>\r\n            <div class=\"font-PFDinDisplayPro-Light\">\r\n                <button type=\"button\" (click)=\"openOrderPopup()\" class=\"order-btn\">\r\n                    НАЙДИТЕ МНЕ ТУР!\r\n                </button>\r\n            </div>\r\n        </div>\r\n        <div class=\"benefits-bottom\">\r\n            <h2>\r\n                Центр организации отдыха «Travel X»\r\n                отличается от других турфирм и турагентств Минска\r\n            </h2>\r\n            <div class=\"benefits-bottom-text\">\r\n                Чем именно? Читайте!\r\n            </div>\r\n            <div class=\"benefits\">\r\n                <div class=\"benefit space\">\r\n                    <div class=\"benifit-header\">\r\n                        <img src=\"/Content/Images/Home/arrows.png\" />\r\n                    </div>\r\n                    <div class=\"benefit-text\">\r\n                        <div>\r\n                            Давайте о выгодах!\r\n                        </div>\r\n                        <div>\r\n                            Бронируя путевку у нас, Вы экономите до 29% своего бюджета. За счет прямых соглашений\r\n                            с авиакомпаниями и отелями мы получаем дополнительные бонусы, с которыми впоследствии\r\n                            делимся с Вами.\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                <div class=\"benefit\">\r\n                    <div class=\"benifit-header\">\r\n                        <img src=\"/Content/Images/Home/arrows.png\" />\r\n                        <h3>Все предложения в одном месте</h3>\r\n                    </div>\r\n                    <div class=\"benefit-text\">\r\n                        <div>\r\n                            Поговорим об актуальном!\r\n                        </div>\r\n                        <div>\r\n                            В нашей базе более 16 300 туров, которые ежедневно обновляются. Широкое разнообразие предложений позволит специалистам найти подходящий именно Вам вариант перелета, проживания и питания.\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                <div class=\"put-order-wrapper\">\r\n                    <div class=\"text font-Akrobat-ExtraBold\">Забронировать тур прямо сейчас</div>\r\n                    <button type=\"button\" (click)=\"openOrderPopup()\" class=\"order-btn\">ДА!</button>\r\n                </div>\r\n                <div class=\"benefit space\">\r\n                    <div class=\"benifit-header\">\r\n                        <img src=\"/Content/Images/Home/arrows.png\" />\r\n                        <h3>Индивидуальный конструктор тура</h3>\r\n                    </div>\r\n                    <div class=\"benefit-text\">\r\n                        <div>Тут все просто!</div>\r\n                        <div>\r\n                            Вы сочиняете свой идеальный маршрут, а мы воплощаем его в жизнь.\r\n                            Поделитесь своими идеями к поездке, и тур будет подобран согласно Вашим ожиданиям.\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                <div class=\"benefit\">\r\n                    <div class=\"benifit-header\">\r\n                        <img src=\"/Content/Images/Home/arrows.png\" />\r\n                        <h3>Долгосрочные отношенияx</h3>\r\n                    </div>\r\n                    <div class=\"benefit-text\">\r\n                        <div>Добавим щепотку душевности!</div>\r\n                        <div>\r\n                            Мы остаемся с Вами не только на протяжении поездки, но и далеко после. Акцент на качество – это именно та вещь, которую ставит во главе своей работы каждый сотрудник нашей компании.\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"expert-from\">\r\n        <img class=\"expert-img\" src=\"/Content/Images/Home/expert.jpg\" />\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -474,10 +519,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var HomeComponent = /** @class */ (function () {
     function HomeComponent(dialog) {
         this.dialog = dialog;
-        this.imageSources = [
-            '/Content/Images/beach_header.jpg',
-            '/Content/Images/admin_header.jpg'
-        ];
     }
     HomeComponent.prototype.openOrderPopup = function () {
         var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_2__Order_order_component__["a" /* OrderComponent */]);
@@ -729,6 +770,7 @@ module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Order_order_component__ = __webpack_require__("../../../../../src/app/Site/Order/order.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__siteCommon_Services_promotion_service__ = __webpack_require__("../../../../../src/app/Site/Common/Services/promotion.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_Services_preloader_service__ = __webpack_require__("../../../../../src/app/Common/Services/preloader.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -742,10 +784,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var PromotionsComponent = /** @class */ (function () {
-    function PromotionsComponent(dialog, promotionService) {
+    function PromotionsComponent(dialog, promotionService, preloaderService) {
         this.dialog = dialog;
         this.promotionService = promotionService;
+        this.preloaderService = preloaderService;
         this.promotionCollection = new Array();
     }
     PromotionsComponent.prototype.ngOnInit = function () {
@@ -753,8 +797,9 @@ var PromotionsComponent = /** @class */ (function () {
     };
     PromotionsComponent.prototype.getPromotionCollection = function () {
         var _this = this;
+        this.preloaderService.startPreloader();
         this.promotionService.getPromotionCollection()
-            .subscribe(function (data) { return _this.promotionCollection = data; });
+            .subscribe(function (data) { return _this.promotionCollection = data; }, function (err) { return console.log(err); }, function () { return _this.preloaderService.finishPreloader(); });
     };
     PromotionsComponent.prototype.openOrderPopup = function () {
         var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_2__Order_order_component__["a" /* OrderComponent */]);
@@ -767,7 +812,8 @@ var PromotionsComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/Site/Content/Promotions/promotions.component.css")]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */],
-            __WEBPACK_IMPORTED_MODULE_3__siteCommon_Services_promotion_service__["b" /* PromotionService */]])
+            __WEBPACK_IMPORTED_MODULE_3__siteCommon_Services_promotion_service__["b" /* PromotionService */],
+            __WEBPACK_IMPORTED_MODULE_4__common_Services_preloader_service__["a" /* PreloaderService */]])
     ], PromotionsComponent);
     return PromotionsComponent;
 }());
@@ -1543,6 +1589,7 @@ module.exports = "<div class=\"counties-wrapper\">\r\n    <div class=\"country\"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__siteModule_Order_order_component__ = __webpack_require__("../../../../../src/app/Site/Order/order.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_Services_tourType_service__ = __webpack_require__("../../../../../src/app/Common/Services/tourType.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__siteCommon_Services_country_service__ = __webpack_require__("../../../../../src/app/Site/Common/Services/country.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__common_Services_preloader_service__ = __webpack_require__("../../../../../src/app/Common/Services/preloader.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1558,13 +1605,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var CountriesComponent = /** @class */ (function () {
-    function CountriesComponent(dialog, tourTypeService, countryService, activeRoute, router) {
-        this.dialog = dialog;
+    function CountriesComponent(tourTypeService, countryService, activeRoute, router, dialog, preloaderService) {
         this.tourTypeService = tourTypeService;
         this.countryService = countryService;
         this.activeRoute = activeRoute;
         this.router = router;
+        this.dialog = dialog;
+        this.preloaderService = preloaderService;
         this.countryCollection = new Array();
     }
     CountriesComponent.prototype.ngOnInit = function () {
@@ -1580,8 +1629,9 @@ var CountriesComponent = /** @class */ (function () {
     };
     CountriesComponent.prototype.getCountryCollection = function () {
         var _this = this;
+        this.preloaderService.startPreloader();
         this.countryService.getCountryCollection(this.tourType)
-            .subscribe(function (data) { return _this.countryCollection = data; });
+            .subscribe(function (data) { return _this.countryCollection = data; }, function (err) { return console.log(err); }, function () { return _this.preloaderService.finishPreloader(); });
     };
     CountriesComponent.prototype.getTourTypeName = function (tourTypeKey) {
         var result = this.tourTypes.keys().filter(function (tt) { return tt == tourTypeKey; })[0];
@@ -1597,11 +1647,12 @@ var CountriesComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/Site/Countries/countries.component.html"),
             styles: [__webpack_require__("../../../../../src/app/Site/Countries/countries.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */],
-            __WEBPACK_IMPORTED_MODULE_4__common_Services_tourType_service__["a" /* TourTypeService */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__common_Services_tourType_service__["a" /* TourTypeService */],
             __WEBPACK_IMPORTED_MODULE_5__siteCommon_Services_country_service__["b" /* CountryService */],
             __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */],
+            __WEBPACK_IMPORTED_MODULE_6__common_Services_preloader_service__["a" /* PreloaderService */]])
     ], CountriesComponent);
     return CountriesComponent;
 }());
@@ -1686,7 +1737,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "header {\n  position: fixed;\n  width: 100%;\n  background-color: rgba(255, 255, 255, 0.9);\n  z-index: 1000;\n  top: 0; }\n  header .header-content {\n    margin: 0 auto;\n    position: relative; }\n  header .header-content .topHeaderMenu .width-wrapper {\n      padding: 0 15px;\n      font-size: 17px; }\n  header .header-content .topHeaderMenu .width-wrapper .logo {\n        display: inline-block;\n        padding-top: 15px;\n        margin-left: 15px;\n        font-size: 22px;\n        width: 190px; }\n  header .header-content .topHeaderMenu .width-wrapper .logo img {\n          width: 180px; }\n  header .header-content .topHeaderMenu .width-wrapper .separator {\n        background-color: #bbb9cd;\n        margin-top: 15px; }\n  header .header-content .topHeaderMenu .width-wrapper .phones {\n        padding-top: 15px; }\n  header .header-content .topHeaderMenu .width-wrapper .address {\n        padding-top: 10px; }\n  header .header-content .topHeaderMenu .width-wrapper .work-time {\n        padding-top: 10px; }\n  header .header-content .topHeaderMenu .width-wrapper .order-btn-wrapper {\n        border: 2px solid #fc3b3c;\n        padding: 2px;\n        font-size: 24px;\n        height: 45px;\n        margin-top: 15px; }\n  header .header-content .topHeaderMenu .width-wrapper .order-btn-wrapper .order-btn {\n          background-color: white;\n          color: #fc3b3c;\n          border: none;\n          width: 200px;\n          line-height: 35px; }\n  header .header-content .middleHeaderMenu {\n      margin-top: 15px;\n      font-size: 25px; }\n  header .header-content .middleHeaderMenu .mobileMenu {\n        display: none; }\n  header .header-content .middleHeaderMenu .mainMenu {\n        background: #05108a;\n        padding: 3px; }\n  header .header-content .middleHeaderMenu .mainMenu .width-wrapper {\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-pack: justify;\n              -ms-flex-pack: justify;\n                  justify-content: space-between; }\n  header .header-content .middleHeaderMenu .mainMenu .width-wrapper a {\n            color: white; }\n  header .header-content .middleHeaderMenu .mainMenu .width-wrapper a:hover {\n            color: #feb849; }\n  header .header-content .middleHeaderMenu .mainMenu .width-wrapper li {\n            display: inline-block;\n            vertical-align: top;\n            text-align: center;\n            margin: 0px 15px; }\n  @media (min-width: 1000px) {\n  .header-sm-xs {\n    display: none; }\n  .header-md {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n  @media (max-width: 1000px) {\n  .header-sm-xs .level {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; }\n  .header-md {\n    display: none; } }\n  @media (min-width: 600px) {\n  header .header-content .topHeaderMenu .width-wrapper .separator {\n    width: 1px;\n    height: 50px; } }\n  @media (max-width: 600px) {\n  header {\n    position: initial; }\n    header .header-content .topHeaderMenu .width-wrapper .level {\n      display: block; }\n      header .header-content .topHeaderMenu .width-wrapper .level .separator {\n        width: 250px;\n        height: 1px;\n        margin: 10px auto 0 auto; }\n      header .header-content .topHeaderMenu .width-wrapper .level .logo {\n        display: block;\n        text-align: center;\n        padding-top: 50px; }\n      header .header-content .topHeaderMenu .width-wrapper .level .header-item {\n        padding-left: 0px;\n        padding-right: 0px;\n        display: block;\n        margin-right: auto;\n        margin-left: auto;\n        width: 250px;\n        text-align: center; }\n    header .header-content .middleHeaderMenu {\n      margin-top: 35px;\n      display: block; }\n      header .header-content .middleHeaderMenu a {\n        color: #fff;\n        font-size: 16px;\n        text-decoration: none;\n        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);\n        text-transform: uppercase;\n        line-height: 25px;\n        padding: 0 25px;\n        cursor: pointer;\n        -webkit-transition: font-size 0.1s;\n        transition: font-size 0.1s; }\n      header .header-content .middleHeaderMenu a:hover {\n        font-size: 17px; }\n      header .header-content .middleHeaderMenu .mobileMenu {\n        display: block;\n        position: fixed;\n        top: 0;\n        width: 100%;\n        z-index: 50;\n        font-weight: 700; }\n        header .header-content .middleHeaderMenu .mobileMenu-header {\n          width: 100%;\n          background: #05108a;\n          position: relative;\n          height: 42px;\n          line-height: 35px;\n          z-index: 51;\n          border-bottom: 2px solid #fff; }\n        header .header-content .middleHeaderMenu .mobileMenu-list {\n          background: #05108a;\n          width: 100%; }\n          header .header-content .middleHeaderMenu .mobileMenu-list li {\n            display: block;\n            text-align: left;\n            margin: 0;\n            padding: 5px 0;\n            border-bottom: 1px solid #fff; }\n      header .header-content .middleHeaderMenu .mainMenu {\n        display: none; } }\n", ""]);
+exports.push([module.i, "header {\n  position: fixed;\n  width: 100%;\n  background-color: rgba(255, 255, 255, 0.9);\n  z-index: 1000;\n  top: 0; }\n  header .header-content {\n    margin: 0 auto;\n    position: relative; }\n  header .header-content .topHeaderMenu .width-wrapper {\n      padding: 0 15px;\n      font-size: 17px; }\n  header .header-content .topHeaderMenu .width-wrapper .logo {\n        display: inline-block;\n        padding-top: 15px;\n        margin-left: 15px;\n        font-size: 22px;\n        width: 190px; }\n  header .header-content .topHeaderMenu .width-wrapper .logo img {\n          width: 180px; }\n  header .header-content .topHeaderMenu .width-wrapper .separator {\n        background-color: #bbb9cd;\n        margin-top: 15px; }\n  header .header-content .topHeaderMenu .width-wrapper .phones {\n        padding-top: 15px; }\n  header .header-content .topHeaderMenu .width-wrapper .address {\n        padding-top: 10px; }\n  header .header-content .topHeaderMenu .width-wrapper .work-time {\n        padding-top: 10px; }\n  header .header-content .topHeaderMenu .width-wrapper .order-btn-wrapper {\n        border: 2px solid #fc3b3c;\n        padding: 2px;\n        font-size: 24px;\n        height: 45px;\n        margin-top: 15px; }\n  header .header-content .topHeaderMenu .width-wrapper .order-btn-wrapper .order-btn {\n          background-color: white;\n          color: #fc3b3c;\n          border: none;\n          width: 200px;\n          line-height: 35px; }\n  header .header-content .middleHeaderMenu {\n      margin-top: 15px;\n      font-size: 25px; }\n  header .header-content .middleHeaderMenu .mobileMenu {\n        display: none; }\n  header .header-content .middleHeaderMenu .mainMenu {\n        background: #05108a;\n        padding: 3px; }\n  header .header-content .middleHeaderMenu .mainMenu .width-wrapper {\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-pack: justify;\n              -ms-flex-pack: justify;\n                  justify-content: space-between; }\n  header .header-content .middleHeaderMenu .mainMenu .width-wrapper a {\n            color: white; }\n  header .header-content .middleHeaderMenu .mainMenu .width-wrapper a:hover {\n            color: #feb849; }\n  header .header-content .middleHeaderMenu .mainMenu .width-wrapper li {\n            display: inline-block;\n            vertical-align: top;\n            text-align: center;\n            margin: 0px 15px; }\n  @media (min-width: 1000px) {\n  .header-sm-xs {\n    display: none; }\n  .header-md {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; } }\n  @media (max-width: 1000px) {\n  .header-sm-xs .level {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; }\n  .header-md {\n    display: none; } }\n  @media (min-width: 600px) {\n  header .header-content .topHeaderMenu .width-wrapper .separator {\n    width: 1px;\n    height: 50px; } }\n  @media (max-width: 600px) {\n  header {\n    position: initial; }\n    header .header-content .topHeaderMenu .width-wrapper .level {\n      display: block; }\n      header .header-content .topHeaderMenu .width-wrapper .level .separator {\n        width: 250px;\n        height: 1px;\n        margin: 10px auto 0 auto; }\n      header .header-content .topHeaderMenu .width-wrapper .level .logo {\n        display: block;\n        text-align: center;\n        padding-top: 50px; }\n      header .header-content .topHeaderMenu .width-wrapper .level .header-item {\n        padding-left: 0px;\n        padding-right: 0px;\n        display: block;\n        margin-right: auto;\n        margin-left: auto;\n        width: 250px;\n        text-align: center; }\n    header .header-content .middleHeaderMenu {\n      margin-top: 35px;\n      display: block; }\n      header .header-content .middleHeaderMenu a {\n        color: #fff;\n        font-size: 16px;\n        text-decoration: none;\n        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);\n        text-transform: uppercase;\n        line-height: 25px;\n        padding: 0 25px;\n        cursor: pointer;\n        -webkit-transition: font-size 0.1s;\n        transition: font-size 0.1s; }\n      header .header-content .middleHeaderMenu a:hover {\n        font-size: 17px; }\n      header .header-content .middleHeaderMenu .mobileMenu {\n        display: block;\n        position: fixed;\n        top: 0;\n        width: 100%;\n        z-index: 50;\n        font-weight: 700; }\n        header .header-content .middleHeaderMenu .mobileMenu-header {\n          width: 100%;\n          background: #05108a;\n          position: relative;\n          height: 42px;\n          line-height: 35px;\n          z-index: 1000;\n          border-bottom: 2px solid #fff; }\n        header .header-content .middleHeaderMenu .mobileMenu-list {\n          background: #05108a;\n          width: 100%; }\n          header .header-content .middleHeaderMenu .mobileMenu-list li {\n            display: block;\n            text-align: left;\n            margin: 0;\n            padding: 5px 0;\n            border-bottom: 1px solid #fff; }\n      header .header-content .middleHeaderMenu .mainMenu {\n        display: none; } }\n", ""]);
 
 // exports
 
@@ -1982,6 +2033,7 @@ module.exports = "<div class=\"width-wrapper\">\r\n    <div class=\"text-wrapper
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__common_Services_tourType_service__ = __webpack_require__("../../../../../src/app/Common/Services/tourType.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__siteCommon_Services_country_service__ = __webpack_require__("../../../../../src/app/Site/Common/Services/country.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__siteCommon_Services_tour_service__ = __webpack_require__("../../../../../src/app/Site/Common/Services/tour.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__common_Services_preloader_service__ = __webpack_require__("../../../../../src/app/Common/Services/preloader.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2000,14 +2052,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ToursComponent = /** @class */ (function () {
-    function ToursComponent(dialog, tourService, tourTypeService, countryService, activeRoute, router) {
-        this.dialog = dialog;
+    function ToursComponent(tourService, tourTypeService, countryService, activeRoute, router, dialog, preloaderService) {
         this.tourService = tourService;
         this.tourTypeService = tourTypeService;
         this.countryService = countryService;
         this.activeRoute = activeRoute;
         this.router = router;
+        this.dialog = dialog;
+        this.preloaderService = preloaderService;
         this.starsArray = Array;
         this.country = new __WEBPACK_IMPORTED_MODULE_6__siteCommon_Services_country_service__["a" /* Country */]();
         this.tourCollection = new Array();
@@ -2034,8 +2088,9 @@ var ToursComponent = /** @class */ (function () {
     };
     ToursComponent.prototype.getTourCollection = function () {
         var _this = this;
+        this.preloaderService.startPreloader();
         this.tourService.getTourCollection(this.tourType, this.country.urlName)
-            .subscribe(function (data) { return _this.tourCollection = data; });
+            .subscribe(function (data) { return _this.tourCollection = data; }, function (err) { return console.log(err); }, function () { return _this.preloaderService.finishPreloader(); });
     };
     ToursComponent.prototype.openOrderPopup = function () {
         var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_4__siteModule_Order_order_component__["a" /* OrderComponent */]);
@@ -2052,12 +2107,13 @@ var ToursComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/Site/Tours/tours.component.html"),
             styles: [__webpack_require__("../../../../../src/app/Site/Tours/tours.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */],
-            __WEBPACK_IMPORTED_MODULE_7__siteCommon_Services_tour_service__["a" /* TourService */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_7__siteCommon_Services_tour_service__["a" /* TourService */],
             __WEBPACK_IMPORTED_MODULE_5__common_Services_tourType_service__["a" /* TourTypeService */],
             __WEBPACK_IMPORTED_MODULE_6__siteCommon_Services_country_service__["b" /* CountryService */],
             __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */],
+            __WEBPACK_IMPORTED_MODULE_8__common_Services_preloader_service__["a" /* PreloaderService */]])
     ], ToursComponent);
     return ToursComponent;
 }());
@@ -2087,7 +2143,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Site/site.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<headerComponent></headerComponent>\r\n<div class=\"body-content\">\r\n  <contentComponent></contentComponent>\r\n  <hr />\r\n  <footerComponent></footerComponent>\r\n</div>\r\n"
+module.exports = "<headerComponent></headerComponent>\r\n<div class=\"body-content\">\r\n  <contentComponent></contentComponent>\r\n  <div *ngIf=\"isPreloaderInProgress()\"\r\n       class=\"preloader\">\r\n      <img class=\"ajax-loader\" src=\"/Content/Images/preloader.gif\" />\r\n  </div>\r\n</div>\r\n<footerComponent></footerComponent>\r\n"
 
 /***/ }),
 
@@ -2097,23 +2153,34 @@ module.exports = "<headerComponent></headerComponent>\r\n<div class=\"body-conte
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SiteComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_Services_preloader_service__ = __webpack_require__("../../../../../src/app/Common/Services/preloader.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
 
 var SiteComponent = /** @class */ (function () {
-    function SiteComponent() {
+    function SiteComponent(preloaderService) {
+        this.preloaderService = preloaderService;
     }
+    SiteComponent.prototype.isPreloaderInProgress = function () {
+        var result = this.preloaderService.isPreloaderInProgress();
+        return result;
+    };
     SiteComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             moduleId: module.i,
             selector: "siteComponent",
             template: __webpack_require__("../../../../../src/app/Site/site.component.html"),
             styles: [__webpack_require__("../../../../../src/app/Site/site.component.css")],
-        })
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__common_Services_preloader_service__["a" /* PreloaderService */]])
     ], SiteComponent);
     return SiteComponent;
 }());

@@ -7,6 +7,7 @@ import { Dictionary } from "@common/Types/Dictionary";
 import { TourTypeService } from "@common/Services/tourType.service"; 
 import { CountryService } from "@siteCommon/Services/country.service";
 import { Country } from "@siteCommon/Services/country.service";
+import { PreloaderService } from "@common/Services/preloader.service";
 
 @Component({
     
@@ -22,11 +23,12 @@ export class CountriesComponent {
     public countryCollection: Array<Country> = new Array<Country>();
 
     constructor(
-        public dialog: MatDialog,
         private tourTypeService: TourTypeService,
         private countryService: CountryService,
         private activeRoute: ActivatedRoute,
-        private router: Router)
+        private router: Router,
+        public dialog: MatDialog,
+        public preloaderService : PreloaderService)
     { }
 
     ngOnInit() {
@@ -43,8 +45,11 @@ export class CountriesComponent {
 
     private getCountryCollection()
     {
+        this.preloaderService.startPreloader();
         this.countryService.getCountryCollection(this.tourType)
-        .subscribe(data => this.countryCollection = data);
+        .subscribe(data => this.countryCollection = data,
+                    (err)=> console.log(err),
+                    ()=> this.preloaderService.finishPreloader());
     }
 
     public getTourTypeName(tourTypeKey){

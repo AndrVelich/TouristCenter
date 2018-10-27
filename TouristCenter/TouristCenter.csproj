@@ -302,7 +302,22 @@
     <Content Include="Content\Icons\vk_neak.png" />
     <Content Include="Content\Images\admin_header.jpg" />
     <Content Include="Content\Images\beach_header.jpg" />
+    <Content Include="Content\Images\Home\arrows.png" />
+    <Content Include="Content\Images\Home\Benefits\expertise.png" />
+    <Content Include="Content\Images\Home\Benefits\reliability.png" />
+    <Content Include="Content\Images\Home\Benefits\speed.png" />
+    <Content Include="Content\Images\Home\expert.jpg" />
+    <Content Include="Content\Images\Home\MainBanner\banner1.jpg" />
+    <Content Include="Content\Images\Home\MainBanner\banner2.jpg" />
+    <Content Include="Content\Images\Home\MainBanner\banner3.jpg" />
+    <Content Include="Content\Images\Home\TourTypes\beach.jpg" />
+    <Content Include="Content\Images\Home\TourTypes\bus.jpg" />
+    <Content Include="Content\Images\Home\TourTypes\corporate.jpg" />
+    <Content Include="Content\Images\Home\TourTypes\individual.jpg" />
+    <Content Include="Content\Images\Home\TourTypes\newYear.jpg" />
+    <Content Include="Content\Images\Home\TourTypes\skiing.jpg" />
     <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\preloader.gif" />
     <Content Include="Content\Images\promotions_test1.jpg" />
     <Content Include="Content\Images\promotions_test2.jpg" />
     <Content Include="Content\Images\pv_layer_controls.png" />
@@ -437,6 +452,7 @@
       <DependentUpon>tour.component.css</DependentUpon>
     </Content>
     <Content Include="src\app\Administration\Content\Tours\Tour\tour.component.ts" />
+    <Content Include="src\app\Common\Services\preloader.service.ts" />
     <Content Include="src\app\Common\Services\tourType.service.ts" />
     <Content Include="src\app\Administration\Content\content.component.js" />
     <Content Include="src\app\Administration\Content\content.component.ts" />
