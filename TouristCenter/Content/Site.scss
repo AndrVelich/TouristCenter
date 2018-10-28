@@ -1,3 +1,53 @@
+@font-face {
+    font-family: 'Akrobat-ExtraBold';
+    src: url(../fonts/Akrobat-ExtraBold.otf);
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PFDinDisplayPro-Light';
+    src: url(../fonts/PFDinDisplayPro-Light.ttf);
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PFDinDisplayPro-Reg';
+    src: url(../fonts/PFDinDisplayPro-Reg.ttf);
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PFDinDisplayPro-Thin';
+    src: url(../fonts/PFDinDisplayPro-Thin.ttf);
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'OpenSans-Light';
+    src: url(../fonts/Open_Sans/OpenSans-Light.ttf);
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'OpenSans-Semibold';
+    src: url(../fonts/Open_Sans/OpenSans-Semibold.ttf);
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'OpenSans-Regular';
+    src: url(../fonts/Open_Sans/OpenSans-Regular.ttf);
+    font-weight: normal;
+    font-style: italic;
+}
+
+
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, legend, input, button, textarea, blockquote, th, td {
     margin: 0;
     padding: 0;
@@ -6,6 +56,11 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, lege
 
 h1, h2 {
     color: #0A155F;
+    font-family: Akrobat-ExtraBold;
+}
+
+h3, h4, h5, h6 {
+    font-family: OpenSans-Semibold;
 }
 
 label {
@@ -94,38 +149,13 @@ body .cdk-overlay-pane {
 /*------------matDogNail-------------------*/
 
 
-@font-face {
-    font-family: 'Akrobat-ExtraBold';
-    src: url(../fonts/Akrobat-ExtraBold.otf);
-    font-weight: normal;
-    font-style: italic;
-}
 
-@font-face {
-    font-family: 'PFDinDisplayPro-Light';
-    src: url(../fonts/PFDinDisplayPro-Light.ttf);
-    font-weight: normal;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'PFDinDisplayPro-Reg';
-    src: url(../fonts/PFDinDisplayPro-Reg.ttf);
-    font-weight: normal;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'PFDinDisplayPro-Thin';
-    src: url(../fonts/PFDinDisplayPro-Thin.ttf);
-    font-weight: normal;
-    font-style: italic;
-}
 
 body {
     position: relative;
-    font-family: 'PFDinDisplayPro-Thin', sans-serif;
+    font-family: 'OpenSans-Light', sans-serif;
     min-width: 400px;
+    color: #191919;
 
     .font-Akrobat-ExtraBold {
         font-family: 'PFDinDisplayPro-ExtraBold', sans-serif;

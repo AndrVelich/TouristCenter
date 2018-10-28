@@ -149,9 +149,7 @@ export class TourComponent {
                 Validators.min(3),
                 Validators.max(5)
             ]],
-            "description": [this.tour.description, [
-                Validators.required
-            ]],
+            "description": [this.tour.description],
             "country": [this.tour.country, [
                 Validators.required
             ]],

@@ -25,7 +25,6 @@ namespace TouristCenter.Domain.Tour.Models
         private string _city;
         private decimal _price;
         private int _stars;
-        private string _description;
         private List<ImageModel> _imageCollection;
 
         public int TourId { get; private set; }
@@ -97,18 +96,7 @@ namespace TouristCenter.Domain.Tour.Models
             }
         }
 
-        public string Description
-        {
-            get { return _description; }
-            set
-            {
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                    throw new TourNameNotValidException();
-                }
-                _description = value;
-            }
-        }
+        public string Description { get; set; }
 
         //TODO A.V. need to refactor
         public string Country { get; set; }
@@ -134,7 +122,7 @@ namespace TouristCenter.Domain.Tour.Models
             Category = TourTypesEnumConverter.ConvertToDomainValue(dataModel.Category);
             _price = dataModel.Price;
             _stars = dataModel.Stars;
-            _description = dataModel.Description;
+            Description = dataModel.Description;
             Country = dataModel.Country.UrlName;
             Nights = dataModel.Nights;
             IsFlightIncluded = dataModel.IsFlightIncluded;

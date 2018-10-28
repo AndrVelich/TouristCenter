@@ -28,6 +28,10 @@ h1 {
             line-height: 100px;
         }
     }
+
+    .benefit-bottom {
+        font-family: 'OpenSans-Semibold';
+    }
 }
 
 .put-order {
@@ -46,16 +50,17 @@ h1 {
         line-height: 35px;
         font-size: 20px;
     }
+
+    .order-btn:hover {
+        box-shadow: 0 0 7px rgba(253,10,10,0.75);
+        color: white;
+        background-color: #fc3b3c;
+    }
 }
 
 .tour-types {
     text-align: center;
     min-width: 530px;
-
-    .tour-types-text {
-        font-size: 18px;
-        font-weight: 600;
-    }
 
     .tour-type {
         position: relative;
@@ -86,6 +91,11 @@ h1 {
                 border: 2px solid white;
                 padding: 2px 10px;
             }
+
+            a:hover {
+                color: #37354E;
+                background-color: white;
+            }
         }
 
         img {
@@ -105,8 +115,6 @@ h1 {
 
     .benefits-bottom-text {
         text-align: center;
-        font-size: 18px;
-        font-weight: 600;
     }
 
     .benefits {
@@ -131,6 +139,7 @@ h1 {
 
             .benefit-text {
                 font-size: 20px;
+                font-family: OpenSans-Regular;
             }
         }
 

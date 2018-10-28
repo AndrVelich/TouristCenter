@@ -42,7 +42,6 @@ namespace TouristCenter.Storage.Interfaces.Tour.Models
         [Required]
         public bool IsFlightIncluded { get; set; }
 
-        [Required]
         public string Description { get; set; }
 
         [Required]
