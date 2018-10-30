@@ -511,10 +511,6 @@
     <Content Include="src\app\Administration\administration.component.ts" />
     <Content Include="src\app\Administration\administration.module.ts" />
     <Content Include="src\app\Administration\administration.routes.ts" />
-    <Content Include="src\app\app.component.html" />
-    <Content Include="src\app\app.component.spec.ts" />
-    <Content Include="src\app\app.component.ts" />
-    <Content Include="src\app\app.module.ts" />
     <Content Include="src\app\Common\common.module.ts" />
     <Content Include="src\app\Common\Types\Dictionary.ts" />
     <Content Include="src\app\Site\Common\Services\country.service.ts" />

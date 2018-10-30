@@ -23,6 +23,7 @@ import { FooterComponent } from "./Footer/footer.component";
 import { ContentComponent } from "./Content/content.component";
 import { HomeComponent } from "./Content/Home/home.component";
 import { TourTypesComponent } from "./Content/TourTypes/tourTypes.component";
+import { CountryComponent } from "./Content/Country/country.component";
 
 import { BeachCountryComponent } from "./Content/TourTypes/Beach/Country/beachCountry.component";
 import { BeachToursComponent } from "./Content/TourTypes/Beach/Tours/beachTours.component";
@@ -99,6 +100,7 @@ import { PromotionService } from "./Common/Services/promotion.service";
         TourTypesComponent,
         CountriesComponent,
         ToursComponent,
+        CountryComponent,
 
         BeachCountryComponent,
         BeachToursComponent,

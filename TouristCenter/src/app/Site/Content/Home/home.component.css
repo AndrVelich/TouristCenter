@@ -112,9 +112,6 @@ h1 {
     line-height: 35px;
     font-size: 20px; }
 
-.expert-from .expert-img {
-  width: 100%; }
-
 @media (max-width: 770px) {
   .benefits-top .benefit-top {
     justify-content: center; }

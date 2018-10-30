@@ -44,14 +44,12 @@
                     padding-top: 10px;
                 }
 
-
-
                 .order-btn-wrapper {
                     border: 2px solid #fc3b3c;
                     padding: 2px;
                     font-size: 24px;
                     height: 43px;
-                    margin-top: 15px;
+                    margin-top: 17px;
 
                     .order-btn {
                         background-color: #fc3b3c;
@@ -59,6 +57,7 @@
                         border: none;
                         width: 200px;
                         line-height: 35px;
+                        height: 35px;
                     }
 
                     .order-btn:hover {
@@ -66,7 +65,6 @@
                         color: #fc3b3c;
                     }
                 }
-
             }
         }
 
@@ -108,26 +106,64 @@
 }
 
 @media (min-width: 1000px) {
-    .header-sm-xs {
-        display: none;
-    }
+    .topHeaderMenu {
+        .separator-address {
+            display: block;
+        }
 
-    .header-md {
-        display: flex;
-        justify-content: space-between;
+        .address {
+            display: block;
+        }
+
+        .separator-work-time {
+            display: block;
+        }
+
+        .work-time {
+            display: block;
+        }
     }
 }
 
 @media (max-width: 1000px) {
-    .header-sm-xs {
-        .level {
-            display: flex;
-            justify-content: space-between;
+    .topHeaderMenu {
+
+        .separator-address {
+            display: block;
+        }
+
+        .address {
+            display: block;
+        }
+
+        .separator-work-time {
+            display: none;
+        }
+
+        .work-time {
+            display: none;
         }
     }
+}
 
-    .header-md {
-        display: none;
+@media (max-width: 850px) {
+    .topHeaderMenu {
+
+        .separator-address {
+            display: none;
+        }
+
+        .address {
+            display: none;
+        }
+
+        .separator-work-time {
+            display: none;
+        }
+
+        .work-time {
+            display: none;
+        }
     }
 }
 
@@ -138,13 +174,21 @@
 
             .topHeaderMenu {
 
+                .header-sm {
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+                .header-xs {
+                    display: none;
+                }
+
                 .width-wrapper {
 
                     .separator {
                         width: 1px;
                         height: 50px;
                     }
-
                 }
             }
         }
@@ -158,6 +202,14 @@
         .header-content {
 
             .topHeaderMenu {
+
+                .header-sm {
+                    display: none;
+                }
+
+                .header-xs {
+                    display: block;
+                }
 
                 .width-wrapper {
 
@@ -182,7 +234,7 @@
                             display: block;
                             margin-right: auto;
                             margin-left: auto;
-                            width: 250px;
+                            width: 210px;
                             text-align: center;
                         }
                     }

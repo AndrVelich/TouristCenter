@@ -32,13 +32,14 @@
         padding: 2px;
         font-size: 24px;
         height: 43px;
-        margin-top: 15px; }
+        margin-top: 17px; }
         header .header-content .topHeaderMenu .width-wrapper .order-btn-wrapper .order-btn {
           background-color: #fc3b3c;
           color: white;
           border: none;
           width: 200px;
-          line-height: 35px; }
+          line-height: 35px;
+          height: 35px; }
         header .header-content .topHeaderMenu .width-wrapper .order-btn-wrapper .order-btn:hover {
           background-color: white;
           color: #fc3b3c; }
@@ -64,20 +65,41 @@
             margin: 0px 15px; }
 
 @media (min-width: 1000px) {
-  .header-sm-xs {
-    display: none; }
-  .header-md {
-    display: flex;
-    justify-content: space-between; } }
+  .topHeaderMenu .separator-address {
+    display: block; }
+  .topHeaderMenu .address {
+    display: block; }
+  .topHeaderMenu .separator-work-time {
+    display: block; }
+  .topHeaderMenu .work-time {
+    display: block; } }
 
 @media (max-width: 1000px) {
-  .header-sm-xs .level {
-    display: flex;
-    justify-content: space-between; }
-  .header-md {
+  .topHeaderMenu .separator-address {
+    display: block; }
+  .topHeaderMenu .address {
+    display: block; }
+  .topHeaderMenu .separator-work-time {
+    display: none; }
+  .topHeaderMenu .work-time {
+    display: none; } }
+
+@media (max-width: 850px) {
+  .topHeaderMenu .separator-address {
+    display: none; }
+  .topHeaderMenu .address {
+    display: none; }
+  .topHeaderMenu .separator-work-time {
+    display: none; }
+  .topHeaderMenu .work-time {
     display: none; } }
 
 @media (min-width: 600px) {
+  header .header-content .topHeaderMenu .header-sm {
+    display: flex;
+    justify-content: space-between; }
+  header .header-content .topHeaderMenu .header-xs {
+    display: none; }
   header .header-content .topHeaderMenu .width-wrapper .separator {
     width: 1px;
     height: 50px; } }
@@ -85,6 +107,10 @@
 @media (max-width: 600px) {
   header {
     position: initial; }
+    header .header-content .topHeaderMenu .header-sm {
+      display: none; }
+    header .header-content .topHeaderMenu .header-xs {
+      display: block; }
     header .header-content .topHeaderMenu .width-wrapper .level {
       display: block; }
       header .header-content .topHeaderMenu .width-wrapper .level .separator {
@@ -101,7 +127,7 @@
         display: block;
         margin-right: auto;
         margin-left: auto;
-        width: 250px;
+        width: 210px;
         text-align: center; }
     header .header-content .middleHeaderMenu {
       margin-top: 35px;
