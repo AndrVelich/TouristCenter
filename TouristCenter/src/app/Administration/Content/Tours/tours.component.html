@@ -45,6 +45,9 @@
                             <span [innerHtml]="tour.name"></span>
                             <i class="fa fa-pencil" aria-hidden="true"></i>
                         </a>
+                        <a (click)="openDeleteConfirmation(tour.tourId, tour.name)" class="link-big" style="color:red">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
                         <div [innerHtml]="tour.city"></div>
                         <div [innerHtml]="tour.description"></div>
                     </div>

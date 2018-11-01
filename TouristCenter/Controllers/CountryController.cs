@@ -101,6 +101,14 @@ namespace TouristCenter.Controllers
             countryModel.Save();
         }
 
-        
+        [Authorize]
+        [HttpDelete]
+        [Route("api/country/{id}")]
+        public void Delete(int id)
+        {
+            var country = _countryManager.GetCountry(id);
+            country.Delete();
+        }
+
     }
 }

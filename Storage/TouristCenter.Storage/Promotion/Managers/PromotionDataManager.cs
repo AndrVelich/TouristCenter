@@ -63,16 +63,14 @@ namespace TouristCenter.Storage.Promotion.Managers
 
         public void DeletePromotion(PromotionDataModel promotionDataModel)
         {
-            promotionDataModel.Images = new HashSet<ImageDataModel>();
-            var entry = _dbContext.Entry(promotionDataModel);
-            entry.Collection(c => c.Images).Load();
-
-            _dbContext.Promotions.Remove(promotionDataModel);
-            foreach (var image in promotionDataModel.Images)
+            var promotion = _dbContext.Promotions
+                .Include(p => p.Images)
+                .FirstOrDefault(p => p.PromotionId == promotionDataModel.PromotionId);
+            foreach (var image in promotion.Images.ToList())
             {
                 _dbContext.Images.Remove(image);
             }
-           
+            _dbContext.Promotions.Remove(promotion);
 
             _dbContext.SaveChanges();
         }

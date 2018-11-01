@@ -72,16 +72,22 @@ namespace TouristCenter.Storage.Country.Managers
 
         public void DeleteCountry(CountryDataModel countryDataModel)
         {
-            countryDataModel.Images = new HashSet<ImageDataModel>();
-            var entry = _dbContext.Entry(countryDataModel);
-            entry.Collection(c => c.Images).Load();
+            var country = _dbContext.Countries
+                .Include(c => c.Images)
+                .Include(c => c.Tours)
+                .FirstOrDefault(c => c.CountryId == countryDataModel.CountryId);
 
-            _dbContext.Countries.Remove(countryDataModel);
-            foreach (var image in countryDataModel.Images)
+            foreach (var tour in country.Tours.ToList())
+            {
+                _dbContext.Tours.Remove(tour);
+            }
+
+            foreach (var image in country.Images.ToList())
             {
                 _dbContext.Images.Remove(image);
             }
-           
+
+            _dbContext.Countries.Remove(country);
 
             _dbContext.SaveChanges();
         }

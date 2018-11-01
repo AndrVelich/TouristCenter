@@ -4,6 +4,8 @@ import { MatSelectModule, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angu
 import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 
+import { ConfirmationPopupComponent } from "@administrationCommon/Components/ConfirmationPopup/confirmationPopup.component";
+
 import { PromotionService } from "@administrationCommon/Services/promotion.service";
 import { Promotion } from "@administrationCommon/Services/promotion.service";
 
@@ -25,6 +27,22 @@ export class PromotionsComponent implements OnInit {
 
     ngOnInit() {
         this.getPromotionCollection();
+    }
+
+    public openDeleteConfirmation(promotionId: number, promotionName: string) : void
+    {
+        this.dialog.open(ConfirmationPopupComponent, 
+        {
+            data: 'Вы уверены, что хототе удалить акцию <b>' + promotionName + '</b>?'
+        })
+            .afterClosed()
+            .subscribe(result => {
+                if(result)
+                {
+                     this.promotionService.deletePromotion(promotionId)
+                        .subscribe(() => this.getPromotionCollection());
+                }
+            });
     }
 
     private getPromotionCollection()

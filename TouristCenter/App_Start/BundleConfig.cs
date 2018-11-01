@@ -25,6 +25,25 @@ namespace TouristCenter
                       "~/Content/site.css",
                       "~/Content/fa-svg-with-js.css"));
 
+            bundles.Add(new StyleBundle("~/distSite/styles").Include(
+                      "~/distSite/styles.*"));
+
+            bundles.Add(new StyleBundle("~/distAdministration/styles").Include(
+                      "~/distAdministration/styles.*"));
+
+
+            bundles.Add(new ScriptBundle("~/distSite/siteApp")
+                .Include("~/distSite/inline.*")
+                .Include("~/distSite/polyfills.*")
+                .Include("~/distSite/main.*")
+                );
+
+            bundles.Add(new ScriptBundle("~/distAdministration/administrationApp")
+                .Include("~/distAdministration/inline.*")
+                .Include("~/distAdministration/polyfills.*")
+                .Include("~/distAdministration/main.*")
+                );
+
             #endregion
         }
     }

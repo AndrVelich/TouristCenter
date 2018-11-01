@@ -9,7 +9,7 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class PromotionService{
-    private url: string = '/api/promotion';
+    private url: string = 'api/promotion/';
 
     constructor(private http: Http) 
     {
@@ -23,13 +23,18 @@ export class PromotionService{
     }
 
     public getPromotion(promotionUrlName: string): Observable<Promotion>{
-        return this.http.get('api/promotion/' + promotionUrlName)
+        return this.http.get(this.url + promotionUrlName)
             .map((res: Response) => <Promotion>res.json())
             .catch(this.handleError);
     }
 
     public addPromotion(promotion){
         return this.http.post(this.url, promotion)
+            .catch(this.handleError);
+    }
+
+    public deletePromotion(promotionId){
+        return this.http.delete(this.url + promotionId)
             .catch(this.handleError);
     }
 

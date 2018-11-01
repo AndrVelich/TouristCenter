@@ -90,15 +90,15 @@ namespace TouristCenter.Storage.Tour.Managers
 
         public void DeleteTour(TourDataModel tourDataModel)
         {
-            tourDataModel.Images = new HashSet<ImageDataModel>();
-            var entry = _dbContext.Entry(tourDataModel);
-            entry.Collection(c => c.Images).Load();
+            var tour = _dbContext.Tours
+                .Include(t => t.Images)
+                .FirstOrDefault(t => t.TourId == tourDataModel.TourId);
 
-            _dbContext.Tours.Remove(tourDataModel);
-            foreach (var image in tourDataModel.Images)
+            foreach (var image in tour.Images.ToList())
             {
                 _dbContext.Images.Remove(image);
             }
+            _dbContext.Tours.Remove(tour);
 
             _dbContext.SaveChanges();
         }

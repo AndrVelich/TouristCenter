@@ -29,6 +29,7 @@ import { TourComponent } from "./Content/Tours/Tour/tour.component";
 import { LoginComponent } from "./Content/Login/login.component";
 import { RegisterComponent } from "./Content/Register/register.component"; 
 import { OrdersComponent } from "./Content/Orders/orders.component";
+import { ConfirmationPopupComponent } from "./Common/Components/ConfirmationPopup/confirmationPopup.component"
 
 import { CountryService } from "./Common/Services/country.service";
 import { TourService } from "./Common/Services/tour.service";
@@ -66,7 +67,9 @@ import { OrderService } from "./Common/Services/order.service";
         OrderService,
     ],
     entryComponents:
-    [],
+    [
+        ConfirmationPopupComponent,
+    ],
     declarations:
     [
         AdministrationComponent,
@@ -83,6 +86,7 @@ import { OrderService } from "./Common/Services/order.service";
         LoginComponent,
         RegisterComponent,
         OrdersComponent,
+        ConfirmationPopupComponent,
     ],
     exports: [
         AdministrationComponent,

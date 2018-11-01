@@ -1,6 +1,8 @@
 ﻿import { Component, OnInit } from "@angular/core";
 import { MatSelectModule, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
+import { ConfirmationPopupComponent } from "@administrationCommon/Components/ConfirmationPopup/confirmationPopup.component";
+
 import { Dictionary } from "@common/Types/Dictionary";
 import { TourTypeService } from "@common/Services/tourType.service"; 
 
@@ -56,6 +58,28 @@ export class ToursComponent {
         return result;
     }
 
+    public getTourTypeName(tourTypeKey)
+    {
+        let result = this.tourTypes[tourTypeKey];
+        return result;
+    }
+
+    public openDeleteConfirmation(tourId: number, tourName: string) : void
+    {
+        this.dialog.open(ConfirmationPopupComponent, 
+        {
+            data: 'Вы уверены, что хототе удалить тур <b>' + tourName + '</b>?'
+        })
+            .afterClosed()
+            .subscribe(result => {
+                if(result)
+                {
+                     this.tourService.deleteTour(tourId)
+                        .subscribe(() => this.updateTourCollection());
+                }
+            });
+    }
+
     private getCountryCollection()
     {
         this.isCountriesLoading = true;
@@ -68,6 +92,15 @@ export class ToursComponent {
             });
     }
 
+    private updateTourCollection(){
+        if(this.activeTourType){
+            this.getTourCollection();
+        }
+        else{
+            this.getAllTourCollection();
+        }
+    }
+
     private getAllTourCollection()
     {
         this.tourService.getAllTourCollection()
@@ -78,11 +111,5 @@ export class ToursComponent {
     {
         this.tourService.getTourCollection(this.activeTourType, this.activeCountry)
         .subscribe(data => this.tourCollection = data);
-    }
-
-    public getTourTypeName(tourTypeKey)
-    {
-        let result = this.tourTypes[tourTypeKey];
-        return result;
     }
 }

@@ -29,6 +29,9 @@
                             <span [innerHtml]="country.name"></span>
                             <i class="fa fa-pencil" aria-hidden="true"></i>
                         </a>
+                        <a (click)="openDeleteConfirmation(country.countryId, country.name)" class="link-big" style="color:red">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
                         <div [innerHtml]="country.description"></div>
                     </div>
                 </div>

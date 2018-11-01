@@ -121,6 +121,15 @@ namespace TouristCenter.Controllers
 
             tourModel.Save();
         }
+
+        [Authorize]
+        [HttpDelete]
+        [Route("api/tour/{id}")]
+        public void Delete(int id)
+        {
+            var tour = _tourManager.GetTour(id);
+            tour.Delete();
+        }
     }
 }
 

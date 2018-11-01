@@ -330,6 +330,20 @@
     <Content Include="Content\Site.min.css">
       <DependentUpon>Site.css</DependentUpon>
     </Content>
+    <Content Include="distAdministration\3rdpartylicenses.txt" />
+    <Content Include="distAdministration\favicon.ico" />
+    <Content Include="distAdministration\index.html" />
+    <Content Include="distAdministration\inline.9aff3f686e1fcf6dd6b2.bundle.js" />
+    <Content Include="distAdministration\main.d738a2ebff67ee69c54c.bundle.js" />
+    <Content Include="distAdministration\polyfills.f20484b2fa4642e0dca8.bundle.js" />
+    <Content Include="distAdministration\styles.3784586fbe1a7f687bb0.bundle.css" />
+    <Content Include="distSite\3rdpartylicenses.txt" />
+    <Content Include="distSite\favicon.ico" />
+    <Content Include="distSite\index.html" />
+    <Content Include="distSite\inline.6f08a4af1bbff644df76.bundle.js" />
+    <Content Include="distSite\main.9c89c055fa412ef85972.bundle.js" />
+    <Content Include="distSite\polyfills.f20484b2fa4642e0dca8.bundle.js" />
+    <Content Include="distSite\styles.3784586fbe1a7f687bb0.bundle.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -403,6 +417,13 @@
     <Content Include="src\app\Administration\administration.component.min.css">
       <DependentUpon>administration.component.css</DependentUpon>
     </Content>
+    <Content Include="src\app\Administration\Common\Components\ConfirmationPopup\confirmationPopup.component.css">
+      <DependentUpon>confirmationPopup.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Administration\Common\Components\ConfirmationPopup\confirmationPopup.component.min.css">
+      <DependentUpon>confirmationPopup.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Administration\Common\Components\ConfirmationPopup\confirmationPopup.component.ts" />
     <Content Include="src\app\Administration\Common\Services\order.service.ts" />
     <Content Include="src\app\Administration\Common\Services\register.service.ts" />
     <Content Include="src\app\Administration\Common\Services\login.service.ts" />
@@ -796,6 +817,8 @@
     <Content Include="src\app\Administration\Content\Login\login.component.scss" />
     <Content Include="src\app\Administration\Content\Register\register.component.scss" />
     <Content Include="src\app\Administration\Content\Orders\orders.component.scss" />
+    <Content Include="src\app\Administration\Common\Components\ConfirmationPopup\confirmationPopup.component.html" />
+    <Content Include="src\app\Administration\Common\Components\ConfirmationPopup\confirmationPopup.component.scss" />
     <None Include="src\app\Site\Header\header.component.scss" />
     <Content Include="src\app\Site\site.component.scss" />
     <Content Include="Views\Administration\Index.cshtml" />
@@ -867,7 +890,7 @@
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <PropertyGroup>
-    <PreBuildEvent>(ng build)</PreBuildEvent>
+    <PreBuildEvent>(ng build --prod)</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

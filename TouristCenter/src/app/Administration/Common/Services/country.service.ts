@@ -9,7 +9,7 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class CountryService{
-    private url: string = '/api/country';
+    private url: string = 'api/country/';
     private countries: Dictionary = new Dictionary();
 
     constructor(private http: Http) 
@@ -24,13 +24,18 @@ export class CountryService{
     }
 
     public getCountry(tourType: string, countryUrlName: string): Observable<Country>{
-        return this.http.get('api/country/' + tourType + '/' + countryUrlName)
+        return this.http.get(this.url + tourType + '/' + countryUrlName)
             .map((res: Response) => <Country>res.json())
             .catch(this.handleError);
     }
 
     public addCountry(country){
         return this.http.post(this.url, country)
+            .catch(this.handleError);
+    }
+
+    public deleteCountry(countryId){
+        return this.http.delete(this.url + countryId)
             .catch(this.handleError);
     }
 

@@ -1,0 +1,36 @@
+﻿@media (max-width: 600px) {
+    .confirmation-popup-wrapper {
+        width: 100%;
+    }
+}
+
+.confirmation-popup-wrapper {
+    position: relative;
+    padding: 20px;
+
+    .confimation-message {
+        padding: 20px 0;
+    }
+
+    button {
+        margin-right: 10px;
+    }
+
+    .cross-close {
+        background-image: url(/Content/Images/pv_layer_controls.png);
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background-position: -3px 0px;
+        opacity: 0.5;
+        -o-transition: opacity 100ms linear;
+        transition: opacity 100ms linear;
+        cursor: pointer;
+    }
+
+    .cross-close:hover {
+        opacity: 1;
+    }
+}

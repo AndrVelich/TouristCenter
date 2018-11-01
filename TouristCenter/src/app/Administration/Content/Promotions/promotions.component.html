@@ -20,6 +20,9 @@
                             <span [innerHtml]="promotion.name"></span>
                             <i class="fa fa-pencil" aria-hidden="true"></i>
                         </a>
+                        <a (click)="openDeleteConfirmation(promotion.promotionId, promotion.name)" class="link-big" style="color:red">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
                         <div [innerHtml]="promotion.description"></div>
                         <div>
                             <div class="until-date"> Действует до <strong>{{promotion.untilDate | date: 'yyyy-MM-dd'}}</strong></div>

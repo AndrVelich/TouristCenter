@@ -82,6 +82,14 @@ namespace TouristCenter.Controllers
             promotionModel.Save();
         }
 
-        
+        [Authorize]
+        [HttpDelete]
+        [Route("api/promotion/{id}")]
+        public void Delete(int id)
+        {
+            var promotion = _promotionManager.GetPromotion(id);
+            promotion.Delete();
+        }
+
     }
 }

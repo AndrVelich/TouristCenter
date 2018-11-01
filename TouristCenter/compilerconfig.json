@@ -174,5 +174,13 @@
   {
     "outputFile": "src/app/Administration/Content/Orders/orders.component.css",
     "inputFile": "src/app/Administration/Content/Orders/orders.component.scss"
+  },
+  {
+    "outputFile": "src/app/Administration/Common/ConfirmationPopup/confirmationPopup.component.css",
+    "inputFile": "src/app/Administration/Common/ConfirmationPopup/confirmationPopup.component.scss"
+  },
+  {
+    "outputFile": "src/app/Administration/Common/Components/ConfirmationPopup/confirmationPopup.component.css",
+    "inputFile": "src/app/Administration/Common/Components/ConfirmationPopup/confirmationPopup.component.scss"
   }
 ]

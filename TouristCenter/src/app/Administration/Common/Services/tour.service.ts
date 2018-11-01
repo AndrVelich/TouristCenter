@@ -40,6 +40,11 @@ export class TourService{
             .catch(this.handleError);
     }
 
+    public deleteTour(tourId){
+        return this.http.delete(this.url + tourId)
+            .catch(this.handleError);
+    }
+
     private handleError(error: any, cought: Observable<any>): any 
     {
         let message = "";

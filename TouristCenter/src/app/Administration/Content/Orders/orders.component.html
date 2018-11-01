@@ -19,7 +19,7 @@
 
 </table>
 
-<ul *ngIf="pager.pages.length" class="pagination">
+<ul *ngIf="pager && pager.pages && pager.pages.length" class="pagination">
     <li [class.disabled]="pager.currentPage === 1">
         <a (click)="setPage(1)">First</a>
     </li>
