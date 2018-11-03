@@ -1,3 +1,4 @@
+//------------Akrobat----------
 @font-face {
     font-family: 'Akrobat-ExtraBold';
     src: url(../fonts/Akrobat-ExtraBold.otf);
@@ -5,6 +6,8 @@
     font-style: italic;
 }
 
+
+//------------PFD----------
 @font-face {
     font-family: 'PFDinDisplayPro-Light';
     src: url(../fonts/PFDinDisplayPro-Light.ttf);
@@ -26,6 +29,8 @@
     font-style: italic;
 }
 
+
+//------------OpenSans----------
 @font-face {
     font-family: 'OpenSans-Light';
     src: url(../fonts/Open_Sans/OpenSans-Light.ttf);
@@ -43,6 +48,13 @@
 @font-face {
     font-family: 'OpenSans-Regular';
     src: url(../fonts/Open_Sans/OpenSans-Regular.ttf);
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'OpenSans-Bold';
+    src: url(../fonts/Open_Sans/OpenSans-Bold.ttf);
     font-weight: normal;
     font-style: italic;
 }
@@ -156,9 +168,10 @@ body {
     font-family: 'OpenSans-Light', sans-serif;
     min-width: 400px;
     color: #191919;
+    font-size: 16px;
 
     .font-Akrobat-ExtraBold {
-        font-family: 'PFDinDisplayPro-ExtraBold', sans-serif;
+        font-family: 'Akrobat-ExtraBold', sans-serif;
     }
 
     .font-PFDinDisplayPro-Light {
@@ -167,6 +180,18 @@ body {
 
     .font-PFDinDisplayPro-Reg {
         font-family: 'PFDinDisplayPro-Reg', sans-serif;
+    }
+
+    .font-OpenSans-Semibold {
+        font-family: 'OpenSans-Semibold', sans-serif;
+    }
+
+    .font-OpenSans-Bold {
+        font-family: OpenSans-Bold, sans-serif;
+    }
+
+    .font-OpenSans-Regular {
+        font-family: OpenSans-Regular, sans-serif;
     }
 
     .width-wrapper {
@@ -195,6 +220,11 @@ body {
         margin: 0 !important;
         position: relative;
         min-height: 400px;
+        font-family: OpenSans-Regular, sans-serif;
+
+        .center {
+            text-align: center;
+        }
 
         .preloader {
             position: absolute;

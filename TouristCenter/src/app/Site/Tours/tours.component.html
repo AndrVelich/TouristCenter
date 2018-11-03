@@ -1,8 +1,5 @@
-﻿<div class="width-wrapper">
-    <div class="text-wrapper tour-text"
-         [innerHtml]="country.pageContent">
-    </div>
-    <div class="tours-wrapper">
+﻿<div class="tours-page width-wrapper">
+    <div class="tours-wrapper text-wrapper">
         <div class="tour"
              *ngFor="let tour of tourCollection">
             <div class="image-description">
@@ -14,30 +11,33 @@
                 </div>
                 <div class="tour-descriptions">
                     <div class="stars">
-                        <span *ngFor="let i of starsArray(tour.stars).fill('star')" class="s"></span>
+                        <img src="/Content/Images/star.png"
+                             *ngFor="let i of starsArray(tour.stars).fill('star')" />
                     </div>
-                    <a [routerLink]="[ '/tour/' + tour.category + '/' + tour.country +'/' + tour.urlName ]"
-                       class="link-big">
+                    <a (click)="openOrderPopup()"
+                       class="tour-name-link">
                         <span [innerHtml]="tour.name"></span>
                     </a>
-                    <div [innerHtml]="tour.city"></div>
-                    <div [innerHtml]="tour.description"></div>
+                    <div class="city" [innerHtml]="tour.city"></div>
+                    <div class="description" [innerHtml]="tour.description"></div>
+                    <div class="tour-options">
+                        <div>
+                            <img class="arrows-orange" src="/Content/Images/Tours/arrows-orange.png" />
+                            <span>от <span [innerHtml]="tour.nights"></span> ночей</span>
+                        </div>
+                        <div *ngIf="tour.isFlightIncluded">
+                            <img class="arrows-orange" src="/Content/Images/Tours/arrows-orange.png" />
+                            <span>перелет включен</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="tour-prices">
-                <div>
-                    <div>от <strong [innerHtml]="tour.price"></strong>р.</div>
-                    <div>
-                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                        <span>от <span [innerHtml]="tour.nights"></span> ночей</span>
-                    </div>
-                    <div *ngIf="tour.isFlightIncluded">
-                        <i class="fa fa-plane" aria-hidden="true"></i>
-                        <span>перелет включен</span>
-                    </div>
+                <div class="price">
+                    <div>от <span class="value font-OpenSans-Semibold" [innerHtml]="tour.price + ' BYN'"></span></div>
                 </div>
-                <a (click)="openOrderPopup()" 
-                   class="btn btn-info">Подробнее</a>
+                <a (click)="openOrderPopup()"
+                   class="order-btn">ПОДРОБНЕЕ</a>
             </div>
         </div>
     </div>

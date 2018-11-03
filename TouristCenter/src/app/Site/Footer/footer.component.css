@@ -51,6 +51,8 @@
     list-style-type: none; }
   footer .width-wrapper a {
     color: white; }
+  footer .width-wrapper a:hover {
+    color: #feb849; }
 
 @media (min-width: 600px) {
   footer .footer-top .footer-right .separator:first-child {

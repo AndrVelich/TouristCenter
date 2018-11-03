@@ -1,60 +1,185 @@
-﻿.country-text {
-    margin-bottom: 20px;
-}
+﻿.countries-page {
+    .banner {
 
-.counties-wrapper {
-    margin: 0 20px;
+        img {
+            width: 100%;
+        }
+    }
 
-    .country {
-        margin-bottom: 20px;
+    .text-wrapper {
 
-        .image-description {
+        h1 {
+            max-width: 720px;
+            margin: 20px auto;
+        }
 
-            .country-image {
-                display: block;
+        .countries-short {
+            column-count: 3;
+            max-width: 1000px;
+            margin: 0 auto;
 
-                .image {
-                    background-size: cover !important;
-                    background-repeat: no-repeat !important;
-                    background-position: center !important;
-                    padding-top: 50%;
-                    text-align: center;
-                    display: block;
+            .country-short {
+                padding-left: 30%;
+                display: flex;
+                justify-content: flex-start;
+
+                .arrow {
+                    height: 14px;
+                    position: relative;
+                    bottom: -5px;
+                    margin-right: 10px;
                 }
-            }
 
-            .country-descriptions {
-                margin-top: 10px;
-                margin-right: 40px;
-                min-width: 200px;
+                a {
+                    color: #1A1A1A;
+                }
+
+                a:hover {
+                    color: #fc3b3c;
+                }
             }
         }
 
-        .country-prices {
-            margin-top: 10px;
-            margin-right: 10px;
-            min-width: 220px;
-            max-width: 320px;
+        .put-order {
+            text-align: center;
+            margin: 30px 0;
 
-            .hotels {
-                display: flex;
-                justify-content: space-between;
+            h4 {
                 margin-bottom: 10px;
+            }
 
-                li {
-                    list-style-type: none;
+            .order-btn {
+                background-color: white;
+                color: #fc3b3c;
+                border: 1px solid #fc3b3c;
+                width: 250px;
+                line-height: 35px;
+                font-size: 20px;
+            }
+
+            .order-btn:hover {
+                box-shadow: 0 0 7px rgba(253,10,10,0.75);
+                color: white;
+                background-color: #fc3b3c;
+            }
+        }
+
+        .counties-wrapper {
+            margin: 20px auto;
+            max-width: 1000px;
+
+            .country {
+                margin: 20px 10px;
+                border: 1px solid #F1F1F1;
+                padding: 10px;
+
+                .image-description {
+
+                    .country-image {
+                        display: block;
+
+                        .image {
+                            background-size: cover !important;
+                            background-repeat: no-repeat !important;
+                            background-position: center !important;
+                            padding-top: 50%;
+                            text-align: center;
+                            display: block;
+                        }
+                    }
+
+                    .country-descriptions {
+                        margin-top: 10px;
+                        margin-right: 40px;
+                        min-width: 200px;
+
+                        .country-name-link {
+                            text-transform: uppercase;
+                            font-size: 24px;
+                            color: #0A155F;
+                            font-family: OpenSans-Semibold;
+                        }
+
+                        .country-name-link:hover {
+                            color: #feb849;
+                        }
+
+                        .description {
+                            font-size: 14px;
+                        }
+                    }
                 }
 
-                .stars {
-                    margin-right: 5px;
+                .country-prices {
+                    margin-top: 10px;
+                    margin-right: 10px;
+                    min-width: 220px;
+                    max-width: 320px;
 
-                    .s {
-                        background-image: url(/content/images/star.svg);
-                        background-position: 14px 14px;
-                        width: 14px;
-                        height: 14px;
-                        display: inline-block;
-                        margin-top: 2px;
+                    .hotels {
+                        display: flex;
+                        justify-content: space-between;
+                        margin: 10px 0;
+
+                        li {
+                            list-style-type: none;
+                        }
+
+                        .stars {
+                            li {
+                                display: flex;
+                                height: 16px;
+                                margin: 5px 0;
+
+                                img {
+                                    height: 100%;
+                                }
+                            }
+                        }
+                    }
+
+                    .country-btn {
+                        background-color: #311569;
+                        color: white;
+                        border: 1px solid #311569;
+                        line-height: 35px;
+                        font-size: 20px;
+                        padding: 6px 12px;
+                    }
+
+                    .country-btn:hover {
+                        color: #311569;
+                        background-color: white;
+                    }
+                }
+            }
+
+            .country:hover {
+                margin-bottom: 20px;
+                border: 1px solid #FFDFA2;
+                box-shadow: 0 0 7px rgba(255,223,162,0.75);
+            }
+        }
+
+        .categories {
+            .categories-wrapper {
+                width: 380px;
+                margin: 10px auto 20px auto;
+
+                .category {
+                    margin: 10px 0;
+
+                    a {
+                        color: #1A1A1A;
+
+                        img {
+                            height: 10px;
+                            margin-left: 3px;
+                        }
+                    }
+
+                    a:hover {
+                        color: #118B91;
                     }
                 }
             }
@@ -63,16 +188,15 @@
 }
 
 
-@media (min-width: 850px) {
+
+@media (min-width: 870px) {
     .country {
         display: flex;
         justify-content: space-between;
-
-
     }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 870px) {
     .country {
         display: block;
     }
@@ -86,7 +210,6 @@
             justify-content: space-between;
 
             .country-image {
-                margin-top: 10px;
                 margin-right: 40px;
 
                 .image {
@@ -106,7 +229,6 @@
             display: block;
 
             .country-image {
-                margin-top: 10px 0 0 0;
 
                 .image {
                     width: 100%;

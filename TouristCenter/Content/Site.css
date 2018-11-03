@@ -40,6 +40,12 @@
   font-weight: normal;
   font-style: italic; }
 
+@font-face {
+  font-family: 'OpenSans-Bold';
+  src: url(../fonts/Open_Sans/OpenSans-Bold.ttf);
+  font-weight: normal;
+  font-style: italic; }
+
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, legend, input, button, textarea, blockquote, th, td {
   margin: 0;
   padding: 0;
@@ -120,13 +126,20 @@ body {
   position: relative;
   font-family: 'OpenSans-Light', sans-serif;
   min-width: 400px;
-  color: #191919; }
+  color: #191919;
+  font-size: 16px; }
   body .font-Akrobat-ExtraBold {
-    font-family: 'PFDinDisplayPro-ExtraBold', sans-serif; }
+    font-family: 'Akrobat-ExtraBold', sans-serif; }
   body .font-PFDinDisplayPro-Light {
     font-family: 'PFDinDisplayPro-Light', sans-serif; }
   body .font-PFDinDisplayPro-Reg {
     font-family: 'PFDinDisplayPro-Reg', sans-serif; }
+  body .font-OpenSans-Semibold {
+    font-family: 'OpenSans-Semibold', sans-serif; }
+  body .font-OpenSans-Bold {
+    font-family: OpenSans-Bold, sans-serif; }
+  body .font-OpenSans-Regular {
+    font-family: OpenSans-Regular, sans-serif; }
   body .width-wrapper {
     max-width: 1400px;
     margin: 0 auto; }
@@ -142,7 +155,10 @@ body {
   body .body-content {
     margin: 0 !important;
     position: relative;
-    min-height: 400px; }
+    min-height: 400px;
+    font-family: OpenSans-Regular, sans-serif; }
+    body .body-content .center {
+      text-align: center; }
     body .body-content .preloader {
       position: absolute;
       top: 0;

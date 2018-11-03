@@ -1,12 +1,10 @@
-﻿.tour-text {
-    margin-bottom: 20px;
-}
-
-.tours-wrapper {
-    margin: 0 20px;
+﻿.tours-wrapper {
+    margin: 20px 20px;
 
     .tour {
-        margin-bottom: 20px;
+        margin: 20px 10px;
+        border: 1px solid #F1F1F1;
+        padding: 10px;
 
         .image-description {
 
@@ -23,45 +21,90 @@
             }
 
             .tour-descriptions {
-                margin-top: 10px;
                 margin-right: 40px;
                 min-width: 200px;
 
                 .stars {
-                    margin-right: 5px;
+                    display: flex;
+                    margin: 10px 0;
 
-                    .s {
-                        background-image: url(/content/images/star.svg);
-                        background-position: 14px 14px;
-                        width: 14px;
-                        height: 14px;
-                        display: inline-block;
-                        margin-top: 2px;
+                    img {
+                        width: 16px;
+                        height: 16px;
+                    }
+                }
+
+                .tour-name-link {
+                    text-transform: uppercase;
+                    font-size: 24px;
+                    color: #0A155F;
+                    font-family: OpenSans-Semibold;
+                }
+
+                .tour-name-link:hover {
+                    color: #feb849;
+                }
+
+                .city {
+                    color: #6C6C6C;
+                    font-family: OpenSans-Semibold;
+                }
+
+                .tour-options {
+                    margin-top:15px;
+
+                    .arrows-orange {
+                        height: 7px;
                     }
                 }
             }
         }
 
         .tour-prices {
-            margin-top: 10px;
+            margin-top: 15px;
             min-width: 220px;
 
-            div {
-                margin-bottom: 5px;
+            .price {
+                color: #6C6C6C;
+                margin: 10px 0;
+
+                .value {
+                    color: #121212;
+                }
+            }
+
+            .order-btn {
+                background-color: #311569;
+                color: white;
+                border: 1px solid #311569;
+                line-height: 35px;
+                font-size: 20px;
+                padding: 6px 12px;
+            }
+
+            .order-btn:hover {
+                color: #311569;
+                background-color: white;
             }
         }
+    }
+
+    .tour:hover {
+        margin-bottom: 20px;
+        border: 1px solid #FFDFA2;
+        box-shadow: 0 0 7px rgba(255,223,162,0.75);
     }
 }
 
 
-@media (min-width: 850px) {
+@media (min-width: 870px) {
     .tour {
         display: flex;
         justify-content: space-between;
     }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 870px) {
     .tour {
         display: block;
     }
@@ -75,7 +118,6 @@
             justify-content: space-between;
 
             .tour-image {
-                margin-top: 10px;
                 margin-right: 40px;
 
                 .image {
@@ -95,7 +137,7 @@
             display: block;
 
             .tour-image {
-                margin-top: 10px 0 0 0;
+                margin-top: 0;
 
                 .image {
                     width: 100%;

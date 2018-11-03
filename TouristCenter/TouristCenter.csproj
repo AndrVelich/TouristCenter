@@ -300,8 +300,12 @@
     <Content Include="Content\Icons\Insta_neak.png" />
     <Content Include="Content\Icons\vk_ak.png" />
     <Content Include="Content\Icons\vk_neak.png" />
-    <Content Include="Content\Images\admin_header.jpg" />
-    <Content Include="Content\Images\beach_header.jpg" />
+    <Content Include="Content\Images\Countries\banner.jpg" />
+    <Content Include="Content\Images\Countries\blue-arr-big.png" />
+    <Content Include="Content\Images\Countries\blue-arr.png" />
+    <Content Include="Content\Images\Countries\orange-arr.png" />
+    <Content Include="Content\Images\Countries\red-arr.png" />
+    <Content Include="Content\Images\Countries\star.png" />
     <Content Include="Content\Images\Home\arrows.png" />
     <Content Include="Content\Images\Home\Benefits\expertise.png" />
     <Content Include="Content\Images\Home\Benefits\reliability.png" />
@@ -318,12 +322,13 @@
     <Content Include="Content\Images\Home\TourTypes\skiing.jpg" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\preloader.gif" />
-    <Content Include="Content\Images\promotions_test1.jpg" />
-    <Content Include="Content\Images\promotions_test2.jpg" />
     <Content Include="Content\Images\pv_layer_controls.png" />
+    <Content Include="Content\Images\star.png" />
     <Content Include="Content\Images\star.svg" />
-    <Content Include="Content\Images\tour_category_test1.jpg" />
-    <Content Include="Content\Images\tour_category_test2.jpg" />
+    <Content Include="Content\Images\Tours\arrows-orange.png" />
+    <Content Include="Content\Images\TourTypes\arrow.png" />
+    <Content Include="Content\Images\TourTypes\banner.jpg" />
+    <Content Include="Content\Images\TourTypes\categories.jpg" />
     <Content Include="Content\Site.css">
       <DependentUpon>Site.scss</DependentUpon>
     </Content>
@@ -337,13 +342,8 @@
     <Content Include="distAdministration\main.d738a2ebff67ee69c54c.bundle.js" />
     <Content Include="distAdministration\polyfills.f20484b2fa4642e0dca8.bundle.js" />
     <Content Include="distAdministration\styles.3784586fbe1a7f687bb0.bundle.css" />
-    <Content Include="distSite\3rdpartylicenses.txt" />
     <Content Include="distSite\favicon.ico" />
     <Content Include="distSite\index.html" />
-    <Content Include="distSite\inline.6f08a4af1bbff644df76.bundle.js" />
-    <Content Include="distSite\main.9c89c055fa412ef85972.bundle.js" />
-    <Content Include="distSite\polyfills.f20484b2fa4642e0dca8.bundle.js" />
-    <Content Include="distSite\styles.3784586fbe1a7f687bb0.bundle.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

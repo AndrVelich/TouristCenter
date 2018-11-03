@@ -7,6 +7,7 @@
 .order-wrapper {
     padding: 24px;
     position: relative;
+    max-width: 620px;
 
     .cross-close {
         position: absolute;
@@ -22,8 +23,6 @@
 
     .header {
         padding: 0 10px;
-        font-weight: 700;
-        font-size: 24px;
         margin-bottom: 15px;
         text-align: center;
     }
@@ -33,7 +32,6 @@
         ::ng-deep mat-select {
             .mat-select-trigger {
                 height: 30px;
-                border-radius: 2px;
                 border: 1px solid #D8D8D8;
                 padding: 0px 10px;
 
@@ -79,9 +77,19 @@
     .actions {
         margin-top: 20px;
 
-        button {
+        .order-btn {
             width: 180px;
             margin: 0 auto;
+            background-color: #118B91;
+            border: 1px solid #118B91;
+            color: white;
+            padding: 5px 10px;
+        }
+
+        .order-btn:hover {
+            color: #118B91;
+            background-color: white;
+            cursor: pointer;
         }
     }
 }

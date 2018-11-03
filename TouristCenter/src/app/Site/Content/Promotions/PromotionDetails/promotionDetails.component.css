@@ -1,45 +1,52 @@
-﻿.promotion-text {
-  margin-bottom: 20px;
-  text-align: center; }
-
-.promotions-wrapper {
-  margin: 0 20px; }
-  .promotions-wrapper .promotion {
+﻿.promotion-page {
+  max-width: 900px;
+  margin: 20px auto; }
+  .promotion-page .promotion-btn {
+    padding: 3px 20px;
+    color: #fc3b3c;
+    border: 1px solid #fc3b3c;
+    line-height: 35px;
+    font-size: 20px; }
+  .promotion-page .promotion-btn:hover {
+    box-shadow: 0 0 7px rgba(253, 10, 10, 0.75);
+    color: white;
+    background-color: #fc3b3c; }
+  .promotion-page .promotion {
     position: relative;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    padding-top: 40%;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
     text-align: center;
     display: block;
-    margin-bottom: 20px; }
-    .promotions-wrapper .promotion .promotion-name {
+    margin-bottom: 20px;
+    min-height: 330px; }
+    .promotion-page .promotion .promotion-name {
       position: absolute;
       top: 0;
       width: 100%;
-      background-color: rgba(255, 255, 255, 0.8); }
-    .promotions-wrapper .promotion .promotion-descriptions {
-      position: relative;
+      background-color: rgba(255, 255, 255, 0.8);
+      font-size: 22px;
+      text-transform: uppercase;
+      font-size: 24px;
+      color: #118B91;
+      font-family: OpenSans-Semibold; }
+    .promotion-page .promotion .promotion-descriptions {
+      position: absolute;
       bottom: 25px;
       width: 100%;
+      max-width: 900px;
       background-color: rgba(255, 255, 255, 0.8);
-      padding: 5px; }
-      .promotions-wrapper .promotion .promotion-descriptions .until-date {
-        position: absolute;
-        top: 12px;
-        right: 10px; }
+      padding: 5px 10px;
+      display: flex;
+      justify-content: space-between; }
+      .promotion-page .promotion .promotion-descriptions .until-date {
+        color: #6C6C6C;
+        margin: 10px 0; }
+        .promotion-page .promotion .promotion-descriptions .until-date .value {
+          color: #0A155F;
+          font-family: 'OpenSans-Semibold', sans-serif; }
 
-@media (min-width: 850px) {
+@media (max-width: 650px) {
   .promotion {
-    display: flex;
-    justify-content: space-between; } }
-
-@media (max-width: 850px) {
-  .promotion {
-    display: block; } }
-
-@media (max-width: 600px) {
-  .promotion {
-    width: 340px;
+    width: 100%;
     margin: 0 auto 20px auto; } }
-

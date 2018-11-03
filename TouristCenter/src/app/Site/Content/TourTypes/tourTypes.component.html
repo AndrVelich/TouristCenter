@@ -1,37 +1,159 @@
 ﻿<div class="width-wrapper">
-    <div class="text-wrapper">
-        Текст страницы
+    <div class="tour-types-page">
+        <div class="banner">
+            <img src="/Content/Images/TourTypes/banner.jpg" />
+        </div>
+        <div class="text-wrapper">
+            <h1 class="center">
+                Поиск и подбор туров из Минска, Москвы и Киева
+            </h1>
+            <div class="font-OpenSans-Semibold top-text">
+                <p>Простая и понятная система подбора туров «Travel X» позволит Вам легко найти актуальное   предложение по отдыху с вылетом из Минска, Москвы, Киева и других городов.</p>
+                <p>Забронировать понравившуюся путевку необыкновенно легко!</p>
+                <p>Выбираете направление <img src="/Content/Images/TourTypes/arrow.png" /><img src="/Content/Images/TourTypes/arrow.png" /> просматриваете подборку предложений <img src="/Content/Images/TourTypes/arrow.png" /><img src="/Content/Images/TourTypes/arrow.png" /> отправляете заявку на тур. Специалист свяжется</p>
+            </div>
+            <div class="tour-types-wrapper row">
+                <h2 class="center">Все виды туров из Минска Вы найдете здесь!</h2>
+                <div class="font-OpenSans-Semibold center">
+                    Выбирайте нужное Вам направление отдыха и смотрите предложения.
+                </div>
+                <div class="tour-types row">
+                    <div class="tour-type col-xs-6 col-sm-6 col-md-4">
+                        <div class="tour-type-info">
+                            <div class="tour-type-name">
+                                Пляжный отдых
+                            </div>
+                            <div class="separator">
+                            </div>
+                            <a [routerLink]="[ '/tour/beach' ]" class="tour-type-button-link">СМОТРЕТЬ</a>
+                        </div>
+                        <img src="/Content/Images/Home/TourTypes/beach.jpg" />
+                    </div>
+                    <div class="tour-type col-xs-6 col-sm-6 col-md-4">
+                        <div class="tour-type-info">
+                            <div class="tour-type-name">
+                                Автобусные туры
+                            </div>
+                            <div class="separator">
+                            </div>
+                            <a (click)="openOrderPopup()" class="tour-type-button-link">СМОТРЕТЬ</a>
+                        </div>
+                        <img src="/Content/Images/Home/TourTypes/bus.jpg" />
+                    </div>
+                    <div class="tour-type col-xs-6 col-sm-6 col-md-4">
+                        <div class="tour-type-info">
+                            <div class="tour-type-name">
+                                Горнолыжные туры
+                            </div>
+                            <div class="separator">
+                            </div>
+                            <a [routerLink]="[ '/tour/skiing' ]" class="tour-type-button-link">СМОТРЕТЬ</a>
+                        </div>
+                        <img src="/Content/Images/Home/TourTypes/skiing.jpg" />
+                    </div>
+                    <div class="tour-type col-xs-6 col-sm-6 col-md-4">
+                        <div class="tour-type-info">
+                            <div class="tour-type-name">
+                                Новогодние туры
+                            </div>
+                            <div class="separator">
+                            </div>
+                            <a [routerLink]="[ '/tour/newyear' ]" class="tour-type-button-link">СМОТРЕТЬ</a>
+                        </div>
+                        <img src="/Content/Images/Home/TourTypes/newYear.jpg" />
+                    </div>
+                    <div class="tour-type col-xs-6 col-sm-6 col-md-4">
+                        <div class="tour-type-info">
+                            <div class="tour-type-name">
+                                Индивидуальный отдых
+                            </div>
+                            <div class="separator">
+                            </div>
+                            <a [routerLink]="[ '/tour/individual' ]" class="tour-type-button-link">СМОТРЕТЬ</a>
+                        </div>
+                        <img src="/Content/Images/Home/TourTypes/individual.jpg" />
+                    </div>
+                    <div class="tour-type col-xs-6 col-sm-6 col-md-4">
+                        <div class="tour-type-info">
+                            <div class="tour-type-name">
+                                Корпоративные туры
+                            </div>
+                            <div class="separator">
+                            </div>
+                            <a [routerLink]="[ '/tour/corporate' ]" class="tour-type-button-link">СМОТРЕТЬ</a>
+                        </div>
+                        <img src="/Content/Images/Home/TourTypes/corporate.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="font-OpenSans-Semibold center">
+                <p>Некогда просматривать варианты?</p>
+                <p>Нужна квалифицированная помощь в подборе тура?</p>
+            </div>
+            <div class="put-order">
+                <h4>Оставляйте запрос, и специалисты «Travel X» перезвонят Вам для детального обсуждения Ваших пожеланий к отдыху.</h4>
+                <div class="font-PFDinDisplayPro-Light">
+                    <button type="button" (click)="openOrderPopup()" class="order-btn">
+                        ПОЗВОНИТЕ МНЕ!
+                    </button>
+                </div>
+            </div>
+            <div class="tour-categories row">
+                <img class="hidden-xs col-sm-6" src="/Content/Images/TourTypes/categories.jpg" />
+                <div class="col-xs-12 col-sm-6">
+                    <h2>Категории отдыха:</h2>
+                    <div class="separator"></div>
+                    <div class="category">
+                        <span class="tour-category-header">
+                            Семейный:
+                        </span>
+                        Устройте каникулы себе и своих деткам! Душевно отдохните в кругу семьи.
+                    </div>
+                    <div class="category">
+                        <span class="tour-category-header">
+                            Молодежный:
+                        </span>
+                        Проведите отпуск в компании друзей под девизом «Forever young». Оторвитесь по полной!
+                    </div>
+                    <div class="category">
+                        <span class="tour-category-header">
+                            Медовый месяц:
+                        </span>
+                        Заставьте весь остальной мир подождать. Отправьтесь в романтическое путешествие в самые эффектные места нашей планеты.
+                    </div>
+                    <div class="category">
+                        <span class="tour-category-header">
+                            Экзотический:
+                        </span>
+                        Закажите тур на частный остров в Индийском океане либо отправьтесь на африканское сафари. Ощутите вкус экзотики!
+                    </div>
+                    <div class="category">
+                        <span class="tour-category-header">
+                            Отдых класса Люкс:
+                        </span>
+                        Почувствуйте себя VIP-персоной на лакшери-курортах с индивидуальным обслуживанием. Позвольте себе любой каприз!
+                    </div>
+                    <div class="category">
+                        <span class="tour-category-header">
+                            All-Inclusive:
+                        </span>
+                        Насладитесь преимуществами системы «Все включено». Оставьте кошелек и лишние хлопоты дома!
+                    </div>
+                    <div class="category">
+                        <span class="tour-category-header">
+                            Туры выходного дня:
+                        </span>
+                        Покиньте родной город на весь week-end и найдите приключения в другой стране!
+                    </div>
+                    <div class="category">
+                        <span class="tour-category-header">
+                            Круизы:
+                        </span>
+                        Порадуйте себя каникулами на круизном лайнере либо уютной прогулкой на пароме. Создайте свой идеальный сценарий!
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="category col-md-4 col-sm-6 col-xs-12">
-        <a [routerLink]="[ '/tour/beach' ]" style="background-image: url(/Content/Images/tour_category_test1.jpg)">
-            <div>Пляжный отдых</div>
-        </a>
-    </div>
-    <div class="category col-md-4 col-sm-6 col-xs-12">
-        <a [routerLink]="[ '/tour/bus' ]" style="background-image: url(/Content/Images/tour_category_test2.jpg)">
-            <div>Автобусные туры</div>
-        </a>
-    </div>
-    <div class="category col-md-4 col-sm-6 col-xs-12">
-        <a [routerLink]="[ '/tour/skiing' ]" style="background-image: url(/Content/Images/tour_category_test2.jpg)">
-            <div>Горнолыжные туры</div>
-        </a>
-    </div>
-    <div class="category col-md-4 col-sm-6 col-xs-12">
-        <a [routerLink]="[ '/tour/newyear' ]" style="background-image: url(/Content/Images/tour_category_test2.jpg)">
-            <div>Новогодние туры</div>
-        </a>
-    </div>
-    <div class="category col-md-4 col-sm-6 col-xs-12">
-        <a [routerLink]="[ '/tour/individual' ]" style="background-image: url(/Content/Images/tour_category_test2.jpg)">
-            <div>Индивидуальные туры</div>
-        </a>
-    </div>
-    <div class="category col-md-4 col-sm-6 col-xs-12">
-        <a [routerLink]="[ '/tour/corporate' ]" style="background-image: url(/Content/Images/tour_category_test2.jpg)">
-            <div>Корпоративный отдых</div>
-        </a>
-    </div>
+    
 </div>

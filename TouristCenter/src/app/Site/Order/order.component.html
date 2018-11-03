@@ -1,6 +1,6 @@
 <div [formGroup]="orderForm" class="order-wrapper">
   <div (click)="onNoClick()" class="cross-close">&#10005;</div>
-  <div mat-dialog-title class="header">Отправить заявку</div>
+  <h2 mat-dialog-title class="header">Оставьте Ваш номер телефона и наш специалист свяжется с Вами в ближайшее время!</h2>
   <div md-dialog-content class="content">
     <div class="control-block">
       <label>
@@ -40,6 +40,6 @@
     </div>
   </div>
   <div mat-dialog-actions class="actions">
-    <button (click)="saveOrder()"class="btn btn-primary btn-block" [disabled]="!orderForm.valid">Отправить</button>
+    <button (click)="saveOrder()" class="order-btn" [disabled]="!orderForm.valid">ПЕРЕЗВОНИТЕ МНЕ!</button>
   </div>
 </div>

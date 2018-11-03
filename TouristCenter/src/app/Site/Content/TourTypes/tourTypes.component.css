@@ -1,19 +1,76 @@
-﻿.category {
-  margin-bottom: 20px;
-  padding: 0 10px 0 10px !important; }
-  .category a {
+﻿.tour-types-page .banner img {
+  width: 100%; }
+
+.tour-types-page .text-wrapper h1 {
+  max-width: 720px;
+  margin: 20px auto; }
+
+.tour-types-page .text-wrapper .top-text {
+  margin: 30px 0; }
+  .tour-types-page .text-wrapper .top-text img {
+    height: 16px; }
+
+.tour-types-page .text-wrapper .tour-types-wrapper h2 {
+  margin: 20px auto; }
+
+.tour-types-page .text-wrapper .tour-types-wrapper .tour-types {
+  text-align: center;
+  min-width: 530px; }
+  .tour-types-page .text-wrapper .tour-types-wrapper .tour-types .tour-type {
     position: relative;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    padding-top: 50%;
     text-align: center;
-    display: block;
-    font-size: 18px;
-    color: white !important; }
-    .category a div {
+    color: white; }
+    .tour-types-page .text-wrapper .tour-types-wrapper .tour-types .tour-type .tour-type-info {
       position: absolute;
-      bottom: 0;
-      background-color: rgba(0, 0, 0, 0.5);
+      top: 35%;
+      width: 100%;
+      right: 0; }
+      .tour-types-page .text-wrapper .tour-types-wrapper .tour-types .tour-type .tour-type-info .tour-type-name {
+        font-size: 28px;
+        font-family: 'PFDinDisplayPro-ExtraBold', sans-serif; }
+      .tour-types-page .text-wrapper .tour-types-wrapper .tour-types .tour-type .tour-type-info .separator {
+        height: 1px;
+        background-color: white;
+        width: 30px;
+        margin: 5px auto 15px auto; }
+      .tour-types-page .text-wrapper .tour-types-wrapper .tour-types .tour-type .tour-type-info a {
+        font-size: 24px;
+        color: white;
+        border: 2px solid white;
+        padding: 2px 10px; }
+      .tour-types-page .text-wrapper .tour-types-wrapper .tour-types .tour-type .tour-type-info a:hover {
+        color: #37354E;
+        background-color: white; }
+    .tour-types-page .text-wrapper .tour-types-wrapper .tour-types .tour-type img {
+      margin: 10px 0;
       width: 100%; }
 
+.tour-types-page .text-wrapper .put-order {
+  text-align: center;
+  margin: 30px 0; }
+  .tour-types-page .text-wrapper .put-order h4 {
+    margin-bottom: 10px; }
+  .tour-types-page .text-wrapper .put-order .order-btn {
+    background-color: white;
+    color: #fc3b3c;
+    border: 1px solid #fc3b3c;
+    width: 250px;
+    line-height: 35px;
+    font-size: 20px; }
+  .tour-types-page .text-wrapper .put-order .order-btn:hover {
+    box-shadow: 0 0 7px rgba(253, 10, 10, 0.75);
+    color: white;
+    background-color: #fc3b3c; }
+
+.tour-types-page .text-wrapper .tour-categories {
+  margin: 30px; }
+  .tour-types-page .text-wrapper .tour-categories .separator {
+    background-color: #FB3B3C;
+    width: 50px;
+    margin: 20px 5px;
+    height: 2px; }
+  .tour-types-page .text-wrapper .tour-categories .category {
+    margin: 20px 0;
+    font-family: 'OpenSans-Semibold', sans-serif; }
+    .tour-types-page .text-wrapper .tour-categories .category .tour-category-header {
+      color: #118B91; }

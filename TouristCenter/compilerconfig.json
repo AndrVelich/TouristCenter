@@ -182,5 +182,13 @@
   {
     "outputFile": "src/app/Administration/Common/Components/ConfirmationPopup/confirmationPopup.component.css",
     "inputFile": "src/app/Administration/Common/Components/ConfirmationPopup/confirmationPopup.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/TourTypes/tourTypes.component.css",
+    "inputFile": "src/app/Site/Content/TourTypes/tourTypes.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Order/order.component.css",
+    "inputFile": "src/app/Site/Order/order.component.scss"
   }
 ]

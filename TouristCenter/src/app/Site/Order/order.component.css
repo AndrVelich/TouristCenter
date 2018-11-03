@@ -4,7 +4,8 @@
 
 .order-wrapper {
   padding: 24px;
-  position: relative; }
+  position: relative;
+  max-width: 620px; }
   .order-wrapper .cross-close {
     position: absolute;
     right: 0;
@@ -15,13 +16,10 @@
     color: gray; }
   .order-wrapper .header {
     padding: 0 10px;
-    font-weight: 700;
-    font-size: 24px;
     margin-bottom: 15px;
     text-align: center; }
   .order-wrapper .content ::ng-deep mat-select .mat-select-trigger {
     height: 30px;
-    border-radius: 2px;
     border: 1px solid #D8D8D8;
     padding: 0px 10px; }
     .order-wrapper .content ::ng-deep mat-select .mat-select-trigger span {
@@ -52,7 +50,14 @@
       line-height: 28px; }
   .order-wrapper .actions {
     margin-top: 20px; }
-    .order-wrapper .actions button {
+    .order-wrapper .actions .order-btn {
       width: 180px;
-      margin: 0 auto; }
-
+      margin: 0 auto;
+      background-color: #118B91;
+      border: 1px solid #118B91;
+      color: white;
+      padding: 5px 10px; }
+    .order-wrapper .actions .order-btn:hover {
+      color: #118B91;
+      background-color: white;
+      cursor: pointer; }
