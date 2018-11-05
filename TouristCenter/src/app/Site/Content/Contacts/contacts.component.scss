@@ -1,0 +1,100 @@
+﻿.contacts-page {
+    overflow: hidden;
+    margin: 20px auto;
+    font-size: 18px;
+    max-width: 1000px;
+
+    h1 {
+        margin: 15px 0;
+    }
+
+    h4 {
+        color: #118b91;
+        font-family: 'OpenSans-Semibold', sans-serif;
+        margin-bottom: 5px;
+    }
+
+    .separator {
+        margin: 20px auto;
+    }
+
+    .contacts-top {
+        .contact-top-image {
+            margin-bottom: 20px;
+        }
+
+        .communicate {
+
+            .communicate-item {
+                margin-bottom: 20px;
+            }
+
+            .phone-code {
+                font-size: 14px;
+                font-family: OpenSans-Regular, sans-serif;
+            }
+
+            .social {
+                margin-right: 5px;
+                width: 30px;
+            }
+        }
+    }
+
+    .contacts-bottom {
+
+        h4 {
+            margin-bottom: 20px;
+        }
+
+        .location-info {
+            margin-bottom: 20px;
+            min-width: 235px;
+
+            .headline {
+                margin-bottom: 5px;
+            }
+
+            .address {
+                img {
+                    width: 20px;
+                }
+            }
+        }
+    }
+}
+
+
+@media (min-width: 750px) {
+    .contacts-bottom {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .contacts-top {
+        display: flex;
+        justify-content: flex-start;
+
+        .communicate {
+            margin-left: 50px;
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    .contacts-top {
+        display: block;
+
+        .communicate {
+            margin: 0;
+        }
+    }
+
+    .contacts-bottom {
+        display: block;
+
+        .communicate {
+            margin: 0;
+        }
+    }
+}

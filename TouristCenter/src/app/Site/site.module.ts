@@ -24,6 +24,7 @@ import { ContentComponent } from "./Content/content.component";
 import { HomeComponent } from "./Content/Home/home.component";
 import { TourTypesComponent } from "./Content/TourTypes/tourTypes.component";
 import { CountryComponent } from "./Content/Country/country.component";
+import { ContactsComponent } from "./Content/Contacts/contacts.component";
 
 import { BeachCountryComponent } from "./Content/TourTypes/Beach/Country/beachCountry.component";
 import { BeachToursComponent } from "./Content/TourTypes/Beach/Tours/beachTours.component";
@@ -101,6 +102,7 @@ import { PromotionService } from "./Common/Services/promotion.service";
         CountriesComponent,
         ToursComponent,
         CountryComponent,
+        ContactsComponent,
 
         BeachCountryComponent,
         BeachToursComponent,

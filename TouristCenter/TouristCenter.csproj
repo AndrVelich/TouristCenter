@@ -300,6 +300,15 @@
     <Content Include="Content\Icons\Insta_neak.png" />
     <Content Include="Content\Icons\vk_ak.png" />
     <Content Include="Content\Icons\vk_neak.png" />
+    <Content Include="Content\Images\Contacts\fb-active.png" />
+    <Content Include="Content\Images\Contacts\banner.jpg" />
+    <Content Include="Content\Images\Contacts\fb.png" />
+    <Content Include="Content\Images\Contacts\inst-active.png" />
+    <Content Include="Content\Images\Contacts\inst.png" />
+    <Content Include="Content\Images\Contacts\separator.png" />
+    <Content Include="Content\Images\Contacts\underground.png" />
+    <Content Include="Content\Images\Contacts\vk-active.png" />
+    <Content Include="Content\Images\Contacts\vk.png" />
     <Content Include="Content\Images\Countries\banner.jpg" />
     <Content Include="Content\Images\Countries\blue-arr-big.png" />
     <Content Include="Content\Images\Countries\blue-arr.png" />
@@ -335,13 +344,8 @@
     <Content Include="Content\Site.min.css">
       <DependentUpon>Site.css</DependentUpon>
     </Content>
-    <Content Include="distAdministration\3rdpartylicenses.txt" />
     <Content Include="distAdministration\favicon.ico" />
     <Content Include="distAdministration\index.html" />
-    <Content Include="distAdministration\inline.9aff3f686e1fcf6dd6b2.bundle.js" />
-    <Content Include="distAdministration\main.d738a2ebff67ee69c54c.bundle.js" />
-    <Content Include="distAdministration\polyfills.f20484b2fa4642e0dca8.bundle.js" />
-    <Content Include="distAdministration\styles.3784586fbe1a7f687bb0.bundle.css" />
     <Content Include="distSite\favicon.ico" />
     <Content Include="distSite\index.html" />
     <Content Include="favicon.ico" />
@@ -537,6 +541,12 @@
     <Content Include="src\app\Site\Common\Services\country.service.ts" />
     <Content Include="src\app\Site\Common\Services\promotion.service.ts" />
     <Content Include="src\app\Site\Common\Services\tour.service.ts" />
+    <Content Include="src\app\Site\Content\Contacts\contacts.component.css">
+      <DependentUpon>contacts.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\Contacts\contacts.component.min.css">
+      <DependentUpon>contacts.component.css</DependentUpon>
+    </Content>
     <Content Include="src\app\Site\Content\ImagesPopup\imagesPopup.component.css">
       <DependentUpon>imagesPopup.component.scss</DependentUpon>
     </Content>
@@ -545,6 +555,8 @@
       <DependentUpon>imagesPopup.component.css</DependentUpon>
     </Content>
     <Content Include="src\app\Site\Content\ImagesPopup\imagesPopup.component.ts" />
+    <Content Include="src\app\Site\Content\Contacts\contacts.component.html" />
+    <Content Include="src\app\Site\Content\Contacts\contacts.component.ts" />
     <Content Include="src\app\Site\Content\Promotions\PromotionDetails\promotionDetails.component.css">
       <DependentUpon>promotionDetails.component.scss</DependentUpon>
     </Content>
@@ -819,6 +831,7 @@
     <Content Include="src\app\Administration\Content\Orders\orders.component.scss" />
     <Content Include="src\app\Administration\Common\Components\ConfirmationPopup\confirmationPopup.component.html" />
     <Content Include="src\app\Administration\Common\Components\ConfirmationPopup\confirmationPopup.component.scss" />
+    <Content Include="src\app\Site\Content\Contacts\contacts.component.scss" />
     <None Include="src\app\Site\Header\header.component.scss" />
     <Content Include="src\app\Site\site.component.scss" />
     <Content Include="Views\Administration\Index.cshtml" />
