@@ -299,3 +299,20 @@ body {
         }
     }
 }
+
+//TODO Hack for tours page
+.tours-text {
+    margin: 20px 50px !important;
+
+    h1 {
+        margin: 20px 0;
+    }
+
+    .country-name {
+        color: #6c6c6c;
+    }
+
+    .forward-text {
+        margin-top: 20px;
+    }
+}

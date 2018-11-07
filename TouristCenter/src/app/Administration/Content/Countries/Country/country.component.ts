@@ -100,7 +100,7 @@ export class CountryComponent implements OnInit  {
             ]],
             "urlName": [this.country.urlName, [
                 Validators.required,
-                Validators.pattern('^[a-zA-Z0-9]+$')
+                Validators.pattern('^[a-zA-Z0-9_.-]+$')
             ]],
             "threeStarsPrice": [this.country.threeStarsPrice, [
                 Validators.required,

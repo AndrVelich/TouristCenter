@@ -1,4 +1,13 @@
 ﻿<div class="tours-page width-wrapper">
+    <!--temporary implementation-->
+    <div *ngIf="country.name">
+        <div class="banner">
+            <img [src]="'/api/image/' + country.oldImageCollection[1]" />
+        </div>
+        <div class="tours-text text-wrapper font-OpenSans-Bold"
+             [innerHtml]="country.pageContent">
+        </div>
+    </div>
     <div class="tours-wrapper text-wrapper">
         <div class="tour"
              *ngFor="let tour of tourCollection">

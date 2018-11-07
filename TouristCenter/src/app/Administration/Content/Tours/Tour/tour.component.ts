@@ -135,7 +135,7 @@ export class TourComponent {
             ]],
             "urlName": [this.tour.urlName, [
                 Validators.required,
-                Validators.pattern('^[a-zA-Z0-9]+$')
+                Validators.pattern('^[a-zA-Z0-9_.-]+$')
             ]],
             "city": [this.tour.city, [
                 Validators.required

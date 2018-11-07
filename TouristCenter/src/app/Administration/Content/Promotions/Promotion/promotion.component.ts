@@ -93,7 +93,7 @@ export class PromotionComponent implements OnInit  {
             ]],
             "urlName": [this.promotion.urlName, [
                 Validators.required,
-                Validators.pattern('^[a-zA-Z0-9]+$')
+                Validators.pattern('^[a-zA-Z0-9_.-]+$')
             ]],
             "description": [this.promotion.description, [
                 Validators.required

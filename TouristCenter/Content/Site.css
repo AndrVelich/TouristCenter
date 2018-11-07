@@ -200,3 +200,12 @@ body {
 @media (max-width: 600px) {
   body .body-content {
     padding-top: 0; } }
+
+.tours-text {
+  margin: 20px 50px !important; }
+  .tours-text h1 {
+    margin: 20px 0; }
+  .tours-text .country-name {
+    color: #6c6c6c; }
+  .tours-text .forward-text {
+    margin-top: 20px; }
