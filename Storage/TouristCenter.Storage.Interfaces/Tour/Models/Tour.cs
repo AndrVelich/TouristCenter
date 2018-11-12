@@ -45,7 +45,10 @@ namespace TouristCenter.Storage.Interfaces.Tour.Models
         public string Description { get; set; }
 
         [Required]
-        public CountryDataModel Country { get; set; }
+        public int CountryId { get; set; }
+
+        [Required]
+        public virtual CountryDataModel Country { get; set; }
 
         public virtual ICollection<Image.Models.Image> Images { get; set; }
     }

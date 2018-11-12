@@ -329,7 +329,8 @@
     <Content Include="Content\Images\Home\TourTypes\individual.jpg" />
     <Content Include="Content\Images\Home\TourTypes\newYear.jpg" />
     <Content Include="Content\Images\Home\TourTypes\skiing.jpg" />
-    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\logo-color.png" />
+    <Content Include="Content\Images\logo-white.png" />
     <Content Include="Content\Images\preloader.gif" />
     <Content Include="Content\Images\pv_layer_controls.png" />
     <Content Include="Content\Images\star.png" />

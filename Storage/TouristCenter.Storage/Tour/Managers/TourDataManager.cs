@@ -74,10 +74,9 @@ namespace TouristCenter.Storage.Tour.Managers
 
         public void UpdateTour(TourDataModel tourDataModel)
         {
-            AttachCountry(tourDataModel);
-
             var images = tourDataModel.Images;
             tourDataModel.Images = new HashSet<ImageDataModel>();
+            tourDataModel.CountryId = tourDataModel.Country.CountryId;
 
             var entry = _dbContext.Entry(tourDataModel);
             entry.State = EntityState.Modified;
