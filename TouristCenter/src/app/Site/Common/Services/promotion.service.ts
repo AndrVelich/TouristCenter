@@ -51,6 +51,10 @@ export class Promotion{
     public urlName : string
     public description : string
     public untilDate : string
+    public title : string
+    public metaDescription : string
+    public metaKeywords : string
+
     public newImageCollection : string[]
     public oldImageCollection : number[]
 

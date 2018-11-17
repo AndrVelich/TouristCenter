@@ -88,7 +88,7 @@ namespace TouristCenter.Domain.Tour.Models
             get { return _stars; }
             set
             {
-                if (value < 3 && value > 5)
+                if (value < 2 && value > 5)
                 {
                     throw new StarsNotValidException();
                 }

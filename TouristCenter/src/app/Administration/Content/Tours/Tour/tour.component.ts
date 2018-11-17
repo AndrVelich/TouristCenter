@@ -146,7 +146,7 @@ export class TourComponent {
             ]],
             "stars": [this.tour.stars, [
                 Validators.required,
-                Validators.min(3),
+                Validators.min(2),
                 Validators.max(5)
             ]],
             "description": [this.tour.description],

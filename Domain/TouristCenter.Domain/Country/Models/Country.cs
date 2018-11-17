@@ -123,6 +123,16 @@ namespace TouristCenter.Domain.Country.Models
             }
         }
 
+        public string PageContentBottom { get; set; }
+
+        public string Title { get; set; }
+
+        public string MetaDescription { get; set; }
+
+        public string MetaKeywords { get; set; }
+
+        public string PageHeader { get; set; }
+
         public IReadOnlyCollection<IImage> ImageCollection
         {
             get { return _imageCollection; }
@@ -144,6 +154,11 @@ namespace TouristCenter.Domain.Country.Models
             _fiveStarsPrice = dataModel.FiveStarsPrice;
             _description = dataModel.Description;
             _pageContent = dataModel.PageContent;
+            PageContentBottom = dataModel.PageContentBottom;
+            Title = dataModel.Title;
+            MetaDescription = dataModel.MetaDescription;
+            MetaKeywords = dataModel.MetaKeywords;
+            PageHeader = dataModel.PageHeader;
             _imageCollection = dataModel.Images != null ? 
                 dataModel.Images.Select(i => new ImageModel(i, imageDataManager)).ToList() : 
                 new List<ImageModel>();
@@ -237,6 +252,11 @@ namespace TouristCenter.Domain.Country.Models
                 FiveStarsPrice = FiveStarsPrice,
                 Description = Description,
                 PageContent = PageContent,
+                PageContentBottom = PageContentBottom,
+                Title = Title,
+                MetaDescription = MetaDescription,
+                MetaKeywords = MetaKeywords,
+                PageHeader = PageHeader,
                 Images = _imageCollection.Select(im => im.GetImageDataModel()).ToList()
             };
 

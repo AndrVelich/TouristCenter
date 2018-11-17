@@ -83,6 +83,12 @@ namespace TouristCenter.Domain.Promotion.Models
             get { return _imageCollection; }
         }
 
+        public string Title { get; set; }
+
+        public string MetaDescription { get; set; }
+
+        public string MetaKeywords { get; set; }
+
         internal Promotion(PromotionDataModel dataModel, 
             IPromotionDataManager promotionDataManager, 
             IImageDataManager imageDataManager)
@@ -95,6 +101,10 @@ namespace TouristCenter.Domain.Promotion.Models
             _urlName = dataModel.UrlName;
             _description = dataModel.Description;
             _untilDate = dataModel.UntilDate;
+            Title = dataModel.Title;
+            MetaDescription = dataModel.MetaDescription;
+            MetaKeywords = dataModel.MetaKeywords;
+
             _imageCollection = dataModel.Images != null ? 
                 dataModel.Images.Select(i => new ImageModel(i, imageDataManager)).ToList() : 
                 new List<ImageModel>();
@@ -176,6 +186,9 @@ namespace TouristCenter.Domain.Promotion.Models
                 UrlName = UrlName,
                 Description = Description,
                 UntilDate = UntilDate,
+                Title = Title,
+                MetaDescription = MetaDescription,
+                MetaKeywords = MetaKeywords,
                 Images = _imageCollection.Select(im => im.GetImageDataModel()).ToList()
             };
 

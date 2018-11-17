@@ -74,6 +74,42 @@
                                   [(ngModel)]="promotion.description"
                                   aria-describedby="basic-addon1"></textarea>
                     </div>
+                    <div class="mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Title</span>
+                            <span class="required">*</span>
+                        </div>
+                        <textarea type="text"
+                                  name="title"
+                                  class="form-control promotion-title"
+                                  formControlName="title"
+                                  [(ngModel)]="promotion.title"
+                                  aria-describedby="basic-addon1"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Meta description</span>
+                            <span class="required">*</span>
+                        </div>
+                        <textarea type="text"
+                                  name="metaDescription"
+                                  class="form-control meta-description"
+                                  formControlName="metaDescription"
+                                  [(ngModel)]="promotion.metaDescription"
+                                  aria-describedby="basic-addon1"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Meta keywords</span>
+                            <span class="required">*</span>
+                        </div>
+                        <textarea type="text"
+                                  name="metaKeywords"
+                                  class="form-control promotion-metaKeywords"
+                                  formControlName="metaKeywords"
+                                  [(ngModel)]="promotion.metaKeywords"
+                                  aria-describedby="basic-addon1"></textarea>
+                    </div>
                 </div>
                 <div class="actions">
                     <button (click)="savePromotion()" 

@@ -48,8 +48,8 @@
     <Compile Include="Promotion\Exceptions\PromotionNotUniqueException.cs" />
     <Compile Include="Promotion\Exceptions\PromotionUntilDateNotValidException.cs" />
     <Compile Include="Promotion\Exceptions\PromotionUrlNameNotValidException.cs" />
-    <Compile Include="Promotion\Managers\ICountryManager.cs" />
-    <Compile Include="Promotion\Models\ICountry.cs" />
+    <Compile Include="Promotion\Managers\IPromotionManager.cs" />
+    <Compile Include="Promotion\Models\IPromotion.cs" />
     <Compile Include="Tour\Exceptions\StarsNotValidException.cs" />
     <Compile Include="Tour\Exceptions\TourDescriptionNotValidException.cs" />
     <Compile Include="Tour\Exceptions\TourNameNotValidException.cs" />

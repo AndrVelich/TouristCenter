@@ -548,6 +548,16 @@
     <Content Include="src\app\Site\Content\Contacts\contacts.component.min.css">
       <DependentUpon>contacts.component.css</DependentUpon>
     </Content>
+    <Content Include="src\app\Site\Content\Contacts\contacts.component.ts" />
+    <Content Include="src\app\Site\Content\CountriesPage\countriesPage.component.css">
+      <DependentUpon>countriesPage.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\CountriesPage\countriesPage.component.html" />
+    <Content Include="src\app\Site\Content\CountriesPage\countriesPage.component.min.css">
+      <DependentUpon>countriesPage.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\CountriesPage\countriesPage.component.ts" />
+    <Content Include="src\app\Site\Content\Home\home.component.ts" />
     <Content Include="src\app\Site\Content\ImagesPopup\imagesPopup.component.css">
       <DependentUpon>imagesPopup.component.scss</DependentUpon>
     </Content>
@@ -557,7 +567,6 @@
     </Content>
     <Content Include="src\app\Site\Content\ImagesPopup\imagesPopup.component.ts" />
     <Content Include="src\app\Site\Content\Contacts\contacts.component.html" />
-    <Content Include="src\app\Site\Content\Contacts\contacts.component.ts" />
     <Content Include="src\app\Site\Content\Promotions\PromotionDetails\promotionDetails.component.css">
       <DependentUpon>promotionDetails.component.scss</DependentUpon>
     </Content>
@@ -580,6 +589,7 @@
     <Content Include="src\app\Site\Content\TourTypes\Beach\Country\beachCountry.component.min.css">
       <DependentUpon>beachCountry.component.css</DependentUpon>
     </Content>
+    <Content Include="src\app\Site\Content\TourTypes\Beach\Country\beachCountry.component.ts" />
     <Content Include="src\app\Site\Content\TourTypes\Beach\Tours\beachTours.component.css">
       <DependentUpon>beachTours.component.scss</DependentUpon>
     </Content>
@@ -588,16 +598,7 @@
       <DependentUpon>beachTours.component.css</DependentUpon>
     </Content>
     <Content Include="src\app\Site\Content\TourTypes\Beach\Tours\beachTours.component.ts" />
-    <Content Include="src\app\Site\Content\Country\country.component.css">
-      <DependentUpon>country.component.scss</DependentUpon>
-    </Content>
-    <Content Include="src\app\Site\Content\Country\country.component.html" />
-    <Content Include="src\app\Site\Content\Country\country.component.min.css">
-      <DependentUpon>country.component.css</DependentUpon>
-    </Content>
-    <Content Include="src\app\Site\Content\Country\country.component.ts" />
     <Content Include="src\app\Site\Content\TourTypes\Beach\Country\beachCountry.component.html" />
-    <Content Include="src\app\Site\Content\TourTypes\Beach\Country\beachCountry.component.ts" />
     <Content Include="src\app\Site\Content\TourTypes\Bus\Tours\busTours.component.css">
       <DependentUpon>busTours.component.scss</DependentUpon>
     </Content>
@@ -714,7 +715,6 @@
     <Content Include="src\app\Site\Content\Home\home.component.html" />
     <Content Include="src\app\Site\Content\Home\home.component.js" />
     <Content Include="src\app\Site\Content\Home\home.component.min.css" />
-    <Content Include="src\app\Site\Content\Home\home.component.ts" />
     <Content Include="src\app\Common\Directives\clickOutside.directive.js" />
     <Content Include="src\app\Common\Directives\clickOutside.directive.ts" />
     <Content Include="src\app\Common\Directives\ClickOutsideDirective.js" />
@@ -805,7 +805,6 @@
     <Content Include="src\app\Administration\Footer\footer.component.scss" />
     <Content Include="src\app\Administration\administration.component.scss" />
     <Content Include="src\app\Site\Content\TourTypes\tourTypes.component.scss" />
-    <Content Include="src\app\Site\Content\Country\country.component.scss" />
     <Content Include="src\app\Site\Content\TourTypes\Beach\Tours\beachTours.component.scss" />
     <Content Include="src\app\Site\Content\ImagesPopup\imagesPopup.component.scss" />
     <Content Include="src\app\Site\Content\Promotions\promotions.component.scss" />
@@ -833,6 +832,7 @@
     <Content Include="src\app\Administration\Common\Components\ConfirmationPopup\confirmationPopup.component.html" />
     <Content Include="src\app\Administration\Common\Components\ConfirmationPopup\confirmationPopup.component.scss" />
     <Content Include="src\app\Site\Content\Contacts\contacts.component.scss" />
+    <Content Include="src\app\Site\Content\CountriesPage\countriesPage.component.scss" />
     <None Include="src\app\Site\Header\header.component.scss" />
     <Content Include="src\app\Site\site.component.scss" />
     <Content Include="Views\Administration\Index.cshtml" />
@@ -904,7 +904,7 @@
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <PropertyGroup>
-    <PreBuildEvent>(ng build --prod)</PreBuildEvent>
+    <PreBuildEvent>(ng build)</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

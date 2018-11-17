@@ -1,6 +1,7 @@
-import { Component } from "@angular/core";
+﻿import { Component } from "@angular/core";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { OrderComponent } from '../../Order/order.component';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
     
@@ -12,12 +13,26 @@ import { OrderComponent } from '../../Order/order.component';
 export class TourTypesComponent {
 
     constructor(
-        public dialog: MatDialog)
+        public dialog: MatDialog,
+        private titleService: Title,
+        private metaService: Meta,
+        )
     {
         
     }
 
+    ngOnInit() {
+         this.setTitleAndMeta();
+    }
+
     public openOrderPopup() {
         let dialogRef = this.dialog.open(OrderComponent);
+    }
+
+    private setTitleAndMeta() : void
+    {
+        this.titleService.setTitle("Поиск и подбор туров в Минске");
+        this.metaService.addTag({ name: 'description', content: "Поиск и подбор тура. Вылеты из Минска/ Москвы/ Киева. Отдых на море, автобусные маршруты, авиатуры в Европу и пр." });
+        this.metaService.addTag({ name: 'keywords', content: "туры из Минска, подбор тура, поиск тура, виды туров" });
     }
 }

@@ -50,7 +50,7 @@
         display: none; }
       header .header-content .middleHeaderMenu .mainMenu {
         background: #05108a;
-        padding: 3px; }
+        padding: 3px 20px; }
         header .header-content .middleHeaderMenu .mainMenu .width-wrapper {
           display: flex;
           justify-content: space-between; }

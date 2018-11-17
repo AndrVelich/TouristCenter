@@ -24,6 +24,16 @@ namespace TouristCenter.Domain.Interfaces.Country.Models
 
         string PageContent { get; set; }
 
+        string PageContentBottom { get; set; }
+
+        string Title { get; set; }
+
+        string MetaDescription { get; set; }
+
+        string MetaKeywords { get; set; }
+
+        string PageHeader { get; set; }
+
         IReadOnlyCollection<IImage> ImageCollection { get; }
 
         void Save();

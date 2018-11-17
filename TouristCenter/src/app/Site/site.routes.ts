@@ -2,6 +2,7 @@
 import { HomeComponent } from "./Content/Home/home.component";
 import { TourTypesComponent } from "./Content/TourTypes/tourTypes.component";
 import { ContactsComponent } from "./Content/Contacts/contacts.component";
+import { CountriesPageComponent } from "./Content/CountriesPage/countriesPage.component";
 
 import { BeachCountryComponent } from "./Content/TourTypes/Beach/Country/beachCountry.component";
 import { BeachToursComponent } from "./Content/TourTypes/Beach/Tours/beachTours.component";
@@ -31,7 +32,10 @@ export const routes: Routes = [
         path: 'tour', 
         component: TourTypesComponent
     },
-
+    { 
+        path: 'countries', 
+        component: CountriesPageComponent
+    },
     { 
         path: 'tour/beach', 
         component: BeachCountryComponent

@@ -1,6 +1,7 @@
-import { Component } from "@angular/core";
+﻿import { Component } from "@angular/core";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Title, Meta } from '@angular/platform-browser';
 
 import { OrderComponent } from '../../../Order/order.component';
 import { PromotionService } from "@siteCommon/Services/promotion.service";
@@ -22,7 +23,9 @@ export class PromotionDetailsComponent {
         public dialog: MatDialog,
         private promotionService: PromotionService,
         private activeRoute: ActivatedRoute,
-        private router: Router
+        private router: Router,
+        private titleService: Title,
+        private metaService: Meta,
     )
     {
 
@@ -42,7 +45,36 @@ export class PromotionDetailsComponent {
     private getPromotion()
     {
         this.promotionService.getPromotion(this.promotion.urlName)
-            .subscribe(data => this.promotion = data);
+            .subscribe(data => { this.promotion = data;
+                this.setTitleAndMeta();
+            });
+    }
+
+    private setTitleAndMeta() : void
+    {
+
+        if(this.promotion)
+        {
+            if(this.promotion.title != null)
+            {
+                this.titleService.setTitle(this.promotion.title);
+            }
+            else
+            {
+                this.titleService.setTitle(this.promotion.name);
+            }
+            
+        }
+
+        if(this.promotion && this.promotion.metaDescription != null)
+        {
+            this.metaService.addTag({ name: 'description', content: this.promotion.metaDescription });
+        }
+
+        if(this.promotion && this.promotion.metaKeywords != null)
+        {
+            this.metaService.addTag({ name: 'keywords', content: this.promotion.metaKeywords });
+        }
     }
 
     public openOrderPopup() {

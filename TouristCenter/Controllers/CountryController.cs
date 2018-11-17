@@ -48,7 +48,10 @@ namespace TouristCenter.Controllers
                 countries = _countryManager.GetCountryCollection(domainTourType);
             }
 
-            var result = countries.Select(c => new CountryViewModel(c)).ToList();
+            var result = countries.Select(c => new CountryViewModel(c))
+                .OrderBy(c => c.Category)
+                .ThenBy(c => c.Name)
+                .ToList();
 
             return result;
         }
@@ -68,6 +71,7 @@ namespace TouristCenter.Controllers
                 countryModel.FiveStarsPrice = country.FiveStarsPrice;
                 countryModel.Description = country.Description;
                 countryModel.PageContent = country.PageContent;
+                
             }
             catch (CountryNotFoundException)
             {
@@ -82,6 +86,12 @@ namespace TouristCenter.Controllers
                         country.PageContent
                     );
             }
+
+            countryModel.PageContentBottom = country.PageContentBottom;
+            countryModel.Title = country.Title;
+            countryModel.MetaDescription = country.MetaDescription;
+            countryModel.MetaKeywords = country.MetaKeywords;
+            countryModel.PageHeader = country.PageHeader;
 
             var imageForDeleteCollection = countryModel.ImageCollection.Where(im => !country.OldImageCollection.Contains(im.ImageId)).ToList();
 

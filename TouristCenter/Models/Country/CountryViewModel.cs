@@ -25,6 +25,16 @@ namespace TouristCenter.Models.Country
 
         public string PageContent { get; set; }
 
+        public string PageContentBottom { get; set; }
+
+        public string Title { get; set; }
+
+        public string MetaDescription { get; set; }
+        
+        public string MetaKeywords { get; set; }
+
+        public string PageHeader { get; set; }
+
         public List<string> NewImageCollection { get; set; }
 
         public List<int> OldImageCollection { get; set; }
@@ -40,6 +50,11 @@ namespace TouristCenter.Models.Country
             FiveStarsPrice = country.FiveStarsPrice;
             Description = country.Description;
             PageContent = country.PageContent;
+            PageContentBottom = country.PageContentBottom;
+            Title = country.Title;
+            MetaDescription = country.MetaDescription;
+            MetaKeywords = country.MetaKeywords;
+            PageHeader = country.PageHeader;
             NewImageCollection = new List<string>();
             OldImageCollection = country.ImageCollection.Select(i => i.ImageId).ToList();
         }

@@ -117,12 +117,18 @@ export class CountryComponent implements OnInit  {
             "description": [this.country.description, [
                 Validators.required
             ]],
-            "pageContent": [this.country.pageContent, [
-                Validators.required
-            ]],
             "category": [this.country.category, [
                 Validators.required
             ]],
+            "pageHeader": [this.country.pageHeader, []],
+            "pageContent": [this.country.pageContent, [
+                Validators.required
+            ]],
+            "pageContentBottom": [this.country.pageContentBottom, []],
+            "title": [this.country.title, []],
+            "metaDescription": [this.country.metaDescription, []],
+            "metaKeywords": [this.country.metaKeywords, []],
+            
         });
     }
 }

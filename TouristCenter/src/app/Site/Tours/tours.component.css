@@ -1,6 +1,9 @@
 ﻿.tours-page .banner img {
   width: 100%; }
 
+.tours-page h1 {
+  margin: 20px 0; }
+
 .tours-page .tours-wrapper {
   margin: 20px 20px; }
   .tours-page .tours-wrapper .tour {

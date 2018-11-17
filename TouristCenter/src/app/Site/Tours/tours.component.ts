@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Title, Meta } from '@angular/platform-browser';
 
 import { ImagesPopupComponent } from '@siteModule/Content/ImagesPopup/imagesPopup.component';
 import { OrderComponent } from '@siteModule/Order/order.component';
@@ -34,6 +35,8 @@ export class ToursComponent {
         private countryService: CountryService,
         private activeRoute: ActivatedRoute,
         private router: Router,
+        private titleService: Title,
+        private metaService: Meta,
         public dialog: MatDialog,
         public preloaderService : PreloaderService)
     { }
@@ -44,6 +47,16 @@ export class ToursComponent {
         this.setDataFromRoute();
         this.getCountry();
         this.getTourCollection();
+    }
+
+    public openOrderPopup() {
+        let dialogRef = this.dialog.open(OrderComponent);
+    }
+
+    public openImagesPopup(imageIds: Array<number>) {
+        let dialogRef = this.dialog.open(ImagesPopupComponent, {
+            data: imageIds
+        });
     }
 
     private setDataFromRoute(){
@@ -58,25 +71,45 @@ export class ToursComponent {
     private getCountry()
     {
         this.countryService.getCountry(this.tourType, this.country.urlName)
-        .subscribe(data => this.country = data);
+        .subscribe(data => {
+            this.country = data;
+            this.setTitleAndMeta();
+        });
     }
 
     private getTourCollection()
     {
         this.preloaderService.startPreloader();
         this.tourService.getTourCollection(this.tourType, this.country.urlName)
-        .subscribe(data => this.tourCollection = data,
+        .subscribe(data => this.tourCollection = data.sort(() =>  0.5 - Math.random()),
                     (err)=> console.log(err),
                     ()=> this.preloaderService.finishPreloader());
     }
 
-    public openOrderPopup() {
-        let dialogRef = this.dialog.open(OrderComponent);
-    }
+    private setTitleAndMeta() : void
+    {
+        if(this.country)
+        {
+            if(this.country.title != null)
+            {
+                this.titleService.setTitle(this.country.title);
+            }
+            else
+            {
+                this.titleService.setTitle(this.country.name);
+            }
+            
+        }
 
-    public openImagesPopup(imageIds: Array<number>) {
-        let dialogRef = this.dialog.open(ImagesPopupComponent, {
-            data: imageIds
-        });
+        if(this.country && this.country.metaDescription != null)
+        {
+            this.metaService.addTag({ name: 'description', content: this.country.metaDescription });
+        }
+
+        if(this.country && this.country.metaKeywords != null)
+        {
+            this.metaService.addTag({ name: 'keywords', content: this.country.metaKeywords });
+        }
     }
+   
 }

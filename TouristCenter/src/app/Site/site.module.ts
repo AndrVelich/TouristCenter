@@ -22,8 +22,8 @@ import { ToursComponent } from "./Tours/tours.component";
 import { FooterComponent } from "./Footer/footer.component";
 import { ContentComponent } from "./Content/content.component";
 import { HomeComponent } from "./Content/Home/home.component";
+import { CountriesPageComponent } from "./Content/CountriesPage/countriesPage.component";
 import { TourTypesComponent } from "./Content/TourTypes/tourTypes.component";
-import { CountryComponent } from "./Content/Country/country.component";
 import { ContactsComponent } from "./Content/Contacts/contacts.component";
 
 import { BeachCountryComponent } from "./Content/TourTypes/Beach/Country/beachCountry.component";
@@ -73,18 +73,6 @@ import { PromotionService } from "./Common/Services/promotion.service";
         TourTypesComponent,
         HeaderComponent,
         OrderComponent,
-        
-        BeachCountryComponent,
-        BeachToursComponent,
-        BusToursComponent,
-        CorporateCountryComponent,
-        CorporateToursComponent,
-        IndividualCountryComponent,
-        IndividualToursComponent,
-        NewYearCountryComponent, 
-        NewYearToursComponent, 
-        SkiingCountryComponent,
-        SkiingToursComponent,
 
         ImagesPopupComponent,
         PromotionsComponent,
@@ -98,10 +86,10 @@ import { PromotionService } from "./Common/Services/promotion.service";
         FooterComponent,
         ContentComponent, 
         HomeComponent,
+        CountriesPageComponent,
         TourTypesComponent,
         CountriesComponent,
         ToursComponent,
-        CountryComponent,
         ContactsComponent,
 
         BeachCountryComponent,

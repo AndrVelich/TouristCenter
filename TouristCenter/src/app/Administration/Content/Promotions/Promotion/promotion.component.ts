@@ -101,6 +101,9 @@ export class PromotionComponent implements OnInit  {
             "untilDate": [this.promotion.untilDate, [
                 Validators.required
             ]],
+            "title": [this.promotion.title, []],
+            "metaDescription": [this.promotion.metaDescription, []],
+            "metaKeywords": [this.promotion.metaKeywords, []],
         });
     }
 }

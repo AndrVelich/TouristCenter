@@ -194,5 +194,9 @@
   {
     "outputFile": "src/app/Site/Content/Contacts/contacts.component.css",
     "inputFile": "src/app/Site/Content/Contacts/contacts.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/CountriesPage/countriesPage.component.css",
+    "inputFile": "src/app/Site/Content/CountriesPage/countriesPage.component.scss"
   }
 ]

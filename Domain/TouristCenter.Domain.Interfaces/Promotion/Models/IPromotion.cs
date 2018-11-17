@@ -16,6 +16,12 @@ namespace TouristCenter.Domain.Interfaces.Promotion.Models
 
         DateTime UntilDate { get; set; }
 
+        string Title { get; set; }
+
+        string MetaDescription { get; set; }
+
+        string MetaKeywords { get; set; }
+
         IReadOnlyCollection<IImage> ImageCollection { get; }
 
         void Save();

@@ -41,6 +41,16 @@ namespace TouristCenter.Storage.Interfaces.Country.Models
         [Required]
         public string PageContent { get; set; }
 
+        public string PageContentBottom { get; set; }
+
+        public string Title { get; set; }
+
+        public string MetaDescription { get; set; }
+        
+        public string MetaKeywords { get; set; }
+
+        public string PageHeader { get; set; }
+
         public virtual ICollection<Image.Models.Image> Images { get; set; }
         public virtual ICollection<Tour.Models.Tour> Tours { get; set; }
     }

@@ -41,6 +41,17 @@
                                 </mat-option>
                             </mat-select>
                         </div>
+                        <div class="mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Title</span>
+                            </div>
+                            <input type="text"
+                                   name="title"
+                                   class="form-control"
+                                   formControlName="title"
+                                   [(ngModel)]="country.title"
+                                   aria-describedby="basic-addon1">
+                        </div>
                     </div>
                     <div class="col-md-6 col-sm-6 country-prices">
                         <div class="hotels">
@@ -118,21 +129,65 @@
                         </div>
                         <textarea type="text"
                                   name="description"
-                                  class="form-control country-description"
+                                  class="form-control small-height"
                                   formControlName="description"
                                   [(ngModel)]="country.description"
                                   aria-describedby="basic-addon1"></textarea>
                     </div>
                     <div class="mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text">Контент для страницы</span>
+                            <span class="input-group-text">Meta description</span>
+                        </div>
+                        <textarea type="text"
+                                  name="metaDescription"
+                                  class="form-control small-height"
+                                  formControlName="metaDescription"
+                                  [(ngModel)]="country.metaDescription"
+                                  aria-describedby="basic-addon1"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Meta keywords</span>
+                        </div>
+                        <textarea type="text"
+                                  name="metaKeywords"
+                                  class="form-control small-height"
+                                  formControlName="metaKeywords"
+                                  [(ngModel)]="country.metaKeywords"
+                                  aria-describedby="basic-addon1"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Header</span>
+                        </div>
+                        <textarea type="text"
+                                  name="pageHeader"
+                                  class="form-control small-height"
+                                  formControlName="pageHeader"
+                                  [(ngModel)]="country.pageHeader"
+                                  aria-describedby="basic-addon1"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Контент для страницы верхний</span>
                             <span class="required">*</span>
                         </div>
                         <textarea type="text"
                                   name="pageContent"
-                                  class="form-control country-content"
+                                  class="form-control large-height"
                                   formControlName="pageContent"
                                   [(ngModel)]="country.pageContent"
+                                  aria-describedby="basic-addon1"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Контент для страницы нижний</span>
+                        </div>
+                        <textarea type="text"
+                                  name="pageContentBottom"
+                                  class="form-control large-height"
+                                  formControlName="pageContentBottom"
+                                  [(ngModel)]="country.pageContentBottom"
                                   aria-describedby="basic-addon1"></textarea>
                     </div>
                 </div>

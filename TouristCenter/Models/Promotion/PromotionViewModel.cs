@@ -17,6 +17,12 @@ namespace TouristCenter.Models.Promotion
 
         public DateTime UntilDate { get; set; }
 
+        public string Title { get; set; }
+
+        public string MetaDescription { get; set; }
+
+        public string MetaKeywords { get; set; }
+
         public List<string> NewImageCollection { get; set; }
 
         public List<int> OldImageCollection { get; set; }
@@ -28,6 +34,10 @@ namespace TouristCenter.Models.Promotion
             UrlName = promotion.UrlName;
             Description = promotion.Description;
             UntilDate = promotion.UntilDate;
+            Title = promotion.Title;
+            MetaDescription = promotion.MetaDescription;
+            MetaKeywords = promotion.MetaKeywords;
+
             NewImageCollection = new List<string>();
             OldImageCollection = promotion.ImageCollection.Select(i => i.ImageId).ToList();
         }

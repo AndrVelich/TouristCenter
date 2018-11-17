@@ -55,7 +55,12 @@ export class Country{
     public fourStarsPrice : number
     public fiveStarsPrice : number
     public description : string
+    public pageHeader : string
+    public title : string
     public pageContent : string
+    public pageContentBottom : string
+    public metaDescription : string
+    public metaKeywords : string
     public newImageCollection : string[]
     public oldImageCollection : number[]
 

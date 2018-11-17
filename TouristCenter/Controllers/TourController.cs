@@ -43,7 +43,11 @@ namespace TouristCenter.Controllers
         {
             var tours = _tourManager.GetTourCollection();
 
-            var result = tours.Select(c => new TourViewModel(c)).ToList();
+            var result = tours.Select(c => new TourViewModel(c))
+                .OrderBy(t => t.Category)
+                .ThenBy(t => t.Country)
+                .ThenBy(t => t.Name)
+                .ToList();
 
             return result;
         }
@@ -54,7 +58,10 @@ namespace TouristCenter.Controllers
         {
             var domainTourType = TourTypesConverter.ConvertFromString(tourType);
             var tours = _tourManager.GetTourCollection(domainTourType);
-            var result = tours.Select(c => new TourViewModel(c)).ToList();
+            var result = tours.Select(c => new TourViewModel(c))
+                .OrderBy(t => t.Country)
+                .ThenBy(t => t.Name)
+                .ToList();
 
             return result;
         }
@@ -65,7 +72,9 @@ namespace TouristCenter.Controllers
         {
             var domainTourType = TourTypesConverter.ConvertFromString(tourType);
             var tours = _tourManager.GetTourCollection(domainTourType, countryUrl);
-            var result = tours.Select(c => new TourViewModel(c)).ToList();
+            var result = tours.Select(c => new TourViewModel(c))
+                .OrderBy(t => t.Name)
+                .ToList();
 
             return result;
         }

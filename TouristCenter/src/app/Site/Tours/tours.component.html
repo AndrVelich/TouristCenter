@@ -4,7 +4,9 @@
         <div class="banner">
             <img [src]="'/api/image/' + country.oldImageCollection[1]" />
         </div>
-        <div class="tours-text text-wrapper font-OpenSans-Bold"
+        <h1 class="center"
+            [innerHtml]="country.pageHeader"></h1>
+        <div class="tours-text text-wrapper"
              [innerHtml]="country.pageContent">
         </div>
     </div>
@@ -48,6 +50,11 @@
                 <a (click)="openOrderPopup()"
                    class="order-btn">ПОДРОБНЕЕ</a>
             </div>
+        </div>
+    </div>
+    <div *ngIf="country.name">
+        <div class="tours-text text-wrapper"
+             [innerHtml]="country.pageContentBottom">
         </div>
     </div>
 </div>

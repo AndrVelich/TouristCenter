@@ -6,6 +6,7 @@ namespace TouristCenter.Controllers
     {
         [Route("")]  
         [Route("tour")]
+        [Route("countries")]
         [Route("tour/{type}")]
         [Route("tour/{type}/{country}")]
         [Route("promotions")]
