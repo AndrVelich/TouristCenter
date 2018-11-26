@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
 using System.Web.Http;
 using TouristCenter.Domain.Interfaces.Order.Managers;
 using TouristCenter.Models.Order;
@@ -15,6 +13,17 @@ namespace TouristCenter.Controllers
             _orderManager = orderManager;
         }
 
+        [HttpGet]
+        [Authorize]
+        [Route("api/orders/isAnyNew")]
+        public bool isAnyNewOrders()
+        {
+            var result = _orderManager.IsAnyNewOrders();
+            return result;
+        }
+
+        [HttpGet]
+        [Authorize]
         [Route("api/ordersPage/{skip}/{take}")]
         public OrdersPage GetOrderCollection(int skip, int take)
         {
@@ -25,23 +34,7 @@ namespace TouristCenter.Controllers
             return resut;
         }
 
-        public void Post(OrderViewModel order)
-        {
-            CreateOrder(order);
-        }
-
-        #region [private]
-
-        private void UpdateOrder(OrderViewModel orderViewModel)
-        {
-            var order = _orderManager.GetOrder(orderViewModel.OrderId.Value);
-            order.Name = orderViewModel.Name;
-            order.Phone = orderViewModel.Phone;
-            order.Description = orderViewModel.Description;
-            order.UpdateOrder();
-        }
-
-        private void CreateOrder(OrderViewModel orderViewModel)
+        public void Post(OrderViewModel orderViewModel)
         {
             var order = _orderManager.CreateOrder(orderViewModel.Name,
                   orderViewModel.Phone,
@@ -49,6 +42,24 @@ namespace TouristCenter.Controllers
             order.CreateOrder();
         }
 
-        #endregion
+        [Authorize]
+        public void Put(OrderViewModel orderViewModel)
+        {
+            var order = _orderManager.GetOrder(orderViewModel.OrderId);
+            order.Name = orderViewModel.Name;
+            order.Phone = orderViewModel.Phone;
+            order.Description = orderViewModel.Description;
+            order.IsNew = orderViewModel.IsNew;
+            order.UpdateOrder();
+        }
+
+        [Authorize]
+        [HttpDelete]
+        [Route("api/order/{id}")]
+        public void Delete(int id)
+        {
+            _orderManager.DeletOrder(id);
+        }
+
     }
 }

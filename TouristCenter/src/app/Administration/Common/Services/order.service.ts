@@ -9,7 +9,7 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class OrderService{
-    private url: string = '/api/order';
+    private url: string = '/api/order/';
 
     constructor(private http: Http) 
     {
@@ -19,6 +19,22 @@ export class OrderService{
     public getOrdersPage(skip: number, take: number): Observable<OrdersPage>{
         return this.http.get('api/ordersPage/' + skip + '/' + take)
             .map((res: Response) => <OrdersPage>res.json())
+            .catch(this.handleError);
+    }
+
+    public isAnyNewOrders(): Observable<boolean>{
+        return this.http.get('api/orders/isAnyNew')
+            .map((res: Response) => <boolean>res.json())
+            .catch(this.handleError);
+    }
+
+    public saveOrder(order: Order){
+        return this.http.post(this.url, order)
+            .catch(this.handleError);
+    }
+
+    public deleteOrder(orderId : number){
+        return this.http.delete(this.url + orderId)
             .catch(this.handleError);
     }
 
@@ -45,7 +61,8 @@ export class Order
         public name: string
         public phone: string
         public description: string
-        public createdDateTime: string
+        public isNew: boolean
+        public createdDateTime: string        
 }
 
 export class OrdersPage

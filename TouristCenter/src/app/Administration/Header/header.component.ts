@@ -4,9 +4,14 @@ import {
     state,
     style,
     transition,
-    animate
+    animate,
+    OnDestroy,
+    OnInit
 } from "@angular/core";
+import { Observable } from 'rxjs/Observable';
+import { interval } from 'rxjs/observable/interval';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { OrderService } from "@administrationCommon/Services/order.service";
 
 @Component({
     moduleId: module.id,
@@ -25,13 +30,35 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
         ])
     ]
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy {
     public isMobileMenuVisible: boolean = false;
+    public isAnyNewOrders: boolean = false;
+    private timer: any;
 
     constructor(
-        public dialog: MatDialog)
+        public dialog: MatDialog,
+        public orderService: OrderService)
     {
         
+    }
+
+    ngOnInit() {
+        this.checkIsAnyNewOrders(this);
+        this.timer = interval(60000);
+        this.timer.subscribe(() => this.checkIsAnyNewOrders(this));
+    }
+
+    ngOnDestroy() {
+        this.timer.unsubscribe();
+    }
+
+    private checkIsAnyNewOrders(context)
+    {
+        context.orderService.isAnyNewOrders()
+        .subscribe(data => 
+        {
+            context.isAnyNewOrders = data;
+        });
     }
 
     public toggleMenu() {

@@ -41,13 +41,17 @@ namespace TouristCenter.Domain.Order.Models
 
         public string Description { get; set; }
 
+        public bool IsNew { get; set; }
+
         public DateTime CreatedDateTime { get; private set; }
 
         internal Order(Storage.Interfaces.Order.Models.Order dataModel, IOrderDataManager orderDataManager)
         {
+            OrderId = dataModel.OrderId;
             _name = dataModel.Name;
             _phone = dataModel.Phone;
             Description = dataModel.Description;
+            IsNew = dataModel.IsNew;
             CreatedDateTime = dataModel.CreatedDateTime;
             _orderDataManager = orderDataManager;
         }
@@ -61,6 +65,7 @@ namespace TouristCenter.Domain.Order.Models
             Name = name;
             Phone = phone;
             Description = description;
+            IsNew = true;
             CreatedDateTime = DateTime.Now;
             _orderDataManager = orderDataManager;
         }
@@ -87,6 +92,7 @@ namespace TouristCenter.Domain.Order.Models
                 Name = Name,
                 Phone = Phone,
                 Description = Description,
+                IsNew = IsNew,
                 CreatedDateTime = CreatedDateTime
             };
             return orderDataModel;

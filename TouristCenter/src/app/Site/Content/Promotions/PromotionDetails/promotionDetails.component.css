@@ -5,8 +5,7 @@
     padding: 3px 20px;
     color: #fc3b3c;
     border: 1px solid #fc3b3c;
-    line-height: 35px;
-    font-size: 20px; }
+    line-height: 35px; }
   .promotion-page .promotion-btn:hover {
     box-shadow: 0 0 7px rgba(253, 10, 10, 0.75);
     color: white;

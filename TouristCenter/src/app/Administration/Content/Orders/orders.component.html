@@ -2,18 +2,32 @@
 <table class="table table-striped">
     <thead>
         <tr>
+            <td>ID</td>
             <td>Имя</td>
             <td>Телефон</td>
             <td>Описание</td>
             <td>Дата отправки</td>
+            <td>Пометить как обработанное</td>
+            <td>Удалить</td>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let order of orderCollection">
+            <td class="name">{{order.orderId}}</td>
             <td class="name">{{order.name}}</td>
             <td class="phone">{{order.phone}}</td>
             <td>{{order.description}}</td>
-            <td class="createdDateTime">{{order.createdDateTime | date: 'yyyy-MM-dd hh:mm'}}</td>
+            <td class="createdDateTime">{{order.createdDateTime | date: 'yyyy-MM-dd HH:mm'}}</td>
+            <td class="mark-as-processed center">
+                <a *ngIf="order.isNew" (click)="markAsProcessed(order)" class="link-big" style="color:blue">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                </a>
+            </td>
+            <td class="delete center">
+                <a (click)="openDeleteConfirmation(order.orderId)" class="link-big" style="color:red">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </a>
+            </td>
         </tr>
     </tbody>
 

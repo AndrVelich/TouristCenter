@@ -33,7 +33,10 @@
                             <i class="fa fa-trash" aria-hidden="true"></i>
                         </a>
                         <div [innerHtml]="country.description"></div>
-                        <div>Кол-во изображений: {{country.oldImageCollection.length}}</div>
+                        <div class="images-count">
+                            <i class="fa fa-image" aria-hidden="true"></i>
+                            <span [innerHtml]="country.oldImageCollection.length"></span>
+                        </div>
                     </div>
                 </div>
                 <div class="country-prices">

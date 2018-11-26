@@ -10,9 +10,9 @@
       <div>
         <input class="form-control" formControlName="name" [(ngModel)]="order.name" type="text" />
         <div *ngIf="orderForm.controls.name.invalid && orderForm.controls.name.dirty">
-          <div class="error" *ngIf="orderForm.controls.name.errors.required">
-            Обязательное поле
-          </div>
+            <div class="error" *ngIf="orderForm.controls.name.errors.required">
+                Пожалуйста, введите Ваше имя
+            </div>
         </div>
       </div>
     </div>
@@ -24,9 +24,12 @@
       <div class="phone-block">
         <input class="form-control" placeholder="8(029) 000-00-00" [textMask]="{mask: mask}" formControlName="phone" [(ngModel)]="order.phone" type="text" />
         <div *ngIf="orderForm.controls.phone.invalid && orderForm.controls.phone.dirty">
-          <div class="error" *ngIf="orderForm.controls.phone.errors.required">
-            Обязательное поле
-          </div>
+            <div class="error" *ngIf="orderForm.controls.phone.errors.required">
+                Пожалуйста, заполните поле телефон
+            </div>
+            <div class="error" *ngIf="orderForm.controls.phone.errors.pattern">
+                Пожалуйста, введите телефон в формате 8(029) 111-11-11
+            </div>
         </div>
       </div>
     </div>

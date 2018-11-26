@@ -61,3 +61,7 @@
       color: #118B91;
       background-color: white;
       cursor: pointer; }
+    .order-wrapper .actions button.order-btn:disabled {
+      background-color: white;
+      border: 1px solid #919191;
+      color: #919191; }

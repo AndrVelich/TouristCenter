@@ -58,7 +58,8 @@ export class OrderComponent implements OnDestroy {
                 Validators.required
             ]],
             "phone": [this.order.phone, [
-                Validators.required
+                Validators.required,
+                Validators.pattern('^[0-9() -]+$')
             ]],
             "description": [this.order.description]
         });

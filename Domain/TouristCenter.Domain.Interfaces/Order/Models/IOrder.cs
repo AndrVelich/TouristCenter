@@ -8,6 +8,7 @@ namespace TouristCenter.Domain.Interfaces.Order.Models
         string Name { get; set; }
         string Phone { get; set; }
         string Description { get; set; }
+        bool IsNew { get; set; }
         DateTime CreatedDateTime { get; }
 
         void CreateOrder();

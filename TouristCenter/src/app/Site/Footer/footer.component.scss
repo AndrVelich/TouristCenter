@@ -113,7 +113,7 @@
         .footer-top {
             .footer-right {
 
-                .separator:first-child {
+                .separator-promotions {
                     display: block;
                 }
 
@@ -133,7 +133,7 @@
 
             .footer-right {
 
-                .separator:first-child {
+                .separator-promotions {
                     display: none;
                 }
 
@@ -144,4 +144,41 @@
         }
     }
 
+}
+
+@media (min-width: 450px) {
+
+    footer {
+        .footer-top {
+            .footer-right {
+
+                .separator-tours {
+                    display: block;
+                }
+
+                .tours {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 450px) {
+
+    footer {
+        .footer-top {
+
+            .footer-right {
+
+                .separator-tours {
+                    display: none;
+                }
+
+                .tours {
+                    display: none;
+                }
+            }
+        }
+    }
 }

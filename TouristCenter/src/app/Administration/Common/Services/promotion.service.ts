@@ -60,7 +60,7 @@ export class Promotion{
     public name : string
     public urlName : string
     public description : string
-    public untilDate : string
+    public untilDate : Date
     public title : string
     public metaDescription : string
     public metaKeywords : string

@@ -55,13 +55,25 @@
     color: #feb849; }
 
 @media (min-width: 600px) {
-  footer .footer-top .footer-right .separator:first-child {
+  footer .footer-top .footer-right .separator-promotions {
     display: block; }
   footer .footer-top .footer-right .promotions {
     display: block; } }
 
 @media (max-width: 600px) {
-  footer .footer-top .footer-right .separator:first-child {
+  footer .footer-top .footer-right .separator-promotions {
     display: none; }
   footer .footer-top .footer-right .promotions {
+    display: none; } }
+
+@media (min-width: 450px) {
+  footer .footer-top .footer-right .separator-tours {
+    display: block; }
+  footer .footer-top .footer-right .tours {
+    display: block; } }
+
+@media (max-width: 450px) {
+  footer .footer-top .footer-right .separator-tours {
+    display: none; }
+  footer .footer-top .footer-right .tours {
     display: none; } }

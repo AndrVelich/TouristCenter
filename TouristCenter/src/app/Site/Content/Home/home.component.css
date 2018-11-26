@@ -39,8 +39,7 @@ h1 {
     background-color: #fc3b3c; }
 
 .tour-types {
-  text-align: center;
-  min-width: 530px; }
+  text-align: center; }
   .tour-types .tour-type {
     position: relative;
     text-align: center;

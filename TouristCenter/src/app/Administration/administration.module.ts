@@ -10,7 +10,8 @@ import {
   MatDialogModule,
   MatSelectModule,
   MatDatepickerModule,
-  MatNativeDateModule 
+  MatNativeDateModule,
+  MatInputModule
 } from '@angular/material';
 
 import { CommonModule } from "@common/common.module";
@@ -65,6 +66,7 @@ import { OrderService } from "./Common/Services/order.service";
         LoginService,
         RegisterService,
         OrderService,
+        MatDatepickerModule,
     ],
     entryComponents:
     [

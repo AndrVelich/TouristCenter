@@ -4,6 +4,7 @@ import { Dictionary } from "@common/Types/Dictionary";
 import { TourTypeService } from "@common/Services/tourType.service"; 
 import { OrderService } from "@administrationCommon/Services/order.service";
 import { Order } from "@administrationCommon/Services/order.service";
+import { ConfirmationPopupComponent } from "@administrationCommon/Components/ConfirmationPopup/confirmationPopup.component";
 
 //import { Observable } from "rxjs/Observable";
 import {Observable} from 'rxjs/Rx';
@@ -35,6 +36,49 @@ export class OrdersComponent implements OnInit
 
     ngOnInit() {
         this.getOrdersPage();
+    }
+
+    public markAsProcessed(order: Order) : void
+    {
+        this.dialog.open(ConfirmationPopupComponent, 
+        {
+            data: 'Вы уверены, что хототе пометить заявку <b>' + order.orderId + '</b> как обработанную?'
+        })
+            .afterClosed()
+            .subscribe(result => {
+                if(result)
+                {
+                     this.markAsProcessedConfirm(order);
+                }
+            });
+    }
+
+    private markAsProcessedConfirm (order: Order) : void
+    {
+        order.isNew = false;
+        this.orderService.saveOrder(order)
+        .subscribe(
+            () => 
+            {
+                  this.getOrdersPage();
+            },
+            error => this.errorMessage = error);
+    }
+
+    public openDeleteConfirmation(orderId: number) : void
+    {
+        this.dialog.open(ConfirmationPopupComponent, 
+        {
+            data: 'Вы уверены, что хототе удалить заявку <b>' + orderId + '</b>?'
+        })
+            .afterClosed()
+            .subscribe(result => {
+                if(result)
+                {
+                     this.orderService.deleteOrder(orderId)
+                        .subscribe(() => this.getOrdersPage());
+                }
+            });
     }
 
     private getOrdersPage()

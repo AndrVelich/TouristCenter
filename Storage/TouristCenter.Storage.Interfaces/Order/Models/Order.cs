@@ -16,6 +16,8 @@ namespace TouristCenter.Storage.Interfaces.Order.Models
         [MaxLength(500)]
         public string Description { get; set; }
         [Required]
+        public bool IsNew { get; set; }
+        [Required]
         public DateTime CreatedDateTime { get; set; }
     }
 }

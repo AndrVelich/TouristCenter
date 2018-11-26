@@ -16,6 +16,8 @@ namespace TouristCenter.Domain.Order.Managers
             _orderDataManager = orderDataManager;
         }
 
+        //TODO A.V. need to replace logic to domain model
+
         public IOrder GetOrder(int orderId)
         {
             var orderDataModel = _orderDataManager.GetOrder(orderId);
@@ -37,6 +39,22 @@ namespace TouristCenter.Domain.Order.Managers
                 phone,
                 description);
             return order;
+        }
+
+        public bool IsAnyNewOrders()
+        {
+            var result = _orderDataManager.IsAnyNewOrders();
+            return result;
+        }
+
+        public void DeletOrder(int orderId)
+        {
+            var orderDataModel = _orderDataManager.GetOrder(orderId);
+            if (orderDataModel == null)
+            {
+                throw new OrderNotFoundException();
+            }
+            _orderDataManager.DeleteOrder(orderDataModel);
         }
 
         public IReadOnlyCollection<IOrder> GetOrderCollection(int skip, int take)

@@ -33,11 +33,15 @@
                                 <span class="input-group-text">Срок действия акции</span>
                                 <span class="required">*</span>
                             </div>
-                            <input [matDatepicker]="untilDate"
-                                   name="untilDate"
-                                   formControlName="untilDate"
-                                   [(ngModel)]="promotion.untilDate">
-                            <mat-datepicker #untilDate></mat-datepicker>
+                            <div>
+                                <input [matDatepicker]="untilDate"
+                                       name="untilDate"
+                                       placeholder="Choose a date"
+                                       formControlName="untilDate"
+                                       [(ngModel)]="promotion.untilDate">
+                                <mat-datepicker-toggle matSuffix [for]="untilDate"></mat-datepicker-toggle>
+                                <mat-datepicker #untilDate></mat-datepicker>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -112,11 +116,15 @@
                     </div>
                 </div>
                 <div class="actions">
-                    <button (click)="savePromotion()" 
-                            class="btn btn-primary" 
-                            [disabled]="!promotionForm.valid">Сохранить</button>
+                    <button (click)="savePromotion()"
+                            class="btn btn-primary"
+                            [disabled]="!promotionForm.valid">
+                        Сохранить
+                    </button>
                     <button routerLink="/administration/promotions"
-                            class="btn btn-secondary">Отменить</button>
+                            class="btn btn-secondary">
+                        Отменить
+                    </button>
                 </div>
             </div>
         </div>

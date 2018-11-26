@@ -50,6 +50,10 @@
                         </a>
                         <div [innerHtml]="tour.city"></div>
                         <div [innerHtml]="tour.description"></div>
+                        <div class="images-count">
+                            <i class="fa fa-image" aria-hidden="true"></i>
+                            <span [innerHtml]="tour.oldImageCollection.length"></span>
+                        </div>
                     </div>
                 </div>
                 <div class="tour-prices">
