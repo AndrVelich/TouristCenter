@@ -38,7 +38,9 @@ namespace TouristCenter.Controllers
         {
             var order = _orderManager.CreateOrder(orderViewModel.Name,
                   orderViewModel.Phone,
-                  orderViewModel.Description);
+                  orderViewModel.Description,
+                  orderViewModel.Url,
+                  orderViewModel.TourOrButton);
             order.CreateOrder();
         }
 

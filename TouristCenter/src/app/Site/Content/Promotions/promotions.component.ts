@@ -41,8 +41,10 @@ export class PromotionsComponent {
                     ()=> this.preloaderService.finishPreloader());
     }
 
-    public openOrderPopup() {
-        let dialogRef = this.dialog.open(OrderComponent);
+    public openOrderPopup(button : string) {
+        let dialogRef = this.dialog.open(OrderComponent, {
+            data: button
+        });
     }
 
     private setTitleAndMeta() : void

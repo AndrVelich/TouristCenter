@@ -6,6 +6,8 @@
             <td>Имя</td>
             <td>Телефон</td>
             <td>Описание</td>
+            <td>Страница</td>
+            <td>Кнопка/Отель</td>
             <td>Дата отправки</td>
             <td>Пометить как обработанное</td>
             <td>Удалить</td>
@@ -17,6 +19,10 @@
             <td class="name">{{order.name}}</td>
             <td class="phone">{{order.phone}}</td>
             <td>{{order.description}}</td>
+            <td>
+                <a target="_blank" href="{{order.url}}">{{order.url == '/' ? 'Home' : order.url}}</a>
+            </td>
+            <td>{{order.tourOrButton}}</td>
             <td class="createdDateTime">{{order.createdDateTime | date: 'yyyy-MM-dd HH:mm'}}</td>
             <td class="mark-as-processed center">
                 <a *ngIf="order.isNew" (click)="markAsProcessed(order)" class="link-big" style="color:blue">

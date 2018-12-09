@@ -29,7 +29,7 @@ export class OrderService{
     }
 
     public saveOrder(order: Order){
-        return this.http.post(this.url, order)
+        return this.http.put(this.url, order)
             .catch(this.handleError);
     }
 
@@ -62,7 +62,9 @@ export class Order
         public phone: string
         public description: string
         public isNew: boolean
-        public createdDateTime: string        
+        public createdDateTime: string
+        public url: string
+        public tourOrButton: string
 }
 
 export class OrdersPage

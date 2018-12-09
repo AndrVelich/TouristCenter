@@ -87,12 +87,12 @@ html.cdk-global-scrollblock {
 body.modal-open {
   overflow: hidden; }
 
-body.modal-open .cdk-global-overlay-wrapper {
-  pointer-events: all;
-  overflow: auto;
-  padding: 30px 0;
-  position: fixed; }
-
+/*body.modal-open .cdk-global-overlay-wrapper {
+    pointer-events: all;
+    overflow: auto;
+    padding: 30px 0;
+    position: fixed;
+}*/
 body .cdk-overlay-pane {
   /*position: relative !important;*/
   margin: auto !important; }

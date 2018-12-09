@@ -9,7 +9,7 @@ namespace TouristCenter.Storage.Interfaces.Order.Models
         public int OrderId { get; set; }
         [Required]
         [MaxLength(200)]
-        public string Name { get; set; }       
+        public string Name { get; set; }
         [Required]
         [MaxLength(200)]
         public string Phone { get; set; }
@@ -19,5 +19,7 @@ namespace TouristCenter.Storage.Interfaces.Order.Models
         public bool IsNew { get; set; }
         [Required]
         public DateTime CreatedDateTime { get; set; }
+        public string Url { get; set; }
+        public string TourOrButton { get; set; }
     }
 }

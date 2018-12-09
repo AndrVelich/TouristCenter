@@ -45,6 +45,10 @@ namespace TouristCenter.Domain.Order.Models
 
         public DateTime CreatedDateTime { get; private set; }
 
+        public string Url { get; set; }
+
+        public string TourOrButton { get; set; }
+
         internal Order(Storage.Interfaces.Order.Models.Order dataModel, IOrderDataManager orderDataManager)
         {
             OrderId = dataModel.OrderId;
@@ -53,6 +57,8 @@ namespace TouristCenter.Domain.Order.Models
             Description = dataModel.Description;
             IsNew = dataModel.IsNew;
             CreatedDateTime = dataModel.CreatedDateTime;
+            Url = dataModel.Url;
+            TourOrButton = dataModel.TourOrButton;
             _orderDataManager = orderDataManager;
         }
 
@@ -60,11 +66,15 @@ namespace TouristCenter.Domain.Order.Models
             IOrderDataManager orderDataManager,
             string name,
             string phone,
-            string description)
+            string description,
+            string url,
+            string tourOrButton)
         {
             Name = name;
             Phone = phone;
             Description = description;
+            Url = url;
+            TourOrButton = tourOrButton;
             IsNew = true;
             CreatedDateTime = DateTime.Now;
             _orderDataManager = orderDataManager;
@@ -93,7 +103,9 @@ namespace TouristCenter.Domain.Order.Models
                 Phone = Phone,
                 Description = Description,
                 IsNew = IsNew,
-                CreatedDateTime = CreatedDateTime
+                CreatedDateTime = CreatedDateTime,
+                Url = Url,
+                TourOrButton = TourOrButton
             };
             return orderDataModel;
         }

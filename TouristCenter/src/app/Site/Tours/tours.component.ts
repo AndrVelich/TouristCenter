@@ -49,8 +49,10 @@ export class ToursComponent {
         this.getTourCollection();
     }
 
-    public openOrderPopup() {
-        let dialogRef = this.dialog.open(OrderComponent);
+    public openOrderPopup(button : string) {
+        let dialogRef = this.dialog.open(OrderComponent, {
+            data: button
+        });
     }
 
     public openImagesPopup(imageIds: Array<number>) {

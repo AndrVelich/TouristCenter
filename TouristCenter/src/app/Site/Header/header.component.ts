@@ -43,7 +43,9 @@ export class HeaderComponent {
         this.isMobileMenuVisible = false;
     }
 
-    public openOrderPopup() {
-        let dialogRef = this.dialog.open(OrderComponent);
+    public openOrderPopup(button : string) {
+        let dialogRef = this.dialog.open(OrderComponent, {
+            data: button
+        });
     }
 }

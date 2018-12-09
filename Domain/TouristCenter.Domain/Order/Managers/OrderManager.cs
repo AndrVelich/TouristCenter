@@ -32,12 +32,16 @@ namespace TouristCenter.Domain.Order.Managers
         public IOrder CreateOrder(
             string name,
             string phone,
-            string description)
+            string description,
+            string url,
+            string tourOrButton)
         {
             var order = new Models.Order(_orderDataManager,
                 name,
                 phone,
-                description);
+                description,
+                url,
+                tourOrButton);
             return order;
         }
 

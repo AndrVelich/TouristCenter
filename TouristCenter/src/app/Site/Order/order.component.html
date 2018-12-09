@@ -1,48 +1,71 @@
-<div [formGroup]="orderForm" class="order-wrapper">
-  <div (click)="onNoClick()" class="cross-close">&#10005;</div>
-  <h2 mat-dialog-title class="header">Оставьте Ваш номер телефона и наш специалист свяжется с Вами в ближайшее время!</h2>
-  <div md-dialog-content class="content">
-    <div class="control-block">
-      <label>
-        Представьтесь, пожалуйста
-        <span class="required">*</span>
-      </label>
-      <div>
-        <input class="form-control" formControlName="name" [(ngModel)]="order.name" type="text" />
-        <div *ngIf="orderForm.controls.name.invalid && orderForm.controls.name.dirty">
-            <div class="error" *ngIf="orderForm.controls.name.errors.required">
-                Пожалуйста, введите Ваше имя
+<div class="order-wrapper">
+    <img class="tracery tracery-left" src="/Content/Images/tracery.png" />
+    <img class="tracery tracery-right" src="/Content/Images/tracery.png" />
+    <!--<div (click)="onNoClick()" class="cross-close">&#10005;</div>-->
+    <div [formGroup]="orderForm" *ngIf="!showConfirmMessage">
+        <div mat-dialog-title class="header">
+            <div>Оставьте Ваш номер телефона,</div>
+            <div>и наш специалист</div>
+            <div>свяжется с Вами в ближайшее время!</div>
+        </div>
+        <div mat-dialog-content class="content">
+            <div class="control-block">
+                <!--<label>
+                  Представьтесь, пожалуйста
+                  <span class="required">*</span>
+                </label>-->
+                <div>
+                    <input class="form-control" placeholder="Ваше имя" formControlName="name" [(ngModel)]="order.name" type="text" />
+                    <div *ngIf="orderForm.controls.name.invalid && orderForm.controls.name.dirty">
+                        <div class="error" *ngIf="orderForm.controls.name.errors.required">
+                            Пожалуйста, введите Ваше имя
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="control-block">
+                <!--<label>
+                  Контактный телефон
+                  <span class="required">*</span>
+                </label>-->
+                <div class="phone-block">
+                    <input class="form-control" placeholder="Ваш телефон" [textMask]="{mask: mask}" formControlName="phone" [(ngModel)]="order.phone" type="text" />
+                    <div *ngIf="orderForm.controls.phone.invalid && orderForm.controls.phone.dirty">
+                        <div class="error" *ngIf="orderForm.controls.phone.errors.required">
+                            Пожалуйста, заполните поле телефон
+                        </div>
+                        <div class="error" *ngIf="orderForm.controls.phone.errors.pattern">
+                            Пожалуйста, введите телефон в формате 8(029) 111-11-11
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="control-textarea-block">
+                <!--<label>
+                  Сообщение
+                </label>-->
+                <div>
+                    <textarea placeholder="Сообщение" formControlName="description" [(ngModel)]="order.description"></textarea>
+                </div>
             </div>
         </div>
-      </div>
-    </div>
-    <div class="control-block">
-      <label>
-        Контактный телефон
-        <span class="required">*</span>
-      </label>
-      <div class="phone-block">
-        <input class="form-control" placeholder="8(029) 000-00-00" [textMask]="{mask: mask}" formControlName="phone" [(ngModel)]="order.phone" type="text" />
-        <div *ngIf="orderForm.controls.phone.invalid && orderForm.controls.phone.dirty">
-            <div class="error" *ngIf="orderForm.controls.phone.errors.required">
-                Пожалуйста, заполните поле телефон
-            </div>
-            <div class="error" *ngIf="orderForm.controls.phone.errors.pattern">
-                Пожалуйста, введите телефон в формате 8(029) 111-11-11
-            </div>
+        <!--mat-dialog-actions-->
+        <div class="actions">
+            <button (click)="saveOrder()" class="order-btn" [disabled]="!orderForm.valid">ПЕРЕЗВОНИТЕ МНЕ!</button>
         </div>
-      </div>
     </div>
-    <div class="control-textarea-block">
-      <label>
-        Сообщение
-      </label>
-      <div>
-        <textarea formControlName="description" [(ngModel)]="order.description"></textarea>
-      </div>
+    <div *ngIf="showConfirmMessage">
+        <div class="header">
+            <div>Спасибо!</div>
+            <div>Ваша заявка отправлена!</div>
+        </div>
+        <div class="actions">
+            <button (click)="onNoClick()" class="close-btn">Закрыть</button>
+        </div>
     </div>
-  </div>
-  <div mat-dialog-actions class="actions">
-    <button (click)="saveOrder()" class="order-btn" [disabled]="!orderForm.valid">ПЕРЕЗВОНИТЕ МНЕ!</button>
-  </div>
+    <div *ngIf="isPreloaderInProgress"
+         class="preloader">
+        <img class="ajax-loader" src="/Content/Images/preloader.gif" />
+    </div>
 </div>
+

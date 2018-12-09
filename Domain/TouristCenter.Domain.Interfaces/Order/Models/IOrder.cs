@@ -10,6 +10,8 @@ namespace TouristCenter.Domain.Interfaces.Order.Models
         string Description { get; set; }
         bool IsNew { get; set; }
         DateTime CreatedDateTime { get; }
+        string Url { get; set; }
+        string TourOrButton { get; set; }
 
         void CreateOrder();
         void UpdateOrder();

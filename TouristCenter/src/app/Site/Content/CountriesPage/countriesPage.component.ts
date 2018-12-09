@@ -56,8 +56,9 @@ export class CountriesPageComponent {
          this.metaService.addTag({ name: 'keywords', content: "отдых 2018, отдых 2018 цены, где отдохнуть, страны" });
     }
 
-    public openOrderPopup() 
-    {
-        let dialogRef = this.dialog.open(OrderComponent);
+    public openOrderPopup(button : string) {
+        let dialogRef = this.dialog.open(OrderComponent, {
+            data: button
+        });
     }
 }

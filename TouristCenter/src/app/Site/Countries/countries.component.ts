@@ -52,8 +52,10 @@ export class CountriesComponent {
                     ()=> this.preloaderService.finishPreloader());
     }
 
-    public openOrderPopup() 
+    public openOrderPopup(button : string) 
     {
-        let dialogRef = this.dialog.open(OrderComponent);
+        let dialogRef = this.dialog.open(OrderComponent, {
+            data: button
+        });
     }
 }

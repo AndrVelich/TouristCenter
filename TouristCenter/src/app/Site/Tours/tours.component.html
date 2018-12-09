@@ -25,7 +25,7 @@
                         <img src="/Content/Images/star.png"
                              *ngFor="let i of starsArray(tour.stars).fill('star')" />
                     </div>
-                    <a (click)="openOrderPopup()"
+                    <a (click)="openOrderPopup(tour.name)"
                        class="tour-name-link">
                         <span [innerHtml]="tour.name"></span>
                     </a>
@@ -47,7 +47,7 @@
                 <div class="price">
                     <div>от <span class="value font-OpenSans-Semibold" [innerHtml]="tour.price + ' BYN'"></span></div>
                 </div>
-                <a (click)="openOrderPopup()"
+                <a (click)="openOrderPopup(tour.name)"
                    class="order-btn">ПОДРОБНЕЕ</a>
             </div>
         </div>

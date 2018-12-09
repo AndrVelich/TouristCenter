@@ -9,7 +9,9 @@ namespace TouristCenter.Domain.Interfaces.Order.Managers
         IOrder GetOrder(int orderId);
         IOrder CreateOrder(string name,
             string phone,
-            string description);
+            string description,
+            string url,
+            string tourOrButton);
         IReadOnlyCollection<IOrder> GetOrderCollection(int skip, int take);
         bool IsAnyNewOrders();
         int GetOrdersCount();

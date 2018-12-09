@@ -17,7 +17,9 @@ export class FooterComponent {
         
     }
 
-    public openOrderPopup() {
-        let dialogRef = this.dialog.open(OrderComponent);
+    public openOrderPopup(button : string) {
+        let dialogRef = this.dialog.open(OrderComponent, {
+            data: button
+        });
     }
 }

@@ -339,6 +339,7 @@
     <Content Include="Content\Images\TourTypes\arrow.png" />
     <Content Include="Content\Images\TourTypes\banner.jpg" />
     <Content Include="Content\Images\TourTypes\categories.jpg" />
+    <Content Include="Content\Images\tracery.png" />
     <Content Include="Content\Site.css">
       <DependentUpon>Site.scss</DependentUpon>
     </Content>

@@ -22,7 +22,7 @@
                     <h4>Просто подмигните нашему специалисту, и он будет знать, что Вам нужна профессиональная помощь.</h4>
                 </div>
                 <div class="font-PFDinDisplayPro-Light">
-                    <button type="button" (click)="openOrderPopup()" class="order-btn">
+                    <button type="button" (click)="openOrderPopup('ПОДМИГНУТЬ')" class="order-btn">
                         ПОДМИГНУТЬ
                     </button>
                 </div>
@@ -88,13 +88,13 @@
                 <h2 class="center">В каталоге предложений «Travel X» Вы найдете:</h2>
                 <div class="categories-wrapper font-OpenSans-Semibold">
                     <div class="category">
-                        <a (click)="openOrderPopup()">горящие путевки на море<img src="/Content/Images/Countries/blue-arr-big.png" /></a>
+                        <a (click)="openOrderPopup('горящие путевки на море')">горящие путевки на море<img src="/Content/Images/Countries/blue-arr-big.png" /></a>
                     </div>
                     <div class="category">
-                        <a (click)="openOrderPopup()">экскурсионные маршруты по Европе<img src="/Content/Images/Countries/blue-arr-big.png" /></a>
+                        <a (click)="openOrderPopup('экскурсионные маршруты по Европе')">экскурсионные маршруты по Европе<img src="/Content/Images/Countries/blue-arr-big.png" /></a>
                     </div>
                     <div class="category">
-                        <a (click)="openOrderPopup()">идеи для свадебных туров<img src="/Content/Images/Countries/blue-arr-big.png" /></a>
+                        <a (click)="openOrderPopup('идеи для свадебных туров')">идеи для свадебных туров<img src="/Content/Images/Countries/blue-arr-big.png" /></a>
                     </div>
                     <div class="category">
                         <a [routerLink]="[ '/tour/beach' ]">экзотические направления<img src="/Content/Images/Countries/blue-arr-big.png" /></a>

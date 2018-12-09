@@ -11,6 +11,8 @@ namespace TouristCenter.Models.Order
         public string Description { get; set; }
         public bool IsNew { get; set; }
         public DateTime? CreatedDateTime { get; set; }
+        public string Url { get; set; }
+        public string TourOrButton { get; set; }
 
         public OrderViewModel()
         { }
@@ -23,6 +25,8 @@ namespace TouristCenter.Models.Order
             Description = order.Description;
             IsNew = order.IsNew;
             CreatedDateTime = order.CreatedDateTime;
+            Url = order.Url;
+            TourOrButton = order.TourOrButton;
         }
     }
 }
