@@ -1,11 +1,13 @@
-﻿import { Injectable } from "@angular/core";
+
+import {throwError as observableThrowError,  Observable } from 'rxjs';
+
+import {map, catchError} from 'rxjs/operators';
+import { Injectable } from "@angular/core";
 import { Dictionary } from "@common/Types/Dictionary";
 import { Http, Response } from "@angular/http";
-
-import { Observable } from "rxjs/Observable";
 //import {Observable} from 'rxjs/Rx';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
+
+
 
 @Injectable()
 export class CountryService{
@@ -18,15 +20,15 @@ export class CountryService{
     }
 
     public getCountryCollection(tourType?: string): Observable<Country[]>{
-        return this.http.get('api/countries/' + (tourType || ''))
-            .map((res: Response) => <Country[]>res.json())
-            .catch(this.handleError);
+        return this.http.get('api/countries/' + (tourType || '')).pipe(
+            map((res: Response) => <Country[]>res.json()),
+            catchError(this.handleError),);
     }
 
     public getCountry(tourType: string, countryUrlName: string): Observable<Country>{
-        return this.http.get('api/country/' + tourType + '/' + countryUrlName)
-            .map((res: Response) => <Country>res.json())
-            .catch(this.handleError);
+        return this.http.get('api/country/' + tourType + '/' + countryUrlName).pipe(
+            map((res: Response) => <Country>res.json()),
+            catchError(this.handleError),);
     }
 
     private handleError(error: any, cought: Observable<any>): any 
@@ -42,7 +44,7 @@ export class CountryService{
 
         console.error(message);
 
-        return Observable.throw(message);
+        return observableThrowError(message);
     }
 }
 

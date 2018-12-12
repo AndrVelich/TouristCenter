@@ -1,11 +1,13 @@
-﻿import { Injectable } from "@angular/core";
+
+import {throwError as observableThrowError,  Observable } from 'rxjs';
+
+import {map, catchError} from 'rxjs/operators';
+import { Injectable } from "@angular/core";
 import { Dictionary } from "@common/Types/Dictionary";
 import { Http, Response } from "@angular/http";
-
-import { Observable } from "rxjs/Observable";
 //import {Observable} from 'rxjs/Rx';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
+
+
 
 @Injectable()
 export class PromotionService{
@@ -17,15 +19,15 @@ export class PromotionService{
     }
 
     public getPromotionCollection(): Observable<Promotion[]>{
-        return this.http.get('api/promotions')
-            .map((res: Response) => <Promotion[]>res.json())
-            .catch(this.handleError);
+        return this.http.get('api/promotions').pipe(
+            map((res: Response) => <Promotion[]>res.json()),
+            catchError(this.handleError),);
     }
 
     public getPromotion(promotionUrlName: string): Observable<Promotion>{
-        return this.http.get('api/promotion/' + promotionUrlName)
-            .map((res: Response) => <Promotion>res.json())
-            .catch(this.handleError);
+        return this.http.get('api/promotion/' + promotionUrlName).pipe(
+            map((res: Response) => <Promotion>res.json()),
+            catchError(this.handleError),);
     }
 
     private handleError(error: any, cought: Observable<any>): any 
@@ -41,7 +43,7 @@ export class PromotionService{
 
         console.error(message);
 
-        return Observable.throw(message);
+        return observableThrowError(message);
     }
 }
 

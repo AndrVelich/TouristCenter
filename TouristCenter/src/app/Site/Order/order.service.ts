@@ -1,11 +1,13 @@
+
+import {throwError as observableThrowError,  Observable } from 'rxjs';
+
+import {catchError} from 'rxjs/operators';
 import { Injectable } from "@angular/core";
 import { Http, Response } from "@angular/http";
 import { Order } from "./order";
-
-import { Observable } from "rxjs/Observable";
 //import {Observable} from 'rxjs/Rx';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
+
+
 
 @Injectable()
 export class OrderService{
@@ -15,8 +17,8 @@ export class OrderService{
     constructor(private http: Http) { }
 
     public addOrder(order: Order) {
-        return this.http.post(this.url, order)
-            .catch(this.handleError);
+        return this.http.post(this.url, order).pipe(
+            catchError(this.handleError));
     }
 
     private handleError(error: any, cought: Observable<any>): any {
@@ -31,6 +33,6 @@ export class OrderService{
 
         console.error(message);
 
-        return Observable.throw(message);
+        return observableThrowError(message);
     }
 }

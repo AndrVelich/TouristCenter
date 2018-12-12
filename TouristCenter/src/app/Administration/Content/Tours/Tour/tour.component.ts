@@ -58,7 +58,7 @@ export class TourComponent {
             reader.readAsDataURL(event.target.files[0]);
 
             reader.onload = () => {
-                this.tour.newImageCollection.push(reader.result);
+                this.tour.newImageCollection.push(reader.result as string);
                 event.target.value = null;
             }
         }
@@ -76,9 +76,8 @@ export class TourComponent {
         this.tourService.addTour(this.tour)
       //TODO need notifcation
       .subscribe(
-      () => 
-      {
-            this.router.navigate(['administration/tours'])
+      () => {
+          this.router.navigate(['administration/tours']);
       },
       error => this.errorMessage = error);
     }
@@ -91,9 +90,8 @@ export class TourComponent {
         });
     }
 
-    public isCountrySelectDisabled()
-    {
-        let result = this.isCountriesLoaded || !this.tour.category
+    public isCountrySelectDisabled() {
+        let result = this.isCountriesLoaded || !this.tour.category;
         return result;
     }
 

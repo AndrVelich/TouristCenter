@@ -1,8 +1,8 @@
-﻿import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { MatSelectModule, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
-import {Observable} from 'rxjs/Rx';
-import 'rxjs/add/operator/map';
+import {Observable} from 'rxjs';
+
 
 import { ConfirmationPopupComponent } from "@administrationCommon/Components/ConfirmationPopup/confirmationPopup.component";
 

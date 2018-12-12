@@ -50,7 +50,7 @@ export class CountryComponent implements OnInit  {
             reader.readAsDataURL(event.target.files[0]);
 
             reader.onload = () => {
-                this.country.newImageCollection.push(reader.result);
+                this.country.newImageCollection.push(reader.result as string);
                 event.target.value = null;
             }
         }

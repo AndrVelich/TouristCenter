@@ -1,4 +1,4 @@
-﻿import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { MatSelectModule, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Dictionary } from "@common/Types/Dictionary";
 import { TourTypeService } from "@common/Services/tourType.service"; 
@@ -7,8 +7,8 @@ import { Country } from "@administrationCommon/Services/country.service";
 import { ConfirmationPopupComponent } from "@administrationCommon/Components/ConfirmationPopup/confirmationPopup.component";
 
 //import { Observable } from "rxjs/Observable";
-import {Observable} from 'rxjs/Rx';
-import 'rxjs/add/operator/map';
+import {Observable} from 'rxjs';
+
 
 @Component({
     

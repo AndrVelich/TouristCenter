@@ -40,7 +40,7 @@ export class PromotionComponent implements OnInit  {
             reader.readAsDataURL(event.target.files[0]);
 
             reader.onload = () => {
-                this.promotion.newImageCollection.push(reader.result);
+                this.promotion.newImageCollection.push(reader.result as string);
                 event.target.value = null;
             }
         }

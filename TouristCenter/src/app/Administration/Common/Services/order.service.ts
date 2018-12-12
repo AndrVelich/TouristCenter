@@ -1,11 +1,13 @@
-﻿import { Injectable } from "@angular/core";
+
+import {throwError as observableThrowError,  Observable } from 'rxjs';
+
+import {map, catchError} from 'rxjs/operators';
+import { Injectable } from "@angular/core";
 import { Dictionary } from "@common/Types/Dictionary";
 import { Http, Response } from "@angular/http";
-
-import { Observable } from "rxjs/Observable";
 //import {Observable} from 'rxjs/Rx';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
+
+
 
 @Injectable()
 export class OrderService{
@@ -17,25 +19,25 @@ export class OrderService{
     }
 
     public getOrdersPage(skip: number, take: number): Observable<OrdersPage>{
-        return this.http.get('api/ordersPage/' + skip + '/' + take)
-            .map((res: Response) => <OrdersPage>res.json())
-            .catch(this.handleError);
+        return this.http.get('api/ordersPage/' + skip + '/' + take).pipe(
+            map((res: Response) => <OrdersPage>res.json()),
+            catchError(this.handleError),);
     }
 
     public isAnyNewOrders(): Observable<boolean>{
-        return this.http.get('api/orders/isAnyNew')
-            .map((res: Response) => <boolean>res.json())
-            .catch(this.handleError);
+        return this.http.get('api/orders/isAnyNew').pipe(
+            map((res: Response) => <boolean>res.json()),
+            catchError(this.handleError),);
     }
 
     public saveOrder(order: Order){
-        return this.http.put(this.url, order)
-            .catch(this.handleError);
+        return this.http.put(this.url, order).pipe(
+            catchError(this.handleError));
     }
 
     public deleteOrder(orderId : number){
-        return this.http.delete(this.url + orderId)
-            .catch(this.handleError);
+        return this.http.delete(this.url + orderId).pipe(
+            catchError(this.handleError));
     }
 
     private handleError(error: any, cought: Observable<any>): any 
@@ -51,7 +53,7 @@ export class OrderService{
 
         console.error(message);
 
-        return Observable.throw(message);
+        return observableThrowError(message);
     }
 }
 

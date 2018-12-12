@@ -1,15 +1,10 @@
 import {
     Component,
-    trigger,
-    state,
-    style,
-    transition,
-    animate,
     OnDestroy,
     OnInit
 } from "@angular/core";
-import { Observable } from 'rxjs/Observable';
-import { interval } from 'rxjs/observable/interval';
+import { trigger, state, transition, animate, style } from '@angular/animations';
+import { Observable ,  interval } from 'rxjs';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { OrderService } from "@administrationCommon/Services/order.service";
 

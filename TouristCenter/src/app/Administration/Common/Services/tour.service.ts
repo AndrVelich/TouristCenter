@@ -1,11 +1,13 @@
-﻿import { Injectable } from "@angular/core";
+
+import {throwError as observableThrowError,  Observable } from 'rxjs';
+
+import {catchError, map} from 'rxjs/operators';
+import { Injectable } from "@angular/core";
 import { Dictionary } from "@common/Types/Dictionary";
 import { Http, Response } from "@angular/http";
-
-import { Observable } from "rxjs/Observable";
 //import {Observable} from 'rxjs/Rx';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
+
+
 
 @Injectable()
 export class TourService{
@@ -18,31 +20,31 @@ export class TourService{
     }
 
     public getTourCollection(tourType: string, country?: string): Observable<Tour[]>{
-        return this.http.get('api/tours/' + tourType + '/' + (country || ''))
-            .map((res: Response) => <Tour[]>res.json())
-            .catch(this.handleError);
+        return this.http.get('api/tours/' + tourType + '/' + (country || '')).pipe(
+            map((res: Response) => <Tour[]>res.json()),
+            catchError(this.handleError),);
     }
 
     public getAllTourCollection(): Observable<Tour[]>{
-        return this.http.get('api/tours/allTours')
-            .map((res: Response) => <Tour[]>res.json())
-            .catch(this.handleError);
+        return this.http.get('api/tours/allTours').pipe(
+            map((res: Response) => <Tour[]>res.json()),
+            catchError(this.handleError),);
     }
 
     public getTour(tourType: string, countryUrlName: string, tourUrlName: string): Observable<Tour>{
-        return this.http.get(this.url + tourType + '/' + countryUrlName + '/' + tourUrlName)
-            .map((res: Response) => <Tour>res.json())
-            .catch(this.handleError);
+        return this.http.get(this.url + tourType + '/' + countryUrlName + '/' + tourUrlName).pipe(
+            map((res: Response) => <Tour>res.json()),
+            catchError(this.handleError),);
     }
 
     public addTour(tour){
-        return this.http.post(this.url, tour)
-            .catch(this.handleError);
+        return this.http.post(this.url, tour).pipe(
+            catchError(this.handleError));
     }
 
     public deleteTour(tourId){
-        return this.http.delete(this.url + tourId)
-            .catch(this.handleError);
+        return this.http.delete(this.url + tourId).pipe(
+            catchError(this.handleError));
     }
 
     private handleError(error: any, cought: Observable<any>): any 
@@ -58,7 +60,7 @@ export class TourService{
 
         console.error(message);
 
-        return Observable.throw(message);
+        return observableThrowError(message);
     }
 }
 

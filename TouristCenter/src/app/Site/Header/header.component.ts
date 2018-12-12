@@ -1,11 +1,7 @@
 import {
-    Component,
-    trigger,
-    state,
-    style,
-    transition,
-    animate
+    Component
 } from "@angular/core";
+import { trigger, state, transition, animate, style } from '@angular/animations';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { OrderComponent } from '../Order/order.component';
 
