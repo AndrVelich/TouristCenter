@@ -260,3 +260,4 @@ paket-files/
 __pycache__/
 *.pyc
 TouristCenter/distAdministration/
+TouristCenter/distSite/
