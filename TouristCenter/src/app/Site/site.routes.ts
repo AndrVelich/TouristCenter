@@ -19,6 +19,10 @@ import { SkiingToursComponent } from "./Content/TourTypes/Skiing/Tours/skiingTou
 import { PromotionsComponent } from "./Content/Promotions/promotions.component";
 import { PromotionDetailsComponent } from "./Content/Promotions/PromotionDetails/promotionDetails.component";
 
+import { HotCountriesComponent } from "./Content/Hot/Countries/hotCountries.component";
+import { HotToursComponent } from "./Content/Hot/Tours/hotTours.component";
+
+
 export const routes: Routes = [
     {
         path: '',
@@ -92,5 +96,14 @@ export const routes: Routes = [
     { 
         path: 'contacts', 
         component: ContactsComponent
+    },
+    {
+        path: 'hot-tours',
+        component: HotCountriesComponent
+    },
+    {
+        path: 'hot-tours/:country',
+        component: HotToursComponent
     }
+   
 ];

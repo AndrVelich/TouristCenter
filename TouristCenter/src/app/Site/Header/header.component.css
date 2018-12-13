@@ -96,40 +96,44 @@
     display: none; } }
 
 @media (min-width: 600px) {
-  header .header-content .topHeaderMenu .header-sm {
-    display: flex;
-    justify-content: space-between; }
-  header .header-content .topHeaderMenu .header-xs {
-    display: none; }
-  header .header-content .topHeaderMenu .width-wrapper .separator {
-    width: 1px;
-    height: 50px; } }
+  header .header-content .topHeaderMenu {
+    height: 75px; }
+    header .header-content .topHeaderMenu .header-sm {
+      display: flex;
+      justify-content: space-between; }
+    header .header-content .topHeaderMenu .header-xs {
+      display: none; }
+    header .header-content .topHeaderMenu .width-wrapper .separator {
+      width: 1px;
+      height: 50px; } }
 
 @media (max-width: 600px) {
   header {
     position: initial; }
-    header .header-content .topHeaderMenu .header-sm {
-      display: none; }
-    header .header-content .topHeaderMenu .header-xs {
-      display: block; }
-    header .header-content .topHeaderMenu .width-wrapper .level {
-      display: block; }
-      header .header-content .topHeaderMenu .width-wrapper .level .separator {
-        width: 250px;
-        height: 1px;
-        margin: 10px auto 0 auto; }
-      header .header-content .topHeaderMenu .width-wrapper .level .logo {
-        display: block;
-        text-align: center;
-        padding-top: 50px; }
-      header .header-content .topHeaderMenu .width-wrapper .level .header-item {
-        padding-left: 0px;
-        padding-right: 0px;
-        display: block;
-        margin-right: auto;
-        margin-left: auto;
-        width: 240px;
-        text-align: center; }
+    header .header-content .topHeaderMenu {
+      height: 100%; }
+      header .header-content .topHeaderMenu .header-sm {
+        display: none; }
+      header .header-content .topHeaderMenu .header-xs {
+        display: block; }
+      header .header-content .topHeaderMenu .width-wrapper .level {
+        display: block; }
+        header .header-content .topHeaderMenu .width-wrapper .level .separator {
+          width: 250px;
+          height: 1px;
+          margin: 10px auto 0 auto; }
+        header .header-content .topHeaderMenu .width-wrapper .level .logo {
+          display: block;
+          text-align: center;
+          padding-top: 50px; }
+        header .header-content .topHeaderMenu .width-wrapper .level .header-item {
+          padding-left: 0px;
+          padding-right: 0px;
+          display: block;
+          margin-right: auto;
+          margin-left: auto;
+          width: 240px;
+          text-align: center; }
     header .header-content .middleHeaderMenu {
       margin-top: 35px;
       display: block; }

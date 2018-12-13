@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web.Http;
+using TouristCenter.Domain.Interfaces.Common.Enums;
 using TouristCenter.Domain.Interfaces.Country.Exceptions;
 using TouristCenter.Domain.Interfaces.Country.Managers;
 using TouristCenter.Domain.Interfaces.Country.Models;
@@ -56,6 +59,28 @@ namespace TouristCenter.Controllers
             return result;
         }
 
+        [HttpGet]
+        [Route("api/hotCountries")]
+        public List<CountryViewModel> GetHotCollection()
+        {
+            var domainTourType = TourTypesEnum.Beach;
+            var countries = _countryManager.GetCountryCollection(domainTourType);
+
+            var discount = decimal.Parse(ConfigurationManager.AppSettings["HotToursDiscount"]);
+            foreach (var country in countries)
+            {
+                country.FiveStarsPrice = (int)(country.FiveStarsPrice * discount);
+                country.FourStarsPrice = (int)(country.FourStarsPrice * discount);
+                country.ThreeStarsPrice = (int)(country.ThreeStarsPrice * discount);
+            }
+
+            var result = countries.Select(c => new CountryViewModel(c))
+            .OrderBy(c => c.Name)
+            .ToList();
+
+            return result;
+        }
+
         [Authorize]
         public void Post(CountryViewModel country)
         {
@@ -71,7 +96,7 @@ namespace TouristCenter.Controllers
                 countryModel.FiveStarsPrice = country.FiveStarsPrice;
                 countryModel.Description = country.Description;
                 countryModel.PageContent = country.PageContent;
-                
+
             }
             catch (CountryNotFoundException)
             {

@@ -22,13 +22,19 @@ export class CountryService{
     public getCountryCollection(tourType?: string): Observable<Country[]>{
         return this.http.get('api/countries/' + (tourType || '')).pipe(
             map((res: Response) => <Country[]>res.json()),
-            catchError(this.handleError),);
+            catchError(this.handleError));
     }
 
     public getCountry(tourType: string, countryUrlName: string): Observable<Country>{
         return this.http.get('api/country/' + tourType + '/' + countryUrlName).pipe(
             map((res: Response) => <Country>res.json()),
-            catchError(this.handleError),);
+            catchError(this.handleError));
+    }
+
+    public getHotCountryCollection(): Observable<Country[]> {
+        return this.http.get('api/hotCountries').pipe(
+            map((res: Response) => <Country[]>res.json()),
+            catchError(this.handleError));
     }
 
     private handleError(error: any, cought: Observable<any>): any 
@@ -37,7 +43,7 @@ export class CountryService{
 
         if (error instanceof Response) {
             let errorData = error.json().error || JSON.stringify(error.json());
-            message = `${error.status} - ${error.statusText || ''} ${errorData}`
+            message = `${error.status} - ${error.statusText || ''} ${errorData}`;
         } else {
             message = error.message ? error.message : error.toString();
         }
@@ -49,22 +55,22 @@ export class CountryService{
 }
 
 export class Country{
-    public countryId : number
-    public name : string
-    public urlName : string
-    public category : string
-    public threeStarsPrice : number
-    public fourStarsPrice : number
-    public fiveStarsPrice : number
-    public description : string
-    public pageHeader : string
-    public title : string
-    public pageContent : string
-    public pageContentBottom : string
-    public metaDescription : string
-    public metaKeywords : string
-    public newImageCollection : string[]
-    public oldImageCollection : number[]
+    public countryId : number;
+    public name : string;
+    public urlName : string;
+    public category : string;
+    public threeStarsPrice : number;
+    public fourStarsPrice : number;
+    public fiveStarsPrice : number;
+    public description : string;
+    public pageHeader : string;
+    public title : string;
+    public pageContent : string;
+    public pageContentBottom : string;
+    public metaDescription : string;
+    public metaKeywords : string;
+    public newImageCollection : string[];
+    public oldImageCollection : number[];
 
     constructor()
     {

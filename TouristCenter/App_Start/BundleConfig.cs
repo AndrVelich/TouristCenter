@@ -6,7 +6,7 @@ namespace TouristCenter
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-            #region [Loyout]
+            #region [Layout]
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
@@ -33,13 +33,13 @@ namespace TouristCenter
 
 
             bundles.Add(new ScriptBundle("~/distSite/siteApp")
-                .Include("~/distSite/inline.*")
+                .Include("~/distSite/runtime.*")
                 .Include("~/distSite/polyfills.*")
                 .Include("~/distSite/main.*")
                 );
 
             bundles.Add(new ScriptBundle("~/distAdministration/administrationApp")
-                .Include("~/distAdministration/inline.*")
+                .Include("~/distAdministration/runtime.*")
                 .Include("~/distAdministration/polyfills.*")
                 .Include("~/distAdministration/main.*")
                 );

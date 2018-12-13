@@ -3,7 +3,9 @@
          (click)="toPrevious()"
          class="arrow to-left">
     </div>
-    <img [src]="getImagePath()" />
+    <img [src]="getImagePath()"
+         (click)="toNext()"
+         />
     <div *ngIf="isNextAvailable()"
          (click)="toNext()" 
          class="arrow to-right">

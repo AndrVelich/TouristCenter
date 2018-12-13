@@ -198,5 +198,25 @@
   {
     "outputFile": "src/app/Site/Content/CountriesPage/countriesPage.component.css",
     "inputFile": "src/app/Site/Content/CountriesPage/countriesPage.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/TourTypes/content.component.css",
+    "inputFile": "src/app/Site/Content/TourTypes/content.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/content.component.css",
+    "inputFile": "src/app/Site/Content/content.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/Hot/hot.component.css",
+    "inputFile": "src/app/Site/Content/Hot/hot.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/Hot/Tours/hotTours.component.css",
+    "inputFile": "src/app/Site/Content/Hot/Tours/hotTours.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/Hot/Countries/hotCountries.component.css",
+    "inputFile": "src/app/Site/Content/Hot/Countries/hotCountries.component.scss"
   }
 ]

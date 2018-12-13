@@ -5,7 +5,8 @@
 .images-popup-wrapper {
   position: relative; }
   .images-popup-wrapper img {
-    width: 100%; }
+    width: 100%;
+    cursor: pointer; }
   .images-popup-wrapper .arrow {
     height: 32px;
     width: 20px;
@@ -14,7 +15,7 @@
     position: absolute;
     top: 50%;
     margin-top: -16px;
-    opacity: 0.3;
+    opacity: 0.7;
     -o-transition: opacity 300ms ease;
     transition: opacity 300ms ease;
     cursor: pointer; }
@@ -33,10 +34,9 @@
     top: 12px;
     right: 12px;
     background-position: -3px 0px;
-    opacity: 0.5;
+    opacity: 0.7;
     -o-transition: opacity 100ms linear;
     transition: opacity 100ms linear;
     cursor: pointer; }
   .images-popup-wrapper .cross-close:hover {
     opacity: 1; }
-

@@ -7,8 +7,8 @@ import { TextMaskModule } from 'angular2-text-mask';
 import { RouterModule } from "@angular/router";
 
 import {
-  MatDialogModule,
-  MatSelectModule,
+    MatDialogModule,
+    MatSelectModule,
 } from '@angular/material';
 
 import { CommonModule } from "../Common/common.module";
@@ -41,6 +41,8 @@ import { SkiingToursComponent } from "./Content/TourTypes/Skiing/Tours/skiingTou
 import { PromotionsComponent } from "./Content/Promotions/promotions.component";
 import { PromotionDetailsComponent } from "./Content/Promotions/PromotionDetails/promotionDetails.component";
 import { ImagesPopupComponent } from "./Content/ImagesPopup/imagesPopup.component";
+import { HotCountriesComponent } from "./Content/Hot/Countries/hotCountries.component";
+import { HotToursComponent } from "./Content/Hot/Tours/hotTours.component";
 import { SlideshowModule } from 'ng-simple-slideshow';
 
 import { CountryService } from "./Common/Services/country.service";
@@ -49,65 +51,69 @@ import { PromotionService } from "./Common/Services/promotion.service";
 
 @NgModule({
     imports:
-    [
-        BrowserModule,
-        BrowserAnimationsModule,
-        ReactiveFormsModule,
-        MatDialogModule,
-        MatSelectModule,
-        HttpModule,
-        TextMaskModule,
-        CommonModule,
-        SlideshowModule,
+        [
+            BrowserModule,
+            BrowserAnimationsModule,
+            ReactiveFormsModule,
+            MatDialogModule,
+            MatSelectModule,
+            HttpModule,
+            TextMaskModule,
+            CommonModule,
+            SlideshowModule,
 
-        RouterModule.forRoot(routes)
-    ],
-    providers: 
-    [
-        CountryService,
-        TourService,
-        PromotionService
-    ],
+            RouterModule.forRoot(routes)
+        ],
+    providers:
+        [
+            CountryService,
+            TourService,
+            PromotionService
+        ],
     entryComponents:
-    [
-        TourTypesComponent,
-        HeaderComponent,
-        OrderComponent,
+        [
+            TourTypesComponent,
+            HeaderComponent,
+            OrderComponent,
 
-        ImagesPopupComponent,
-        PromotionsComponent,
-        PromotionDetailsComponent
-    ],
+            ImagesPopupComponent,
+            PromotionsComponent,
+            PromotionDetailsComponent
+        ],
     declarations:
-    [
-        SiteComponent,
-        HeaderComponent,
-        OrderComponent,
-        FooterComponent,
-        ContentComponent, 
-        HomeComponent,
-        CountriesPageComponent,
-        TourTypesComponent,
-        CountriesComponent,
-        ToursComponent,
-        ContactsComponent,
+        [
+            SiteComponent,
+            HeaderComponent,
+            OrderComponent,
+            FooterComponent,
+            ContentComponent,
+            HomeComponent,
+            CountriesPageComponent,
+            TourTypesComponent,
+            CountriesComponent,
+            ToursComponent,
+            ContactsComponent,
 
-        BeachCountryComponent,
-        BeachToursComponent,
-        BusToursComponent,
-        CorporateCountryComponent,
-        CorporateToursComponent,
-        IndividualCountryComponent,
-        IndividualToursComponent,
-        NewYearCountryComponent, 
-        NewYearToursComponent, 
-        SkiingCountryComponent,
-        SkiingToursComponent,
+            BeachCountryComponent,
+            BeachToursComponent,
+            BusToursComponent,
+            CorporateCountryComponent,
+            CorporateToursComponent,
+            IndividualCountryComponent,
+            IndividualToursComponent,
+            NewYearCountryComponent,
+            NewYearToursComponent,
+            SkiingCountryComponent,
+            SkiingToursComponent,
 
-        ImagesPopupComponent,
-        PromotionsComponent,
-        PromotionDetailsComponent
-    ],
+            HotCountriesComponent,
+            HotToursComponent,
+
+
+            ImagesPopupComponent,
+            PromotionsComponent,
+            PromotionDetailsComponent
+        ],
     exports: [
         MatDialogModule,
         MatSelectModule,

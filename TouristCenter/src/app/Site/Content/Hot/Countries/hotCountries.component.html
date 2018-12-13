@@ -1,0 +1,92 @@
+﻿<div class="width-wrapper">
+    <div class="hot-countries-page">
+        <div class="banner">
+            <img src="/Content/Images/Hot/banner.jpg" />
+        </div>
+        <div class="text-wrapper">
+            <h1 class="center">Горящие туры и путевки из Минска и Москвы</h1>
+            <div class="countries-short font-OpenSans-Semibold">
+                <div class="country-short" *ngFor="let country of countryCollection">
+                    <img class="arrow" src="/Content/Images/Countries/orange-arr.png" />
+                    <a [routerLink]="[ '/hot-tours/' + country.urlName ]"
+                       class="country-name-link">
+                        <span [innerHtml]="country.name"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="put-order center">
+                <div>
+                    <h4>Лучшие вещи в жизни случаются спонтанно. Это ли не повод пуститься в приключение прямо сейчас, выбрать горящий тур из Минска, соответствующий Вашему вкусу и бюджету?!</h4>
+                </div>
+                <div>
+                    <h4>Просмотрите свежие предложения по отдыху и выберите для себя самую "аппетитную" горящую путевку!</h4>
+                </div>
+                <div class="font-PFDinDisplayPro-Light">
+                    <button type="button" (click)="openOrderPopup('Оставить заявку')" class="order-btn">
+                        Оставить заявку
+                    </button>
+                </div>
+            </div>
+
+            <div class="center">
+                <img src="/Content/Images/Hot/arrows.png"/>
+            </div>
+            <div class="counties-wrapper">
+                <div class="country" *ngFor="let country of countryCollection">
+                    <div class="image-description">
+                        <div class="country-image">
+                            <a [routerLink]="[ '/hot-tours/' + country.urlName ]"
+                               class="image"
+                               [style.background]="'url(/api/image/' + country.oldImageCollection[0] + ')'">
+                            </a>
+                        </div>
+                        <div class="country-descriptions">
+                            <a [routerLink]="[ '/hot-tours/' + country.urlName ]"
+                               class="country-name-link">
+                                <span [innerHtml]="country.name"></span>
+                            </a>
+                            <div class="description font-OpenSans-Regular" [innerHtml]="country.description"></div>
+                        </div>
+                    </div>
+                    <div class="country-prices">
+                        <h4>Отели:</h4>
+                        <div class="hotels">
+                            <div class="stars">
+                                <ul>
+                                    <li>
+                                        <img src="/Content/Images/star.png" />
+                                        <img src="/Content/Images/star.png" />
+                                        <img src="/Content/Images/star.png" />
+                                        <img src="/Content/Images/star.png" />
+                                        <img src="/Content/Images/star.png" />
+                                    </li>
+                                    <li>
+                                        <img src="/Content/Images/star.png" />
+                                        <img src="/Content/Images/star.png" />
+                                        <img src="/Content/Images/star.png" />
+                                        <img src="/Content/Images/star.png" />
+                                    </li>
+                                    <li>
+                                        <img src="/Content/Images/star.png" />
+                                        <img src="/Content/Images/star.png" />
+                                        <img src="/Content/Images/star.png" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="price font-OpenSans-Semibold">
+                                <ul>
+                                    <li>от <span [innerHtml]="country.fiveStarsPrice"></span> BYN</li>
+                                    <li>от <span [innerHtml]="country.fourStarsPrice"></span> BYN</li>
+                                    <li>от <span [innerHtml]="country.threeStarsPrice"></span> BYN</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a [routerLink]="[ '/hot-tours/' + country.urlName ]"
+                           class="country-btn">СМОТРЕТЬ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

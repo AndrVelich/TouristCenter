@@ -10,13 +10,13 @@ h1 {
   text-align: center; }
 
 .benefits-top .benefit-top {
-  display: flex; }
+  text-align: center; }
   .benefits-top .benefit-top img {
     width: 100px;
     height: 100px;
     margin-right: 20px; }
   .benefits-top .benefit-top h3 {
-    line-height: 100px; }
+    line-height: 50px; }
 
 .benefits-top .benefit-bottom {
   font-family: 'OpenSans-Semibold'; }
@@ -46,7 +46,7 @@ h1 {
     color: white; }
     .tour-types .tour-type .tour-type-info {
       position: absolute;
-      top: 35%;
+      top: 25%;
       width: 100%;
       right: 0; }
       .tour-types .tour-type .tour-type-info .tour-type-name {

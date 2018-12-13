@@ -44,6 +44,8 @@
         .promotion-page .promotion .promotion-descriptions .until-date .value {
           color: #0A155F;
           font-family: 'OpenSans-Semibold', sans-serif; }
+  .promotion-page .promotion-info {
+    margin: 0 10px; }
 
 @media (max-width: 650px) {
   .promotion {

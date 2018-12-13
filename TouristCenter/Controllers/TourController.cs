@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web.Http;
+using TouristCenter.Domain.Interfaces.Common.Enums;
 using TouristCenter.Domain.Interfaces.Country.Managers;
 using TouristCenter.Domain.Interfaces.Image.Managers;
 using TouristCenter.Domain.Interfaces.Tour.Exceptions;
@@ -61,6 +64,25 @@ namespace TouristCenter.Controllers
             var result = tours.Select(c => new TourViewModel(c))
                 .OrderBy(t => t.Country)
                 .ThenBy(t => t.Name)
+                .ToList();
+
+            return result;
+        }
+
+        [HttpGet]
+        [Route("api/hotTours/{countryUrl}")]
+        public List<TourViewModel> GetHotCollection(string countryUrl)
+        {
+            var domainTourType = TourTypesEnum.Beach;
+            var tours = _tourManager.GetTourCollection(domainTourType, countryUrl);
+
+            var discount = decimal.Parse(ConfigurationManager.AppSettings["HotToursDiscount"]);
+            foreach (var tour in tours)
+            {
+                tour.Price = (int)(tour.Price * discount);
+            }
+
+            var result = tours.Select(c => new TourViewModel(c))
                 .ToList();
 
             return result;

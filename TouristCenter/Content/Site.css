@@ -143,8 +143,6 @@ body {
   body .width-wrapper {
     max-width: 1400px;
     margin: 0 auto; }
-  body .text-wrapper {
-    margin: 0 10px; }
   body a {
     cursor: pointer !important;
     text-decoration: none !important; }
@@ -155,7 +153,7 @@ body {
   body .body-content {
     margin: 0 !important;
     position: relative;
-    min-height: 400px;
+    min-height: 600px;
     font-family: OpenSans-Regular, sans-serif; }
     body .body-content .center {
       text-align: center; }
@@ -195,17 +193,21 @@ body {
 
 @media (min-width: 600px) {
   body .body-content {
-    padding-top: 124px; } }
+    padding-top: 124px; }
+    body .body-content .text-wrapper {
+      margin: 0 100px; } }
 
 @media (max-width: 600px) {
   body .body-content {
-    padding-top: 0; } }
+    padding-top: 0; }
+    body .body-content .text-wrapper {
+      margin: 0 10px; } }
 
-.tours-text {
-  margin: 20px 50px !important; }
-  .tours-text h1 {
-    margin: 20px 0; }
-  .tours-text .country-name {
-    color: #6c6c6c; }
-  .tours-text .forward-text {
-    margin-top: 20px; }
+.tours-text h1 {
+  margin: 20px 0; }
+
+.tours-text .country-name {
+  color: #6c6c6c; }
+
+.tours-text .forward-text {
+  margin-top: 20px; }

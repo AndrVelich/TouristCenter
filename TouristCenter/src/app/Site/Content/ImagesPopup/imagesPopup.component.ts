@@ -32,6 +32,16 @@ export class ImagesPopupComponent implements OnDestroy {
         this.index = 0;
     }
 
+    @HostListener('document:keydown', ['$event'])
+    handleKeyboardEvent(event: KeyboardEvent) {
+        if (event.key == 'ArrowRight') {
+            this.toNext()
+        }
+        if (event.key == 'ArrowLeft') {
+            this.toPrevious()
+        }
+    }
+
     public toPrevious() : void
     {
         if(this.isPreviousAvailable())
@@ -42,9 +52,11 @@ export class ImagesPopupComponent implements OnDestroy {
 
     public toNext() : void
     {
-        if(this.isNextAvailable())
-        {
+        if (this.isNextAvailable()) {
             ++this.index;
+        }
+        else {
+            this.index = 0;
         }
     }
 

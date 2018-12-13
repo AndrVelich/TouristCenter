@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -27,6 +28,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -336,10 +338,18 @@
     <Content Include="Content\Images\Home\TourTypes\individual.jpg" />
     <Content Include="Content\Images\Home\TourTypes\newYear.jpg" />
     <Content Include="Content\Images\Home\TourTypes\skiing.jpg" />
+    <Content Include="Content\Images\Hot\arrows.png" />
+    <Content Include="Content\Images\Hot\banner.jpg" />
+    <Content Include="Content\Images\Hot\orange-arr.png" />
     <Content Include="Content\Images\logo-color.png" />
     <Content Include="Content\Images\logo-white.png" />
     <Content Include="Content\Images\preloader.gif" />
     <Content Include="Content\Images\pv_layer_controls.png" />
+    <Content Include="Content\Images\scrollToTop.png" />
+    <Content Include="Content\Images\SideFixedMenu\busTours.png" />
+    <Content Include="Content\Images\SideFixedMenu\earlyBooking.png" />
+    <Content Include="Content\Images\SideFixedMenu\hotTours.png" />
+    <Content Include="Content\Images\SideFixedMenu\newYearTours.png" />
     <Content Include="Content\Images\star.png" />
     <Content Include="Content\Images\star.svg" />
     <Content Include="Content\Images\Tours\arrows-orange.png" />
@@ -389,7 +399,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include=".angular-cli.json" />
     <Content Include="compilerconfig.json" />
     <Content Include="Content\Site.scss" />
     <None Include="compilerconfig.json.defaults">
@@ -557,6 +566,10 @@
       <DependentUpon>contacts.component.css</DependentUpon>
     </Content>
     <Content Include="src\app\Site\Content\Contacts\contacts.component.ts" />
+    <Content Include="src\app\Site\Content\Hot\Countries\hotCountries.component.css">
+      <DependentUpon>hotCountries.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\Hot\Countries\hotCountries.component.html" />
     <Content Include="src\app\Site\Content\CountriesPage\countriesPage.component.css">
       <DependentUpon>countriesPage.component.scss</DependentUpon>
     </Content>
@@ -566,6 +579,16 @@
     </Content>
     <Content Include="src\app\Site\Content\CountriesPage\countriesPage.component.ts" />
     <Content Include="src\app\Site\Content\Home\home.component.ts" />
+    <Content Include="src\app\Site\Content\Hot\Countries\hotCountries.component.min.css">
+      <DependentUpon>hotCountries.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\Hot\Tours\hotTours.component.css">
+      <DependentUpon>hotTours.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\Hot\Tours\hotTours.component.html" />
+    <Content Include="src\app\Site\Content\Hot\Tours\hotTours.component.min.css">
+      <DependentUpon>hotTours.component.css</DependentUpon>
+    </Content>
     <Content Include="src\app\Site\Content\ImagesPopup\imagesPopup.component.css">
       <DependentUpon>imagesPopup.component.scss</DependentUpon>
     </Content>
@@ -615,6 +638,12 @@
       <DependentUpon>busTours.component.css</DependentUpon>
     </Content>
     <Content Include="src\app\Site\Content\TourTypes\Bus\Tours\busTours.component.ts" />
+    <Content Include="src\app\Site\Content\content.component.css">
+      <DependentUpon>content.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\content.component.min.css">
+      <DependentUpon>content.component.css</DependentUpon>
+    </Content>
     <Content Include="src\app\Site\Content\TourTypes\Corporate\Country\corporateCountry.component.css">
       <DependentUpon>corporateCountry.component.scss</DependentUpon>
     </Content>
@@ -841,6 +870,10 @@
     <Content Include="src\app\Administration\Common\Components\ConfirmationPopup\confirmationPopup.component.scss" />
     <Content Include="src\app\Site\Content\Contacts\contacts.component.scss" />
     <Content Include="src\app\Site\Content\CountriesPage\countriesPage.component.scss" />
+    <Content Include="src\app\Site\Content\content.component.html" />
+    <Content Include="src\app\Site\Content\content.component.scss" />
+    <Content Include="src\app\Site\Content\Hot\Countries\hotCountries.component.scss" />
+    <Content Include="src\app\Site\Content\Hot\Tours\hotTours.component.scss" />
     <None Include="src\app\Site\Header\header.component.scss" />
     <Content Include="src\app\Site\site.component.scss" />
     <Content Include="Views\Administration\Index.cshtml" />
@@ -875,11 +908,21 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\app\Site\Content\Hot\Countries\hotCountries.component.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\app\Site\Content\Hot\Tours\hotTours.component.ts" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
@@ -912,7 +955,8 @@
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <PropertyGroup>
-    <PreBuildEvent>(ng build)</PreBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

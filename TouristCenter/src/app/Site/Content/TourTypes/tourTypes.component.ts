@@ -34,7 +34,7 @@ export class TourTypesComponent {
     private setTitleAndMeta() : void
     {
         this.titleService.setTitle("Поиск и подбор туров в Минске");
-        this.metaService.addTag({ name: 'description', content: "Поиск и подбор тура. Вылеты из Минска/ Москвы/ Киева. Отдых на море, автобусные маршруты, авиатуры в Европу и пр." });
+        this.metaService.addTag({ name: 'description', content: "➤ Поиск и подбор тура. ➤Вылеты из Минска/ Москвы/ Киева. ➤Отдых на море, автобусные маршруты, авиатуры в Европу и пр." });
         this.metaService.addTag({ name: 'keywords', content: "туры из Минска, подбор тура, поиск тура, виды туров" });
     }
 }

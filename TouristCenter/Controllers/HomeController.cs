@@ -12,6 +12,8 @@ namespace TouristCenter.Controllers
         [Route("promotions")]
         [Route("promotions/{promotion}")]
         [Route("contacts")]
+        [Route("hot-tours")]
+        [Route("hot-tours/{country}")]
         public ActionResult Index()
         {
             return View();

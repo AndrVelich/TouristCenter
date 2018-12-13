@@ -25,16 +25,22 @@ export class TourService{
             catchError(this.handleError),);
     }
 
+    public getHotTourCollection(country?: string): Observable<Tour[]> {
+        return this.http.get('api/hotTours/' + (country || '')).pipe(
+            map((res: Response) => <Tour[]>res.json()),
+            catchError(this.handleError));
+    }
+
     public getAllTourCollection(): Observable<Tour[]>{
         return this.http.get('api/tours/allTours').pipe(
             map((res: Response) => <Tour[]>res.json()),
-            catchError(this.handleError),);
+            catchError(this.handleError));
     }
 
     public getTour(tourType: string, countryUrlName: string, tourUrlName: string): Observable<Tour>{
         return this.http.get(this.url + tourType + '/' + countryUrlName + '/' + tourUrlName).pipe(
             map((res: Response) => <Tour>res.json()),
-            catchError(this.handleError),);
+            catchError(this.handleError));
     }
 
     private handleError(error: any, cought: Observable<any>): any 

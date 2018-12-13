@@ -167,6 +167,7 @@ body {
     min-width: 400px;
     color: #191919;
     font-size: 16px;
+    //scroll-behavior: smooth;
 
     .font-Akrobat-ExtraBold {
         font-family: 'Akrobat-ExtraBold', sans-serif;
@@ -197,10 +198,6 @@ body {
         margin: 0 auto;
     }
 
-    .text-wrapper {
-        margin: 0 10px;
-    }
-
     a {
         cursor: pointer !important;
         text-decoration: none !important;
@@ -217,7 +214,7 @@ body {
     .body-content {
         margin: 0 !important;
         position: relative;
-        min-height: 400px;
+        min-height: 600px;
         font-family: OpenSans-Regular, sans-serif;
 
         .center {
@@ -286,6 +283,10 @@ body {
     body {
         .body-content {
             padding-top: 124px;
+
+            .text-wrapper {
+                margin: 0 100px;
+            }
         }
     }
 }
@@ -294,13 +295,16 @@ body {
     body {
         .body-content {
             padding-top: 0;
+
+            .text-wrapper {
+                margin: 0 10px;
+            }
         }
     }
 }
 
 //TODO Hack for tours page
 .tours-text {
-    margin: 20px 50px !important;
 
     h1 {
         margin: 20px 0;
