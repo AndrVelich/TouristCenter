@@ -41,8 +41,13 @@ import { SkiingToursComponent } from "./Content/TourTypes/Skiing/Tours/skiingTou
 import { PromotionsComponent } from "./Content/Promotions/promotions.component";
 import { PromotionDetailsComponent } from "./Content/Promotions/PromotionDetails/promotionDetails.component";
 import { ImagesPopupComponent } from "./Content/ImagesPopup/imagesPopup.component";
+
 import { HotCountriesComponent } from "./Content/Hot/Countries/hotCountries.component";
 import { HotToursComponent } from "./Content/Hot/Tours/hotTours.component";
+
+import { EarlyCountriesComponent } from "./Content/EarlyBooking/Countries/earlyCountries.component";
+import { EarlyToursComponent } from "./Content/EarlyBooking/Tours/earlyTours.component";
+
 import { SlideshowModule } from 'ng-simple-slideshow';
 
 import { CountryService } from "./Common/Services/country.service";
@@ -109,6 +114,8 @@ import { PromotionService } from "./Common/Services/promotion.service";
             HotCountriesComponent,
             HotToursComponent,
 
+            EarlyCountriesComponent,
+            EarlyToursComponent,
 
             ImagesPopupComponent,
             PromotionsComponent,

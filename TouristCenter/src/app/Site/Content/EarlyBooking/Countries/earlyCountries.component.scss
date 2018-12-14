@@ -1,4 +1,4 @@
-﻿.hot-countries-page {
+﻿.early-countries-page {
     .banner {
 
         img {
@@ -164,16 +164,29 @@
         }
 
         .bottom-text {
-            margin: 40px;
 
-            .text {
-                font-size: 16px;
-                line-height: 20px;
-                font-family: OpenSans-Semibold;
+            .not-argument{
+                margin: 20px 0;
+            }
+        }
+
+        .early-benefits {
+            margin: 30px 0;
+
+            .separator {
+                background-color: #FB3B3C;
+                width: 50px;
+                margin: 20px 5px;
+                height: 2px;
             }
 
-            h2 {
+            .benefit {
                 margin: 20px 0;
+                font-family: 'OpenSans-Semibold', sans-serif;
+
+                .early-benefit-header {
+                    color: #118B91;
+                }
             }
         }
     }

@@ -101,7 +101,7 @@
                             </div>
                             <mat-select formControlName="category"
                                         [(ngModel)]="tour.category"
-                                        (change)="onChangeCategory()"
+                                        (selectionChange)="onChangeCategory()"
                                         placeholder="Выберите...">
                                 <mat-option *ngFor="let tourTypeKey of tourTypes.keys()" [value]="tourTypeKey">
                                     {{ tourTypes[tourTypeKey] }}

@@ -14,6 +14,8 @@ namespace TouristCenter.Controllers
         [Route("contacts")]
         [Route("hot-tours")]
         [Route("hot-tours/{country}")]
+        [Route("early-booking")]
+        [Route("early-booking/{country}")]
         public ActionResult Index()
         {
             return View();

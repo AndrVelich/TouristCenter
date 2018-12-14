@@ -81,6 +81,28 @@ namespace TouristCenter.Controllers
             return result;
         }
 
+        [HttpGet]
+        [Route("api/earlyCountries")]
+        public List<CountryViewModel> GetEarlyCollection()
+        {
+            var domainTourType = TourTypesEnum.Beach;
+            var countries = _countryManager.GetCountryCollection(domainTourType);
+
+            var discount = decimal.Parse(ConfigurationManager.AppSettings["EarlyToursDiscount"]);
+            foreach (var country in countries)
+            {
+                country.FiveStarsPrice = (int)(country.FiveStarsPrice * discount);
+                country.FourStarsPrice = (int)(country.FourStarsPrice * discount);
+                country.ThreeStarsPrice = (int)(country.ThreeStarsPrice * discount);
+            }
+
+            var result = countries.Select(c => new CountryViewModel(c))
+                .OrderBy(c => c.Name)
+                .ToList();
+
+            return result;
+        }
+
         [Authorize]
         public void Post(CountryViewModel country)
         {

@@ -22,6 +22,9 @@ import { PromotionDetailsComponent } from "./Content/Promotions/PromotionDetails
 import { HotCountriesComponent } from "./Content/Hot/Countries/hotCountries.component";
 import { HotToursComponent } from "./Content/Hot/Tours/hotTours.component";
 
+import { EarlyCountriesComponent } from "./Content/EarlyBooking/Countries/earlyCountries.component";
+import { EarlyToursComponent } from "./Content/EarlyBooking/Tours/earlyTours.component";
+
 
 export const routes: Routes = [
     {
@@ -104,6 +107,14 @@ export const routes: Routes = [
     {
         path: 'hot-tours/:country',
         component: HotToursComponent
-    }
+    },
+    {
+        path: 'early-booking',
+        component: EarlyCountriesComponent
+    },
+    {
+        path: 'early-booking/:country',
+        component: EarlyToursComponent
+    },
    
 ];

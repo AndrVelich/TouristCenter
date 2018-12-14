@@ -64,9 +64,9 @@
         </div>
         <div class="middleHeaderMenu font-PFDinDisplayPro-Light">
             <div class="mobileMenu">
-                <div clickOutside 
-                     callbackName="onClickOutsideMobileMenu" 
-                     [componentContext]="this" 
+                <div clickOutside
+                     callbackName="onClickOutsideMobileMenu"
+                     [componentContext]="this"
                      class="mobileMenu-header">
                     <a (click)="toggleMenu()">
                         <i class="fa fa-bars" aria-hidden="true"></i>
@@ -87,15 +87,15 @@
                         </a>
                     </li>
                     <li>
+                        <a [routerLink]="[ '/hot-tours' ]">
+                            <span>Горящие туры</span>
+                        </a>
+                    </li>
+                    <li>
                         <a [routerLink]="[ '/promotions' ]">
                             <span>Акции</span>
                         </a>
                     </li>
-                    <!--<li>
-                        <a>
-                            <span>Услуги</span>
-                        </a>
-                    </li>-->
                     <li>
                         <a [routerLink]="[ '/contacts' ]">
                             <span>Контакты</span>
@@ -120,11 +120,6 @@
                             <span>Акции</span>
                         </a>
                     </li>
-                    <!--<li>
-                        <a>
-                            <span>Услуги</span>
-                        </a>
-                    </li>-->
                     <li>
                         <a [routerLink]="[ '/contacts' ]">
                             <span>Контакты</span>

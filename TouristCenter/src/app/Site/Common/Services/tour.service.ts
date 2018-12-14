@@ -31,6 +31,12 @@ export class TourService{
             catchError(this.handleError));
     }
 
+    public getEarlyTourCollection(country?: string): Observable<Tour[]> {
+        return this.http.get('api/earlyTours/' + (country || '')).pipe(
+            map((res: Response) => <Tour[]>res.json()),
+            catchError(this.handleError));
+    }
+
     public getAllTourCollection(): Observable<Tour[]>{
         return this.http.get('api/tours/allTours').pipe(
             map((res: Response) => <Tour[]>res.json()),

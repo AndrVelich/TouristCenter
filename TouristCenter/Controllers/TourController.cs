@@ -89,6 +89,25 @@ namespace TouristCenter.Controllers
         }
 
         [HttpGet]
+        [Route("api/earlyTours/{countryUrl}")]
+        public List<TourViewModel> GetEarlyCollection(string countryUrl)
+        {
+            var domainTourType = TourTypesEnum.Beach;
+            var tours = _tourManager.GetTourCollection(domainTourType, countryUrl);
+
+            var discount = decimal.Parse(ConfigurationManager.AppSettings["EarlyToursDiscount"]);
+            foreach (var tour in tours)
+            {
+                tour.Price = (int)(tour.Price * discount);
+            }
+
+            var result = tours.Select(c => new TourViewModel(c))
+                .ToList();
+
+            return result;
+        }
+
+        [HttpGet]
         [Route("api/tours/{tourType}/{countryUrl}")]
         public List<TourViewModel> GetCollection(string tourType, string countryUrl)
         {

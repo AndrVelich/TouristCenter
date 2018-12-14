@@ -37,6 +37,12 @@ export class CountryService{
             catchError(this.handleError));
     }
 
+    public getEarlyCountryCollection(): Observable<Country[]> {
+        return this.http.get('api/earlyCountries').pipe(
+            map((res: Response) => <Country[]>res.json()),
+            catchError(this.handleError));
+    }
+
     private handleError(error: any, cought: Observable<any>): any 
     {
         let message = "";

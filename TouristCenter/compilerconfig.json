@@ -218,5 +218,21 @@
   {
     "outputFile": "src/app/Site/Content/Hot/Countries/hotCountries.component.css",
     "inputFile": "src/app/Site/Content/Hot/Countries/hotCountries.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/EarlyBooking/Countries/earlyBooking.component.css",
+    "inputFile": "src/app/Site/Content/EarlyBooking/Countries/earlyBooking.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/EarlyBooking/Tours/earlyBooking.component.css",
+    "inputFile": "src/app/Site/Content/EarlyBooking/Tours/earlyBooking.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/EarlyBooking/Countries/earlyCountries.component.css",
+    "inputFile": "src/app/Site/Content/EarlyBooking/Countries/earlyCountries.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/EarlyBooking/Tours/earlyTours.component.css",
+    "inputFile": "src/app/Site/Content/EarlyBooking/Tours/earlyTours.component.scss"
   }
 ]
