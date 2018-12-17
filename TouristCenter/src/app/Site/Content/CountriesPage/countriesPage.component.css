@@ -10,7 +10,6 @@
   max-width: 1000px;
   margin: 0 auto; }
   .countries-page .text-wrapper .countries-short .country-short {
-    padding-left: 30%;
     display: flex;
     justify-content: flex-start; }
     .countries-page .text-wrapper .countries-short .country-short .arrow {
@@ -104,7 +103,7 @@
     box-shadow: 0 0 7px rgba(255, 223, 162, 0.75); }
 
 .countries-page .text-wrapper .categories .categories-wrapper {
-  width: 380px;
+  width: 360px;
   margin: 10px auto 20px auto; }
   .countries-page .text-wrapper .categories .categories-wrapper .category {
     margin: 10px 0; }

@@ -2,7 +2,7 @@
      [@routerAnimation]="outlet.isActivated ? outlet.activatedRoute : ''">
     <router-outlet #outlet="outlet"
                    (activate)="onActivate()"></router-outlet>
-    <div class="side-fixed-menu">
+    <div class="side-fixed-menu" [class.sticky]="isSticky">
         <a class="hot-link" 
            title="Горящие туры"
            [routerLink]="[ '/hot-tours' ]">

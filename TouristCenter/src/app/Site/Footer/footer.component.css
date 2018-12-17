@@ -2,7 +2,6 @@
   background-color: #181e45;
   border-top: 15px solid #feb849;
   color: white;
-  padding: 30px 10px;
   font-size: 16px; }
   footer .width-wrapper .separator {
     background-color: #6471c5; }
@@ -55,24 +54,28 @@
     color: #feb849; }
 
 @media (min-width: 600px) {
-  footer .footer-top .footer-right .separator-promotions {
-    display: block; }
-  footer .footer-top .footer-right .promotions {
-    display: block; } }
+  footer {
+    padding: 30px 70px; }
+    footer .footer-top .footer-right .separator-promotions {
+      display: block; }
+    footer .footer-top .footer-right .promotions {
+      display: block; } }
 
 @media (max-width: 600px) {
-  footer .footer-top .footer-right .separator-promotions {
-    display: none; }
-  footer .footer-top .footer-right .promotions {
-    display: none; } }
+  footer {
+    padding: 30px 10px; }
+    footer .footer-top .footer-right .separator-promotions {
+      display: none; }
+    footer .footer-top .footer-right .promotions {
+      display: none; } }
 
-@media (min-width: 450px) {
+@media (min-width: 500px) {
   footer .footer-top .footer-right .separator-tours {
     display: block; }
   footer .footer-top .footer-right .tours {
     display: block; } }
 
-@media (max-width: 450px) {
+@media (max-width: 500px) {
   footer .footer-top .footer-right .separator-tours {
     display: none; }
   footer .footer-top .footer-right .tours {

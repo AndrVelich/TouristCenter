@@ -6,6 +6,11 @@
     width: 40px;
     box-shadow: 0 0 7px rgba(255, 255, 255, 0.35); }
 
+.content .side-fixed-menu.sticky {
+  position: fixed;
+  top: 50px;
+  z-index: 1; }
+
 .content .side-fixed-menu {
   position: fixed;
   top: 150px;
@@ -14,16 +19,16 @@
     .content .side-fixed-menu {
       display: none; } }
   .content .side-fixed-menu a {
-    padding: 20px;
+    padding: 10px;
     display: block;
     transition: 0.15s all ease; }
     .content .side-fixed-menu a img {
-      width: 40px;
+      width: 35px;
       transition: 0.15s all ease; }
   .content .side-fixed-menu a:hover {
-    padding: 15px; }
+    padding: 5px; }
   .content .side-fixed-menu a:hover > img {
-    width: 50px; }
+    width: 45px; }
   .content .side-fixed-menu a.hot-link {
     background-color: #FC3B3C;
     box-shadow: 0 0 7px rgba(252, 59, 60, 0.35); }

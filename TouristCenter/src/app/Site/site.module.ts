@@ -73,7 +73,8 @@ import { PromotionService } from "./Common/Services/promotion.service";
         [
             CountryService,
             TourService,
-            PromotionService
+            PromotionService,
+            { provide: "window", useValue: window }
         ],
     entryComponents:
         [

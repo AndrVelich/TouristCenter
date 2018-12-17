@@ -125,9 +125,9 @@ body .cdk-overlay-pane {
 body {
   position: relative;
   font-family: 'OpenSans-Light', sans-serif;
-  min-width: 400px;
   color: #191919;
-  font-size: 16px; }
+  font-size: 16px;
+  min-width: 360px; }
   body .font-Akrobat-ExtraBold {
     font-family: 'Akrobat-ExtraBold', sans-serif; }
   body .font-PFDinDisplayPro-Light {
@@ -140,6 +140,8 @@ body {
     font-family: OpenSans-Bold, sans-serif; }
   body .font-OpenSans-Regular {
     font-family: OpenSans-Regular, sans-serif; }
+  body h1 {
+    margin: 20px auto; }
   body .width-wrapper {
     max-width: 1400px;
     margin: 0 auto; }
@@ -157,6 +159,8 @@ body {
     font-family: OpenSans-Regular, sans-serif; }
     body .body-content .center {
       text-align: center; }
+    body .body-content .text-wrapper {
+      overflow: hidden; }
     body .body-content .preloader {
       position: absolute;
       top: 0;
@@ -186,22 +190,19 @@ body {
   body .carousel .carousel-indicators li {
     border-color: #FEB849;
     width: 15px;
-    height: 15px; }
+    height: 15px;
+    margin: 5px; }
   body .carousel .carousel-indicators li.active {
     background-color: #FEB849;
     border: 2px solid white; }
 
 @media (min-width: 600px) {
-  body .body-content {
-    padding-top: 124px; }
-    body .body-content .text-wrapper {
-      margin: 0 100px; } }
+  body .body-content .text-wrapper {
+    margin: 0 75px; } }
 
 @media (max-width: 600px) {
-  body .body-content {
-    padding-top: 0; }
-    body .body-content .text-wrapper {
-      margin: 0 10px; } }
+  body .body-content .text-wrapper {
+    margin: 0 10px; } }
 
 .tours-text h1 {
   margin: 20px 0; }

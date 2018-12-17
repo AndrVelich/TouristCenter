@@ -8,7 +8,7 @@
 .early-countries-page .text-wrapper .countries-short {
   column-count: 3;
   max-width: 1000px;
-  margin: 0 auto; }
+  margin: 30px auto; }
   .early-countries-page .text-wrapper .countries-short .country-short {
     padding-left: 30%;
     display: flex;

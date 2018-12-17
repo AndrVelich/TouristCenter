@@ -45,8 +45,6 @@
             max-width: 900px;
             background-color: rgba(255,255,255, 0.8);
             padding: 5px 10px;
-            display: flex;
-            justify-content: space-between;
 
             .until-date {
                 color: #6C6C6C;
@@ -68,6 +66,11 @@
 
 @media (min-width: 650px) {
     .promotion {
+
+        .promotion-descriptions {
+            display: flex;
+            justify-content: space-between;
+        }
     }
 }
 
@@ -75,5 +78,10 @@
     .promotion {
         width: 100%;
         margin: 0 auto 20px auto;
+
+        .promotion-descriptions {
+            display: block;
+            text-align: center;
+        }
     }
 }

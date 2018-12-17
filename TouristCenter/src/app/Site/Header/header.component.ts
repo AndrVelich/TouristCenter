@@ -1,5 +1,7 @@
 import {
-    Component
+    Component,
+    HostListener,
+    Inject
 } from "@angular/core";
 import { trigger, state, transition, animate, style } from '@angular/animations';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
@@ -24,11 +26,24 @@ import { OrderComponent } from '../Order/order.component';
 })
 export class HeaderComponent {
     public isMobileMenuVisible: boolean = false;
+    public isSticky: boolean = false;
 
     constructor(
+        @Inject('window') private window: Window,
         public dialog: MatDialog)
     {
         
+    }
+
+    @HostListener('window:scroll', ['$event'])
+    public onScroll(): void {
+        let num = this.window.pageYOffset;
+        if (num > 90) {
+            this.isSticky = true;
+        }
+        else if (this.isSticky && num < 5) {
+            this.isSticky = false;
+        }
     }
 
     public toggleMenu() {

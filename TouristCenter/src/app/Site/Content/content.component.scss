@@ -11,6 +11,12 @@
         }
     }
 
+    .side-fixed-menu.sticky {
+        position: fixed;
+        top: 50px;
+        z-index: 1;
+    }
+
     .side-fixed-menu {
 
         @media (max-width: 600px) {
@@ -22,22 +28,22 @@
         left: 10px;
 
         a {
-            padding: 20px;
+            padding: 10px;
             display: block;
             transition: 0.15s all ease;
 
             img {
-                width: 40px;
+                width: 35px;
                 transition: 0.15s all ease;
             }
         }
 
         a:hover {
-            padding: 15px;
+            padding: 5px;
         }
 
         a:hover > img {
-            width: 50px;
+            width: 45px;
         }
 
         a.hot-link {

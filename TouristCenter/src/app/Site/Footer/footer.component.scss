@@ -2,7 +2,6 @@
     background-color: #181e45;
     border-top: 15px solid #feb849;
     color: white;
-    padding: 30px 10px;
     font-size: 16px;
 
 
@@ -110,6 +109,8 @@
 @media (min-width: 600px) {
 
     footer {
+        padding: 30px 70px;
+
         .footer-top {
             .footer-right {
 
@@ -129,6 +130,8 @@
 @media (max-width: 600px) {
 
     footer {
+        padding: 30px 10px;
+
         .footer-top {
 
             .footer-right {
@@ -146,7 +149,7 @@
 
 }
 
-@media (min-width: 450px) {
+@media (min-width: 500px) {
 
     footer {
         .footer-top {
@@ -164,7 +167,7 @@
     }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 500px) {
 
     footer {
         .footer-top {

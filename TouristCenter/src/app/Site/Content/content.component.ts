@@ -1,6 +1,7 @@
 ﻿import {
     Component,
-    HostListener
+    HostListener,
+    Inject
 } from "@angular/core";
 
 import {
@@ -46,8 +47,10 @@ import { OrderComponent } from '@siteModule/Order/order.component';
 })
 export class ContentComponent {
     public isScrollToTopVisible: boolean = false;
+    public isSticky: boolean = false;
 
     constructor(
+        @Inject('window') private window: Window,
         public dialog: MatDialog) {
 
     }
@@ -61,8 +64,10 @@ export class ContentComponent {
     }
 
     @HostListener('window:scroll', ['$event'])
-    public setScrollToTopVisible() : void {
-        this.isScrollToTopVisible = window.pageYOffset > window.innerHeight;
+    public onScroll(): void {
+        this.setSideMenuFixed();
+        this.setScrollToTopVisible();
+
     }
 
     public openOrderPopup(button: string) {
@@ -71,13 +76,27 @@ export class ContentComponent {
         });
     }
 
+    private setScrollToTopVisible(): void {
+        this.isScrollToTopVisible = this.window.pageYOffset > window.innerHeight;
+    }
+
+    public setSideMenuFixed(): void {
+        let num = this.window.pageYOffset;
+        if (num > 90) {
+            this.isSticky = true;
+        }
+        else if (this.isSticky && num < 5) {
+            this.isSticky = false;
+        }
+    }
+
     private fastScroll() {
-        window.scroll(0, 0);
+        this.window.scroll(0, 0);
     }
 
     private smoothScroll() {
         try {
-            window.scrollTo({ left: 0, top: 0, behavior: 'smooth' });
+            this.window.scrollTo({ left: 0, top: 0, behavior: 'smooth' });
         } catch (e) {
             this.fastScroll();
         }

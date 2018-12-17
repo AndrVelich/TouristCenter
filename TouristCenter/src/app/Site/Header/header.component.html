@@ -9,10 +9,10 @@
                 </div>
                 <div class="header-item phones font-PFDinDisplayPro-Reg">
                     <div class="phone">
-                        <a href="tel:+375293688788">+375.29.368.87.88</a>
+                        <a href="tel:+375293688788">+375 (29) 368-87-88</a>
                     </div>
                     <div class="phone">
-                        <a href="tel:+375333668788">+375.33.366.87.88</a>
+                        <a href="tel:+375333668788">+375 (33) 366-87-88</a>
                     </div>
                 </div>
                 <div class="separator separator-address"></div>
@@ -53,10 +53,10 @@
                 <div class="level">
                     <div class="header-item phones font-PFDinDisplayPro-Reg">
                         <div class="phone">
-                            <a href="tel:+375293688788">+375.29.368.87.88</a>
+                            <a href="tel:+375293688788">+375 (29) 368-87-88</a>
                         </div>
                         <div class="phone">
-                            <a href="tel:+375333668788">+375.33.366.87.88</a>
+                            <a href="tel:+375333668788">+375 (33) 366-87-88</a>
                         </div>
                     </div>
                 </div>
@@ -92,6 +92,11 @@
                         </a>
                     </li>
                     <li>
+                        <a [routerLink]="[ '/early-booking' ]">
+                            <span>Раннее бронирование</span>
+                        </a>
+                    </li>
+                    <li>
                         <a [routerLink]="[ '/promotions' ]">
                             <span>Акции</span>
                         </a>
@@ -103,7 +108,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="mainMenu">
+            <div class="mainMenu" [class.sticky]="isSticky">
                 <ul class="width-wrapper">
                     <li>
                         <a [routerLink]="[ '/countries' ]">
