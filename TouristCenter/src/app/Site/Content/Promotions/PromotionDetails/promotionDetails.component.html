@@ -1,18 +1,21 @@
-﻿<div class="promotion-page text-wrapper">
-    <div class="promotion"
-         [style.background]="'url(/api/image/' + promotion.oldImageCollection[0] + ')'">
-        <div class="promotion-name">
-            <span [innerHtml]="promotion.name">
-            </span>
+﻿<div class="width-wrapper text-wrapper">
+    <div class="promotion-page">
+        <div class="promotion"
+             [style.background]="'url(/api/image/' + promotion.oldImageCollection[0] + ')'">
+            <div class="promotion-name">
+                <span [innerHtml]="promotion.name">
+                </span>
+            </div>
+            <div class="promotion-descriptions">
+                <a class="promotion-btn"
+                   (click)="openOrderPopup(promotion.name)">Принять участие</a>
+                <div class="until-date"> Действует до <span class="value">{{promotion.untilDate | date: 'dd-MM-yyyy'}}</span></div>
+            </div>
         </div>
-        <div class="promotion-descriptions">
-            <a class="promotion-btn"
-               (click)="openOrderPopup(promotion.name)">Принять участие</a>
-            <div class="until-date"> Действует до <span class="value">{{promotion.untilDate | date: 'dd-MM-yyyy'}}</span></div>
+        <div class="promotion-info">
+            <p [innerHtml]="promotion.description">
+            </p>
         </div>
-    </div>
-    <div class="promotion-info">
-        <p [innerHtml]="promotion.description">
-        </p>
     </div>
 </div>
+
