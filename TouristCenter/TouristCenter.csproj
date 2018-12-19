@@ -309,6 +309,8 @@
     <Content Include="Content\Icons\Insta_neak.png" />
     <Content Include="Content\Icons\vk_ak.png" />
     <Content Include="Content\Icons\vk_neak.png" />
+    <Content Include="Content\Images\arrows-red-down.png" />
+    <Content Include="Content\Images\Bus\banner.jpg" />
     <Content Include="Content\Images\Contacts\fb-active.png" />
     <Content Include="Content\Images\Contacts\banner.jpg" />
     <Content Include="Content\Images\Contacts\fb.png" />
@@ -646,19 +648,18 @@
     </Content>
     <Content Include="src\app\Site\Content\TourTypes\Beach\Tours\beachTours.component.ts" />
     <Content Include="src\app\Site\Content\TourTypes\Beach\Country\beachCountry.component.html" />
+    <Content Include="src\app\Site\Content\content.component.css">
+      <DependentUpon>content.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\content.component.min.css">
+      <DependentUpon>content.component.css</DependentUpon>
+    </Content>
     <Content Include="src\app\Site\Content\TourTypes\Bus\Tours\busTours.component.css">
       <DependentUpon>busTours.component.scss</DependentUpon>
     </Content>
     <Content Include="src\app\Site\Content\TourTypes\Bus\Tours\busTours.component.html" />
     <Content Include="src\app\Site\Content\TourTypes\Bus\Tours\busTours.component.min.css">
       <DependentUpon>busTours.component.css</DependentUpon>
-    </Content>
-    <Content Include="src\app\Site\Content\TourTypes\Bus\Tours\busTours.component.ts" />
-    <Content Include="src\app\Site\Content\content.component.css">
-      <DependentUpon>content.component.scss</DependentUpon>
-    </Content>
-    <Content Include="src\app\Site\Content\content.component.min.css">
-      <DependentUpon>content.component.css</DependentUpon>
     </Content>
     <Content Include="src\app\Site\Content\TourTypes\Corporate\Country\corporateCountry.component.css">
       <DependentUpon>corporateCountry.component.scss</DependentUpon>
@@ -867,7 +868,6 @@
     <Content Include="src\app\Site\Content\TourTypes\Individual\Country\individualCountry.component.scss" />
     <Content Include="src\app\Site\Content\TourTypes\NewYear\Country\newYearCountry.component.scss" />
     <Content Include="src\app\Site\Content\TourTypes\Skiing\Country\skiingCountry.component.scss" />
-    <Content Include="src\app\Site\Content\TourTypes\Bus\Tours\busTours.component.scss" />
     <Content Include="src\app\Site\Content\TourTypes\Corporate\Tours\corporateTours.component.scss" />
     <Content Include="src\app\Site\Content\TourTypes\Individual\Tours\individualTours.component.scss" />
     <Content Include="src\app\Site\Content\TourTypes\NewYear\Tours\newYearTours.component.scss" />
@@ -892,6 +892,7 @@
     <Content Include="src\app\Site\Content\Hot\Tours\hotTours.component.scss" />
     <Content Include="src\app\Site\Content\EarlyBooking\Countries\earlyCountries.component.scss" />
     <Content Include="src\app\Site\Content\EarlyBooking\Tours\earlyTours.component.scss" />
+    <Content Include="src\app\Site\Content\TourTypes\Bus\Tours\busTours.component.scss" />
     <None Include="src\app\Site\Header\header.component.scss" />
     <Content Include="src\app\Site\site.component.scss" />
     <Content Include="Views\Administration\Index.cshtml" />
@@ -940,6 +941,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="src\app\Site\Content\EarlyBooking\Tours\earlyTours.component.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\app\Site\Content\TourTypes\Bus\Tours\busTours.component.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
