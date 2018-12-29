@@ -11,7 +11,8 @@
   margin: 0 auto; }
   .countries-page .text-wrapper .countries-short .country-short {
     display: flex;
-    justify-content: flex-start; }
+    justify-content: flex-start;
+    padding-left: 30%; }
     .countries-page .text-wrapper .countries-short .country-short .arrow {
       height: 14px;
       position: relative;
@@ -30,7 +31,7 @@
   .countries-page .text-wrapper .put-order .order-btn {
     background-color: white;
     color: #fc3b3c;
-    border: 1px solid #fc3b3c;
+    border: 2px solid #fc3b3c;
     width: 250px;
     line-height: 35px;
     font-size: 20px; }
@@ -103,7 +104,7 @@
     box-shadow: 0 0 7px rgba(255, 223, 162, 0.75); }
 
 .countries-page .text-wrapper .categories .categories-wrapper {
-  width: 360px;
+  max-width: 380px;
   margin: 10px auto 20px auto; }
   .countries-page .text-wrapper .categories .categories-wrapper .category {
     margin: 10px 0; }

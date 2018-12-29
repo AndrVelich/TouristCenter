@@ -9,6 +9,7 @@
 
     h1 {
         margin: 20px 0;
+        max-width: 720px;
     }
 
     .tours-wrapper {
@@ -67,6 +68,7 @@
 
                         .arrows-orange {
                             height: 7px;
+                            margin-right: 5px;
                         }
                     }
                 }
@@ -88,7 +90,7 @@
                 .order-btn {
                     background-color: #311569;
                     color: white;
-                    border: 1px solid #311569;
+                    border: 2px solid #311569;
                     line-height: 35px;
                     font-size: 20px;
                     padding: 6px 12px;

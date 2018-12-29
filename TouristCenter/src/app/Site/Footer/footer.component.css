@@ -16,6 +16,8 @@
       padding-left: 30px; }
       footer .width-wrapper .footer-top .footer-left .footerContact div {
         margin-top: 10px; }
+      footer .width-wrapper .footer-top .footer-left .footerContact .separator-horizontal {
+        margin: 0; }
     footer .width-wrapper .footer-top .footer-right {
       display: flex;
       justify-content: space-between;

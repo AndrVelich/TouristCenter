@@ -51,9 +51,9 @@ export class CountriesPageComponent {
 
     private setTitleAndMeta() : void
     {
-        this.titleService.setTitle("Отдых 2018. Цены по странам");
+        this.titleService.setTitle("Отдых 2019. Цены по странам");
         this.metaService.addTag({ name: 'description', content: "➤ 85+ стран для отдыха. ➤Актуальные цены на все популярные направления. ➤Ответ на вопрос «Где отдохнуть?» Вы найдете здесь!" });
-        this.metaService.addTag({ name: 'keywords', content: "отдых 2018, отдых 2018 цены, где отдохнуть, страны отдых" });
+        this.metaService.addTag({ name: 'keywords', content: "отдых 2019, отдых 2019 цены, где отдохнуть, страны отдых" });
     }
 
     public openOrderPopup(button : string) {
