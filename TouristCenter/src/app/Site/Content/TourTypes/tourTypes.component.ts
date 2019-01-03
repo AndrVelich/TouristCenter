@@ -1,6 +1,7 @@
 ﻿import { Component } from "@angular/core";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { OrderComponent } from '../../Order/order.component';
+
+import { OrderComponent } from "@siteCommon/Components/Order/order.component";
 import { Title, Meta } from '@angular/platform-browser';
 
 @Component({

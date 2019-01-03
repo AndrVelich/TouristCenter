@@ -1,7 +1,7 @@
 import { Component, Input } from "@angular/core";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
-import { OrderComponent } from '@siteModule/Order/order.component';
+import { OrderComponent } from "@siteCommon/Components/Order/order.component";
 import { Country } from "@siteCommon/Services/country.service";
 
 

@@ -246,5 +246,13 @@
   {
     "outputFile": "src/app/Site/Common/Components/Tour/tour.component.css",
     "inputFile": "src/app/Site/Common/Components/Tour/tour.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Common/Components/Order/order.component.css",
+    "inputFile": "src/app/Site/Common/Components/Order/order.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Common/Components/TourTypesTile/tourTypesTile.component.css",
+    "inputFile": "src/app/Site/Common/Components/TourTypesTile/tourTypesTile.component.scss"
   }
 ]

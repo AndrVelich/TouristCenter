@@ -7,8 +7,7 @@ import {
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { MatDialog, MatSelectModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Router } from '@angular/router';
-import { Order } from "./order";
-import { OrderService } from "./order.service";
+import { OrderService, Order } from "@siteCommon/Services/order.service";
 
 @Component({
     selector: "orderComponent",

@@ -567,6 +567,19 @@
     <Content Include="src\app\Site\Common\Components\CountryShortList\countryShortList.component.min.css">
       <DependentUpon>countryShortList.component.css</DependentUpon>
     </Content>
+    <Content Include="src\app\Site\Common\Components\Order\order.component.css">
+      <DependentUpon>order.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Common\Components\Order\order.component.min.css">
+      <DependentUpon>order.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Common\Components\TourTypesTile\tourTypesTile.component.css">
+      <DependentUpon>tourTypesTile.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Common\Components\TourTypesTile\tourTypesTile.component.html" />
+    <Content Include="src\app\Site\Common\Components\TourTypesTile\tourTypesTile.component.min.css">
+      <DependentUpon>tourTypesTile.component.css</DependentUpon>
+    </Content>
     <Content Include="src\app\Site\Common\Components\Tour\tour.component.css">
       <DependentUpon>tour.component.scss</DependentUpon>
     </Content>
@@ -598,6 +611,12 @@
     <Content Include="src\app\Site\Content\EarlyBooking\Tours\earlyTours.component.min.css">
       <DependentUpon>earlyTours.component.css</DependentUpon>
     </Content>
+    <Content Include="src\app\Site\Content\Home\home.component.css">
+      <DependentUpon>home.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Content\Home\home.component.min.css">
+      <DependentUpon>home.component.css</DependentUpon>
+    </Content>
     <Content Include="src\app\Site\Content\Hot\Countries\hotCountries.component.css">
       <DependentUpon>hotCountries.component.scss</DependentUpon>
     </Content>
@@ -621,14 +640,14 @@
     <Content Include="src\app\Site\Content\Hot\Tours\hotTours.component.min.css">
       <DependentUpon>hotTours.component.css</DependentUpon>
     </Content>
-    <Content Include="src\app\Site\Content\ImagesPopup\imagesPopup.component.css">
+    <Content Include="src\app\Site\Common\Components\ImagesPopup\imagesPopup.component.css">
       <DependentUpon>imagesPopup.component.scss</DependentUpon>
     </Content>
-    <Content Include="src\app\Site\Content\ImagesPopup\imagesPopup.component.html" />
-    <Content Include="src\app\Site\Content\ImagesPopup\imagesPopup.component.min.css">
+    <Content Include="src\app\Site\Common\Components\ImagesPopup\imagesPopup.component.html" />
+    <Content Include="src\app\Site\Common\Components\ImagesPopup\imagesPopup.component.min.css">
       <DependentUpon>imagesPopup.component.css</DependentUpon>
     </Content>
-    <Content Include="src\app\Site\Content\ImagesPopup\imagesPopup.component.ts" />
+    <Content Include="src\app\Site\Common\Components\ImagesPopup\imagesPopup.component.ts" />
     <Content Include="src\app\Site\Content\Contacts\contacts.component.html" />
     <Content Include="src\app\Site\Content\Promotions\PromotionDetails\promotionDetails.component.css">
       <DependentUpon>promotionDetails.component.scss</DependentUpon>
@@ -786,10 +805,7 @@
     <Content Include="src\app\Site\site.component.ts" />
     <Content Include="src\app\Site\Content\content.component.js" />
     <Content Include="src\app\Site\Content\content.component.ts" />
-    <Content Include="src\app\Site\Content\Home\home.component.css" />
     <Content Include="src\app\Site\Content\Home\home.component.html" />
-    <Content Include="src\app\Site\Content\Home\home.component.js" />
-    <Content Include="src\app\Site\Content\Home\home.component.min.css" />
     <Content Include="src\app\Common\Directives\clickOutside.directive.js" />
     <Content Include="src\app\Common\Directives\clickOutside.directive.ts" />
     <Content Include="src\app\Common\Directives\ClickOutsideDirective.js" />
@@ -799,12 +815,9 @@
     <Content Include="src\app\Site\Header\header.component.html" />
     <Content Include="src\app\Site\Header\header.component.js" />
     <Content Include="src\app\Site\Header\header.component.ts" />
-    <Content Include="src\app\Site\Order\order.component.css" />
-    <Content Include="src\app\Site\Order\order.component.html" />
-    <Content Include="src\app\Site\Order\order.component.min.css" />
-    <Content Include="src\app\Site\Order\order.component.ts" />
-    <Content Include="src\app\Site\Order\order.service.ts" />
-    <Content Include="src\app\Site\Order\order.ts" />
+    <Content Include="src\app\Site\Common\Components\Order\order.component.html" />
+    <Content Include="src\app\Site\Common\Components\Order\order.component.ts" />
+    <Content Include="src\app\Site\Common\Services\order.service.ts" />
     <Content Include="src\app\Site\Tours\tours.component.css">
       <DependentUpon>tours.component.scss</DependentUpon>
     </Content>
@@ -860,13 +873,12 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="src\app\Site\Content\content.component.js.map" />
-    <Content Include="src\app\Site\Content\Home\home.component.js.map" />
     <Content Include="src\app\Site\Content\Home\home.component.scss" />
     <Content Include="src\app\Common\Directives\clickOutside.directive.js.map" />
     <Content Include="src\app\Common\Directives\ClickOutsideDirective.js.map" />
     <Content Include="src\app\Site\Footer\footer.component.js.map" />
     <Content Include="src\app\Site\Header\header.component.js.map" />
-    <Content Include="src\app\Site\Order\order.component.scss" />
+    <Content Include="src\app\Site\Common\Components\Order\order.component.scss" />
     <Content Include="src\assets\.gitkeep" />
     <Content Include="src\tsconfig.app.json" />
     <Content Include="src\tsconfig.spec.json" />
@@ -881,7 +893,7 @@
     <Content Include="src\app\Administration\administration.component.scss" />
     <Content Include="src\app\Site\Content\TourTypes\tourTypes.component.scss" />
     <Content Include="src\app\Site\Content\TourTypes\Beach\Tours\beachTours.component.scss" />
-    <Content Include="src\app\Site\Content\ImagesPopup\imagesPopup.component.scss" />
+    <Content Include="src\app\Site\Common\Components\ImagesPopup\imagesPopup.component.scss" />
     <Content Include="src\app\Site\Content\Promotions\promotions.component.scss" />
     <Content Include="src\app\Site\Content\Promotions\PromotionDetails\promotionDetails.component.scss" />
     <Content Include="src\app\Site\Content\TourTypes\Beach\Country\beachCountry.component.scss" />
@@ -917,6 +929,7 @@
     <Content Include="src\app\Site\Common\Components\Country\country.component.scss" />
     <Content Include="src\app\Site\Common\Components\CountryShortList\countryShortList.component.scss" />
     <Content Include="src\app\Site\Common\Components\Tour\tour.component.scss" />
+    <Content Include="src\app\Site\Common\Components\TourTypesTile\tourTypesTile.component.scss" />
     <None Include="src\app\Site\Header\header.component.scss" />
     <Content Include="src\app\Site\site.component.scss" />
     <Content Include="Views\Administration\Index.cshtml" />
@@ -977,6 +990,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="src\app\Site\Common\Components\Tour\tour.component.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\app\Site\Common\Components\TourTypesTile\tourTypesTile.component.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

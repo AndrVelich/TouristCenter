@@ -15,8 +15,7 @@ import { CommonModule } from "../Common/common.module";
 import { routes } from "./site.routes";
 import { SiteComponent } from "./site.component";
 import { HeaderComponent } from "./Header/header.component";
-import { OrderComponent } from "./Order/order.component";
-import { OrderService } from "./Order/order.service";
+import { OrderComponent } from "./Common/Components/Order/order.component";
 import { CountriesComponent } from "./Countries/countries.component";
 import { CountryComponent } from "./Common/Components/Country/country.component";
 import { CountryShortListComponent } from "./Common/Components/CountryShortList/countryShortList.component";
@@ -27,6 +26,7 @@ import { ContentComponent } from "./Content/content.component";
 import { HomeComponent } from "./Content/Home/home.component";
 import { CountriesPageComponent } from "./Content/CountriesPage/countriesPage.component";
 import { TourTypesComponent } from "./Content/TourTypes/tourTypes.component";
+import { TourTypesTileComponent } from "./Common/Components/TourTypesTile/tourTypesTile.component";
 import { ContactsComponent } from "./Content/Contacts/contacts.component";
 
 import { BeachCountryComponent } from "./Content/TourTypes/Beach/Country/beachCountry.component";
@@ -43,7 +43,7 @@ import { SkiingToursComponent } from "./Content/TourTypes/Skiing/Tours/skiingTou
 
 import { PromotionsComponent } from "./Content/Promotions/promotions.component";
 import { PromotionDetailsComponent } from "./Content/Promotions/PromotionDetails/promotionDetails.component";
-import { ImagesPopupComponent } from "./Content/ImagesPopup/imagesPopup.component";
+import { ImagesPopupComponent } from "./Common/Components/ImagesPopup/imagesPopup.component";
 
 import { HotCountriesComponent } from "./Content/Hot/Countries/hotCountries.component";
 import { HotToursComponent } from "./Content/Hot/Tours/hotTours.component";
@@ -53,6 +53,7 @@ import { EarlyToursComponent } from "./Content/EarlyBooking/Tours/earlyTours.com
 
 import { SlideshowModule } from 'ng-simple-slideshow';
 
+import { OrderService } from "./Common/Services/order.service";
 import { CountryService } from "./Common/Services/country.service";
 import { TourService } from "./Common/Services/tour.service";
 import { PromotionService } from "./Common/Services/promotion.service";
@@ -101,6 +102,7 @@ import { PromotionService } from "./Common/Services/promotion.service";
             CountryComponent,
             CountryShortListComponent,
             TourTypesComponent,
+            TourTypesTileComponent,
             CountriesComponent,
             ToursComponent,
             TourComponent,

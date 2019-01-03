@@ -2,8 +2,7 @@
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Title, Meta } from '@angular/platform-browser';
 
-import { OrderComponent } from '../../Order/order.component';
-import { ImagesPopupComponent } from '../ImagesPopup/imagesPopup.component';
+import { OrderComponent } from "@siteCommon/Components/Order/order.component";
 import { PromotionService } from "@siteCommon/Services/promotion.service";
 import { Promotion } from "@siteCommon/Services/promotion.service";
 import { PreloaderService } from "@common/Services/preloader.service";

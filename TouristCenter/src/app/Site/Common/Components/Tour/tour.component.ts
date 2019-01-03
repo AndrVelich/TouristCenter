@@ -1,8 +1,8 @@
 import { Component, Input } from "@angular/core";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
-import { ImagesPopupComponent } from '@siteModule/Content/ImagesPopup/imagesPopup.component';
-import { OrderComponent } from '@siteModule/Order/order.component';
+import { ImagesPopupComponent } from '@siteCommon/Components/ImagesPopup/imagesPopup.component';
+import { OrderComponent } from "@siteCommon/Components/Order/order.component";
 import { Tour } from "@siteCommon/Services/tour.service";
 
 @Component({

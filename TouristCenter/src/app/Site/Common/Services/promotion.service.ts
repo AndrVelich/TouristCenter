@@ -1,13 +1,9 @@
-
 import {throwError as observableThrowError,  Observable } from 'rxjs';
-
 import {map, catchError} from 'rxjs/operators';
 import { Injectable } from "@angular/core";
-import { Dictionary } from "@common/Types/Dictionary";
 import { Http, Response } from "@angular/http";
-//import {Observable} from 'rxjs/Rx';
 
-
+import { Dictionary } from "@common/Types/Dictionary";
 
 @Injectable()
 export class PromotionService{

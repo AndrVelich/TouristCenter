@@ -3,8 +3,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
 
-import { ImagesPopupComponent } from '@siteModule/Content/ImagesPopup/imagesPopup.component';
-import { OrderComponent } from '@siteModule/Order/order.component';
+import { ImagesPopupComponent } from '@siteCommon/Components/ImagesPopup/imagesPopup.component';
+import { OrderComponent } from "@siteCommon/Components/Order/order.component";
 import { Dictionary } from "@common/Types/Dictionary";
 import { TourTypeService } from "@common/Services/tourType.service"; 
 import { CountryService } from "@siteCommon/Services/country.service";

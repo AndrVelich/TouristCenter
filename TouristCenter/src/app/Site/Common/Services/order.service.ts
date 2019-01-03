@@ -1,13 +1,8 @@
-
 import {throwError as observableThrowError,  Observable } from 'rxjs';
 
 import {catchError} from 'rxjs/operators';
 import { Injectable } from "@angular/core";
 import { Http, Response } from "@angular/http";
-import { Order } from "./order";
-//import {Observable} from 'rxjs/Rx';
-
-
 
 @Injectable()
 export class OrderService{
@@ -35,4 +30,12 @@ export class OrderService{
 
         return observableThrowError(message);
     }
+}
+
+export class Order {
+    public name: string;
+    public phone: number;
+    public description: string;
+    public url: string;
+    public tourOrButton: string
 }

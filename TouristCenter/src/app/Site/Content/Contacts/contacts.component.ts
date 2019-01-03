@@ -2,7 +2,7 @@
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Title, Meta } from '@angular/platform-browser';
 
-import { OrderComponent } from '../../Order/order.component';
+import { OrderComponent } from "@siteCommon/Components/Order/order.component";
 
 @Component({
     

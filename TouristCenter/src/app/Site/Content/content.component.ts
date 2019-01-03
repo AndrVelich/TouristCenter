@@ -15,7 +15,7 @@ import {
 } from '@angular/animations';
 
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { OrderComponent } from '@siteModule/Order/order.component';
+import { OrderComponent } from "@siteCommon/Components/Order/order.component";
 
 @Component({
     

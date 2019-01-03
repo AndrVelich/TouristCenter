@@ -3,7 +3,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
 
-import { OrderComponent } from '@siteModule/Order/order.component';
+import { OrderComponent } from "@siteCommon/Components/Order/order.component";
 import { CountryService } from "@siteCommon/Services/country.service";
 import { Country } from "@siteCommon/Services/country.service";
 import { PreloaderService } from "@common/Services/preloader.service";
