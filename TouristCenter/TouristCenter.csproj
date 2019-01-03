@@ -560,6 +560,20 @@
     <Content Include="src\app\Administration\administration.routes.ts" />
     <Content Include="src\app\Common\common.module.ts" />
     <Content Include="src\app\Common\Types\Dictionary.ts" />
+    <Content Include="src\app\Site\Common\Components\CountryShortList\countryShortList.component.css">
+      <DependentUpon>countryShortList.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Common\Components\CountryShortList\countryShortList.component.html" />
+    <Content Include="src\app\Site\Common\Components\CountryShortList\countryShortList.component.min.css">
+      <DependentUpon>countryShortList.component.css</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Common\Components\Tour\tour.component.css">
+      <DependentUpon>tour.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Common\Components\Tour\tour.component.html" />
+    <Content Include="src\app\Site\Common\Components\Tour\tour.component.min.css">
+      <DependentUpon>tour.component.css</DependentUpon>
+    </Content>
     <Content Include="src\app\Site\Common\Services\country.service.ts" />
     <Content Include="src\app\Site\Common\Services\promotion.service.ts" />
     <Content Include="src\app\Site\Common\Services\tour.service.ts" />
@@ -741,6 +755,13 @@
       <DependentUpon>countries.component.css</DependentUpon>
     </Content>
     <Content Include="src\app\Site\Countries\countries.component.ts" />
+    <Content Include="src\app\Site\Common\Components\Country\country.component.css">
+      <DependentUpon>country.component.scss</DependentUpon>
+    </Content>
+    <Content Include="src\app\Site\Common\Components\Country\country.component.html" />
+    <Content Include="src\app\Site\Common\Components\Country\country.component.min.css">
+      <DependentUpon>country.component.css</DependentUpon>
+    </Content>
     <Content Include="src\app\Site\Footer\footer.component.css">
       <DependentUpon>footer.component.scss</DependentUpon>
     </Content>
@@ -893,6 +914,9 @@
     <Content Include="src\app\Site\Content\EarlyBooking\Countries\earlyCountries.component.scss" />
     <Content Include="src\app\Site\Content\EarlyBooking\Tours\earlyTours.component.scss" />
     <Content Include="src\app\Site\Content\TourTypes\Bus\Tours\busTours.component.scss" />
+    <Content Include="src\app\Site\Common\Components\Country\country.component.scss" />
+    <Content Include="src\app\Site\Common\Components\CountryShortList\countryShortList.component.scss" />
+    <Content Include="src\app\Site\Common\Components\Tour\tour.component.scss" />
     <None Include="src\app\Site\Header\header.component.scss" />
     <Content Include="src\app\Site\site.component.scss" />
     <Content Include="Views\Administration\Index.cshtml" />
@@ -944,6 +968,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="src\app\Site\Content\TourTypes\Bus\Tours\busTours.component.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\app\Site\Common\Components\Country\country.component.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\app\Site\Common\Components\CountryShortList\countryShortList.component.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\app\Site\Common\Components\Tour\tour.component.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

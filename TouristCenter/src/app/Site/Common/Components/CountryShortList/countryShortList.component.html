@@ -1,0 +1,9 @@
+﻿<div class="countries-short font-OpenSans-Semibold">
+    <div class="country-short" *ngFor="let country of countryCollection">
+        <img class="arrow" src="/Content/Images/Countries/orange-arr.png" />
+        <a [routerLink]="[ '/tour/' + country.category + '/' + country.urlName ]"
+           class="country-name-link">
+            <span [innerHtml]="country.name"></span>
+        </a>
+    </div>
+</div>

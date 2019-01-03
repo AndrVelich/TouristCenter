@@ -13,33 +13,6 @@
             margin: 20px auto;
         }
 
-        .countries-short {
-            column-count: 3;
-            max-width: 1000px;
-            margin: 0 auto;
-
-            .country-short {
-                display: flex;
-                justify-content: flex-start;
-                padding-left: 30%;
-
-                .arrow {
-                    height: 14px;
-                    position: relative;
-                    bottom: -5px;
-                    margin-right: 10px;
-                }
-
-                a {
-                    color: #1A1A1A;
-                }
-
-                a:hover {
-                    color: #fc3b3c;
-                }
-            }
-        }
-
         .put-order {
             text-align: center;
             margin: 30px 0;
@@ -64,105 +37,6 @@
             }
         }
 
-        .counties-wrapper {
-            margin: 20px auto;
-            max-width: 1000px;
-
-            .country {
-                margin: 20px 0;
-                border: 1px solid #F1F1F1;
-                padding: 10px;
-
-                .image-description {
-
-                    .country-image {
-                        display: block;
-
-                        .image {
-                            background-size: cover !important;
-                            background-repeat: no-repeat !important;
-                            background-position: center !important;
-                            padding-top: 50%;
-                            text-align: center;
-                            display: block;
-                        }
-                    }
-
-                    .country-descriptions {
-                        margin-top: 10px;
-                        margin-right: 40px;
-                        min-width: 200px;
-                        max-width: 300px;
-                        margin-left: 20px;
-
-                        .country-name-link {
-                            text-transform: uppercase;
-                            font-size: 24px;
-                            color: #0A155F;
-                            font-family: OpenSans-Semibold;
-                        }
-
-                        .country-name-link:hover {
-                            color: #feb849;
-                        }
-
-                        .description {
-                            font-size: 14px;
-                        }
-                    }
-                }
-
-                .country-prices {
-                    margin-top: 10px;
-                    margin-right: 10px;
-                    min-width: 220px;
-                    max-width: 320px;
-
-                    .hotels {
-                        display: flex;
-                        justify-content: space-between;
-                        margin: 10px 0;
-
-                        li {
-                            list-style-type: none;
-                        }
-
-                        .stars {
-                            li {
-                                display: flex;
-                                height: 16px;
-                                margin: 5px 0;
-
-                                img {
-                                    height: 100%;
-                                }
-                            }
-                        }
-                    }
-
-                    .country-btn {
-                        background-color: #311569;
-                        color: white;
-                        border: 1px solid #311569;
-                        line-height: 35px;
-                        font-size: 20px;
-                        padding: 6px 12px;
-                    }
-
-                    .country-btn:hover {
-                        color: #311569;
-                        background-color: white;
-                    }
-                }
-            }
-
-            .country:hover {
-                margin-bottom: 20px;
-                border: 1px solid #FFDFA2;
-                box-shadow: 0 0 7px rgba(255,223,162,0.75);
-            }
-        }
-
         .categories {
 
             .categories-wrapper {
@@ -184,56 +58,6 @@
                     a:hover {
                         color: #118B91;
                     }
-                }
-            }
-        }
-    }
-}
-
-
-
-@media (min-width: 1100px) {
-    .country {
-        display: flex;
-        justify-content: space-between;
-    }
-}
-
-@media (max-width: 1100px) {
-    .country {
-        display: block;
-    }
-}
-
-@media (min-width: 880px) {
-    .country {
-
-        .image-description {
-            display: flex;
-
-            .country-image {
-                margin-right: 40px;
-
-                .image {
-                    width: 340px;
-                }
-            }
-        }
-    }
-}
-
-@media (max-width: 880px) {
-    .country {
-        width: 100%;
-        margin: 0 0 20px 0;
-
-        .image-description {
-            display: block;
-
-            .country-image {
-
-                .image {
-                    width: 100%;
                 }
             }
         }

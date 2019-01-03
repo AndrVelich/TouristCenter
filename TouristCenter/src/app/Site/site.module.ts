@@ -18,7 +18,10 @@ import { HeaderComponent } from "./Header/header.component";
 import { OrderComponent } from "./Order/order.component";
 import { OrderService } from "./Order/order.service";
 import { CountriesComponent } from "./Countries/countries.component";
+import { CountryComponent } from "./Common/Components/Country/country.component";
+import { CountryShortListComponent } from "./Common/Components/CountryShortList/countryShortList.component";
 import { ToursComponent } from "./Tours/tours.component";
+import { TourComponent } from "./Common/Components/Tour/tour.component";
 import { FooterComponent } from "./Footer/footer.component";
 import { ContentComponent } from "./Content/content.component";
 import { HomeComponent } from "./Content/Home/home.component";
@@ -95,9 +98,12 @@ import { PromotionService } from "./Common/Services/promotion.service";
             ContentComponent,
             HomeComponent,
             CountriesPageComponent,
+            CountryComponent,
+            CountryShortListComponent,
             TourTypesComponent,
             CountriesComponent,
             ToursComponent,
+            TourComponent,
             ContactsComponent,
 
             BeachCountryComponent,
