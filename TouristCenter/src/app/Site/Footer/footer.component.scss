@@ -111,12 +111,12 @@
     }
 }
 
-@media (min-width: 600px) {
+@media (min-width: 700px) {
 
     footer {
-        padding: 30px 70px;
 
         .footer-top {
+
             .footer-right {
 
                 .separator-promotions {
@@ -128,6 +128,33 @@
                 }
             }
         }
+    }
+}
+
+@media (max-width: 700px) {
+
+    footer {
+
+        .footer-top {
+
+            .footer-right {
+
+                .separator-promotions {
+                    display: none;
+                }
+
+                .promotions {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 600px) {
+
+    footer {
+        padding: 30px 95px;
     }
 
 }
