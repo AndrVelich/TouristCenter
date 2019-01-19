@@ -14,7 +14,7 @@ import { Tour } from "@siteCommon/Services/tour.service";
 })
 export class TourComponent {
     @Input() tour: Tour;
-    private starsArray = Array;
+    public starsArray = Array;
 
     constructor(
         public dialog: MatDialog)
