@@ -7,7 +7,7 @@ import { Register } from "@administrationCommon/Services/register.service";
 
 @Component({
     
-    moduleId: module.id,
+    
     selector: "register",
     templateUrl: "register.component.html",
     styleUrls: ["register.component.css"]

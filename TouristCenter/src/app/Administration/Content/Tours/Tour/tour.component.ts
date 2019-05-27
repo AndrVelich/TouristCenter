@@ -14,7 +14,7 @@ import { Tour } from "@administrationCommon/Services/tour.service";
 
 @Component({
     
-    moduleId: module.id,
+    
     selector: "tour",
     templateUrl: "tour.component.html",
     styleUrls: ["tour.component.css"],

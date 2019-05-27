@@ -9,7 +9,7 @@ import { Promotion } from "@siteCommon/Services/promotion.service";
 
 @Component({
     
-    moduleId: module.id,
+    
     selector: "promotionDetails",
     templateUrl: "promotionDetails.component.html",
     styleUrls: ["promotionDetails.component.css"]

@@ -10,7 +10,7 @@ import { Country } from "@administrationCommon/Services/country.service";
 
 @Component({
     
-    moduleId: module.id,
+    
     selector: "country",
     templateUrl: "country.component.html",
     styleUrls: ["country.component.css"]

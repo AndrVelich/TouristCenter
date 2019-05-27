@@ -9,7 +9,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { OrderService } from "@administrationCommon/Services/order.service";
 
 @Component({
-    moduleId: module.id,
+    
     selector: "headerComponent",
     templateUrl: "header.component.html",
     styleUrls: ["header.component.css"],

@@ -42,7 +42,7 @@ var HeaderComponent = /** @class */ (function () {
     };
     HeaderComponent = __decorate([
         Component({
-            moduleId: module.id,
+            
             selector: "headerComponent",
             templateUrl: "header.component.html",
             styleUrls: ["header.component.css"],

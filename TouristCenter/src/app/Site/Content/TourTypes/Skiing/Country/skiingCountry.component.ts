@@ -4,7 +4,7 @@ import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
     
-    moduleId: module.id,
+    
     selector: "skiingCountry",
     templateUrl: "skiingCountry.component.html",
     styleUrls: ["skiingCountry.component.css"]

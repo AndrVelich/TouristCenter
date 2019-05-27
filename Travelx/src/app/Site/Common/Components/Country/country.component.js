@@ -27,7 +27,7 @@ var CountryComponent = /** @class */ (function () {
     ], CountryComponent.prototype, "country", void 0);
     CountryComponent = __decorate([
         Component({
-            moduleId: module.id,
+            
             selector: "countryComponent",
             templateUrl: "country.component.html",
             styleUrls: ["country.component.css"]

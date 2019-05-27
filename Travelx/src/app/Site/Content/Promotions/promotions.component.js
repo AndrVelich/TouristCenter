@@ -43,7 +43,7 @@ var PromotionsComponent = /** @class */ (function () {
     };
     PromotionsComponent = __decorate([
         Component({
-            moduleId: module.id,
+            
             selector: "promotions",
             templateUrl: "promotions.component.html",
             styleUrls: ["promotions.component.css"]

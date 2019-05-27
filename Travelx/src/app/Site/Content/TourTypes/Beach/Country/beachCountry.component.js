@@ -23,7 +23,7 @@ var BeachCountryComponent = /** @class */ (function () {
     };
     BeachCountryComponent = __decorate([
         Component({
-            moduleId: module.id,
+            
             selector: "beachCountry",
             templateUrl: "beachCountry.component.html",
             styleUrls: ["beachCountry.component.css"]

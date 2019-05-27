@@ -7,7 +7,7 @@ import { Promotion } from "@administrationCommon/Services/promotion.service";
 
 @Component({
     
-    moduleId: module.id,
+    
     selector: "promotion",
     templateUrl: "promotion.component.html",
     styleUrls: ["promotion.component.css"]

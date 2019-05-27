@@ -106,7 +106,7 @@ var CountryComponent = /** @class */ (function () {
     };
     CountryComponent = __decorate([
         Component({
-            moduleId: module.id,
+            
             selector: "country",
             templateUrl: "country.component.html",
             styleUrls: ["country.component.css"]

@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
-    moduleId: module.id,
+    
     selector: "beachCountry",
     templateUrl: "beachCountry.component.html",
     styleUrls: ["beachCountry.component.css"]

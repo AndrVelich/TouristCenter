@@ -47,7 +47,7 @@ var LoginComponent = /** @class */ (function () {
     };
     LoginComponent = __decorate([
         Component({
-            moduleId: module.id,
+            
             selector: "login",
             templateUrl: "login.component.html",
             styleUrls: ["login.component.css"]

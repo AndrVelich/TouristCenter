@@ -9,7 +9,7 @@ import { PreloaderService } from "@common/Services/preloader.service";
 
 @Component({
     
-    moduleId: module.id,
+    
     selector: "promotions",
     templateUrl: "promotions.component.html",
     styleUrls: ["promotions.component.css"]

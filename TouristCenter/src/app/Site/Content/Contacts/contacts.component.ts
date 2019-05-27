@@ -6,7 +6,7 @@ import { OrderComponent } from "@siteCommon/Components/Order/order.component";
 
 @Component({
     
-    moduleId: module.id,
+    
     selector: "contacts",
     templateUrl: "contacts.component.html",
     styleUrls: ["contacts.component.css"]

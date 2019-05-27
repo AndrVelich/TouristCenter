@@ -23,7 +23,7 @@ var NewYearCountryComponent = /** @class */ (function () {
     };
     NewYearCountryComponent = __decorate([
         Component({
-            moduleId: module.id,
+            
             selector: "newYearCountry",
             templateUrl: "newYearCountry.component.html",
             styleUrls: ["newYearCountry.component.css"]

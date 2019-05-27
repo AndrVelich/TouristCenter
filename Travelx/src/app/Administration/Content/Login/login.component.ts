@@ -7,7 +7,7 @@ import { Login } from "@administrationCommon/Services/login.service";
 
 @Component({
     
-    moduleId: module.id,
+    
     selector: "login",
     templateUrl: "login.component.html",
     styleUrls: ["login.component.css"]

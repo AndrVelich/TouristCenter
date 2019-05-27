@@ -2,7 +2,7 @@
 
 @Component({
     
-    moduleId: module.id,
+    
     selector: "tourTypesTileComponent",
     templateUrl: "tourTypesTile.component.html",
     styleUrls: ["tourTypesTile.component.css"]

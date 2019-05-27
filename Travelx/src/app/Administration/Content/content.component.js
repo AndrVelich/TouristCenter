@@ -10,7 +10,7 @@ var ContentComponent = /** @class */ (function () {
     }
     ContentComponent = __decorate([
         Component({
-            moduleId: module.id,
+            
             selector: "contentComponent",
             template: '<router-outlet></router-outlet>'
         })

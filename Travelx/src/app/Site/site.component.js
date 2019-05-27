@@ -19,7 +19,7 @@ var SiteComponent = /** @class */ (function () {
     };
     SiteComponent = __decorate([
         Component({
-            moduleId: module.id,
+            
             selector: "siteComponent",
             templateUrl: "site.component.html",
             styleUrls: ["site.component.css"],

@@ -10,7 +10,7 @@ var SkiingToursComponent = /** @class */ (function () {
     }
     SkiingToursComponent = __decorate([
         Component({
-            moduleId: module.id,
+            
             selector: "skiingTours",
             templateUrl: "skiingTours.component.html",
             styleUrls: ["skiingTours.component.css"]

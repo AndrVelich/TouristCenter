@@ -23,7 +23,7 @@ var CorporateCountryComponent = /** @class */ (function () {
     };
     CorporateCountryComponent = __decorate([
         Component({
-            moduleId: module.id,
+            
             selector: "corporateCountry",
             templateUrl: "corporateCountry.component.html",
             styleUrls: ["corporateCountry.component.css"]

@@ -15,7 +15,7 @@ import { PreloaderService } from "@common/Services/preloader.service";
 
 @Component({
     
-    moduleId: module.id,
+    
     selector: "toursComponent",
     templateUrl: "tours.component.html",
     styleUrls: ["tours.component.css"]

@@ -50,7 +50,7 @@ var RegisterComponent = /** @class */ (function () {
     };
     RegisterComponent = __decorate([
         Component({
-            moduleId: module.id,
+            
             selector: "register",
             templateUrl: "register.component.html",
             styleUrls: ["register.component.css"]

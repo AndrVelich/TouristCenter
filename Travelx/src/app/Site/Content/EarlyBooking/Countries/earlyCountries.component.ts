@@ -10,7 +10,7 @@ import { PreloaderService } from "@common/Services/preloader.service";
 
 @Component({
     
-    moduleId: module.id,
+    
     selector: "earlyCountries",
     templateUrl: "earlyCountries.component.html",
     styleUrls: ["earlyCountries.component.css"]

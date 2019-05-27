@@ -19,7 +19,7 @@ import { OrderComponent } from "@siteCommon/Components/Order/order.component";
 
 @Component({
     
-    moduleId: module.id,
+    
     selector: "contentComponent",
     templateUrl: "content.component.html",
     styleUrls: ["content.component.css"],

@@ -10,7 +10,7 @@ var BeachToursComponent = /** @class */ (function () {
     }
     BeachToursComponent = __decorate([
         Component({
-            moduleId: module.id,
+            
             selector: "beachTours",
             templateUrl: "beachTours.component.html",
             styleUrls: ["beachTours.component.css"]

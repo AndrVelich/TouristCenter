@@ -6,8 +6,7 @@ import { Country } from "@siteCommon/Services/country.service";
 
 
 @Component({
-    
-    moduleId: module.id,
+
     selector: "countryComponent",
     templateUrl: "country.component.html",
     styleUrls: ["country.component.css"]

@@ -14,7 +14,7 @@ var ContentComponent = (function () {
 }());
 ContentComponent = __decorate([
     core_1.Component({
-        moduleId: module.id,
+        
         selector: "contentComponent",
         template: "<router-outlet></router-outlet>"
     })

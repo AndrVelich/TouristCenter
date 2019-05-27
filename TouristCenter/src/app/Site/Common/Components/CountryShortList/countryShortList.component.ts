@@ -4,7 +4,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Country } from "@siteCommon/Services/country.service";
 
 @Component({
-    moduleId: module.id,
+    
     selector: "countryShortListComponent",
     templateUrl: "countryShortList.component.html",
     styleUrls: ["countryShortList.component.css"]

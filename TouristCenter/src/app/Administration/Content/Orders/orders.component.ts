@@ -12,7 +12,7 @@ import {Observable} from 'rxjs';
 
 @Component({
     
-    moduleId: module.id,
+    
     selector: "orders",
     templateUrl: "orders.component.html",
     styleUrls: ["orders.component.css"]

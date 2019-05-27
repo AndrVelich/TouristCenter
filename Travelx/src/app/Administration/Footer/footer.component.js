@@ -10,7 +10,7 @@ var FooterComponent = /** @class */ (function () {
     }
     FooterComponent = __decorate([
         Component({
-            moduleId: module.id,
+            
             selector: "footerComponent",
             templateUrl: "footer.component.html",
             styleUrls: ["footer.component.css"]

@@ -2,7 +2,7 @@
 
 @Component({
     
-    moduleId: module.id,
+    
     selector: "contentComponent",
     template: '<router-outlet></router-outlet>'
 })

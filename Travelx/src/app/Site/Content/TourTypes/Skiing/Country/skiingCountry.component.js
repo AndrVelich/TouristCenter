@@ -23,7 +23,7 @@ var SkiingCountryComponent = /** @class */ (function () {
     };
     SkiingCountryComponent = __decorate([
         Component({
-            moduleId: module.id,
+            
             selector: "skiingCountry",
             templateUrl: "skiingCountry.component.html",
             styleUrls: ["skiingCountry.component.css"]

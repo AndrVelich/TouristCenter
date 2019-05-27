@@ -90,7 +90,7 @@ var ToursComponent = /** @class */ (function () {
     };
     ToursComponent = __decorate([
         Component({
-            moduleId: module.id,
+            
             selector: "toursComponent",
             templateUrl: "tours.component.html",
             styleUrls: ["tours.component.css"]

@@ -35,7 +35,7 @@ var HeaderComponent = (function () {
 }());
 HeaderComponent = __decorate([
     core_1.Component({
-        moduleId: module.id,
+        
         selector: "headerComponent",
         templateUrl: "header.component.html",
         animations: [
