@@ -1,0 +1,161 @@
+﻿.counties-wrapper {
+    margin: 0 20px;
+
+    .country {
+        margin-bottom: 20px;
+        /*--mat select--*/
+        ::ng-deep mat-select {
+            .mat-select-trigger {
+                display: block;
+                width: 100%;
+                height: 34px;
+                padding: 6px 12px;
+                font-size: 14px;
+                line-height: 1.428571429;
+                color: #555555;
+                vertical-align: middle;
+                background-color: #ffffff;
+                border: 1px solid #cccccc;
+                border-radius: 4px;
+                -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+                -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+                transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+
+                span {
+                    line-height: 20px;
+                }
+            }
+        }
+
+        .input-group {
+            width: 100%;
+
+            .form-control {
+                width: 100%;
+            }
+        }
+
+        .country-descriptions {
+            margin-top: 10px;
+            min-width: 200px;
+
+            a.link-big {
+
+                i {
+                    font-size: 19px;
+                }
+            }
+        }
+
+        .country-prices {
+            margin-top: 10px;
+
+            .hotels {
+                margin-bottom: 10px;
+
+                .stars {
+                    margin-right: 5px;
+
+                    .s {
+                        background-image: url(/content/images/star.svg);
+                        background-position: 14px 14px;
+                        width: 14px;
+                        height: 14px;
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+
+        .country-image {
+            margin-top: 10px;
+
+            .small-images {
+                display: inline-block;
+                vertical-align: top;
+
+                a {
+                    position: relative;
+                    background-size: cover !important;
+                    background-repeat: no-repeat !important;
+                    background-position: center !important;
+                    padding-top: 50%;
+                    text-align: center;
+                    display: block;
+                    width: 200px;
+                    margin: 3px;
+
+                    .cross-close {
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        padding: 0px 7px;
+                        cursor: pointer;
+                        color: white;
+                        background-color: rgba(0, 0, 0, 0.7);
+                        opacity: 0;
+                    }
+                }
+
+                a:hover .cross-close {
+                    opacity: 1;
+                }
+            }
+
+            .upload-mage {
+
+                input {
+                    display: none;
+                }
+            }
+        }
+
+        .content-fields {
+
+            .small-height {
+                height: 100px;
+            }
+
+            .large-height {
+                height: 150px;
+            }
+        }
+
+        .actions {
+            margin: 15px 0;
+
+            button {
+                width: 180px;
+                margin: 10px;
+            }
+        }
+    }
+}
+
+
+@media (min-width: 850px) {
+    .country {
+        
+    }
+}
+
+@media (max-width: 850px) {
+    .country {
+        
+    }
+}
+
+@media (min-width: 600px) {
+    .country {
+
+    }
+}
+
+@media (max-width: 600px) {
+    .country {
+        
+
+
+    }
+}

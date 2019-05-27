@@ -1,0 +1,65 @@
+﻿.countries-page {
+    .banner {
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .text-wrapper {
+
+        h1 {
+            max-width: 720px;
+            margin: 20px auto;
+        }
+
+        .put-order {
+            text-align: center;
+            margin: 30px 0;
+
+            h4 {
+                margin-bottom: 10px;
+            }
+
+            .order-btn {
+                background-color: white;
+                color: #fc3b3c;
+                border: 2px solid #fc3b3c;
+                width: 250px;
+                line-height: 35px;
+                font-size: 20px;
+            }
+
+            .order-btn:hover {
+                box-shadow: 0 0 7px rgba(253,10,10,0.75);
+                color: white;
+                background-color: #fc3b3c;
+            }
+        }
+
+        .categories {
+
+            .categories-wrapper {
+                max-width: 380px;
+                margin: 10px auto 20px auto;
+
+                .category {
+                    margin: 10px 0;
+
+                    a {
+                        color: #1A1A1A;
+
+                        img {
+                            height: 10px;
+                            margin-left: 3px;
+                        }
+                    }
+
+                    a:hover {
+                        color: #118B91;
+                    }
+                }
+            }
+        }
+    }
+}

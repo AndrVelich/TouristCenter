@@ -1,0 +1,35 @@
+﻿<div class="width-wrapper">
+    <div class="promotions-wrapper">
+        <div class="promotions-header">
+            <h2>Акции</h2>
+            <a [routerLink]="[ '/administration/promotions/new' ]" class="link-big">
+                <span>Новая акция</span>
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div>
+            <div class="promotion" *ngFor="let promotion of promotionCollection">
+                <div class="image-description">
+                    <div class="promotion-image">
+                        <div class="image"
+                             [style.background]="'url(/api/image/' + promotion.oldImageCollection[0] + ')'">
+                        </div>
+                    </div>
+                    <div class="promotion-descriptions">
+                        <a [routerLink]="[ '/administration/promotions/' + promotion.urlName ]" class="link-big">
+                            <span [innerHtml]="promotion.name"></span>
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
+                        <a (click)="openDeleteConfirmation(promotion.promotionId, promotion.name)" class="link-big" style="color:red">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                        <div [innerHtml]="promotion.description"></div>
+                        <div>
+                            <div class="until-date"> Действует до <strong>{{promotion.untilDate | date: 'yyyy-MM-dd'}}</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

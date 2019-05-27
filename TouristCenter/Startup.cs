@@ -14,7 +14,6 @@ using Ninject.Modules;
 using Ninject.Web.Common.OwinHost;
 using Ninject.Web.WebApi.OwinHost;
 using Owin;
-using VirtualBuisnessCard.DI;
 
 [assembly: OwinStartup(typeof(TouristCenter.Startup))]
 
@@ -44,10 +43,10 @@ namespace TouristCenter
         private void RegisterDi(IAppBuilder app, HttpConfiguration config)
         {
             var connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            NinjectModule serviceModule = new DiConfiguration(connectionString);
-            var kernel = new StandardKernel(serviceModule);
-            kernel.Load(Assembly.GetExecutingAssembly());
-            app.UseNinjectMiddleware(() => kernel);
+            //NinjectModule serviceModule = new DiConfiguration.DiConfiguration(connectionString);
+            //var kernel = new StandardKernel(serviceModule);
+            //kernel.Load(Assembly.GetExecutingAssembly());
+            //app.UseNinjectMiddleware(() => kernel);
             app.UseNinjectWebApi(config);
         }
 

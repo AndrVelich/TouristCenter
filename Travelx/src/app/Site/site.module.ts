@@ -1,0 +1,142 @@
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from "@angular/forms";
+import { HttpModule } from "@angular/http";
+import { TextMaskModule } from 'angular2-text-mask';
+import { RouterModule } from "@angular/router";
+
+import {
+    MatDialogModule,
+    MatSelectModule,
+} from '@angular/material';
+
+import { CommonModule } from "../Common/common.module";
+import { routes } from "./site.routes";
+import { SiteComponent } from "./site.component";
+import { HeaderComponent } from "./Header/header.component";
+import { OrderComponent } from "./Common/Components/Order/order.component";
+import { CountriesComponent } from "./Countries/countries.component";
+import { CountryComponent } from "./Common/Components/Country/country.component";
+import { CountryShortListComponent } from "./Common/Components/CountryShortList/countryShortList.component";
+import { ToursComponent } from "./Tours/tours.component";
+import { TourComponent } from "./Common/Components/Tour/tour.component";
+import { FooterComponent } from "./Footer/footer.component";
+import { ContentComponent } from "./Content/content.component";
+import { HomeComponent } from "./Content/Home/home.component";
+import { CountriesPageComponent } from "./Content/CountriesPage/countriesPage.component";
+import { TourTypesComponent } from "./Content/TourTypes/tourTypes.component";
+import { TourTypesTileComponent } from "./Common/Components/TourTypesTile/tourTypesTile.component";
+import { ContactsComponent } from "./Content/Contacts/contacts.component";
+
+import { BeachCountryComponent } from "./Content/TourTypes/Beach/Country/beachCountry.component";
+import { BeachToursComponent } from "./Content/TourTypes/Beach/Tours/beachTours.component";
+import { BusToursComponent } from "./Content/TourTypes/Bus/Tours/busTours.component";
+import { CorporateCountryComponent } from "./Content/TourTypes/Corporate/Country/corporateCountry.component";
+import { CorporateToursComponent } from "./Content/TourTypes/Corporate/Tours/corporateTours.component";
+import { IndividualCountryComponent } from "./Content/TourTypes/Individual/Country/individualCountry.component";
+import { IndividualToursComponent } from "./Content/TourTypes/Individual/Tours/individualTours.component";
+import { NewYearCountryComponent } from "./Content/TourTypes/NewYear/Country/newYearCountry.component";
+import { NewYearToursComponent } from "./Content/TourTypes/NewYear/Tours/newYearTours.component";
+import { SkiingCountryComponent } from "./Content/TourTypes/Skiing/Country/skiingCountry.component";
+import { SkiingToursComponent } from "./Content/TourTypes/Skiing/Tours/skiingTours.component";
+
+import { PromotionsComponent } from "./Content/Promotions/promotions.component";
+import { PromotionDetailsComponent } from "./Content/Promotions/PromotionDetails/promotionDetails.component";
+import { ImagesPopupComponent } from "./Common/Components/ImagesPopup/imagesPopup.component";
+
+import { HotCountriesComponent } from "./Content/Hot/Countries/hotCountries.component";
+import { HotToursComponent } from "./Content/Hot/Tours/hotTours.component";
+
+import { EarlyCountriesComponent } from "./Content/EarlyBooking/Countries/earlyCountries.component";
+import { EarlyToursComponent } from "./Content/EarlyBooking/Tours/earlyTours.component";
+
+import { SlideshowModule } from 'ng-simple-slideshow';
+
+import { OrderService } from "./Common/Services/order.service";
+import { CountryService } from "./Common/Services/country.service";
+import { TourService } from "./Common/Services/tour.service";
+import { PromotionService } from "./Common/Services/promotion.service";
+
+@NgModule({
+    imports:
+        [
+            BrowserModule,
+            BrowserAnimationsModule,
+            ReactiveFormsModule,
+            MatDialogModule,
+            MatSelectModule,
+            HttpModule,
+            TextMaskModule,
+            CommonModule,
+            SlideshowModule,
+
+            RouterModule.forRoot(routes)
+        ],
+    providers:
+        [
+            CountryService,
+            TourService,
+            PromotionService,
+            { provide: "window", useValue: window }
+        ],
+    entryComponents:
+        [
+            TourTypesComponent,
+            HeaderComponent,
+            OrderComponent,
+
+            ImagesPopupComponent,
+            PromotionsComponent,
+            PromotionDetailsComponent
+        ],
+    declarations:
+        [
+            SiteComponent,
+            HeaderComponent,
+            OrderComponent,
+            FooterComponent,
+            ContentComponent,
+            HomeComponent,
+            CountriesPageComponent,
+            CountryComponent,
+            CountryShortListComponent,
+            TourTypesComponent,
+            TourTypesTileComponent,
+            CountriesComponent,
+            ToursComponent,
+            TourComponent,
+            ContactsComponent,
+
+            BeachCountryComponent,
+            BeachToursComponent,
+            BusToursComponent,
+            CorporateCountryComponent,
+            CorporateToursComponent,
+            IndividualCountryComponent,
+            IndividualToursComponent,
+            NewYearCountryComponent,
+            NewYearToursComponent,
+            SkiingCountryComponent,
+            SkiingToursComponent,
+
+            HotCountriesComponent,
+            HotToursComponent,
+
+            EarlyCountriesComponent,
+            EarlyToursComponent,
+
+            ImagesPopupComponent,
+            PromotionsComponent,
+            PromotionDetailsComponent
+        ],
+    exports: [
+        MatDialogModule,
+        MatSelectModule,
+        HttpModule,
+
+        SiteComponent
+    ],
+    bootstrap: [SiteComponent]
+})
+export class SiteModule { }

@@ -1,0 +1,43 @@
+﻿<div class="width-wrapper">
+    <div class="login-wrapper">
+        <div [formGroup]="loginForm" class="login">
+            <div class="login-fields">
+                    <div class="mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Email</span>
+                            <span class="required">*</span>
+                        </div>
+                        <input type="text"
+                               name="name"
+                               class="form-control"
+                               formControlName="email"
+                               [(ngModel)]="loginModel.email"
+                               aria-describedby="basic-addon1">
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Password</span>
+                            <span class="required">*</span>
+                        </div>
+                        <input type="text"
+                               name="urlName"
+                               class="form-control"
+                               formControlName="password"
+                               [(ngModel)]="loginModel.password"
+                               aria-describedby="basic-addon1">
+                    </div>
+            </div>
+            <div class="actions">
+                <button (click)="login()"
+                        class="btn btn-primary"
+                        [disabled]="!loginForm.valid">
+                    Сохранить
+                </button>
+                <button routerLink="/administration/logins"
+                        class="btn btn-secondary">
+                    Отменить
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

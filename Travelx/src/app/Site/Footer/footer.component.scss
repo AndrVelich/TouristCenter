@@ -1,0 +1,219 @@
+﻿footer {
+    background-color: #181e45;
+    border-top: 15px solid #feb849;
+    color: white;
+    font-size: 16px;
+
+
+    .width-wrapper {
+
+        .separator {
+            background-color: #6471c5;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+
+            .footer-left {
+                .logo {
+                    margin-bottom: 25px;
+
+                    img {
+                        width: 180px;
+                    }
+                }
+
+                .footerContact {
+                    padding-left: 30px;
+
+                    div {
+                        margin-top: 10px;
+                    }
+
+                    .separator-horizontal {
+                        margin: 0;
+                    }
+
+                }
+            }
+
+            .footer-right {
+                display: flex;
+                justify-content: space-between;
+                width: 60%;
+
+                .footer-right-column {
+                    margin: 0 10px;
+
+                    li {
+                        margin-top: 10px;
+                    }
+                }
+
+                h5 {
+                    font-size: 18px;
+                }
+
+                .separator-vertical {
+                    width: 1px;
+                    height: 180px;
+                }
+
+                .tours {
+                    h5 {
+                        color: #feb849;
+                    }
+                }
+
+                .social {
+                    img {
+                        width: 25px;
+                    }
+
+                    .vk-link:hover, .fb-link:hover {
+                        color: #2b9bff;
+                    }
+
+                    .inst-link:hover {
+                        color: #d862ff;
+                    }
+                }
+            }
+        }
+
+        .separator-horizontal {
+            width: 100%;
+            height: 1px;
+            margin: 15px 0;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+
+            .footer-right {
+                text-align: right;
+            }
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        a {
+            color: white;
+        }
+
+        a:hover {
+            color: #feb849;
+        }
+    }
+}
+
+@media (min-width: 700px) {
+
+    footer {
+
+        .footer-top {
+
+            .footer-right {
+
+                .separator-promotions {
+                    display: block;
+                }
+
+                .promotions {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+
+    footer {
+
+        .footer-top {
+
+            .footer-right {
+
+                .separator-promotions {
+                    display: none;
+                }
+
+                .promotions {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 600px) {
+
+    footer {
+        padding: 30px 95px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    footer {
+        padding: 30px 10px;
+
+        .footer-top {
+
+            .footer-right {
+
+                .separator-promotions {
+                    display: none;
+                }
+
+                .promotions {
+                    display: none;
+                }
+            }
+        }
+    }
+
+}
+
+@media (min-width: 500px) {
+
+    footer {
+        .footer-top {
+            .footer-right {
+
+                .separator-tours {
+                    display: block;
+                }
+
+                .tours {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+
+    footer {
+        .footer-top {
+
+            .footer-right {
+
+                .separator-tours {
+                    display: none;
+                }
+
+                .tours {
+                    display: none;
+                }
+            }
+        }
+    }
+}

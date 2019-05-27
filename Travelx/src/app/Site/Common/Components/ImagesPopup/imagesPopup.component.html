@@ -1,0 +1,15 @@
+<div class="images-popup-wrapper">
+    <div *ngIf="isPreviousAvailable()"
+         (click)="toPrevious()"
+         class="arrow to-left">
+    </div>
+    <img [src]="getImagePath()"
+         (click)="toNext()"
+         />
+    <div *ngIf="isNextAvailable()"
+         (click)="toNext()" 
+         class="arrow to-right">
+    </div>
+    <div class="cross-close" (click)="onNoClick()">
+    </div>
+</div>

@@ -1,0 +1,204 @@
+﻿<div class="width-wrapper">
+    <div class="counties-wrapper">
+        <div>
+            <div [formGroup]="countryForm" class="country">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 country-descriptions">
+                        <div class="mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Название</span>
+                                <span class="required">*</span>
+                            </div>
+                            <input type="text"
+                                   name="name"
+                                   class="form-control"
+                                   formControlName="name"
+                                   [(ngModel)]="country.name"
+                                   aria-describedby="basic-addon1">
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Название для строки запроса(латиницей)</span>
+                                <span class="required">*</span>
+                            </div>
+                            <input type="text"
+                                   name="urlName"
+                                   class="form-control"
+                                   formControlName="urlName"
+                                   [(ngModel)]="country.urlName"
+                                   aria-describedby="basic-addon1">
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Категория</span>
+                                <span class="required">*</span>
+                            </div>
+                            <mat-select formControlName="category"
+                                        [(ngModel)]="country.category"
+                                        placeholder="Выберите...">
+                                <mat-option *ngFor="let tourTypeKey of tourTypes.keys()" [value]="tourTypeKey">
+                                    {{ tourTypes[tourTypeKey] }}
+                                </mat-option>
+                            </mat-select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Title</span>
+                            </div>
+                            <input type="text"
+                                   name="title"
+                                   class="form-control"
+                                   formControlName="title"
+                                   [(ngModel)]="country.title"
+                                   aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 country-prices">
+                        <div class="hotels">
+                            <div class="mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text stars">
+                                        <span class="s"></span><span class="s"></span><span class="s"></span><span class="s"></span><span class="s"></span>
+                                    </span>
+                                    <span class="required">*</span>
+                                </div>
+                                <input type="number"
+                                       name="fiveStarsPrice"
+                                       class="form-control"
+                                       formControlName="fiveStarsPrice"
+                                       [(ngModel)]="country.fiveStarsPrice"
+                                       aria-describedby="basic-addon1">
+                            </div>
+                            <div class="mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text stars">
+                                        <span class="s"></span><span class="s"></span><span class="s"></span><span class="s"></span>
+                                    </span>
+                                    <span class="required">*</span>
+                                </div>
+                                <input type="number"
+                                       name="fourStarsPrice"
+                                       class="form-control"
+                                       formControlName="fourStarsPrice"
+                                       [(ngModel)]="country.fourStarsPrice"
+                                       aria-describedby="basic-addon1">
+                            </div>
+                            <div class="mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text stars">
+                                        <span class="s"></span><span class="s"></span><span class="s"></span>
+                                    </span>
+                                    <span class="required">*</span>
+                                </div>
+                                <input type="number"
+                                       name="threeStarsPrice"
+                                       class="form-control"
+                                       formControlName="threeStarsPrice"
+                                       [(ngModel)]="country.threeStarsPrice"
+                                       aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="country-image">
+                    <div class="small-images" *ngFor="let imageUrl of country.newImageCollection">
+                        <a [style.background]="'url(' + imageUrl + ')'">
+                            <div (click)="removeNewImage(imageUrl)" class="cross-close">&#10005;</div>
+                        </a>
+                    </div>
+                    <div class="small-images" *ngFor="let imageUrl of country.oldImageCollection">
+                        <a [style.background]="'url(' + '/api/image/' + imageUrl + ')'">
+                            <div (click)="removeOldImage(imageUrl)" class="cross-close">&#10005;</div>
+                        </a>
+                    </div>
+
+                    <br />
+                    <a class="link-medium">
+                        <label class="upload-mage">
+                            <span>Загрузить изображение</span>
+                            <input type="file" (change)="onSelectImage($event)">
+                        </label>
+                    </a>
+                </div>
+                <div class="content-fields">
+                    <div class="mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Описание</span>
+                            <span class="required">*</span>
+                        </div>
+                        <textarea type="text"
+                                  name="description"
+                                  class="form-control small-height"
+                                  formControlName="description"
+                                  [(ngModel)]="country.description"
+                                  aria-describedby="basic-addon1"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Meta description</span>
+                        </div>
+                        <textarea type="text"
+                                  name="metaDescription"
+                                  class="form-control small-height"
+                                  formControlName="metaDescription"
+                                  [(ngModel)]="country.metaDescription"
+                                  aria-describedby="basic-addon1"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Meta keywords</span>
+                        </div>
+                        <textarea type="text"
+                                  name="metaKeywords"
+                                  class="form-control small-height"
+                                  formControlName="metaKeywords"
+                                  [(ngModel)]="country.metaKeywords"
+                                  aria-describedby="basic-addon1"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Header</span>
+                        </div>
+                        <textarea type="text"
+                                  name="pageHeader"
+                                  class="form-control small-height"
+                                  formControlName="pageHeader"
+                                  [(ngModel)]="country.pageHeader"
+                                  aria-describedby="basic-addon1"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Контент для страницы верхний</span>
+                            <span class="required">*</span>
+                        </div>
+                        <textarea type="text"
+                                  name="pageContent"
+                                  class="form-control large-height"
+                                  formControlName="pageContent"
+                                  [(ngModel)]="country.pageContent"
+                                  aria-describedby="basic-addon1"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Контент для страницы нижний</span>
+                        </div>
+                        <textarea type="text"
+                                  name="pageContentBottom"
+                                  class="form-control large-height"
+                                  formControlName="pageContentBottom"
+                                  [(ngModel)]="country.pageContentBottom"
+                                  aria-describedby="basic-addon1"></textarea>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button (click)="saveCountry()" 
+                            class="btn btn-primary" 
+                            [disabled]="!countryForm.valid">Сохранить</button>
+                    <button routerLink="/administration/countries"
+                            class="btn btn-secondary">Отменить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

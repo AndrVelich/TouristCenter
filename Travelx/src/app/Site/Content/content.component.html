@@ -1,0 +1,32 @@
+﻿<div class="content"
+     [@routerAnimation]="outlet.isActivated ? outlet.activatedRoute : ''">
+    <router-outlet #outlet="outlet"
+                   (activate)="onActivate()"></router-outlet>
+    <div class="side-fixed-menu" [class.sticky]="isSticky">
+        <a class="hot-link"
+           title="Горящие туры"
+           [routerLink]="[ '/hot-tours' ]">
+            <img src="/Content/Images/SideFixedMenu/hotTours.png" />
+        </a>
+        <a class="early-link"
+           title="Раннее бронирование"
+           [routerLink]="[ '/early-booking' ]">
+            <img src="/Content/Images/SideFixedMenu/earlyBooking.png" />
+        </a>
+        <a class="bus-link"
+           title="Автобусные маршруты"
+           [routerLink]="[ '/tour/bus' ]">
+            <img src="/Content/Images/SideFixedMenu/busTours.png" />
+        </a>
+        <a class="new-year-link"
+           title="Новогодние туры"
+           [routerLink]="[ '/tour/newyear' ]">
+            <img src="/Content/Images/SideFixedMenu/newYearTours.png" />
+        </a>
+    </div>
+    <a class="scroll-to-top"
+       *ngIf="isScrollToTopVisible"
+       (click)="scrolltoTop()">
+        <img src="/Content/Images/scrollToTop.png" />
+    </a>
+</div>

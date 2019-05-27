@@ -1,0 +1,53 @@
+﻿.register-wrapper {
+    margin: 0 20px;
+
+    .register {
+        margin-bottom: 20px;
+
+        .register-fields {
+            .input-group {
+                width: 100%;
+
+                .form-control {
+                    width: 100%;
+                }
+            }
+        }
+
+
+
+        .actions {
+            margin: 15px 0;
+
+            button {
+                width: 180px;
+                margin: 10px 20px 10px 0;
+            }
+        }
+    }
+}
+
+
+@media (min-width: 850px) {
+    .register {
+        
+    }
+}
+
+@media (max-width: 850px) {
+    .register {
+        
+    }
+}
+
+@media (min-width: 600px) {
+    .register {
+
+    }
+}
+
+@media (max-width: 600px) {
+    .register {
+
+    }
+}

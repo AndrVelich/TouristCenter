@@ -1,0 +1,14 @@
+﻿.body-content {
+    margin: 20px auto;
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
+
+    @media (max-width: 600px) {
+        .body-content {
+            margin: 40px 0;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }

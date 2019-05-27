@@ -1,0 +1,132 @@
+﻿<div class="width-wrapper">
+    <div class="promotion-wrapper">
+        <div>
+            <div [formGroup]="promotionForm" class="promotion">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 promotion-descriptions">
+                        <div class="mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Название</span>
+                                <span class="required">*</span>
+                            </div>
+                            <input type="text"
+                                   name="name"
+                                   class="form-control"
+                                   formControlName="name"
+                                   [(ngModel)]="promotion.name"
+                                   aria-describedby="basic-addon1">
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Название для строки запроса(латиницей)</span>
+                                <span class="required">*</span>
+                            </div>
+                            <input type="text"
+                                   name="urlName"
+                                   class="form-control"
+                                   formControlName="urlName"
+                                   [(ngModel)]="promotion.urlName"
+                                   aria-describedby="basic-addon1">
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Срок действия акции</span>
+                                <span class="required">*</span>
+                            </div>
+                            <div>
+                                <input [matDatepicker]="untilDate"
+                                       name="untilDate"
+                                       placeholder="Choose a date"
+                                       formControlName="untilDate"
+                                       [(ngModel)]="promotion.untilDate">
+                                <mat-datepicker-toggle matSuffix [for]="untilDate"></mat-datepicker-toggle>
+                                <mat-datepicker #untilDate></mat-datepicker>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="promotion-image">
+                    <div class="small-images" *ngFor="let imageUrl of promotion.newImageCollection">
+                        <a [style.background]="'url(' + imageUrl + ')'">
+                            <div (click)="removeNewImage(imageUrl)" class="cross-close">&#10005;</div>
+                        </a>
+                    </div>
+                    <div class="small-images" *ngFor="let imageUrl of promotion.oldImageCollection">
+                        <a [style.background]="'url(' + '/api/image/' + imageUrl + ')'">
+                            <div (click)="removeOldImage(imageUrl)" class="cross-close">&#10005;</div>
+                        </a>
+                    </div>
+
+                    <br />
+                    <a *ngIf="!promotion.oldImageCollection[0] && !promotion.newImageCollection[0]" class="link-medium">
+                        <label class="upload-mage">
+                            <span>Загрузить изображение</span>
+                            <input type="file" (change)="onSelectImage($event)">
+                        </label>
+                    </a>
+                </div>
+                <div class="content-fields">
+                    <div class="mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Описание</span>
+                            <span class="required">*</span>
+                        </div>
+                        <textarea type="text"
+                                  name="description"
+                                  class="form-control promotion-description"
+                                  formControlName="description"
+                                  [(ngModel)]="promotion.description"
+                                  aria-describedby="basic-addon1"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Title</span>
+                            <span class="required">*</span>
+                        </div>
+                        <textarea type="text"
+                                  name="title"
+                                  class="form-control promotion-title"
+                                  formControlName="title"
+                                  [(ngModel)]="promotion.title"
+                                  aria-describedby="basic-addon1"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Meta description</span>
+                            <span class="required">*</span>
+                        </div>
+                        <textarea type="text"
+                                  name="metaDescription"
+                                  class="form-control meta-description"
+                                  formControlName="metaDescription"
+                                  [(ngModel)]="promotion.metaDescription"
+                                  aria-describedby="basic-addon1"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Meta keywords</span>
+                            <span class="required">*</span>
+                        </div>
+                        <textarea type="text"
+                                  name="metaKeywords"
+                                  class="form-control promotion-metaKeywords"
+                                  formControlName="metaKeywords"
+                                  [(ngModel)]="promotion.metaKeywords"
+                                  aria-describedby="basic-addon1"></textarea>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button (click)="savePromotion()"
+                            class="btn btn-primary"
+                            [disabled]="!promotionForm.valid">
+                        Сохранить
+                    </button>
+                    <button routerLink="/administration/promotions"
+                            class="btn btn-secondary">
+                        Отменить
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

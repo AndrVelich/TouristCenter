@@ -1,0 +1,93 @@
+<header>
+    <div class="header-content">
+        <div class="topHeaderMenu">
+            <div class="logo">
+                <a href="">
+                    <div>
+                        <span>Центр туризма</span>
+                    </div>
+                </a>
+            </div>
+            <div class="headerMenu">
+                <div class="mobileMenu">
+                    <div class="mobileMenu-header"
+                         clickOutside
+                         callbackName="onClickOutsideMobileMenu"
+                         [componentContext]="this">
+                        <a (click)="toggleMenu()">
+                            <i class="fa fa-bars" aria-hidden="true"></i>
+                            <span>
+                                Меню <span  class="new-order" *ngIf="isAnyNewOrders">Новая заявка!</span>
+                            </span>
+                        </a>
+                    </div>
+                    <ul *ngIf="isMobileMenuVisible" [@slideInOut] class="mobileMenu-list">
+                        <li [routerLink]="[ '/administration/tours' ]">
+                            <a>
+                                <i class="fa fa-plane" aria-hidden="true"></i>
+                                <span>Туры</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="[ '/administration/orders' ]">
+                                <i class="fa fa-cogs" aria-hidden="true"></i>
+                                <span>Заказы</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="[ '/administration/countries' ]">
+                                <i class="fa fa-plane" aria-hidden="true"></i>
+                                <span>Страны</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="[ '/administration/promotions' ]">
+                                <i class="fa fa-percent" aria-hidden="true"></i>
+                                <span>Акции</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/account/Register">
+                                <i class="fa fa-users" aria-hidden="true"></i>
+                                <span>Регистрация</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="mainMenu">
+                    <li [routerLink]="[ '/administration/tours' ]">
+                        <a>
+                            <i class="fa fa-plane" aria-hidden="true"></i>
+                            <span>Туры</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="[ '/administration/orders' ]">
+                            <i class="fa fa-cogs" aria-hidden="true"></i>
+                            <span>Заказы</span> <span class="new-order" *ngIf="isAnyNewOrders">New!</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="[ '/administration/countries' ]">
+                            <i class="fa fa-plane" aria-hidden="true"></i>
+                            <span>Страны</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="[ '/administration/promotions' ]">
+                            <i class="fa fa-percent" aria-hidden="true"></i>
+                            <span>Акции</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/account/Register">
+                            <i class="fa fa-users" aria-hidden="true"></i>
+                            <span>Регистрация</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+

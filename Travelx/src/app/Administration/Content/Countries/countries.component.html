@@ -1,0 +1,73 @@
+﻿<div class="width-wrapper">
+    <div class="counties-wrapper">
+        <div class="countries-header">
+            <h2>Страны</h2>
+            <a [routerLink]="[ '/administration/countries/new' ]" class="link-big">
+                <span>Новая страна</span>
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="country-filter">
+            <mat-select [(ngModel)]="activeTourType"
+                        (change)="tourTypeFiterChange()"
+                        placeholder="Выберите...">
+                <mat-option *ngFor="let tourTypeKey of tourTypes.keys()" [value]="tourTypeKey">
+                    {{ tourTypes[tourTypeKey] }}
+                </mat-option>
+            </mat-select>
+        </div>
+        <div>
+            <div class="country" *ngFor="let country of countryCollection">
+                <div class="image-description">
+                    <div class="country-image">
+                        <div class="image"
+                             [style.background]="'url(/api/image/' + country.oldImageCollection[0] + ')'">
+                        </div>
+                    </div>
+                    <div class="country-descriptions">
+                        <a [routerLink]="[ '/administration/countries/' + country.category + '/' + country.urlName ]" class="link-big">
+                            <span [innerHtml]="country.name"></span>
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
+                        <a (click)="openDeleteConfirmation(country.countryId, country.name)" class="link-big" style="color:red">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                        <div [innerHtml]="country.description"></div>
+                        <div class="images-count">
+                            <i class="fa fa-image" aria-hidden="true"></i>
+                            <span [innerHtml]="country.oldImageCollection.length"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="country-prices">
+                    <p>Отели:</p>
+                    <div class="hotels">
+                        <div class="stars">
+                            <ul>
+                                <li>
+                                    <span class="s"></span><span class="s"></span><span class="s"></span><span class="s"></span><span class="s"></span>
+                                </li>
+                                <li>
+                                    <span class="s"></span><span class="s"></span><span class="s"></span><span class="s"></span>
+                                </li>
+                                <li>
+                                    <span class="s"></span><span class="s"></span><span class="s"></span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="price">
+                            <ul>
+                                <li>от <strong [innerHtml]="country.fiveStarsPrice"></strong> р.</li>
+                                <li>от <strong [innerHtml]="country.fourStarsPrice"></strong> р.</li>
+                                <li>от <strong [innerHtml]="country.threeStarsPrice"></strong> р.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <strong [innerHtml]="getTourTypeName(country.category)">Пляжный отдых</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

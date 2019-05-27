@@ -1,0 +1,146 @@
+@media (max-width: 600px) {
+    .order-wrapper {
+        padding: 20px 30px;
+    }
+}
+
+@media (min-width: 600px) {
+    .order-wrapper {
+        width: 500px;
+        padding: 20px 80px;
+    }
+}
+
+.order-wrapper {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.6);
+    overflow: hidden;
+    min-width: 360px;
+
+    .tracery {
+        position: absolute;
+        top: 0;
+    }
+
+    .tracery-left {
+        left: 0;
+        transform: rotate(180deg);
+    }
+
+    .tracery-right {
+        right: 0;
+    }
+
+    .cross-close {
+        position: absolute;
+        right: 25px;
+        top: 5px;
+        cursor: pointer;
+    }
+
+    .cross-close:hover {
+        color: gray;
+    }
+
+    .header {
+        padding: 0 10px;
+        margin-bottom: 15px;
+        text-align: center;
+        color: #25253B;
+        font-weight: 600;
+    }
+
+    .content {
+
+        ::ng-deep mat-select {
+            .mat-select-trigger {
+                height: 30px;
+                border: 1px solid #D8D8D8;
+                padding: 0px 10px;
+
+                span {
+                    line-height: 30px;
+                }
+            }
+        }
+
+        .control-block {
+            padding: 0 10px;
+            margin-bottom: 10px;
+            display: inline-block;
+            width: 100%;
+
+            input[type="text"] {
+                width: 100%;
+                height: 32px;
+                border-radius: 2px;
+                border: 1px solid #D8D8D8;
+                padding: 0px 10px;
+                font-size: 14px;
+                line-height: 28px;
+            }
+        }
+
+        .control-textarea-block {
+            padding: 0 10px;
+
+            textarea {
+                border: 1px solid #D8D8D8;
+                width: 100%;
+                height: 120px;
+                resize: none;
+                border-radius: 2px;
+                padding: 0px 10px;
+                font-size: 14px;
+                line-height: 28px;
+            }
+        }
+    }
+
+    .actions {
+        margin-top: 20px;
+        text-align: center;
+
+        button {
+            width: 180px;
+            margin: 0 auto;
+            background-color: #118B91;
+            border: 1px solid #118B91;
+            color: white;
+            padding: 5px 10px;
+        }
+
+        button:hover {
+            color: #118B91;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background-color: white;
+            border: 1px solid #919191;
+            color: #919191;
+        }
+    }
+
+    .preloader {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 500;
+        background-color: white;
+        opacity: 0.8;
+
+        .ajax-loader {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -65px;
+            margin-top: -36px;
+            display: block;
+            width: 130px;
+        }
+    }
+}

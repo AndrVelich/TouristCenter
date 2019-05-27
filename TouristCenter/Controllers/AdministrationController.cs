@@ -26,11 +26,11 @@ namespace TouristCenter.Controllers
             return View("Index");
         }
 
-        //TODO A.V. ned to delete after first registration
-        [Route("administration/register")]
-        public ActionResult Register()
-        {
-            return View("Index");
-        }
+        ////TODO A.V. ned to delete after first registration
+        //[Route("administration/register")]
+        //public ActionResult Register()
+        //{
+        //    return View("Index");
+        //}
     }
 }

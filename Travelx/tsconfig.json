@@ -1,0 +1,42 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types",
+      "webpack-env"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "noImplicitAny": false,
+    "suppressImplicitAnyIndexErrors": true,
+
+    "paths": {
+      "@common/*": [
+        "app/Common/*"
+      ],
+      "@siteModule/*": [
+        "app/Site/*"
+      ],
+      "@siteCommon/*": [
+        "app/Site/Common/*"
+      ],
+      "@administrationCommon/*": [
+        "app/Administration/Common/*"
+      ]
+    },
+    "module": "es2015",
+    "baseUrl": "./src"
+  },
+  "exclude": [
+    "node_modules",
+    "wwwroot",
+    "bin"
+  ]
+}
