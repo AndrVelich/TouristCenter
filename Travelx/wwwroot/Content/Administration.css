@@ -1,0 +1,196 @@
+﻿@font-face {
+  font-family: 'Akrobat-ExtraBold';
+  src: url(../fonts/Akrobat-ExtraBold.otf);
+  font-weight: normal;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'PFDinDisplayPro-Light';
+  src: url(../fonts/PFDinDisplayPro-Light.ttf);
+  font-weight: normal;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'PFDinDisplayPro-Reg';
+  src: url(../fonts/PFDinDisplayPro-Reg.ttf);
+  font-weight: normal;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'PFDinDisplayPro-Thin';
+  src: url(../fonts/PFDinDisplayPro-Thin.ttf);
+  font-weight: normal;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'OpenSans-Light';
+  src: url(../fonts/Open_Sans/OpenSans-Light.ttf);
+  font-weight: normal;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'OpenSans-Semibold';
+  src: url(../fonts/Open_Sans/OpenSans-Semibold.ttf);
+  font-weight: normal;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'OpenSans-Regular';
+  src: url(../fonts/Open_Sans/OpenSans-Regular.ttf);
+  font-weight: normal;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'OpenSans-Bold';
+  src: url(../fonts/Open_Sans/OpenSans-Bold.ttf);
+  font-weight: normal;
+  font-style: italic; }
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, legend, input, button, textarea, blockquote, th, td {
+  margin: 0;
+  padding: 0;
+  outline: none; }
+
+h1, h2 {
+  color: #0A155F;
+  font-family: Akrobat-ExtraBold; }
+
+h3, h4, h5, h6 {
+  font-family: OpenSans-Semibold; }
+
+label {
+  font-weight: normal; }
+
+.required {
+  color: red;
+  font-weight: bold;
+  margin: 0 5px; }
+
+.error {
+  color: red; }
+
+.ng-dirty.ng-invalid {
+  border-color: red !important; }
+
+.bold {
+  font-weight: 600; }
+
+/*------------matDogNail-------------------*/
+.mat-dialog-container {
+  padding: 0 !important; }
+
+html.cdk-global-scrollblock {
+  width: initial;
+  position: initial;
+  overflow-y: initial; }
+
+body.modal-open {
+  overflow: hidden; }
+
+/*body.modal-open .cdk-global-overlay-wrapper {
+    pointer-events: all;
+    overflow: auto;
+    padding: 30px 0;
+    position: fixed;
+}*/
+body .cdk-overlay-pane {
+  /*position: relative !important;*/
+  margin: auto !important; }
+
+.cdk-overlay-backdrop {
+  position: fixed !important; }
+
+.mat-dialog-container {
+  margin: 0 auto 30px !important;
+  height: auto !important;
+  overflow: initial !important; }
+
+.mat-dialog-content {
+  max-width: none !important;
+  max-height: none !important;
+  overflow: initial !important; }
+
+@media (max-width: 600px) {
+  body .cdk-global-overlay-wrapper {
+    padding: 0 !important; }
+  body .cdk-overlay-pane {
+    max-width: none !important;
+    left: 0 !important; }
+  .mat-dialog-container {
+    border-radius: 0 !important;
+    margin: 0 !important; } }
+
+/*------------matDogNail-------------------*/
+body {
+  position: relative;
+  font-family: 'OpenSans-Light', sans-serif;
+  color: #191919;
+  font-size: 16px;
+  min-width: 360px; }
+  body .font-Akrobat-ExtraBold {
+    font-family: 'Akrobat-ExtraBold', sans-serif; }
+  body .font-PFDinDisplayPro-Light {
+    font-family: 'PFDinDisplayPro-Light', sans-serif; }
+  body .font-PFDinDisplayPro-Reg {
+    font-family: 'PFDinDisplayPro-Reg', sans-serif; }
+  body .font-OpenSans-Semibold {
+    font-family: 'OpenSans-Semibold', sans-serif; }
+  body .font-OpenSans-Bold {
+    font-family: OpenSans-Bold, sans-serif; }
+  body .font-OpenSans-Regular {
+    font-family: OpenSans-Regular, sans-serif; }
+  body h1 {
+    margin: 20px auto; }
+  body .width-wrapper {
+    max-width: 1400px;
+    margin: 0 auto; }
+  body a {
+    cursor: pointer !important;
+    text-decoration: none !important; }
+  body a.link-big {
+    font-size: 22px; }
+  body a.link-medium {
+    font-size: 17px; }
+  body .body-content {
+    margin: 20px 0 0 0 !important;
+    position: relative;
+    min-height: 600px;
+    font-family: OpenSans-Regular, sans-serif; }
+    body .body-content .center {
+      text-align: center; }
+    body .body-content .text-wrapper {
+      overflow: hidden; }
+    body .body-content .preloader {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 500;
+      background-color: white;
+      opacity: 0.8; }
+      body .body-content .preloader .ajax-loader {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -65px;
+        margin-top: -36px;
+        display: block;
+        width: 130px; }
+      @media (min-width: 1000px) {
+        body .body-content .preloader .ajax-loader {
+          padding-top: 100px; } }
+      @media (max-width: 1000px) {
+        body .body-content .preloader .ajax-loader {
+          padding-top: 120px; } }
+      @media (max-width: 600px) {
+        body .body-content .preloader .ajax-loader {
+          padding-top: 0; } }
+
+@media (min-width: 600px) {
+  body .body-content .text-wrapper {
+    margin: 0 95px; } }
+
+@media (max-width: 600px) {
+  body .body-content .text-wrapper {
+    margin: 0 10px; } }

@@ -30,7 +30,6 @@ var ContactsComponent = /** @class */ (function () {
     };
     ContactsComponent = __decorate([
         Component({
-            
             selector: "contacts",
             templateUrl: "contacts.component.html",
             styleUrls: ["contacts.component.css"]

@@ -84,7 +84,6 @@ var HotToursComponent = /** @class */ (function () {
     };
     HotToursComponent = __decorate([
         Component({
-            
             selector: "hotTours.component",
             templateUrl: "hotTours.component.html",
             styleUrls: ["hotTours.component.css"]

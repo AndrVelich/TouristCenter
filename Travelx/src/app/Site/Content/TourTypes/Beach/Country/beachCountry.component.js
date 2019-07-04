@@ -23,7 +23,6 @@ var BeachCountryComponent = /** @class */ (function () {
     };
     BeachCountryComponent = __decorate([
         Component({
-            
             selector: "beachCountry",
             templateUrl: "beachCountry.component.html",
             styleUrls: ["beachCountry.component.css"]

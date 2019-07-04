@@ -12,9 +12,7 @@
                     width: 100%;
                 }
             }
-        }
-
-
+        } 
 
         .actions {
             margin: 15px 0;
@@ -42,12 +40,16 @@
 
 @media (min-width: 600px) {
     .register {
-
+        .register-fields {
+            width: 300px;
+        }
     }
 }
 
 @media (max-width: 600px) {
     .register {
-
+        .register-fields {
+            width: 100%;
+        }
     }
 }

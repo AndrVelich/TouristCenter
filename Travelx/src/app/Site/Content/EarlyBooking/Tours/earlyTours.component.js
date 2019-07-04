@@ -84,7 +84,6 @@ var EarlyToursComponent = /** @class */ (function () {
     };
     EarlyToursComponent = __decorate([
         Component({
-            
             selector: "earlyTours.component",
             templateUrl: "earlyTours.component.html",
             styleUrls: ["earlyTours.component.css"]

@@ -47,7 +47,6 @@ var HotCountriesComponent = /** @class */ (function () {
     };
     HotCountriesComponent = __decorate([
         Component({
-            
             selector: "hotCountriesComponent",
             templateUrl: "hotCountries.component.html",
             styleUrls: ["hotCountries.component.css"]

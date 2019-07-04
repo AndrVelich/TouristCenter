@@ -27,7 +27,7 @@ import { PromotionsComponent } from "./Content/Promotions/promotions.component";
 import { PromotionComponent } from "./Content/Promotions/Promotion/promotion.component";
 import { ToursComponent } from "./Content/Tours/tours.component";
 import { TourComponent } from "./Content/Tours/Tour/tour.component";
-import { LoginComponent } from "./Content/Login/login.component";
+import { LoginComponent } from "./Login/login.component";
 import { RegisterComponent } from "./Content/Register/register.component"; 
 import { OrdersComponent } from "./Content/Orders/orders.component";
 import { ConfirmationPopupComponent } from "./Common/Components/ConfirmationPopup/confirmationPopup.component"

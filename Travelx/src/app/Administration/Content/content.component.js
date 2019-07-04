@@ -10,9 +10,9 @@ var ContentComponent = /** @class */ (function () {
     }
     ContentComponent = __decorate([
         Component({
-            
             selector: "contentComponent",
-            template: '<router-outlet></router-outlet>'
+            templateUrl: "content.component.html",
+            styleUrls: ["content.component.css"]
         })
     ], ContentComponent);
     return ContentComponent;

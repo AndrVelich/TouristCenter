@@ -33,7 +33,6 @@ var TourComponent = /** @class */ (function () {
     ], TourComponent.prototype, "tour", void 0);
     TourComponent = __decorate([
         Component({
-            
             selector: "tourComponent",
             templateUrl: "tour.component.html",
             styleUrls: ["tour.component.css"]

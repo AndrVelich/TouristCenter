@@ -10,7 +10,6 @@ var IndividualToursComponent = /** @class */ (function () {
     }
     IndividualToursComponent = __decorate([
         Component({
-            
             selector: "individualTours",
             templateUrl: "individualTours.component.html",
             styleUrls: ["individualTours.component.css"]

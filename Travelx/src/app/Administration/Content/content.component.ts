@@ -1,10 +1,9 @@
 ﻿import { Component } from "@angular/core";
 
 @Component({
-    
-    
     selector: "contentComponent",
-    template: '<router-outlet></router-outlet>'
+    templateUrl: "content.component.html",
+    styleUrls: ["content.component.css"]
 })
 export class ContentComponent {
 

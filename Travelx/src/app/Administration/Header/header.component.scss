@@ -4,16 +4,20 @@
         margin: 0 auto;
         position: relative;
 
-        .new-order{
+        .new-order {
             color: red;
-        } 
-        
+        }
+
         .logo {
             display: inline-block;
             padding-top: 15px;
             margin-left: 40px;
-            font-size: 22px;
+            font-size: 22px; 
             width: 190px;
+
+            img {
+                width: 180px;
+            }
         }
 
         .headerMenu {

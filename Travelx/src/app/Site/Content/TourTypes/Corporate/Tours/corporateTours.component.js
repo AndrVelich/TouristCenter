@@ -10,7 +10,6 @@ var CorporateToursComponent = /** @class */ (function () {
     }
     CorporateToursComponent = __decorate([
         Component({
-            
             selector: "corporateTours",
             templateUrl: "corporateTours.component.html",
             styleUrls: ["corporateTours.component.css"]

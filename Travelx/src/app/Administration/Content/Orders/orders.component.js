@@ -107,7 +107,6 @@ var OrdersComponent = /** @class */ (function () {
     };
     OrdersComponent = __decorate([
         Component({
-            
             selector: "orders",
             templateUrl: "orders.component.html",
             styleUrls: ["orders.component.css"]

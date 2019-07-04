@@ -6,8 +6,6 @@ import { RegisterService } from "@administrationCommon/Services/register.service
 import { Register } from "@administrationCommon/Services/register.service";
 
 @Component({
-    
-    
     selector: "register",
     templateUrl: "register.component.html",
     styleUrls: ["register.component.css"]
@@ -52,14 +50,25 @@ export class RegisterComponent implements OnInit  {
     {
         this.registerForm = this.fb.group({
             "email": [this.registerModel.email, [
-                Validators.required
+                Validators.required,
+                Validators.email
             ]],
-            "password": [this.registerModel.password, [
-                Validators.required
-            ]],
-            "confirmPassword": [this.registerModel.confirmPassword, [
-                Validators.required
-            ]],
+            passwordGroup: this.fb.group({
+                "password": [this.registerModel.password, [
+                    Validators.required,
+                    Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+]).*$')
+                ]],
+                "confirmPassword": ['', [
+                    Validators.required,
+                ]],
+            }, { validator: this.checkPasswords }),
         });
+    }
+
+    private checkPasswords(group: FormGroup) { 
+        let pass = group.controls.password.value;
+        let confirmPass = group.controls.confirmPass.value;
+
+        return pass === confirmPass ? null : { notSame: true }
     }
 }

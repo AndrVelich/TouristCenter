@@ -2,10 +2,8 @@
     <div class="header-content">
         <div class="topHeaderMenu">
             <div class="logo">
-                <a href="">
-                    <div>
-                        <span>Центр туризма</span>
-                    </div>
+                <a [routerLink]="[ '/' ]">
+                    <img src="/Content/Images/logo-color.png" />
                 </a>
             </div>
             <div class="headerMenu">
@@ -55,8 +53,8 @@
                     </ul>
                 </div>
                 <ul class="mainMenu">
-                    <li [routerLink]="[ '/administration/tours' ]">
-                        <a>
+                    <li>
+                        <a [routerLink]="[ '/administration/tours' ]">
                             <i class="fa fa-plane" aria-hidden="true"></i>
                             <span>Туры</span>
                         </a>
@@ -80,7 +78,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/account/Register">
+                        <a [routerLink]="[ '/administration/register' ]">
                             <i class="fa fa-users" aria-hidden="true"></i>
                             <span>Регистрация</span>
                         </a>

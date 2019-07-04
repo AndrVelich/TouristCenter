@@ -1,0 +1,22 @@
+﻿[
+  {
+    "outputFile": "src/app/Administration/Content/Register/register.component.css",
+    "inputFile": "src/app/Administration/Content/Register/register.component.scss"
+  },
+  {
+    "outputFile": "wwwroot/Content/Administration.css",
+    "inputFile": "wwwroot/Content/Administration.scss"
+  },
+  {
+    "outputFile": "src/app/Administration/Footer/footer.component.css",
+    "inputFile": "src/app/Administration/Footer/footer.component.scss"
+  },
+  {
+    "outputFile": "src/app/Administration/Header/header.component.css",
+    "inputFile": "src/app/Administration/Header/header.component.scss"
+  },
+  {
+    "outputFile": "src/app/Administration/Login/login.component.css",
+    "inputFile": "src/app/Administration/Login/login.component.scss"
+  }
+]

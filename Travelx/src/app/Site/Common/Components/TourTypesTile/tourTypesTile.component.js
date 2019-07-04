@@ -10,7 +10,6 @@ var TourTypesTileComponent = /** @class */ (function () {
     }
     TourTypesTileComponent = __decorate([
         Component({
-            
             selector: "tourTypesTileComponent",
             templateUrl: "tourTypesTile.component.html",
             styleUrls: ["tourTypesTile.component.css"]

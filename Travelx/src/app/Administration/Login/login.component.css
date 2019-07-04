@@ -1,0 +1,27 @@
+﻿.login-wrapper {
+  padding-top: 100px; }
+  .login-wrapper .logo {
+    text-align: center;
+    margin: 20px; }
+    .login-wrapper .logo img {
+      width: 180px; }
+  .login-wrapper .login .login-fields .input-group {
+    width: 100%; }
+    .login-wrapper .login .login-fields .input-group .form-control {
+      width: 100%; }
+  .login-wrapper .login .actions {
+    margin: 15px 0;
+    text-align: center; }
+    .login-wrapper .login .actions button {
+      width: 180px; }
+
+@media (min-width: 600px) {
+  .login-wrapper {
+    margin: 0 auto;
+    width: 340px; }
+    .login-wrapper .login .login-fields {
+      width: 340px; } }
+
+@media (max-width: 600px) {
+  .login-wrapper {
+    margin: 0 20px; } }

@@ -1,0 +1,58 @@
+﻿<div class="body-content">
+    <div class="width-wrapper">
+        <div class="login-wrapper"> 
+            <div class="logo">
+                <a [routerLink]="[ '/' ]">
+                    <img src="/Content/Images/logo-color.png" />
+                </a>
+            </div>
+            <div [formGroup]="loginForm" class="login">
+                <div class="login-fields">
+                    <div class="mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Email</span>
+                            <span class="required">*</span>
+                        </div>
+                        <input type="text"
+                               name="name"
+                               class="form-control"
+                               formControlName="email"
+                               [(ngModel)]="loginModel.email"
+                               aria-describedby="basic-addon1">
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Password</span>
+                            <span class="required">*</span>
+                        </div>
+                        <input type="password"
+                               name="urlName"
+                               class="form-control"
+                               formControlName="password"
+                               [(ngModel)]="loginModel.password"
+                               aria-describedby="basic-addon1">
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Remember</span>
+                        </div>
+                        <input type="checkbox"
+                               name="price"
+                               formControlName="rememberMe"
+                               [(ngModel)]="loginModel.rememberMe"
+                               aria-describedby="basic-addon1">
+                    </div>
+                </div>
+                <div class="actions">
+                    <button (click)="login()"
+                            class="btn btn-primary"
+                            [disabled]="!loginForm.valid">
+                        Login
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

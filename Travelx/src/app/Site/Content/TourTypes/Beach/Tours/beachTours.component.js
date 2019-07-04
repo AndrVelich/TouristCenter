@@ -10,7 +10,6 @@ var BeachToursComponent = /** @class */ (function () {
     }
     BeachToursComponent = __decorate([
         Component({
-            
             selector: "beachTours",
             templateUrl: "beachTours.component.html",
             styleUrls: ["beachTours.component.css"]

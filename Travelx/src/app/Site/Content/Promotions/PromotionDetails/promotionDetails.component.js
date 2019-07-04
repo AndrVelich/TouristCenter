@@ -65,7 +65,6 @@ var PromotionDetailsComponent = /** @class */ (function () {
     };
     PromotionDetailsComponent = __decorate([
         Component({
-            
             selector: "promotionDetails",
             templateUrl: "promotionDetails.component.html",
             styleUrls: ["promotionDetails.component.css"]

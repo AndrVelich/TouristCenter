@@ -21,7 +21,6 @@ var FooterComponent = /** @class */ (function () {
     };
     FooterComponent = __decorate([
         Component({
-            
             selector: "footerComponent",
             templateUrl: "footer.component.html",
             styleUrls: ["footer.component.css"]

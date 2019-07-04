@@ -19,7 +19,7 @@
                         <span class="input-group-text">Password</span>
                         <span class="required">*</span>
                     </div>
-                    <input type="text"
+                    <input type="password"
                            name="urlName"
                            class="form-control"
                            formControlName="password"
@@ -31,7 +31,7 @@
                         <span class="input-group-text">Confirm Password</span>
                         <span class="required">*</span>
                     </div>
-                    <input type="text"
+                    <input type="password"
                            name="urlName"
                            class="form-control"
                            formControlName="confirmPassword"
@@ -43,11 +43,11 @@
                 <button (click)="register()"
                         class="btn btn-primary"
                         [disabled]="!registerForm.valid">
-                    Сохранить
+                    Save
                 </button>
                 <button routerLink="/administration"
                         class="btn btn-secondary">
-                    Отменить
+                    Cancel
                 </button>
             </div>
         </div>

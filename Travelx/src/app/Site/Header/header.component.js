@@ -49,7 +49,6 @@ var HeaderComponent = /** @class */ (function () {
     ], HeaderComponent.prototype, "onScroll", null);
     HeaderComponent = __decorate([
         Component({
-            
             selector: "headerComponent",
             templateUrl: "header.component.html",
             styleUrls: ["header.component.css"],

@@ -67,7 +67,6 @@ var ContentComponent = /** @class */ (function () {
     ], ContentComponent.prototype, "onScroll", null);
     ContentComponent = __decorate([
         Component({
-            
             selector: "contentComponent",
             templateUrl: "content.component.html",
             styleUrls: ["content.component.css"],

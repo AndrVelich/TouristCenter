@@ -10,7 +10,6 @@ var NewYearToursComponent = /** @class */ (function () {
     }
     NewYearToursComponent = __decorate([
         Component({
-            
             selector: "newYearTours",
             templateUrl: "newYearTours.component.html",
             styleUrls: ["newYearTours.component.css"]

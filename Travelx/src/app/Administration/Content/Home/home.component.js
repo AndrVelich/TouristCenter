@@ -15,7 +15,6 @@ var HomeComponent = /** @class */ (function () {
     }
     HomeComponent = __decorate([
         Component({
-            
             selector: "home",
             templateUrl: "home.component.html",
             styleUrls: ["home.component.css"]

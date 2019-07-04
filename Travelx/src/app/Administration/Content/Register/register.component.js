@@ -38,19 +38,27 @@ var RegisterComponent = /** @class */ (function () {
     RegisterComponent.prototype.buildForm = function () {
         this.registerForm = this.fb.group({
             "email": [this.registerModel.email, [
-                    Validators.required
+                    Validators.required,
+                    Validators.email
                 ]],
-            "password": [this.registerModel.password, [
-                    Validators.required
-                ]],
-            "confirmPassword": [this.registerModel.confirmPassword, [
-                    Validators.required
-                ]],
+            passwordGroup: this.fb.group({
+                "password": [this.registerModel.password, [
+                        Validators.required,
+                        Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+]).*$')
+                    ]],
+                "confirmPassword": ['', [
+                        Validators.required,
+                    ]],
+            }, { validator: this.checkPasswords }),
         });
+    };
+    RegisterComponent.prototype.checkPasswords = function (group) {
+        var pass = group.controls.password.value;
+        var confirmPass = group.controls.confirmPass.value;
+        return pass === confirmPass ? null : { notSame: true };
     };
     RegisterComponent = __decorate([
         Component({
-            
             selector: "register",
             templateUrl: "register.component.html",
             styleUrls: ["register.component.css"]

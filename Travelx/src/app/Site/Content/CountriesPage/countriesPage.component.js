@@ -51,7 +51,6 @@ var CountriesPageComponent = /** @class */ (function () {
     };
     CountriesPageComponent = __decorate([
         Component({
-            
             selector: "countriesPageComponent",
             templateUrl: "countriesPage.component.html",
             styleUrls: ["countriesPage.component.css"]

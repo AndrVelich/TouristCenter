@@ -283,11 +283,11 @@
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MeViewModels.cs" />
     <Compile Include="Models\Order\OrdersPage.cs" />
     <Compile Include="Models\Promotion\PromotionViewModel.cs" />
     <Compile Include="Models\Country\CountryViewModel.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\MeViewModels.cs" />
     <Compile Include="Models\Order\OrderViewModel.cs" />
     <Compile Include="Models\Tour\TourViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -952,10 +952,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DI\DiConfiguration\DiConfiguration.csproj">
-      <Project>{2D39C03E-2F55-4C00-8D2D-66012AE4DFFF}</Project>
-      <Name>DiConfiguration</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Domain\TouristCenter.Domain.Interfaces\TouristCenter.Domain.Interfaces.csproj">
       <Project>{596284CD-C559-4F30-B746-773C9AFAAC22}</Project>
       <Name>TouristCenter.Domain.Interfaces</Name>

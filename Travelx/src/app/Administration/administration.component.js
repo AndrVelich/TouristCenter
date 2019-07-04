@@ -10,7 +10,6 @@ var AdministrationComponent = /** @class */ (function () {
     }
     AdministrationComponent = __decorate([
         Component({
-            
             selector: "administration-root",
             templateUrl: "administration.component.html",
             styleUrls: ["administration.component.css"]

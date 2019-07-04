@@ -17,7 +17,6 @@ var CountryShortListComponent = /** @class */ (function () {
     ], CountryShortListComponent.prototype, "countryCollection", void 0);
     CountryShortListComponent = __decorate([
         Component({
-            
             selector: "countryShortListComponent",
             templateUrl: "countryShortList.component.html",
             styleUrls: ["countryShortList.component.css"]

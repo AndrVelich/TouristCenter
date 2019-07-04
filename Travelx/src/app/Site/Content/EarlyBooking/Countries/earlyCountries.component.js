@@ -47,7 +47,6 @@ var EarlyCountriesComponent = /** @class */ (function () {
     };
     EarlyCountriesComponent = __decorate([
         Component({
-            
             selector: "earlyCountries",
             templateUrl: "earlyCountries.component.html",
             styleUrls: ["earlyCountries.component.css"]

@@ -29,6 +29,9 @@
       ],
       "@administrationCommon/*": [
         "app/Administration/Common/*"
+      ],
+      "@accountCommon/*": [
+        "app/Login/Common/*"
       ]
     },
     "module": "es2015",

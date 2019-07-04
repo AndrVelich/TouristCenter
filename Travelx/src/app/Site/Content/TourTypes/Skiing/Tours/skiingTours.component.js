@@ -10,7 +10,6 @@ var SkiingToursComponent = /** @class */ (function () {
     }
     SkiingToursComponent = __decorate([
         Component({
-            
             selector: "skiingTours",
             templateUrl: "skiingTours.component.html",
             styleUrls: ["skiingTours.component.css"]

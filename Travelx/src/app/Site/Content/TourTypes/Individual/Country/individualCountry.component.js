@@ -23,7 +23,6 @@ var IndividualCountryComponent = /** @class */ (function () {
     };
     IndividualCountryComponent = __decorate([
         Component({
-            
             selector: "individualCountry",
             templateUrl: "individualCountry.component.html",
             styleUrls: ["individualCountry.component.css"]
