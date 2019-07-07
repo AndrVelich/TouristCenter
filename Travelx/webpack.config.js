@@ -49,5 +49,7 @@ module.exports = {
             {} // карта маршрутов
         ),
         new UglifyJSPlugin()
-    ]
+    ],
+    devtool: "source-map",
+    watch:true,
 }
