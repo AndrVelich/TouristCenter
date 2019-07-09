@@ -18,7 +18,7 @@ namespace Travelx.Controllers
         [Route("early-booking/{country}")]
         public IActionResult Index()
         {
-            return File("~/index.html", "text/html");
+            return File("~/distSite/index.html", "text/html");
         }
     }
 }

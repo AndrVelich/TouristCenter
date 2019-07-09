@@ -37,7 +37,7 @@ namespace Travelx.Controllers
 
         private VirtualFileResult AdminstrationLayout()
         {
-            return File("~/administration.html", "text/html");
+            return File("~/distAdministration/administration.html", "text/html");
         }
     }
 }

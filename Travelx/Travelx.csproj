@@ -6,7 +6,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="src\index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="src\administration.html" />
+    <Content Include="src\index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="obj\" />
+    <Folder Include="wwwroot\distSite\" />
+    <Folder Include="wwwroot\distAdministration\" />
   </ItemGroup>
 
   <ItemGroup>

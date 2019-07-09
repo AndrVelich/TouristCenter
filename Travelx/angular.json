@@ -11,7 +11,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "distSite",
+            "outputPath": "wwwroot/distSite",
+            "deployUrl": "/distSite/",
             "index": "src/index.html",
             "main": "src/mainSite.ts",
             "tsConfig": "src/tsconfig.app.json",
@@ -126,8 +127,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "distAdministration",
-            "index": "src/index.html",
+            "outputPath": "wwwroot/distAdministration",
+            "deployUrl": "/distAdministration/",
+            "index": "src/administration.html",
             "main": "src/mainAdministration.ts",
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",

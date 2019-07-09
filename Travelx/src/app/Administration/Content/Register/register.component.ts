@@ -51,24 +51,30 @@ export class RegisterComponent implements OnInit  {
         this.registerForm = this.fb.group({
             "email": [this.registerModel.email, [
                 Validators.required,
-                Validators.email
+                Validators.pattern('^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$')
             ]],
-            passwordGroup: this.fb.group({
-                "password": [this.registerModel.password, [
-                    Validators.required,
-                    Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+]).*$')
-                ]],
-                "confirmPassword": ['', [
-                    Validators.required,
-                ]],
-            }, { validator: this.checkPasswords }),
+            "password": [this.registerModel.password, [
+                Validators.required,
+                Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+]).*$')
+            ]],
+            "confirmPassword": ['', [
+                Validators.required,
+            ]]
+        },
+        {
+            validator: this.checkPasswords
         });
     }
 
-    private checkPasswords(group: FormGroup) { 
-        let pass = group.controls.password.value;
-        let confirmPass = group.controls.confirmPass.value;
-
-        return pass === confirmPass ? null : { notSame: true }
+    private checkPasswords(group: FormGroup) {
+        let confirmPasswordControl = group.controls.confirmPassword;
+        if (confirmPasswordControl.dirty) {
+            let passwordValue = group.controls.password.value;
+            let confirmValue = confirmPasswordControl.value;
+            let result = passwordValue === confirmValue;
+            if (!result) {
+                confirmPasswordControl.setErrors({ 'passwordDoesntMatch': true })
+            }
+        }
     }
 }

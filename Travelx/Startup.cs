@@ -47,11 +47,12 @@ namespace Travelx
             {
                 app.UseDeveloperExceptionPage();
 
+                //TODO use cli interface
                 //webpack build
-                app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
-                {
-                    HotModuleReplacement = true
-                });
+                //app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
+                //{
+                //    HotModuleReplacement = true
+                //});
             }
 
             app.UseHttpsRedirection();
