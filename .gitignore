@@ -261,3 +261,5 @@ __pycache__/
 *.pyc
 TouristCenter/distAdministration/
 TouristCenter/distSite/
+Travelx/wwwroot/distAdministration/*
+Travelx/wwwroot/distSite/*
