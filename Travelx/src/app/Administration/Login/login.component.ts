@@ -4,10 +4,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { LoginService } from "@administrationCommon/Services/login.service";
 import { Login } from "@administrationCommon/Services/login.service";
+import { Result } from "@common/Types/Result";
 
 @Component({
-    
-    
     selector: "login",
     templateUrl: "login.component.html",
     styleUrls: ["login.component.css"]
@@ -15,11 +14,13 @@ import { Login } from "@administrationCommon/Services/login.service";
 export class LoginComponent implements OnInit  {
     public loginForm: FormGroup;
     public loginModel: Login = new Login();
+    public redirectUrl: string;
     public errorMessage: string;
 
     constructor(
         private loginService: LoginService,
         private fb: FormBuilder,
+        private activatedRoute: ActivatedRoute,
         private router: Router
     )
     {
@@ -28,24 +29,28 @@ export class LoginComponent implements OnInit  {
 
     ngOnInit() {
         this.buildForm();
+        this.setReturnUrl();
     }
 
-    public login(){
+    public login()
+    {
         this.loginService.login(this.loginModel)
-        //TODO need notifcation
         .subscribe(
-        (data) => 
-        {
-            if(data._body == 'success')
-            {
-                this.router.navigate(['administration'])
-            }
-            else
-            {
-                this.errorMessage = data;
-            }  
-        },
-        error => this.errorMessage = error);
+            (result: Result) =>
+                {
+                    if (result.isSuccess) {
+                        if (this.redirectUrl) {
+                            this.router.navigateByUrl(this.redirectUrl);
+                        }
+                        else {
+                            this.router.navigate(['administration']);
+                        }
+                    }
+                    else {
+                        this.errorMessage = "User name or password is incorrect";
+                    }
+                },
+            error => this.errorMessage = error);
     }
 
     private buildForm() {
@@ -58,5 +63,10 @@ export class LoginComponent implements OnInit  {
             ]],
             "rememberMe": [this.loginModel.rememberMe]
         });
+    }
+
+    private setReturnUrl()
+    {
+        this.redirectUrl = this.activatedRoute.snapshot.queryParams['ReturnUrl'];
     }
 }

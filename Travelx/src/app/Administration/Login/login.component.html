@@ -43,6 +43,8 @@
                                aria-describedby="basic-addon1">
                     </div>
                 </div>
+                <div class="error" [innerHtml]="errorMessage">
+                </div>
                 <div class="actions">
                     <button (click)="login()"
                             class="btn btn-primary"

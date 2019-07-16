@@ -15,7 +15,7 @@ namespace Travelx.Controllers
         [Route("administration/tours/{tourType}/{country}/{tour}")]
         [Route("administration/promotions")]
         [Route("administration/promotions/{promotion}")]
-        //[Route("administration/register")]
+        [Route("administration/register")]
         [Authorize]
         public IActionResult Index()
         {
@@ -29,11 +29,11 @@ namespace Travelx.Controllers
         }
 
         //TODO A.V. ned to delete after first time registration
-        [Route("administration/register")]
-        public ActionResult Register()
-        {
-            return AdminstrationLayout();
-        }
+        //[Route("administration/register")]
+        //public ActionResult Register()
+        //{
+        //    return AdminstrationLayout();
+        //}
 
         private VirtualFileResult AdminstrationLayout()
         {

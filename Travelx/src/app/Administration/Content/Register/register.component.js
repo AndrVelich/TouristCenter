@@ -25,7 +25,6 @@ var RegisterComponent = /** @class */ (function () {
     RegisterComponent.prototype.register = function () {
         var _this = this;
         this.registerService.register(this.registerModel)
-            //TODO need notifcation
             .subscribe(function (data) {
             if (data._body == 'success') {
                 _this.router.navigate(['administration']);
@@ -39,23 +38,29 @@ var RegisterComponent = /** @class */ (function () {
         this.registerForm = this.fb.group({
             "email": [this.registerModel.email, [
                     Validators.required,
-                    Validators.email
+                    Validators.pattern('^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$')
                 ]],
-            passwordGroup: this.fb.group({
-                "password": [this.registerModel.password, [
-                        Validators.required,
-                        Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+]).*$')
-                    ]],
-                "confirmPassword": ['', [
-                        Validators.required,
-                    ]],
-            }, { validator: this.checkPasswords }),
+            "password": [this.registerModel.password, [
+                    Validators.required,
+                    Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+]).*$'),
+                ]],
+            "confirmPassword": [this.registerModel.confirmPassword, [
+                    Validators.required,
+                ]]
+        }, {
+            validator: this.checkPasswords
         });
     };
     RegisterComponent.prototype.checkPasswords = function (group) {
-        var pass = group.controls.password.value;
-        var confirmPass = group.controls.confirmPassword.value;
-        return pass === confirmPass ? null : { notSame: true };
+        var passwordValue = group.controls.password;
+        var confirmControl = group.controls.confirmPassword;
+        var result = passwordValue.value === confirmControl.value;
+        if (result) {
+            confirmControl.setErrors(null);
+        }
+        else {
+            confirmControl.setErrors({ passwordMatched: true });
+        }
     };
     RegisterComponent = __decorate([
         Component({

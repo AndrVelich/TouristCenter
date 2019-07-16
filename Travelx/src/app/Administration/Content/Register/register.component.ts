@@ -1,9 +1,10 @@
 ﻿import { Component, Injectable, OnInit } from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators, ValidatorFn, ValidationErrors } from "@angular/forms";
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { RegisterService } from "@administrationCommon/Services/register.service";
 import { Register } from "@administrationCommon/Services/register.service";
+import { Result } from "@common/Types/Result";
 
 @Component({
     selector: "register",
@@ -30,20 +31,17 @@ export class RegisterComponent implements OnInit  {
     public register()
     {
         this.registerService.register(this.registerModel)
-        //TODO need notifcation
         .subscribe(
-        (data) => 
-        {
-            if(data._body == 'success')
+            (result: Result) =>
             {
-                this.router.navigate(['administration'])
-            }
-            else
-            {
-                this.errorMessage = data;
-            }  
-        },
-        error => this.errorMessage = error);
+                if (result.isSuccess) {
+                    this.router.navigate(['administration']);
+                }
+                else {
+                    this.errorMessage = result.errorMessage;
+                }
+            },
+            error => this.errorMessage = error);
     }
 
     private buildForm() 
@@ -55,9 +53,9 @@ export class RegisterComponent implements OnInit  {
             ]],
             "password": [this.registerModel.password, [
                 Validators.required,
-                Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+]).*$')
+                Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+]).*$'),
             ]],
-            "confirmPassword": ['', [
+            "confirmPassword": [this.registerModel.confirmPassword, [
                 Validators.required,
             ]]
         },
@@ -67,14 +65,17 @@ export class RegisterComponent implements OnInit  {
     }
 
     private checkPasswords(group: FormGroup) {
-        let confirmPasswordControl = group.controls.confirmPassword;
-        if (confirmPasswordControl.dirty) {
-            let passwordValue = group.controls.password.value;
-            let confirmValue = confirmPasswordControl.value;
-            let result = passwordValue === confirmValue;
-            if (!result) {
-                confirmPasswordControl.setErrors({ 'passwordDoesntMatch': true })
-            }
+        let passwordValue = group.controls.password;
+        let confirmControl = group.controls.confirmPassword;
+        let result = passwordValue.value === confirmControl.value;
+
+        if (result) {
+            confirmControl.setErrors(null);
+        }
+        else {
+            confirmControl.setErrors({ passwordMatched: true });
         }
     }
+
 }
+

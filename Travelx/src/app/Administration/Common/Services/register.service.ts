@@ -1,12 +1,10 @@
 
 import {throwError as observableThrowError,  Observable } from 'rxjs';
 
-import {catchError} from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { Injectable } from "@angular/core";
 import { Http, Response } from "@angular/http";
-//import {Observable} from 'rxjs/Rx';
-
-
+import { Result } from "@common/Types/Result";
 
 @Injectable()
 export class RegisterService
@@ -20,6 +18,7 @@ export class RegisterService
 
     public register(register: Register){
         return this.http.post(this.url, register).pipe(
+            map((res: Response) => <Result>res.json()),
             catchError(this.handleError));
     }
 

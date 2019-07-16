@@ -1,7 +1,8 @@
 import { NgModule } from "@angular/core";
 
 import { ClickOutsideDirective } from "./Directives/clickOutside.directive";
-import { Dictionary } from "./Types/Dictionary";
+//import { Dictionary } from "./Types/Dictionary";
+//import { Result } from "./Types/Result";
 
 import { TourTypeService } from "./Services/tourType.service";
 import { PreloaderService } from "./Services/preloader.service";

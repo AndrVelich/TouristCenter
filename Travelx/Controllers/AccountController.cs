@@ -47,7 +47,7 @@ namespace Travelx.Controllers
         [HttpPost]
         [Route("api/account/register")]
         //TODO A.V. need to delete after first registration
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public async Task<Result> Register([FromBody]RegisterViewModel model)
         {
             Result result;

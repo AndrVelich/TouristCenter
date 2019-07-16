@@ -20,11 +20,16 @@
                         <span class="required">*</span>
                     </div>
                     <input type="password"
-                           name="urlName"
+                           name="password"
                            class="form-control"
                            formControlName="password"
                            [(ngModel)]="registerModel.password"
                            aria-describedby="basic-addon1">
+                    <div *ngIf="registerForm.controls.password.invalid && registerForm.controls.password.touched">
+                        <div class="error" *ngIf="registerForm.controls.password.errors?.pattern">
+                            Password must contain at least 1 uppercase, 1 lowercase, 1 number and 1 special character
+                        </div>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <div class="input-group-prepend">
@@ -32,12 +37,19 @@
                         <span class="required">*</span>
                     </div>
                     <input type="password"
-                           name="urlName"
+                           name="confirmPassword"
                            class="form-control"
                            formControlName="confirmPassword"
                            [(ngModel)]="registerModel.confirmPassword"
                            aria-describedby="basic-addon1">
+                    <div *ngIf="registerForm.controls.confirmPassword.invalid && registerForm.controls.confirmPassword.touched">
+                        <div class="error" *ngIf="registerForm.controls.confirmPassword.errors?.passwordMatched">
+                            The Confirm password and Password do not match
+                        </div>
+                    </div>
                 </div>
+            </div>
+            <div class="error" [innerHtml]="errorMessage">
             </div>
             <div class="actions">
                 <button (click)="register()"

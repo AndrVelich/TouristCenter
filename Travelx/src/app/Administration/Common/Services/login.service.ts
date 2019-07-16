@@ -1,12 +1,8 @@
-
-import {throwError as observableThrowError,  Observable } from 'rxjs';
-
-import {catchError} from 'rxjs/operators';
+import { throwError as observableThrowError,  Observable } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { Injectable } from "@angular/core";
 import { Http, Response } from "@angular/http";
-//import {Observable} from 'rxjs/Rx';
-
-
+import { Result } from "@common/Types/Result";
 
 @Injectable()
 export class LoginService
@@ -20,6 +16,7 @@ export class LoginService
 
     public login(login: Login){
         return this.http.post(this.url, login).pipe(
+            map((res: Response) => <Result>res.json()),
             catchError(this.handleError));
     }
 
