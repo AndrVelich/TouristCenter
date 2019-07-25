@@ -10,6 +10,7 @@ import { PromotionsComponent } from "./Content/Promotions/promotions.component";
 import { PromotionComponent } from "./Content/Promotions/Promotion/promotion.component";
 import { RegisterComponent } from "./Content/Register/register.component"; 
 import { OrdersComponent } from "./Content/Orders/orders.component";
+import { UsersComponent } from "./Content/Users/users.component";
 
 import { LoginComponent } from "./Login/login.component";
 
@@ -62,6 +63,10 @@ export const routes: Routes = [
             {
                 path: 'orders',
                 component: OrdersComponent
+            },
+            {
+                path: 'users',
+                component: UsersComponent
             },
         ]
     },

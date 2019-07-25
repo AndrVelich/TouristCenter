@@ -7,23 +7,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 import { MatDialog } from '@angular/material';
-import { TourTypeService } from "@common/Services/tourType.service";
 import { OrderService } from "@administrationCommon/Services/order.service";
+import { PageOptions } from "@administrationCommon/Services/pager.service";
 import { ConfirmationPopupComponent } from "@administrationCommon/Components/ConfirmationPopup/confirmationPopup.component";
+import { PagerComponent } from "@administrationCommon/Components/Pager/pager.component";
 var OrdersComponent = /** @class */ (function () {
-    function OrdersComponent(dialog, tourTypeService, orderService) {
+    function OrdersComponent(dialog, orderService) {
         this.dialog = dialog;
-        this.tourTypeService = tourTypeService;
         this.orderService = orderService;
-        this.take = 20;
-        this.currentPage = 1;
-        this.ordersCount = 0;
         this.orderCollection = new Array();
+        this.pageOptions = new PageOptions(0, 20);
     }
     OrdersComponent.prototype.ngOnInit = function () {
-        this.getOrdersPage();
     };
     OrdersComponent.prototype.markAsProcessed = function (order) {
         var _this = this;
@@ -42,7 +39,7 @@ var OrdersComponent = /** @class */ (function () {
         order.isNew = false;
         this.orderService.saveOrder(order)
             .subscribe(function () {
-            _this.getOrdersPage();
+            _this.getOrdersPage(_this.pageOptions);
         }, function (error) { return _this.errorMessage = error; });
     };
     OrdersComponent.prototype.openDeleteConfirmation = function (orderId) {
@@ -54,57 +51,23 @@ var OrdersComponent = /** @class */ (function () {
             .subscribe(function (result) {
             if (result) {
                 _this.orderService.deleteOrder(orderId)
-                    .subscribe(function () { return _this.getOrdersPage(); });
+                    .subscribe(function () { return _this.getOrdersPage(_this.pageOptions); });
             }
         });
     };
-    OrdersComponent.prototype.getOrdersPage = function () {
+    OrdersComponent.prototype.getOrdersPage = function (pageOptions) {
         var _this = this;
-        var skip = (this.currentPage - 1) * this.take;
-        this.orderService.getOrdersPage(skip, this.take)
+        this.pageOptions = pageOptions;
+        this.orderService.getOrdersPage(pageOptions.skip, pageOptions.take)
             .subscribe(function (data) {
             _this.orderCollection = data.orderCollection;
-            _this.ordersCount = data.ordersCount;
-            _this.pager = _this.GetPager(_this.ordersCount, _this.orderCollection, _this.take);
+            _this.pagerComponent.updatePager(data.ordersCount);
         });
     };
-    OrdersComponent.prototype.setPage = function (page) {
-        if (page > 0 || page <= this.pager.totalPages) {
-            this.currentPage = page;
-            this.getOrdersPage();
-        }
-    };
-    OrdersComponent.prototype.GetPager = function (totalItems, currentPage, pageSize) {
-        var pager = new Pager();
-        pager.currentPage = currentPage;
-        pager.pageSize = pageSize;
-        pager.totalPages = Math.ceil(totalItems / pager.pageSize);
-        if (pager.totalPages <= pageSize) {
-            pager.startPage = 1;
-            pager.endPage = pager.totalPages;
-        }
-        else {
-            if (pager.currentPage <= 6) {
-                pager.startPage = 1;
-                pager.endPage = 10;
-            }
-            else if (pager.currentPage + 4 >= pager.totalPages) {
-                pager.startPage = pager.totalPages - 9;
-                pager.endPage = pager.totalPages;
-            }
-            else {
-                pager.startPage = pager.currentPage - 5;
-                pager.endPage = pager.currentPage + 4;
-            }
-        }
-        // calculate start and end item indexes
-        pager.startIndex = (pager.currentPage - 1) * pager.pageSize;
-        pager.endIndex = Math.min(pager.startIndex + pager.pageSize - 1, totalItems - 1);
-        // create an array of pages to ng-repeat in the pager control
-        pager.pages = new Array(pager.endPage - pager.startPage + 1).fill(0).map(function (x, i) { return i + 1; });
-        // return object with all pager properties required by the view
-        return pager;
-    };
+    __decorate([
+        ViewChild(PagerComponent, { static: false }),
+        __metadata("design:type", PagerComponent)
+    ], OrdersComponent.prototype, "pagerComponent", void 0);
     OrdersComponent = __decorate([
         Component({
             selector: "orders",
@@ -112,17 +75,9 @@ var OrdersComponent = /** @class */ (function () {
             styleUrls: ["orders.component.css"]
         }),
         __metadata("design:paramtypes", [MatDialog,
-            TourTypeService,
             OrderService])
     ], OrdersComponent);
     return OrdersComponent;
 }());
 export { OrdersComponent };
-var Pager = /** @class */ (function () {
-    function Pager() {
-    }
-    return Pager;
-}());
-export { Pager };
-;
 //# sourceMappingURL=orders.component.js.map

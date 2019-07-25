@@ -29,12 +29,15 @@ import { LoginComponent } from "./Login/login.component";
 import { RegisterComponent } from "./Content/Register/register.component";
 import { OrdersComponent } from "./Content/Orders/orders.component";
 import { ConfirmationPopupComponent } from "./Common/Components/ConfirmationPopup/confirmationPopup.component";
+import { PagerComponent } from "./Common/Components/Pager/pager.component";
 import { CountryService } from "./Common/Services/country.service";
 import { TourService } from "./Common/Services/tour.service";
 import { PromotionService } from "./Common/Services/promotion.service";
 import { LoginService } from "./Common/Services/login.service";
 import { RegisterService } from "./Common/Services/register.service";
 import { OrderService } from "./Common/Services/order.service";
+import { AccountService } from "./Common/Services/account.service";
+import { PagerService } from "./Common/Services/pager.service";
 var AdministrationModule = /** @class */ (function () {
     function AdministrationModule() {
     }
@@ -62,6 +65,8 @@ var AdministrationModule = /** @class */ (function () {
                 RegisterService,
                 OrderService,
                 MatDatepickerModule,
+                AccountService,
+                PagerService,
             ],
             entryComponents: [
                 ConfirmationPopupComponent,
@@ -82,6 +87,7 @@ var AdministrationModule = /** @class */ (function () {
                 RegisterComponent,
                 OrdersComponent,
                 ConfirmationPopupComponent,
+                PagerComponent,
             ],
             exports: [
                 AdministrationComponent,

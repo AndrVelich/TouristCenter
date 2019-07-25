@@ -10,8 +10,8 @@ using Travelx.Models.Identity;
 namespace Travelx.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190703113825_Init")]
-    partial class Init
+    [Migration("20190725163437_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -6,6 +6,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { NgModule } from "@angular/core";
 import { ClickOutsideDirective } from "./Directives/clickOutside.directive";
+//import { Dictionary } from "./Types/Dictionary";
+//import { Result } from "./Types/Result";
 import { TourTypeService } from "./Services/tourType.service";
 import { PreloaderService } from "./Services/preloader.service";
 var CommonModule = /** @class */ (function () {

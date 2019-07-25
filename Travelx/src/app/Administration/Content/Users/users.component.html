@@ -1,0 +1,23 @@
+﻿<h1>Пользователи</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Email</td>
+            <td>Удалить</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of userCollection">
+            <td class="name">{{user.email}}</td>
+            <td class="delete center">
+                <a (click)="openDeleteConfirmation(user.userId)" class="link-big" style="color:red">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+
+</table>
+
+<pagerComponent [pageOptions]="pageOptions"
+                (setPageEvent)="getUsersPage($event)"></pagerComponent>

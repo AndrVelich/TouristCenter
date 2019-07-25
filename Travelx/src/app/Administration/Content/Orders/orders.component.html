@@ -1,58 +1,43 @@
 ﻿<h1>Список заказов</h1>
 <table class="table table-striped">
     <thead>
-        <tr>
-            <td>ID</td>
-            <td>Имя</td>
-            <td>Телефон</td>
-            <td>Описание</td>
-            <td>Страница</td>
-            <td>Кнопка/Отель</td>
-            <td>Дата отправки</td>
-            <td>Пометить как обработанное</td>
-            <td>Удалить</td>
-        </tr>
+    <tr>
+        <td>ID</td>
+        <td>Имя</td>
+        <td>Телефон</td>
+        <td>Описание</td>
+        <td>Страница</td>
+        <td>Кнопка/Отель</td>
+        <td>Дата отправки</td>
+        <td>Пометить как обработанное</td>
+        <td>Удалить</td>
+    </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let order of orderCollection">
-            <td class="name">{{order.orderId}}</td>
-            <td class="name">{{order.name}}</td>
-            <td class="phone">{{order.phone}}</td>
-            <td>{{order.description}}</td>
-            <td>
-                <a target="_blank" href="{{order.url}}">{{order.url == '/' ? 'Home' : order.url}}</a>
-            </td>
-            <td>{{order.tourOrButton}}</td>
-            <td class="createdDateTime">{{order.createdDateTime | date: 'yyyy-MM-dd HH:mm'}}</td>
-            <td class="mark-as-processed center">
-                <a *ngIf="order.isNew" (click)="markAsProcessed(order)" class="link-big" style="color:blue">
-                    <i class="fa fa-check" aria-hidden="true"></i>
-                </a>
-            </td>
-            <td class="delete center">
-                <a (click)="openDeleteConfirmation(order.orderId)" class="link-big" style="color:red">
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                </a>
-            </td>
-        </tr>
+    <tr *ngFor="let order of orderCollection">
+        <td class="name">{{order.orderId}}</td>
+        <td class="name">{{order.name}}</td>
+        <td class="phone">{{order.phone}}</td>
+        <td>{{order.description}}</td>
+        <td>
+            <a target="_blank" href="{{order.url}}">{{order.url == '/' ? 'Home' : order.url}}</a>
+        </td>
+        <td>{{order.tourOrButton}}</td>
+        <td class="createdDateTime">{{order.createdDateTime | date: 'yyyy-MM-dd HH:mm'}}</td>
+        <td class="mark-as-processed center">
+            <a *ngIf="order.isNew" (click)="markAsProcessed(order)" class="link-big" style="color:blue">
+                <i class="fa fa-check" aria-hidden="true"></i>
+            </a>
+        </td>
+        <td class="delete center">
+            <a (click)="openDeleteConfirmation(order.orderId)" class="link-big" style="color:red">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+            </a>
+        </td>
+    </tr>
     </tbody>
 
 </table>
 
-<ul *ngIf="pager && pager.pages && pager.pages.length" class="pagination">
-    <li [class.disabled]="pager.currentPage === 1">
-        <a (click)="setPage(1)">First</a>
-    </li>
-    <li [class.disabled]="pager.currentPage === 1">
-        <a (click)="setPage(pager.currentPage - 1)">Previous</a>
-    </li>
-    <li *ngFor="let page of pager.pages" [class.active]="pager.currentPage === page">
-        <a (click)="setPage(page)">{{page}}</a>
-    </li>
-    <li [class.disabled]="pager.currentPage === pager.totalPages">
-        <a (click)="setPage(pager.currentPage + 1)">Next</a>
-    </li>
-    <li [class.disabled]="pager.currentPage === pager.totalPages">
-        <a (click)="setPage(pager.totalPages)">Last</a>
-    </li>
-</ul>
+<pagerComponent [pageOptions]="pageOptions"
+                (setPageEvent)="getOrdersPage($event)"></pagerComponent>

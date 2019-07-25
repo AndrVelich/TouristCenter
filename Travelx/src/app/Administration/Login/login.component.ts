@@ -47,7 +47,13 @@ export class LoginComponent implements OnInit  {
                         }
                     }
                     else {
-                        this.errorMessage = "User name or password is incorrect";
+                        if (result.errorMessage === "lockedOut") {
+                            this.errorMessage = "User is locked. Try to login later";
+                        }
+                        else {
+                            this.errorMessage = "User name or password is incorrect";
+                        }
+                        
                     }
                 },
             error => this.errorMessage = error);

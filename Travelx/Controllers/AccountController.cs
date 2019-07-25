@@ -29,7 +29,7 @@ namespace Travelx.Controllers
             var identityResult = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: model.RememberMe, lockoutOnFailure: false);
             if (identityResult.Succeeded)
             {
-                return Result.SuccessResult();
+                return Result.SuccessResult;
             }
             if (identityResult.IsLockedOut)
             {
@@ -41,13 +41,12 @@ namespace Travelx.Controllers
             }
 
             return Result.FailResult(LoginResult.Fail);
-
         }
 
         [HttpPost]
         [Route("api/account/register")]
-        //TODO A.V. need to delete after first registration
-        //[AllowAnonymous]
+        //TODO A.V. need to delete [AllowAnonymous] after first registration
+        [AllowAnonymous]
         public async Task<Result> Register([FromBody]RegisterViewModel model)
         {
             Result result;
@@ -56,7 +55,7 @@ namespace Travelx.Controllers
 
             if (identityResult.Succeeded)
             {
-                result = Result.SuccessResult();
+                result = Result.SuccessResult;
             }
             else
             {
@@ -64,6 +63,29 @@ namespace Travelx.Controllers
                 result = Result.FailResult(errorMessage);
             }
             return result;
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("api/account/userspage/{skip}/{take}")]
+        public UsersPage GetUsersPage(int skip, int take)
+        {
+            var usersCount = _userManager.Users.Count();
+            var users = _userManager.Users.Skip(skip).Take(take).ToList();
+            var resut = new UsersPage(usersCount, users);
+
+            return resut;
+        }
+
+        [Authorize]
+        [HttpDelete]
+        [Route("api/account/user/{id}")]
+        public async Task<Result> Delete(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            await _userManager.DeleteAsync(user);
+
+            return Result.SuccessResult;
         }
     }
 }

@@ -7,11 +7,11 @@ import { TextMaskModule } from 'angular2-text-mask';
 import { RouterModule } from "@angular/router";
 
 import {
-  MatDialogModule,
-  MatSelectModule,
-  MatDatepickerModule,
-  MatNativeDateModule,
-  MatInputModule
+    MatDialogModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule
 } from '@angular/material';
 
 import { CommonModule } from "@common/common.module";
@@ -28,9 +28,12 @@ import { PromotionComponent } from "./Content/Promotions/Promotion/promotion.com
 import { ToursComponent } from "./Content/Tours/tours.component";
 import { TourComponent } from "./Content/Tours/Tour/tour.component";
 import { LoginComponent } from "./Login/login.component";
-import { RegisterComponent } from "./Content/Register/register.component"; 
+import { RegisterComponent } from "./Content/Register/register.component";
 import { OrdersComponent } from "./Content/Orders/orders.component";
+import { UsersComponent } from "./Content/Users/users.component";
+
 import { ConfirmationPopupComponent } from "./Common/Components/ConfirmationPopup/confirmationPopup.component"
+import { PagerComponent } from "./Common/Components/Pager/pager.component"
 
 import { CountryService } from "./Common/Services/country.service";
 import { TourService } from "./Common/Services/tour.service";
@@ -38,58 +41,65 @@ import { PromotionService } from "./Common/Services/promotion.service";
 import { LoginService } from "./Common/Services/login.service";
 import { RegisterService } from "./Common/Services/register.service";
 import { OrderService } from "./Common/Services/order.service";
+import { AccountService } from "./Common/Services/account.service";
+import { PagerService } from "./Common/Services/pager.service";
 
 @NgModule({
     imports:
-    [
-        BrowserModule,
-        BrowserAnimationsModule,
-        ReactiveFormsModule,
-        FormsModule,
+        [
+            BrowserModule,
+            BrowserAnimationsModule,
+            ReactiveFormsModule,
+            FormsModule,
 
-        MatDialogModule,
-        MatSelectModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
+            MatDialogModule,
+            MatSelectModule,
+            MatDatepickerModule,
+            MatNativeDateModule,
 
-        HttpModule,
-        TextMaskModule,
-        CommonModule,
+            HttpModule,
+            TextMaskModule,
+            CommonModule,
 
-        RouterModule.forRoot(routes)
-    ],
-    providers: 
-    [
-        CountryService,
-        TourService,
-        PromotionService,
-        LoginService,
-        RegisterService,
-        OrderService,
-        MatDatepickerModule,
-    ],
+            RouterModule.forRoot(routes)
+        ],
+    providers:
+        [
+            CountryService,
+            TourService,
+            PromotionService,
+            LoginService,
+            RegisterService,
+            OrderService,
+            MatDatepickerModule,
+            AccountService,
+            PagerService,
+        ],
     entryComponents:
-    [
-        ConfirmationPopupComponent,
-    ],
+        [
+            ConfirmationPopupComponent,
+        ],
     declarations:
-    [
-        AdministrationComponent,
-        HeaderComponent,
-        FooterComponent,
-        ContentComponent, 
-        HomeComponent,
-        CountriesComponent,
-        CountryComponent,
-        ToursComponent,
-        TourComponent,
-        PromotionsComponent,
-        PromotionComponent,
-        LoginComponent,
-        RegisterComponent,
-        OrdersComponent,
-        ConfirmationPopupComponent,
-    ],
+        [
+            AdministrationComponent,
+            HeaderComponent,
+            FooterComponent,
+            ContentComponent,
+            HomeComponent,
+            CountriesComponent,
+            CountryComponent,
+            ToursComponent,
+            TourComponent,
+            PromotionsComponent,
+            PromotionComponent,
+            LoginComponent,
+            RegisterComponent,
+            OrdersComponent,
+            UsersComponent,
+
+            ConfirmationPopupComponent,
+            PagerComponent,
+        ],
     exports: [
         AdministrationComponent,
 

@@ -9,29 +9,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from "@administrationCommon/Services/login.service";
 import { Login } from "@administrationCommon/Services/login.service";
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(loginService, fb, router) {
+    function LoginComponent(loginService, fb, activatedRoute, router) {
         this.loginService = loginService;
         this.fb = fb;
+        this.activatedRoute = activatedRoute;
         this.router = router;
         this.loginModel = new Login();
     }
     LoginComponent.prototype.ngOnInit = function () {
         this.buildForm();
+        this.setReturnUrl();
     };
     LoginComponent.prototype.login = function () {
         var _this = this;
         this.loginService.login(this.loginModel)
-            //TODO need notifcation
-            .subscribe(function (data) {
-            if (data._body == 'success') {
-                _this.router.navigate(['administration']);
+            .subscribe(function (result) {
+            if (result.isSuccess) {
+                if (_this.redirectUrl) {
+                    _this.router.navigateByUrl(_this.redirectUrl);
+                }
+                else {
+                    _this.router.navigate(['administration']);
+                }
             }
             else {
-                _this.errorMessage = data;
+                if (result.errorMessage === "lockedOut") {
+                    _this.errorMessage = "User is locked. Try to login later";
+                }
+                else {
+                    _this.errorMessage = "User name or password is incorrect";
+                }
             }
         }, function (error) { return _this.errorMessage = error; });
     };
@@ -46,6 +57,9 @@ var LoginComponent = /** @class */ (function () {
             "rememberMe": [this.loginModel.rememberMe]
         });
     };
+    LoginComponent.prototype.setReturnUrl = function () {
+        this.redirectUrl = this.activatedRoute.snapshot.queryParams['ReturnUrl'];
+    };
     LoginComponent = __decorate([
         Component({
             selector: "login",
@@ -54,6 +68,7 @@ var LoginComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [LoginService,
             FormBuilder,
+            ActivatedRoute,
             Router])
     ], LoginComponent);
     return LoginComponent;

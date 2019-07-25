@@ -26,7 +26,7 @@ var HeaderComponent = /** @class */ (function () {
         this.timer.subscribe(function () { return _this.checkIsAnyNewOrders(_this); });
     };
     HeaderComponent.prototype.ngOnDestroy = function () {
-        this.timer.unsubscribe();
+        //this.timer.unsubscribe();
     };
     HeaderComponent.prototype.checkIsAnyNewOrders = function (context) {
         context.orderService.isAnyNewOrders()

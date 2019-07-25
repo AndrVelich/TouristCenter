@@ -8,17 +8,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { throwError as observableThrowError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { Injectable } from "@angular/core";
 import { Http, Response } from "@angular/http";
-//import {Observable} from 'rxjs/Rx';
 var LoginService = /** @class */ (function () {
     function LoginService(http) {
         this.http = http;
         this.url = '/api/account/login';
     }
     LoginService.prototype.login = function (login) {
-        return this.http.post(this.url, login).pipe(catchError(this.handleError));
+        return this.http.post(this.url, login).pipe(map(function (res) { return res.json(); }), catchError(this.handleError));
     };
     LoginService.prototype.handleError = function (error, cought) {
         var message = "";

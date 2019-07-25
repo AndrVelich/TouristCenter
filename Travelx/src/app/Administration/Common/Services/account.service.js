@@ -8,18 +8,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { throwError as observableThrowError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 import { Injectable } from "@angular/core";
 import { Http, Response } from "@angular/http";
-var RegisterService = /** @class */ (function () {
-    function RegisterService(http) {
+var AccountService = /** @class */ (function () {
+    function AccountService(http) {
         this.http = http;
-        this.url = '/api/account/register';
+        this.url = '/api/account/';
     }
-    RegisterService.prototype.register = function (register) {
-        return this.http.post(this.url, register).pipe(map(function (res) { return res.json(); }), catchError(this.handleError));
+    AccountService.prototype.getUsersPage = function (skip, take) {
+        return this.http.get(this.url + 'usersPage/' + skip + '/' + take).pipe(map(function (res) { return res.json(); }), catchError(this.handleError));
     };
-    RegisterService.prototype.handleError = function (error, cought) {
+    AccountService.prototype.deleteUser = function (userId) {
+        return this.http.delete(this.url + 'user/' + userId).pipe(catchError(this.handleError));
+    };
+    AccountService.prototype.handleError = function (error, cought) {
         var message = "";
         if (error instanceof Response) {
             var errorData = error.json().error || JSON.stringify(error.json());
@@ -31,17 +34,23 @@ var RegisterService = /** @class */ (function () {
         console.error(message);
         return observableThrowError(message);
     };
-    RegisterService = __decorate([
+    AccountService = __decorate([
         Injectable(),
         __metadata("design:paramtypes", [Http])
-    ], RegisterService);
-    return RegisterService;
+    ], AccountService);
+    return AccountService;
 }());
-export { RegisterService };
-var Register = /** @class */ (function () {
-    function Register() {
+export { AccountService };
+var User = /** @class */ (function () {
+    function User() {
     }
-    return Register;
+    return User;
 }());
-export { Register };
-//# sourceMappingURL=register.service.js.map
+export { User };
+var UsersPage = /** @class */ (function () {
+    function UsersPage() {
+    }
+    return UsersPage;
+}());
+export { UsersPage };
+//# sourceMappingURL=account.service.js.map

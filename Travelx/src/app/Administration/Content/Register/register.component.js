@@ -25,12 +25,12 @@ var RegisterComponent = /** @class */ (function () {
     RegisterComponent.prototype.register = function () {
         var _this = this;
         this.registerService.register(this.registerModel)
-            .subscribe(function (data) {
-            if (data._body == 'success') {
+            .subscribe(function (result) {
+            if (result.isSuccess) {
                 _this.router.navigate(['administration']);
             }
             else {
-                _this.errorMessage = data;
+                _this.errorMessage = result.errorMessage;
             }
         }, function (error) { return _this.errorMessage = error; });
     };
