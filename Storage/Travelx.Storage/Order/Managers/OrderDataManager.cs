@@ -10,9 +10,9 @@ namespace Travelx.Storage.Order.Managers
     {
         private readonly TravelxContext _dbContext;
 
-        public OrderDataManager(string connectionString)
+        public OrderDataManager(TravelxContext dbContext)
         {
-            _dbContext = new TravelxContext(connectionString);
+            _dbContext = dbContext;
         }
 
         public Interfaces.Order.Models.Order GetOrder(int orderId)

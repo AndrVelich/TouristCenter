@@ -28,6 +28,7 @@ import { TourComponent } from "./Content/Tours/Tour/tour.component";
 import { LoginComponent } from "./Login/login.component";
 import { RegisterComponent } from "./Content/Register/register.component";
 import { OrdersComponent } from "./Content/Orders/orders.component";
+import { UsersComponent } from "./Content/Users/users.component";
 import { ConfirmationPopupComponent } from "./Common/Components/ConfirmationPopup/confirmationPopup.component";
 import { PagerComponent } from "./Common/Components/Pager/pager.component";
 import { CountryService } from "./Common/Services/country.service";
@@ -86,6 +87,7 @@ var AdministrationModule = /** @class */ (function () {
                 LoginComponent,
                 RegisterComponent,
                 OrdersComponent,
+                UsersComponent,
                 ConfirmationPopupComponent,
                 PagerComponent,
             ],

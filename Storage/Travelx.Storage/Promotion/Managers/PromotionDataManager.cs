@@ -5,7 +5,6 @@ using Travelx.Storage.Context;
 using Travelx.Storage.Interfaces.Promotion.Managers;
 using Travelx.Storage.Interfaces.Promotion.Models;
 using PromotionDataModel = Travelx.Storage.Interfaces.Promotion.Models.Promotion;
-using ImageDataModel = Travelx.Storage.Interfaces.Image.Models.Image;
 
 namespace Travelx.Storage.Promotion.Managers
 {
@@ -13,14 +12,15 @@ namespace Travelx.Storage.Promotion.Managers
     {
         private readonly TravelxContext _dbContext;
 
-        public PromotionDataManager(string connectionString)
+        public PromotionDataManager(TravelxContext dbContext)
         {
-            _dbContext = new TravelxContext(connectionString);
+            _dbContext = dbContext;
         }
 
         public PromotionDataModel GetPromotion(int promotionId)
         {
             var promotion = _dbContext.Promotions
+                .Include(t => t.PromotionImages)
                 .AsNoTracking()
                 .FirstOrDefault(c => c.PromotionId == promotionId);
             return promotion;
@@ -29,6 +29,7 @@ namespace Travelx.Storage.Promotion.Managers
         public PromotionDataModel GetPromotion(string promotionUrl)
         {
             var promotion = _dbContext.Promotions
+                .Include(t => t.PromotionImages)
                 .AsNoTracking()
                 .FirstOrDefault(p => p.UrlName == promotionUrl);
             return promotion;
@@ -36,7 +37,10 @@ namespace Travelx.Storage.Promotion.Managers
 
         public IReadOnlyCollection<PromotionDataModel> GetPromotionCollection()
         {
-            var countries = _dbContext.Promotions.AsNoTracking().ToList();
+            var countries = _dbContext.Promotions
+                .Include(t => t.PromotionImages)
+                .AsNoTracking()
+                .ToList();
             return countries;
         }
 

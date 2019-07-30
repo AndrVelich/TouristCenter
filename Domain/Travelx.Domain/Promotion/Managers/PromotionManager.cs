@@ -4,7 +4,6 @@ using System.Linq;
 using Travelx.Domain.Interfaces.Promotion.Exceptions;
 using Travelx.Domain.Interfaces.Promotion.Managers;
 using Travelx.Domain.Interfaces.Promotion.Models;
-using Travelx.Storage.Interfaces.Image.Managers;
 using Travelx.Storage.Interfaces.Promotion.Managers;
 using PromotionModel = Travelx.Domain.Promotion.Models.Promotion;
 
@@ -13,12 +12,10 @@ namespace Travelx.Domain.Promotion.Managers
     public sealed class PromotionManager : IPromotionManager
     {
         private readonly IPromotionDataManager _promotionDataManager;
-        private readonly IImageDataManager _imageDataManager;
 
-        public PromotionManager(IPromotionDataManager promotionDataManager, IImageDataManager imageDataManager)
+        public PromotionManager(IPromotionDataManager promotionDataManager)
         {
             _promotionDataManager = promotionDataManager;
-            _imageDataManager = imageDataManager;
         }
 
         public IPromotion GetPromotion(int id)
@@ -29,7 +26,7 @@ namespace Travelx.Domain.Promotion.Managers
                 throw new PromotionNotFoundException();
             }
 
-            var promotion = new PromotionModel(promotionDataModel, _promotionDataManager, _imageDataManager);
+            var promotion = new PromotionModel(promotionDataModel, _promotionDataManager);
 
             return promotion;
         }
@@ -42,7 +39,7 @@ namespace Travelx.Domain.Promotion.Managers
                 throw new PromotionNotFoundException();
             }
 
-            var promotion = new PromotionModel(promotionDataModel, _promotionDataManager, _imageDataManager);
+            var promotion = new PromotionModel(promotionDataModel, _promotionDataManager);
 
             return promotion;
         }
@@ -50,7 +47,7 @@ namespace Travelx.Domain.Promotion.Managers
         public IReadOnlyCollection<IPromotion> GetPromotionCollection()
         {
             var promotions = _promotionDataManager.GetPromotionCollection()
-                .Select(c => new PromotionModel(c, _promotionDataManager, _imageDataManager))
+                .Select(c => new PromotionModel(c, _promotionDataManager))
                 .ToList();
 
             return promotions;
@@ -64,7 +61,6 @@ namespace Travelx.Domain.Promotion.Managers
         {
             var promotion = new PromotionModel(
                 _promotionDataManager,
-                _imageDataManager,
                 name,
                 urlName,
                 description,

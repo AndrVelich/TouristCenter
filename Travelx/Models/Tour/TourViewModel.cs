@@ -36,7 +36,7 @@ namespace Travelx.Models.Tour
             Nights = tour.Nights;
             IsFlightIncluded = tour.IsFlightIncluded;
             NewImageCollection = new List<string>();
-            OldImageCollection = tour.ImageCollection.Select(i => i.ImageId).ToList();
+            OldImageCollection = tour.ImageIdCollection.ToList();
         }
 
         public TourViewModel()

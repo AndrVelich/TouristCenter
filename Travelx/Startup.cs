@@ -4,13 +4,8 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.SpaServices.Webpack;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Travelx.Models;
-using Travelx.Models.Identity;
 using Travelx.Settings;
 
 namespace Travelx
@@ -38,7 +33,7 @@ namespace Travelx
             services.AddOptions();
             services.Configure<TravelxSettings>(Configuration.GetSection("TravelxSettings"));
 
-            ConfigureIdentity(services, connectionString);
+            ConfigureApplicationCookie(services);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -46,13 +41,6 @@ namespace Travelx
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-
-                //TODO use cli interface
-                //webpack build
-                //app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
-                //{
-                //    HotModuleReplacement = true
-                //});
             }
 
             app.UseHttpsRedirection();
@@ -68,13 +56,8 @@ namespace Travelx
             });
         }
 
-        private void ConfigureIdentity(IServiceCollection services, string connectionString)
+        private void ConfigureApplicationCookie(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(connectionString));
-            services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
-
             services.ConfigureApplicationCookie(options =>
             {
                 options.AccessDeniedPath = new PathString("/administration/accessdenied");

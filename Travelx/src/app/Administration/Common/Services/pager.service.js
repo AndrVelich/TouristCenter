@@ -9,35 +9,46 @@ var PagerService = /** @class */ (function () {
     function PagerService() {
     }
     PagerService.prototype.GetPager = function (totalItems, pageOptions) {
+        var pagerLength = pageOptions.pagerLength;
+        var floorHalfLength = Math.floor(pagerLength / 2);
         var pager = new Pager();
-        //CHECK!!!
         pager.currentPage = Math.ceil(pageOptions.skip / pageOptions.take) + 1;
         pager.totalPages = Math.ceil(totalItems / pageOptions.take);
-        if (pager.totalPages <= pageOptions.take) {
+        if (pager.totalPages <= pagerLength) {
             pager.startPage = 1;
             pager.endPage = pager.totalPages;
         }
         else {
-            if (pager.currentPage <= 6) {
-                pager.startPage = 1;
-                pager.endPage = 10;
-            }
-            else if (pager.currentPage + 4 >= pager.totalPages) {
-                pager.startPage = pager.totalPages - 9;
+            if (pager.currentPage + floorHalfLength >= pager.totalPages) {
+                pager.startPage = pager.totalPages - pagerLength + 1;
                 pager.endPage = pager.totalPages;
             }
             else {
-                pager.startPage = pager.currentPage - 5;
-                pager.endPage = pager.currentPage + 4;
+                if (pager.currentPage - floorHalfLength < 0) {
+                    pager.startPage = 1;
+                    pager.endPage = pagerLength;
+                }
+                else if (this.isEven(pagerLength)) {
+                    pager.startPage = pager.currentPage - floorHalfLength + 1;
+                    pager.endPage = pager.currentPage + floorHalfLength;
+                }
+                else {
+                    pager.startPage = pager.currentPage - floorHalfLength;
+                    pager.endPage = pager.currentPage + floorHalfLength;
+                }
             }
         }
-        // calculate start and end item indexes
-        pager.startIndex = (pager.currentPage - 1) * pageOptions.take;
-        pager.endIndex = Math.min(pager.startIndex + pageOptions.take - 1, totalItems - 1);
-        // create an array of pages to ng-repeat in the pager control
-        pager.pages = new Array(pager.endPage - pager.startPage + 1).fill(0).map(function (x, i) { return i + 1; });
-        // return object with all pager properties required by the view
+        pager.pages = this.getPagesArray(pager);
         return pager;
+    };
+    PagerService.prototype.getPagesArray = function (pager) {
+        var emptyPageArray = new Array(pager.endPage - pager.startPage + 1);
+        emptyPageArray = emptyPageArray.fill(0);
+        var result = emptyPageArray.map(function (x, i) { return pager.startPage + i; });
+        return result;
+    };
+    PagerService.prototype.isEven = function (n) {
+        return n % 2 == 0;
     };
     PagerService = __decorate([
         Injectable()
@@ -53,9 +64,10 @@ var Pager = /** @class */ (function () {
 export { Pager };
 ;
 var PageOptions = /** @class */ (function () {
-    function PageOptions(skip, take) {
+    function PageOptions(skip, take, pagerLength) {
         this.skip = skip;
         this.take = take;
+        this.pagerLength = pagerLength;
     }
     return PageOptions;
 }());

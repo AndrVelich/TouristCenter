@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using AccountService.Configurator;
+using Microsoft.Extensions.DependencyInjection;
 using Travelx.Domain.Country.Managers;
 using Travelx.Domain.Image.Managers;
 using Travelx.Domain.Interfaces.Country.Managers;
@@ -9,6 +10,7 @@ using Travelx.Domain.Interfaces.Tour.Managers;
 using Travelx.Domain.Order.Managers;
 using Travelx.Domain.Promotion.Managers;
 using Travelx.Domain.Tour.Managers;
+using Travelx.Storage.Context;
 using Travelx.Storage.Country.Managers;
 using Travelx.Storage.Image.Managers;
 using Travelx.Storage.Interfaces.Country.Managers;
@@ -39,6 +41,8 @@ namespace DiConfiguration
 
         private void RegisterBuisnessPart(IServiceCollection services)
         {
+            IdentityConfigurator.ConfigureIdentity(services, _connectionString);
+
             services.AddTransient<IOrderManager, OrderManager>();
             services.AddTransient<ICountryManager, CountryManager>();
             services.AddTransient<ITourManager, TourManager>();
@@ -49,11 +53,14 @@ namespace DiConfiguration
 
         private void RegisterDataPart(IServiceCollection services)
         {
-            services.AddTransient<IOrderDataManager>(s => new OrderDataManager(_connectionString));
-            services.AddTransient<ICountryDataManager>(s => new CountryDataManager(_connectionString));
-            services.AddTransient<ITourDataManager>(s => new TourDataManager(_connectionString));
-            services.AddTransient<IPromotionDataManager>(s => new PromotionDataManager(_connectionString));
-            services.AddTransient<IImageDataManager>(s => new ImageDataManager(_connectionString));
+            services.AddTransient(s => new TravelxContext(_connectionString));
+            TravelxDbContextConfigurator.RegisterContext(services, _connectionString);
+
+            services.AddTransient<IOrderDataManager, OrderDataManager>();
+            services.AddTransient<ICountryDataManager, CountryDataManager>();
+            services.AddTransient<ITourDataManager, TourDataManager>();
+            services.AddTransient<IPromotionDataManager, PromotionDataManager>();
+            services.AddTransient<IImageDataManager, ImageDataManager>();
         }
     }
 }

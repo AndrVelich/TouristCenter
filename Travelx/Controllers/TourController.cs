@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Travelx.Domain.Interfaces.Common.Enums;
+using Travelx.Domain.Interfaces.Image.Managers;
+using Travelx.Domain.Interfaces.Image.Models;
 using Travelx.Domain.Interfaces.Tour.Exceptions;
 using Travelx.Domain.Interfaces.Tour.Managers;
 using Travelx.Domain.Interfaces.Tour.Models;
@@ -17,10 +19,14 @@ namespace Travelx.Controllers
     {
         private readonly ITourManager _tourManager;
         private readonly TravelxSettings _settings;
+        private readonly IImageManager _imageManager;
 
-        public TourController(ITourManager tourManager, IOptions<TravelxSettings> config)
+        public TourController(ITourManager tourManager, 
+            IOptions<TravelxSettings> config, 
+            IImageManager imageManager)
         {
             _tourManager = tourManager;
+            _imageManager = imageManager;
             _settings = config?.Value;
         }
 
@@ -149,19 +155,17 @@ namespace Travelx.Controllers
                     );
             }
 
-            var imageForDeleteCollection = tourModel.ImageCollection.Where(im => !tour.OldImageCollection.Contains(im.ImageId)).ToList();
+            var imageForDeleteCollection = tourModel.ImageIdCollection.Where(imageId => !tour.OldImageCollection.Contains(imageId)).ToList();
 
             foreach (var newImage in tour.NewImageCollection)
             {
-                var mimeType = ImageConverter.GetImageMimeType(newImage);
-                var imageData = ImageConverter.GetImageData(newImage);
-
-                tourModel.AddImage(imageData, mimeType);
+                var image = CreateImage(newImage);
+                tourModel.AddImage(image.ImageId);
             }
 
-            foreach (var newImage in imageForDeleteCollection)
+            foreach (var imageId in imageForDeleteCollection)
             {
-                tourModel.DeleteImage(newImage);
+                tourModel.DeleteImage(imageId);
             }
 
             tourModel.Save();
@@ -174,6 +178,15 @@ namespace Travelx.Controllers
         {
             var tour = _tourManager.GetTour(id);
             tour.Delete();
+        }
+
+        private IImage CreateImage(string rawImage)
+        {
+            var mimeType = ImageConverter.GetImageMimeType(rawImage);
+            var imageData = ImageConverter.GetImageData(rawImage);
+            var image = _imageManager.CreateImage(mimeType, imageData);
+
+            return image;
         }
     }
 }

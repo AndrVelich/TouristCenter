@@ -13,16 +13,16 @@ import { AccountService } from "@administrationCommon/Services/account.service";
 import { PageOptions } from "@administrationCommon/Services/pager.service";
 import { PagerComponent } from "@administrationCommon/Components/Pager/pager.component";
 import { ConfirmationPopupComponent } from "@administrationCommon/Components/ConfirmationPopup/confirmationPopup.component";
-var usersComponent = /** @class */ (function () {
-    function usersComponent(dialog, accountService) {
+var UsersComponent = /** @class */ (function () {
+    function UsersComponent(dialog, accountService) {
         this.dialog = dialog;
         this.accountService = accountService;
         this.userCollection = new Array();
-        this.pageOptions = new PageOptions(0, 20);
+        this.pageOptions = new PageOptions(0, 20, 5);
     }
-    usersComponent.prototype.ngOnInit = function () {
+    UsersComponent.prototype.ngOnInit = function () {
     };
-    usersComponent.prototype.openDeleteConfirmation = function (user) {
+    UsersComponent.prototype.openDeleteConfirmation = function (user) {
         var _this = this;
         this.dialog.open(ConfirmationPopupComponent, {
             data: 'Вы уверены, что хототе удалить пользователя <b>' + user.email + '</b>?'
@@ -35,7 +35,7 @@ var usersComponent = /** @class */ (function () {
             }
         });
     };
-    usersComponent.prototype.getUsersPage = function (pageOptions) {
+    UsersComponent.prototype.getUsersPage = function (pageOptions) {
         var _this = this;
         this.pageOptions = pageOptions;
         this.accountService.getUsersPage(pageOptions.skip, pageOptions.take)
@@ -47,16 +47,16 @@ var usersComponent = /** @class */ (function () {
     __decorate([
         ViewChild(PagerComponent, { static: false }),
         __metadata("design:type", PagerComponent)
-    ], usersComponent.prototype, "pagerComponent", void 0);
-    usersComponent = __decorate([
+    ], UsersComponent.prototype, "pagerComponent", void 0);
+    UsersComponent = __decorate([
         Component({
             selector: "users",
             templateUrl: "users.component.html"
         }),
         __metadata("design:paramtypes", [MatDialog,
             AccountService])
-    ], usersComponent);
-    return usersComponent;
+    ], UsersComponent);
+    return UsersComponent;
 }());
-export { usersComponent };
+export { UsersComponent };
 //# sourceMappingURL=users.component.js.map

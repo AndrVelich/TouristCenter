@@ -18,7 +18,7 @@ var OrdersComponent = /** @class */ (function () {
         this.dialog = dialog;
         this.orderService = orderService;
         this.orderCollection = new Array();
-        this.pageOptions = new PageOptions(0, 20);
+        this.pageOptions = new PageOptions(0, 20, 10);
     }
     OrdersComponent.prototype.ngOnInit = function () {
     };

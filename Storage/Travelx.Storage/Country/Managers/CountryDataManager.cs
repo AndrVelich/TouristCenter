@@ -12,9 +12,9 @@ namespace Travelx.Storage.Country.Managers
     {
         private readonly TravelxContext _dbContext;
 
-        public CountryDataManager(string connectionString)
+        public CountryDataManager(TravelxContext dbContext)
         {
-            _dbContext = new TravelxContext(connectionString);
+            _dbContext = dbContext;
         }
 
         public CountryDataModel GetCountry(int countryId)

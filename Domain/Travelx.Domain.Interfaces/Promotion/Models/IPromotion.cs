@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Travelx.Domain.Interfaces.Image.Models;
 
 namespace Travelx.Domain.Interfaces.Promotion.Models
 {
@@ -22,12 +21,13 @@ namespace Travelx.Domain.Interfaces.Promotion.Models
 
         string MetaKeywords { get; set; }
 
-        IReadOnlyCollection<IImage> ImageCollection { get; }
+        IReadOnlyCollection<int> ImageIdCollection { get; }
 
         void Save();
         void Delete();
 
-        void AddImage(byte[] imageData, string mimeType);
-        void DeleteImage(IImage image);
+        void AddImage(int imageId);
+
+        void DeleteImage(int imageId);
     }
 }

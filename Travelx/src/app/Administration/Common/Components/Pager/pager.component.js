@@ -25,7 +25,7 @@ var PagerComponent = /** @class */ (function () {
         this.pager = this.pagerService.GetPager(count, this.pageOptions);
     };
     PagerComponent.prototype.setPage = function (page) {
-        if (page > 0 && page <= this.pager.totalPages) {
+        if (page > 0 && page <= this.pager.totalPages && page != this.pager.currentPage) {
             this.pageOptions.skip = (page - 1) * this.pageOptions.take;
             this.setPageOptionsToUrl();
             this.GetPageData();
@@ -39,12 +39,15 @@ var PagerComponent = /** @class */ (function () {
         if (queryParams) {
             var skip = parseInt(queryParams.skip);
             var take = parseInt(queryParams.take);
-            //CHECK THIS!!!
+            var pagerLength = parseInt(queryParams.pagerLength);
             if (!isNaN(skip)) {
                 this.pageOptions.skip = skip;
             }
             if (!isNaN(take)) {
                 this.pageOptions.take = take;
+            }
+            if (!isNaN(pagerLength)) {
+                this.pageOptions.pagerLength = pagerLength;
             }
         }
     };

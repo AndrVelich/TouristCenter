@@ -1,21 +1,21 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using AccountService.Interfaces.Exceptions;
+using AccountService.Interfaces.Models.Enums;
+using AccountService.Managers;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Travelx.Models.Account;
 using Travelx.Models.Common;
-using Travelx.Models.Identity;
 
 namespace Travelx.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
-        private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager _signInManager;
+        private readonly UserManager _userManager;
 
-        public AccountController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager)
+        public AccountController(SignInManager signInManager, UserManager userManager)
         {
             _signInManager = signInManager;
             _userManager = userManager;
@@ -26,21 +26,16 @@ namespace Travelx.Controllers
         [AllowAnonymous]
         public async Task<Result> Login([FromBody]LoginViewModel model)
         {
-            var identityResult = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: model.RememberMe, lockoutOnFailure: false);
-            if (identityResult.Succeeded)
+            var loginResult = await _signInManager.Login(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
+            
+            if (loginResult != LoginResultEnum.Success)
             {
-                return Result.SuccessResult;
-            }
-            if (identityResult.IsLockedOut)
-            {
-                return Result.FailResult(LoginResult.LockedOut);
-            }
-            if (identityResult.IsNotAllowed)
-            {
-                return Result.FailResult(LoginResult.NotAllowed);
+                var message = LoginResult.GetLoginResultMessage(loginResult);
+                return Result.FailResult(message);
+                
             }
 
-            return Result.FailResult(LoginResult.Fail);
+            return Result.SuccessResult;
         }
 
         [HttpPost]
@@ -49,30 +44,25 @@ namespace Travelx.Controllers
         [AllowAnonymous]
         public async Task<Result> Register([FromBody]RegisterViewModel model)
         {
-            Result result;
-            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-            var identityResult = await _userManager.CreateAsync(user, model.Password);
-
-            if (identityResult.Succeeded)
+            try
             {
-                result = Result.SuccessResult;
+                await _userManager.Register(model.Email, model.Password);
             }
-            else
+            catch (AccountResultException excpetion)
             {
-                var errorMessage = identityResult.Errors.FirstOrDefault()?.Description;
-                result = Result.FailResult(errorMessage);
+                Result.FailResult(excpetion.Message);
             }
-            return result;
+            
+            return Result.SuccessResult;
         }
 
         [HttpGet]
         [Authorize]
         [Route("api/account/userspage/{skip}/{take}")]
-        public UsersPage GetUsersPage(int skip, int take)
+        public UsersPageViewModel GetUsersPage(int skip, int take)
         {
-            var usersCount = _userManager.Users.Count();
-            var users = _userManager.Users.Skip(skip).Take(take).ToList();
-            var resut = new UsersPage(usersCount, users);
+            var accountUsersPage = _userManager.GetUsersPage(skip, take);
+            var resut = new UsersPageViewModel(accountUsersPage);
 
             return resut;
         }
@@ -80,10 +70,17 @@ namespace Travelx.Controllers
         [Authorize]
         [HttpDelete]
         [Route("api/account/user/{id}")]
+        //TODO doesn't work
         public async Task<Result> Delete(string id)
         {
-            var user = await _userManager.FindByIdAsync(id);
-            await _userManager.DeleteAsync(user);
+            try
+            {
+                await _userManager.Delete(id);
+            }
+            catch (AccountResultException excpetion)
+            {
+                Result.FailResult(excpetion.Message);
+            }
 
             return Result.SuccessResult;
         }

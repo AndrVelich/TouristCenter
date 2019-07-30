@@ -9,9 +9,9 @@ namespace Travelx.Storage.Image.Managers
     {
         private readonly TravelxContext _dbContext;
 
-        public ImageDataManager(string connectionString)
+        public ImageDataManager(TravelxContext dbContext)
         {
-            _dbContext = new TravelxContext(connectionString);
+            _dbContext = dbContext;
         }
 
         public ImageDataModel CreateImage(ImageDataModel imageDataModel)

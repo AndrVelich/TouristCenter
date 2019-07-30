@@ -3,6 +3,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Travelx.Domain.Interfaces.Image.Managers;
+using Travelx.Domain.Interfaces.Image.Models;
 using Travelx.Domain.Interfaces.Promotion.Exceptions;
 using Travelx.Domain.Interfaces.Promotion.Managers;
 using Travelx.Domain.Interfaces.Promotion.Models;
@@ -64,20 +65,18 @@ namespace Travelx.Controllers
                         promotion.UntilDate
                     );
             }
-
-            var imageForDeleteCollection = promotionModel.ImageCollection.Where(im => !promotion.OldImageCollection.Contains(im.ImageId)).ToList();
+            
+            var imageForDeleteCollection = promotionModel.ImageIdCollection.Where(imageId => !promotion.OldImageCollection.Contains(imageId)).ToList();
 
             foreach (var newImage in promotion.NewImageCollection)
             {
-                var mimeType = ImageConverter.GetImageMimeType(newImage);
-                var imageData = ImageConverter.GetImageData(newImage);
-
-                promotionModel.AddImage(imageData, mimeType);
+                var image = CreateImage(newImage);
+                promotionModel.AddImage(image.ImageId);
             }
 
-            foreach (var newImage in imageForDeleteCollection)
+            foreach (var imageId in imageForDeleteCollection)
             {
-                promotionModel.DeleteImage(newImage);
+                promotionModel.DeleteImage(imageId);
             }
 
             promotionModel.Save();
@@ -90,6 +89,15 @@ namespace Travelx.Controllers
         {
             var promotion = _promotionManager.GetPromotion(id);
             promotion.Delete();
+        }
+
+        private IImage CreateImage(string rawImage)
+        {
+            var mimeType = ImageConverter.GetImageMimeType(rawImage);
+            var imageData = ImageConverter.GetImageData(rawImage);
+            var image = _imageManager.CreateImage(mimeType, imageData);
+
+            return image;
         }
 
     }

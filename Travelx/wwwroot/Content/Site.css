@@ -156,6 +156,8 @@ body {
     position: relative;
     min-height: 600px;
     font-family: OpenSans-Regular, sans-serif; }
+    body .body-content .banner img {
+      width: 100%; }
     body .body-content .center {
       text-align: center; }
     body .body-content .text-wrapper {

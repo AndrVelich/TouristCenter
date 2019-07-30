@@ -39,7 +39,7 @@ namespace Travelx.Models.Promotion
             MetaKeywords = promotion.MetaKeywords;
 
             NewImageCollection = new List<string>();
-            OldImageCollection = promotion.ImageCollection.Select(i => i.ImageId).ToList();
+            OldImageCollection = promotion.ImageIdCollection.ToList();
         }
 
         public PromotionViewModel()

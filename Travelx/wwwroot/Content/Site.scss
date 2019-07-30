@@ -220,6 +220,13 @@ body {
         min-height: 600px;
         font-family: OpenSans-Regular, sans-serif;
 
+        .banner {
+
+            img {
+                width: 100%;
+            }
+        }
+
         .center {
             text-align: center;
         }

@@ -1,5 +1,4 @@
-﻿using System;
-using Travelx.Models.Identity;
+﻿using AccountService.Interfaces.Models;
 
 namespace Travelx.Models.Account
 {
@@ -13,7 +12,7 @@ namespace Travelx.Models.Account
 
         }
 
-        public UserViewModel(ApplicationUser user)
+        public UserViewModel(IApplicationUser user)
         {
             UserId = user.Id;
             Email = user.Email;

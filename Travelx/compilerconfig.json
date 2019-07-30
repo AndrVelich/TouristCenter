@@ -18,5 +18,49 @@
   {
     "outputFile": "src/app/Administration/Login/login.component.css",
     "inputFile": "src/app/Administration/Login/login.component.scss"
+  },
+  {
+    "outputFile": "src/app/Administration/Content/Tours/Tour/tour.component.css",
+    "inputFile": "src/app/Administration/Content/Tours/Tour/tour.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/Home/home.component.css",
+    "inputFile": "src/app/Site/Content/Home/home.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/TourTypes/Bus/Tours/busTours.component.css",
+    "inputFile": "src/app/Site/Content/TourTypes/Bus/Tours/busTours.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Tours/tours.component.css",
+    "inputFile": "src/app/Site/Tours/tours.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/EarlyBooking/Countries/earlyCountries.component.css",
+    "inputFile": "src/app/Site/Content/EarlyBooking/Countries/earlyCountries.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/CountriesPage/countriesPage.component.css",
+    "inputFile": "src/app/Site/Content/CountriesPage/countriesPage.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/EarlyBooking/Tours/earlyTours.component.css",
+    "inputFile": "src/app/Site/Content/EarlyBooking/Tours/earlyTours.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/Hot/Tours/hotTours.component.css",
+    "inputFile": "src/app/Site/Content/Hot/Tours/hotTours.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/content.component.css",
+    "inputFile": "src/app/Site/Content/content.component.scss"
+  },
+  {
+    "outputFile": "wwwroot/Content/Site.css",
+    "inputFile": "wwwroot/Content/Site.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/TourTypes/tourTypes.component.css",
+    "inputFile": "src/app/Site/Content/TourTypes/tourTypes.component.scss"
   }
 ]

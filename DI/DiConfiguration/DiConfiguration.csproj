@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Account\AccountService\AccountService.csproj" />
     <ProjectReference Include="..\..\Domain\Travelx.Domain\Travelx.Domain.csproj" />
     <ProjectReference Include="..\..\Storage\Travelx.Storage.Interfaces\Travelx.Storage.Interfaces.csproj" />
     <ProjectReference Include="..\..\Storage\Travelx.Storage\Travelx.Storage.csproj" />

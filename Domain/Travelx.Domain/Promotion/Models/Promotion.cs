@@ -1,35 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Travelx.Domain.Interfaces.Image.Models;
 using Travelx.Domain.Interfaces.Promotion.Exceptions;
 using Travelx.Domain.Interfaces.Promotion.Models;
-using Travelx.Storage.Interfaces.Image.Managers;
 using Travelx.Storage.Interfaces.Promotion.Managers;
 using Travelx.Storage.Interfaces.Promotion.Models;
 using PromotionDataModel = Travelx.Storage.Interfaces.Promotion.Models.Promotion;
-using ImageModel = Travelx.Domain.Image.Models.Image;
 
 namespace Travelx.Domain.Promotion.Models
 {
     internal sealed class Promotion : IPromotion
     {
         private readonly IPromotionDataManager _promotionDataManager;
-        private readonly IImageDataManager _imageDataManager;
+        private readonly List<int> _imageIdCollection;
 
-        private bool _isNew;
+        private readonly bool _isNew;
 
         private string _name;
         private string _urlName;
         private string _description;
         private DateTime _untilDate;
-        private List<ImageModel> _imageCollection { get; set; }
 
         public int PromotionId { get; private set; }
 
         public string Name
         {
-            get { return _name; }
+            get => _name;
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
@@ -42,7 +38,7 @@ namespace Travelx.Domain.Promotion.Models
 
         public string UrlName
         {
-            get { return _urlName; }
+            get => _urlName;
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
@@ -55,7 +51,7 @@ namespace Travelx.Domain.Promotion.Models
 
         public string Description
         {
-            get { return _description; }
+            get => _description;
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
@@ -68,7 +64,7 @@ namespace Travelx.Domain.Promotion.Models
 
         public DateTime UntilDate
         {
-            get { return _untilDate; }
+            get => _untilDate;
             set
             {
                 if (value < DateTime.Now)
@@ -79,10 +75,7 @@ namespace Travelx.Domain.Promotion.Models
             }
         }
 
-        public IReadOnlyCollection<IImage> ImageCollection
-        {
-            get { return _imageCollection; }
-        }
+        public IReadOnlyCollection<int> ImageIdCollection => _imageIdCollection;
 
         public string Title { get; set; }
 
@@ -91,10 +84,8 @@ namespace Travelx.Domain.Promotion.Models
         public string MetaKeywords { get; set; }
 
         internal Promotion(PromotionDataModel dataModel,
-            IPromotionDataManager promotionDataManager,
-            IImageDataManager imageDataManager)
+            IPromotionDataManager promotionDataManager)
         {
-            _imageDataManager = imageDataManager;
             _promotionDataManager = promotionDataManager;
 
             PromotionId = dataModel.PromotionId;
@@ -105,22 +96,18 @@ namespace Travelx.Domain.Promotion.Models
             Title = dataModel.Title;
             MetaDescription = dataModel.MetaDescription;
             MetaKeywords = dataModel.MetaKeywords;
-            _imageCollection = dataModel.PromotionImages?
-                .Select(i => new ImageModel(i.Image, imageDataManager))
-                .ToList()
-                ?? new List<ImageModel>();
+            _imageIdCollection = dataModel.PromotionImages?.Select(ci => ci.ImageId).ToList() ??
+                                 new List<int>();
         }
 
         internal Promotion(
             IPromotionDataManager promotionDataManager,
-            IImageDataManager imageDataManager,
             string name,
             string urlName,
             string description,
             DateTime untilDate
             )
         {
-            _imageDataManager = imageDataManager;
             _promotionDataManager = promotionDataManager;
             _isNew = true;
 
@@ -128,7 +115,7 @@ namespace Travelx.Domain.Promotion.Models
             UrlName = urlName;
             Description = description;
             UntilDate = untilDate;
-            _imageCollection = new List<ImageModel>();
+            _imageIdCollection = new List<int>();
         }
 
         public void Save()
@@ -163,19 +150,14 @@ namespace Travelx.Domain.Promotion.Models
             }
         }
 
-        public void AddImage(byte[] imageData, string mimeType)
+        public void AddImage(int imageId)
         {
-            var newImage = new ImageModel(_imageDataManager, imageData, mimeType);
-            _imageCollection.Add(newImage);
+            _imageIdCollection.Add(imageId);
         }
 
-        public void DeleteImage(IImage image)
+        public void DeleteImage(int imageId)
         {
-            var imageForRemove = _imageCollection.FirstOrDefault(im => im.ImageId == image.ImageId);
-            if (imageForRemove != null)
-            {
-                _imageCollection.Remove(imageForRemove);
-            }
+            _imageIdCollection.Remove(imageId);
         }
 
         private PromotionDataModel GetPromotionDataModel()
@@ -192,12 +174,10 @@ namespace Travelx.Domain.Promotion.Models
                 MetaKeywords = MetaKeywords
             };
 
-            promotionDataModel.PromotionImages = _imageCollection
-                .Select(im => new PromotionImage
+            promotionDataModel.PromotionImages = _imageIdCollection
+                .Select(imageId => new PromotionImage
                 {
-                    Image = im.GetImageDataModel(),
-                    ImageId = im.GetImageDataModel().ImageId,
-                    Promotion = promotionDataModel,
+                    ImageId = imageId,
                     PromotionId = promotionDataModel.PromotionId
                 })
                 .ToList();

@@ -1,9 +1,9 @@
-﻿<div class="tours-page width-wrapper">
+﻿<div class="banner">
+    <img [src]="'/api/image/' + country.oldImageCollection[1]" />
+</div>
+<div class="tours-page width-wrapper">
     <!--temporary implementation-->
-    <div *ngIf="country.name">
-        <div class="banner">
-            <img [src]="'/api/image/' + country.oldImageCollection[1]" />
-        </div>
+    <div *ngIf="country.name"> 
         <div class="text-wrapper">
             <h1 class="center"
                 [innerHtml]="country.pageHeader"></h1>

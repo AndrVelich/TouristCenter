@@ -12,15 +12,16 @@ namespace Travelx.Storage.Tour.Managers
     {
         private readonly TravelxContext _dbContext;
 
-        public TourDataManager(string connectionString)
+        public TourDataManager(TravelxContext dbContext)
         {
-            _dbContext = new TravelxContext(connectionString);
+            _dbContext = dbContext;
         }
 
         public TourDataModel GetTour(int tourId)
         {
             var tour = _dbContext.Tours
                 .Include(t => t.Country)
+                .Include(t => t.TourImages)
                 .AsNoTracking()
                 .FirstOrDefault(c => c.TourId == tourId);
             return tour;
@@ -30,6 +31,7 @@ namespace Travelx.Storage.Tour.Managers
         {
             var tour = _dbContext.Tours
                 .Include(t => t.Country)
+                .Include(t => t.TourImages)
                 .AsNoTracking()
                 .FirstOrDefault(c => c.Category == tourType && c.UrlName == tourUrl);
             return tour;
@@ -39,6 +41,7 @@ namespace Travelx.Storage.Tour.Managers
         {
             var tours = _dbContext.Tours
                 .Include(t => t.Country)
+                .Include(t => t.TourImages)
                 .AsNoTracking().ToList();
             return tours;
         }
@@ -47,6 +50,7 @@ namespace Travelx.Storage.Tour.Managers
         {
             var tours = _dbContext.Tours
                 .Include(t => t.Country)
+                .Include(t => t.TourImages)
                 .AsNoTracking()
                 .Where(t => t.Category == tourType && t.Country.UrlName == countryUrl)
                 .ToList();
@@ -57,6 +61,7 @@ namespace Travelx.Storage.Tour.Managers
         {
             var tours = _dbContext.Tours
                 .Include(t => t.Country)
+                .Include(t => t.TourImages)
                 .AsNoTracking()
                 .Where(t => t.Category == tourType)
                 .ToList();

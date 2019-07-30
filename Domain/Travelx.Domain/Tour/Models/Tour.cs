@@ -2,7 +2,6 @@
 using System.Linq;
 using Travelx.Domain.Common.Converters;
 using Travelx.Domain.Interfaces.Common.Enums;
-using Travelx.Domain.Interfaces.Image.Models;
 using Travelx.Domain.Interfaces.Tour.Exceptions;
 using Travelx.Domain.Interfaces.Tour.Models;
 using Travelx.Storage.Interfaces.Image.Managers;
@@ -10,23 +9,21 @@ using Travelx.Storage.Interfaces.Tour.Managers;
 using Travelx.Storage.Interfaces.Tour.Models;
 using CountryDataModel = Travelx.Storage.Interfaces.Country.Models.Country;
 using TourDataModel = Travelx.Storage.Interfaces.Tour.Models.Tour;
-using ImageModel = Travelx.Domain.Image.Models.Image;
 
 namespace Travelx.Domain.Tour.Models
 {
     internal sealed class Tour : ITour
     {
         private readonly ITourDataManager _tourDataManager;
-        private readonly IImageDataManager _imageDataManager;
+        private readonly List<int> _imageIdCollection;
 
-        private bool _isNew;
+        private readonly bool _isNew;
 
         private string _name;
         private string _urlName;
         private string _city;
         private decimal _price;
         private int _stars;
-        private readonly List<ImageModel> _imageCollection;
 
         public int TourId { get; private set; }
 
@@ -58,7 +55,7 @@ namespace Travelx.Domain.Tour.Models
 
         public string City
         {
-            get { return _city; }
+            get => _city;
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
@@ -73,7 +70,7 @@ namespace Travelx.Domain.Tour.Models
 
         public decimal Price
         {
-            get { return _price; }
+            get => _price;
             set
             {
                 if (value < 0)
@@ -86,7 +83,7 @@ namespace Travelx.Domain.Tour.Models
 
         public int Stars
         {
-            get { return _stars; }
+            get => _stars;
             set
             {
                 if (value < 2 && value > 5)
@@ -104,13 +101,12 @@ namespace Travelx.Domain.Tour.Models
         public int Nights { get; set; }
         public bool IsFlightIncluded { get; set; }
 
-        public IReadOnlyCollection<IImage> ImageCollection => _imageCollection;
+        public IReadOnlyCollection<int> ImageIdCollection => _imageIdCollection;
 
         internal Tour(TourDataModel dataModel,
             ITourDataManager tourDataManager,
             IImageDataManager imageDataManager)
         {
-            _imageDataManager = imageDataManager;
             _tourDataManager = tourDataManager;
 
             TourId = dataModel.TourId;
@@ -124,7 +120,8 @@ namespace Travelx.Domain.Tour.Models
             Country = dataModel.Country.UrlName;
             Nights = dataModel.Nights;
             IsFlightIncluded = dataModel.IsFlightIncluded;
-            _imageCollection = dataModel.TourImages?.Select(i => new ImageModel(i.Image, imageDataManager)).ToList() ?? new List<ImageModel>();
+            _imageIdCollection = dataModel.TourImages?.Select(ci => ci.ImageId).ToList() ??
+                                 new List<int>();
         }
 
         internal Tour(
@@ -142,7 +139,6 @@ namespace Travelx.Domain.Tour.Models
             bool isFlightIncluded
             )
         {
-            _imageDataManager = imageDataManager;
             _tourDataManager = tourDataManager;
             _isNew = true;
 
@@ -156,7 +152,7 @@ namespace Travelx.Domain.Tour.Models
             Country = country;
             Nights = nights;
             IsFlightIncluded = isFlightIncluded;
-            _imageCollection = new List<ImageModel>();
+            _imageIdCollection = new List<int>();
         }
 
         public void Save()
@@ -191,19 +187,14 @@ namespace Travelx.Domain.Tour.Models
             }
         }
 
-        public void AddImage(byte[] imageData, string mimeType)
+        public void AddImage(int imageId)
         {
-            var newImage = new ImageModel(_imageDataManager, imageData, mimeType);
-            _imageCollection.Add(newImage);
+            _imageIdCollection.Add(imageId);
         }
 
-        public void DeleteImage(IImage image)
+        public void DeleteImage(int imageId)
         {
-            var imageForRemove = _imageCollection.FirstOrDefault(im => im.ImageId == image.ImageId);
-            if (imageForRemove != null)
-            {
-                _imageCollection.Remove(imageForRemove);
-            }
+            _imageIdCollection.Remove(imageId);
         }
 
         private TourDataModel GetTourDataModel()
@@ -224,13 +215,11 @@ namespace Travelx.Domain.Tour.Models
 
             };
 
-            tourDataModel.TourImages = _imageCollection
-                .Select(im => new TourImage
+            tourDataModel.TourImages = _imageIdCollection
+                .Select(imageId => new TourImage
                 {
-                    Image = im.GetImageDataModel(),
-                    ImageId = im.GetImageDataModel().ImageId,
-                    Tour = tourDataModel,
-                    TourId = tourDataModel.TourId
+                    ImageId = imageId,
+                    TourId = tourDataModel.CountryId
                 })
                 .ToList();
 
