@@ -59,6 +59,21 @@
     font-style: italic;
 }
 
+//------------MISTRAL----------
+@font-face {
+    font-family: 'MISTRAL';
+    src: url(../fonts/Mistral/MISTRAL.TTF);
+    font-weight: normal;
+    font-style: italic;
+}
+
+//------------EastSeaDokdo----------
+@font-face {
+    font-family: 'EastSeaDokdo';
+    src: url(../fonts/EastSeaDokdo/EastSeaDokdo.otf);
+    font-weight: normal;
+    font-style: italic;
+}
 
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, legend, input, button, textarea, blockquote, th, td {
     margin: 0;
@@ -167,7 +182,7 @@ body {
     color: #191919;
     font-size: 16px;
     min-width: 360px;
-    //scroll-behavior: smooth;
+
     .font-Akrobat-ExtraBold {
         font-family: 'Akrobat-ExtraBold', sans-serif;
     }
@@ -190,6 +205,14 @@ body {
 
     .font-OpenSans-Regular {
         font-family: OpenSans-Regular, sans-serif;
+    }
+
+    .font-Mistral {
+        font-family: Mistral, sans-serif;
+    }
+
+    .font-EastSeaDokdo {
+        font-family: EastSeaDokdo, sans-serif;
     }
 
     h1 {
@@ -224,7 +247,7 @@ body {
             background-repeat: no-repeat !important;
             background-size: cover !important;
             background-position: center !important;
-            height: 50vh;
+            min-height: 50vh;
         }
 
         .center {
