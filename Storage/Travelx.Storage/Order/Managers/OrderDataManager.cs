@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Travelx.Storage.Context;
+using Travelx.Storage.Interfaces.Common.Filters;
+using Travelx.Storage.Interfaces.Common.Page;
 using Travelx.Storage.Interfaces.Order.Managers;
+using OrderDataModel = Travelx.Storage.Interfaces.Order.Models.Order;
 
 namespace Travelx.Storage.Order.Managers
 {
@@ -15,25 +17,23 @@ namespace Travelx.Storage.Order.Managers
             _dbContext = dbContext;
         }
 
-        public Interfaces.Order.Models.Order GetOrder(int orderId)
+        public OrderDataModel GetOrder(int orderId)
         {
             var order = _dbContext.Orders.AsNoTracking().FirstOrDefault(o => o.OrderId == orderId);
             return order;
         }
 
-        public IReadOnlyCollection<Interfaces.Order.Models.Order> GetOrderCollection(int skip, int take)
+        public PageDataModel<OrderDataModel> GetOrdersPage(DataFilterBase filter)
         {
-            var orders = _dbContext.Orders.AsNoTracking().OrderByDescending(o => o.CreatedDateTime)
-                .Skip(skip)
-                .Take(take)
+            var count = _dbContext.Orders.Count();
+            var orders = _dbContext.Orders
+                .AsNoTracking()
+                .OrderByDescending(o => o.CreatedDateTime)
+                .Skip(filter.Skip)
+                .Take(filter.Take)
                 .ToList();
+            var result = new PageDataModel<OrderDataModel>(count, orders);
 
-            return orders;
-        }
-
-        public int GetOrdersCount()
-        {
-            var result = _dbContext.Orders.Count();
             return result;
         }
 
@@ -43,25 +43,27 @@ namespace Travelx.Storage.Order.Managers
             return result;
         }
 
-        public void CreateOrder(Interfaces.Order.Models.Order orderDataModel)
+        public void CreateOrder(OrderDataModel orderDataModel)
         {
             _dbContext.Orders.Add(orderDataModel);
             _dbContext.SaveChanges();
         }
 
-        public void UpdateOrder(Interfaces.Order.Models.Order orderDataModel)
+        public void UpdateOrder(OrderDataModel orderDataModel)
         {
             _dbContext.Entry(orderDataModel).State = EntityState.Modified;
             _dbContext.SaveChanges();
         }
 
-        public void DeleteOrder(Interfaces.Order.Models.Order orderDataModel)
+        public void DeleteOrder(OrderDataModel orderDataModel)
         {
             var order = _dbContext.Orders
                 .FirstOrDefault(o => o.OrderId == orderDataModel.OrderId);
-            _dbContext.Orders.Remove(order);
-
-            _dbContext.SaveChanges();
+            if (order != null)
+            {
+                _dbContext.Orders.Remove(order);
+                _dbContext.SaveChanges();
+            }
         }
     }
 }

@@ -1,60 +1,41 @@
-
-import {throwError as observableThrowError,  Observable } from 'rxjs';
-
-import {map, catchError} from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { Injectable } from "@angular/core";
-import { Dictionary } from "@common/Types/Dictionary";
-import { Http, Response } from "@angular/http";
-//import {Observable} from 'rxjs/Rx';
-
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Page } from "@common/Services/pager.service";
 
 
 @Injectable()
 export class OrderService{
-    private url: string = '/api/order/';
+    private url: string = '/api/order';
 
-    constructor(private http: Http) 
+    constructor(private httpClient: HttpClient) { }
+
+    public getOrdersPage(skip: number, take: number): Observable<Page<Order>>
     {
-        
+        let params = new HttpParams()
+            .set('skip', skip.toString())
+            .set('take', take.toString())
+        const options = { params: params };
+        let result = this.httpClient.get<Page<Order>>('api/orders', options)
+
+        return result;
     }
 
-    public getOrdersPage(skip: number, take: number): Observable<OrdersPage>{
-        return this.http.get('api/ordersPage/' + skip + '/' + take).pipe(
-            map((res: Response) => <OrdersPage>res.json()),
-            catchError(this.handleError),);
-    }
-
-    public isAnyNewOrders(): Observable<boolean>{
-        return this.http.get('api/orders/isAnyNew').pipe(
-            map((res: Response) => <boolean>res.json()),
-            catchError(this.handleError),);
-    }
-
-    public saveOrder(order: Order){
-        return this.http.put(this.url, order).pipe(
-            catchError(this.handleError));
-    }
-
-    public deleteOrder(orderId : number){
-        return this.http.delete(this.url + orderId).pipe(
-            catchError(this.handleError));
-    }
-
-    private handleError(error: any, cought: Observable<any>): any 
+    public isAnyNewOrders(): Observable<boolean>
     {
-        let message = "";
-
-        if (error instanceof Response) {
-            let errorData = error.json().error || JSON.stringify(error.json());
-            message = `${error.status} - ${error.statusText || ''} ${errorData}`
-        } else {
-            message = error.message ? error.message : error.toString();
-        }
-
-        console.error(message);
-
-        return observableThrowError(message);
+        return this.httpClient.get<boolean>('api/orders/isAnyNew');
     }
+
+    public saveOrder(order: Order)
+    {
+        return this.httpClient.put(this.url, order);
+    }
+
+    public deleteOrder(orderId: number)
+    {
+        return this.httpClient.delete(this.url + "/" + orderId);
+    }
+
 }
 
 export class Order
@@ -67,10 +48,4 @@ export class Order
         public createdDateTime: string
         public url: string
         public tourOrButton: string
-}
-
-export class OrdersPage
-{
-        public ordersCount: number
-        public orderCollection: Array<Order>
 }

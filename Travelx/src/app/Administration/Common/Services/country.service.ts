@@ -1,11 +1,8 @@
-
-import {throwError as observableThrowError,  Observable } from 'rxjs';
-
-import {map, catchError} from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { Injectable } from "@angular/core";
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Page } from "@common/Services/pager.service";
 import { Dictionary } from "@common/Types/Dictionary";
-import { Http, Response } from "@angular/http";
-//import {Observable} from 'rxjs/Rx';
 
 
 
@@ -14,47 +11,40 @@ export class CountryService{
     private url: string = 'api/country/';
     private countries: Dictionary = new Dictionary();
 
-    constructor(private http: Http) 
-    {
-        
-    }
+    constructor(private httpClient: HttpClient) { }
 
-    public getCountryCollection(tourType?: string): Observable<Country[]>{
-        return this.http.get('api/countries/' + (tourType || '')).pipe(
-            map((res: Response) => <Country[]>res.json()),
-            catchError(this.handleError),);
+    public getCountriesPage(tourType?: string, skip?: number, take?: number): Observable<Page<Country>>
+    {
+        let params = new HttpParams();
+        if (tourType)
+        {
+            params = params.set('tourType', tourType)
+        }
+        if (skip)
+        {
+            params = params.set('skip', skip.toString());
+        }
+        if (take)
+        {
+            params = params.set('take', take.toString());
+        }
+        
+        const options = { params: params };
+        let result = this.httpClient.get<Page<Country>>('api/countries', options);
+
+        return result;
     }
 
     public getCountry(tourType: string, countryUrlName: string): Observable<Country>{
-        return this.http.get(this.url + tourType + '/' + countryUrlName).pipe(
-            map((res: Response) => <Country>res.json()),
-            catchError(this.handleError),);
+        return this.httpClient.get<Country>(this.url + tourType + '/' + countryUrlName);
     }
 
-    public addCountry(country){
-        return this.http.post(this.url, country).pipe(
-            catchError(this.handleError));
+    public addCountry(country) {
+        return this.httpClient.post(this.url, country);
     }
 
     public deleteCountry(countryId){
-        return this.http.delete(this.url + countryId).pipe(
-            catchError(this.handleError));
-    }
-
-    private handleError(error: any, cought: Observable<any>): any 
-    {
-        let message = "";
-
-        if (error instanceof Response) {
-            let errorData = error.json().error || JSON.stringify(error.json());
-            message = `${error.status} - ${error.statusText || ''} ${errorData}`
-        } else {
-            message = error.message ? error.message : error.toString();
-        }
-
-        console.error(message);
-
-        return observableThrowError(message);
+        return this.httpClient.delete(this.url + countryId);
     }
 }
 

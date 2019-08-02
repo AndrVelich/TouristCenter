@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Component, ViewChild } from "@angular/core";
 import { MatDialog } from '@angular/material';
 import { OrderService } from "@administrationCommon/Services/order.service";
-import { PageOptions } from "@administrationCommon/Services/pager.service";
+import { PageOptions } from "@common/Services/pager.service";
 import { ConfirmationPopupComponent } from "@administrationCommon/Components/ConfirmationPopup/confirmationPopup.component";
 import { PagerComponent } from "@administrationCommon/Components/Pager/pager.component";
 var OrdersComponent = /** @class */ (function () {
@@ -60,8 +60,8 @@ var OrdersComponent = /** @class */ (function () {
         this.pageOptions = pageOptions;
         this.orderService.getOrdersPage(pageOptions.skip, pageOptions.take)
             .subscribe(function (data) {
-            _this.orderCollection = data.orderCollection;
-            _this.pagerComponent.updatePager(data.ordersCount);
+            _this.orderCollection = data.collection;
+            _this.pagerComponent.updatePager(data.count);
         });
     };
     __decorate([

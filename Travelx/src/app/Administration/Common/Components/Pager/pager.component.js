@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component, EventEmitter, Output, Input } from "@angular/core";
 import { Router, ActivatedRoute } from '@angular/router';
-import { PagerService, PageOptions } from "@administrationCommon/Services/pager.service";
+import { PagerService, PageOptions } from "@common/Services/pager.service";
 var PagerComponent = /** @class */ (function () {
     function PagerComponent(pagerService, activeRoute, router) {
         this.pagerService = pagerService;

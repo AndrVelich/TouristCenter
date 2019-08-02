@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Component, ViewChild } from "@angular/core";
 import { MatDialog } from '@angular/material';
 import { AccountService } from "@administrationCommon/Services/account.service";
-import { PageOptions } from "@administrationCommon/Services/pager.service";
+import { PageOptions } from "@common/Services/pager.service";
 import { PagerComponent } from "@administrationCommon/Components/Pager/pager.component";
 import { ConfirmationPopupComponent } from "@administrationCommon/Components/ConfirmationPopup/confirmationPopup.component";
 var UsersComponent = /** @class */ (function () {

@@ -4,12 +4,15 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Travelx.Domain.Interfaces.Common.Enums;
+using Travelx.Domain.Interfaces.Common.Page;
 using Travelx.Domain.Interfaces.Image.Managers;
 using Travelx.Domain.Interfaces.Image.Models;
 using Travelx.Domain.Interfaces.Tour.Exceptions;
+using Travelx.Domain.Interfaces.Tour.Filter;
 using Travelx.Domain.Interfaces.Tour.Managers;
 using Travelx.Domain.Interfaces.Tour.Models;
 using Travelx.Helpers.Converters;
+using Travelx.Models.Common.Page;
 using Travelx.Models.Tour;
 using Travelx.Settings;
 
@@ -42,87 +45,58 @@ namespace Travelx.Controllers
         }
 
         [HttpGet]
-        [Route("api/tours/allTours")]
-        public List<TourViewModel> GetCollection()
+        [Route("api/tours")]
+        public PageViewModel<TourViewModel> GetCollection(string tourType, string countryUrl, int skip = 0, int take = int.MaxValue)
         {
-            var tours = _tourManager.GetTourCollection();
-
-            var result = tours.Select(c => new TourViewModel(c))
-                .OrderBy(t => t.Category)
-                .ThenBy(t => t.Country)
-                .ThenBy(t => t.Name)
-                .ToList();
-
-            return result;
-        }
-
-        [HttpGet]
-        [Route("api/tours/{tourType}")]
-        public List<TourViewModel> GetCollection(string tourType)
-        {
-            var domainTourType = TourTypesConverter.ConvertFromString(tourType);
-            var tours = _tourManager.GetTourCollection(domainTourType);
-            var result = tours.Select(c => new TourViewModel(c))
-                .OrderBy(t => t.Country)
-                .ThenBy(t => t.Name)
-                .ToList();
+            var tourFilter = new TourFilter(skip, take)
+            {
+                TourType = TourTypesConverter.ConvertFromString(tourType),
+                CountryUrl = countryUrl
+            };
+            var toursPage = _tourManager.GetToursPage(tourFilter);
+            var result = GetToursPageViewModel(toursPage);
 
             return result;
         }
 
         [HttpGet]
         [Route("api/hotTours/{countryUrl}")]
-        public List<TourViewModel> GetHotCollection(string countryUrl)
+        public PageViewModel<TourViewModel> GetHotCollection(string countryUrl, int skip = 0, int take = int.MaxValue)
         {
-            var domainTourType = TourTypesEnum.Beach;
-            var tours = _tourManager.GetTourCollection(domainTourType, countryUrl);
-
-            var discount = _settings.HotToursDiscount;
-            foreach (var tour in tours)
+            var tourFilter = new TourFilter(skip, take)
             {
-                tour.Price = (int)(tour.Price * discount);
-            }
+                TourType = TourTypesEnum.Beach,
+                CountryUrl = countryUrl
+            };
+            var toursPage = _tourManager.GetToursPage(tourFilter);
+            var discount = _settings.HotToursDiscount;
 
-            var result = tours.Select(c => new TourViewModel(c))
-                .ToList();
+            var result = GetToursPageViewModel(toursPage);
+            SetDiscount(result.Collection, discount);
 
             return result;
         }
 
         [HttpGet]
         [Route("api/earlyTours/{countryUrl}")]
-        public List<TourViewModel> GetEarlyCollection(string countryUrl)
+        public PageViewModel<TourViewModel> GetEarlyCollection(string countryUrl, int skip = 0, int take = int.MaxValue)
         {
-            var domainTourType = TourTypesEnum.Beach;
-            var tours = _tourManager.GetTourCollection(domainTourType, countryUrl);
-
-            var discount = _settings.EarlyToursDiscount;
-            foreach (var tour in tours)
+            var tourFilter = new TourFilter(skip, take)
             {
-                tour.Price = (int)(tour.Price * discount);
-            }
+                TourType = TourTypesEnum.Beach,
+                CountryUrl = countryUrl
+            };
+            var toursPage = _tourManager.GetToursPage(tourFilter);
+            var discount = _settings.EarlyToursDiscount;
+            var result = GetToursPageViewModel(toursPage);
 
-            var result = tours.Select(c => new TourViewModel(c))
-                .ToList();
-
-            return result;
-        }
-
-        [HttpGet]
-        [Route("api/tours/{tourType}/{countryUrl}")]
-        public List<TourViewModel> GetCollection(string tourType, string countryUrl)
-        {
-            var domainTourType = TourTypesConverter.ConvertFromString(tourType);
-            var tours = _tourManager.GetTourCollection(domainTourType, countryUrl);
-            var result = tours.Select(c => new TourViewModel(c))
-                .OrderBy(t => t.Name)
-                .ToList();
+            SetDiscount(result.Collection, discount);
 
             return result;
         }
 
         [Authorize]
-        public void Post(TourViewModel tour)
+        public void Post([FromBody]TourViewModel tour)
         {
             ITour tourModel;
             try
@@ -188,6 +162,24 @@ namespace Travelx.Controllers
 
             return image;
         }
+
+        private PageViewModel<TourViewModel> GetToursPageViewModel(PageModel<ITour> pageModel)
+        {
+            var toursPageCollection = pageModel.Collection.Select(c => new TourViewModel(c))
+                .ToList();
+            var result = new PageViewModel<TourViewModel>(pageModel.Count, toursPageCollection);
+
+            return result;
+        }
+
+        private void SetDiscount(IReadOnlyCollection<TourViewModel> tourCollection, decimal discount)
+        {
+            foreach (var tour in tourCollection)
+            {
+                tour.Price = (int)(tour.Price * discount);
+            }
+        }
+
     }
 }
 

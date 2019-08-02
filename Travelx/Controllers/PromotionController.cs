@@ -45,7 +45,7 @@ namespace Travelx.Controllers
         }
 
         [Authorize]
-        public void Post(PromotionViewModel promotion)
+        public void Post([FromBody]PromotionViewModel promotion)
         {
             IPromotion promotionModel;
             try

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using AccountService.Interfaces.Exceptions;
+using AccountService.Interfaces.Managers;
 using AccountService.Interfaces.Models.Enums;
-using AccountService.Managers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Travelx.Models.Account;
@@ -12,10 +12,10 @@ namespace Travelx.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        private readonly SignInManager _signInManager;
-        private readonly UserManager _userManager;
+        private readonly ISignInManager _signInManager;
+        private readonly IUserManager _userManager;
 
-        public AccountController(SignInManager signInManager, UserManager userManager)
+        public AccountController(ISignInManager signInManager, IUserManager userManager)
         {
             _signInManager = signInManager;
             _userManager = userManager;

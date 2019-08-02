@@ -7,45 +7,42 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { throwError as observableThrowError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
 import { Injectable } from "@angular/core";
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Dictionary } from "@common/Types/Dictionary";
-import { Http, Response } from "@angular/http";
-//import {Observable} from 'rxjs/Rx';
 var CountryService = /** @class */ (function () {
-    function CountryService(http) {
-        this.http = http;
+    function CountryService(httpClient) {
+        this.httpClient = httpClient;
         this.url = 'api/country/';
         this.countries = new Dictionary();
     }
-    CountryService.prototype.getCountryCollection = function (tourType) {
-        return this.http.get('api/countries/' + (tourType || '')).pipe(map(function (res) { return res.json(); }), catchError(this.handleError));
+    CountryService.prototype.getCountriesPage = function (tourType, skip, take) {
+        var params = new HttpParams();
+        if (tourType) {
+            params.set('tourType', tourType);
+        }
+        if (skip) {
+            params.set('skip', skip.toString());
+        }
+        if (take) {
+            params.set('take', skip.toString());
+        }
+        var options = { params: params };
+        var result = this.httpClient.get('api/countries', options);
+        return result;
     };
     CountryService.prototype.getCountry = function (tourType, countryUrlName) {
-        return this.http.get(this.url + tourType + '/' + countryUrlName).pipe(map(function (res) { return res.json(); }), catchError(this.handleError));
+        return this.httpClient.get(this.url + tourType + '/' + countryUrlName);
     };
     CountryService.prototype.addCountry = function (country) {
-        return this.http.post(this.url, country).pipe(catchError(this.handleError));
+        return this.httpClient.post(this.url, country);
     };
     CountryService.prototype.deleteCountry = function (countryId) {
-        return this.http.delete(this.url + countryId).pipe(catchError(this.handleError));
-    };
-    CountryService.prototype.handleError = function (error, cought) {
-        var message = "";
-        if (error instanceof Response) {
-            var errorData = error.json().error || JSON.stringify(error.json());
-            message = error.status + " - " + (error.statusText || '') + " " + errorData;
-        }
-        else {
-            message = error.message ? error.message : error.toString();
-        }
-        console.error(message);
-        return observableThrowError(message);
+        return this.httpClient.delete(this.url + countryId);
     };
     CountryService = __decorate([
         Injectable(),
-        __metadata("design:paramtypes", [Http])
+        __metadata("design:paramtypes", [HttpClient])
     ], CountryService);
     return CountryService;
 }());

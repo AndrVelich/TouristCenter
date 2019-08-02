@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Dictionary } from "@common/Types/Dictionary";
 import { OrderService } from "@administrationCommon/Services/order.service";
 import { Order } from "@administrationCommon/Services/order.service";
-import { PageOptions } from "@administrationCommon/Services/pager.service";
+import { PageOptions } from "@common/Services/pager.service";
 import { ConfirmationPopupComponent } from "@administrationCommon/Components/ConfirmationPopup/confirmationPopup.component";
 import { PagerComponent } from "@administrationCommon/Components/Pager/pager.component";
 
@@ -80,8 +80,8 @@ export class OrdersComponent implements OnInit
         this.orderService.getOrdersPage(pageOptions.skip, pageOptions.take)
         .subscribe(data => 
         {
-            this.orderCollection = data.orderCollection;
-            this.pagerComponent.updatePager(data.ordersCount);
+            this.orderCollection = data.collection;
+            this.pagerComponent.updatePager(data.count);
         });
     }
 

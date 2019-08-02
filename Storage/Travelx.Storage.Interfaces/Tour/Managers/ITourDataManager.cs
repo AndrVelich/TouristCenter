@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Travelx.Storage.Interfaces.Common.Page;
+using Travelx.Storage.Interfaces.Tour.Filter;
 
 namespace Travelx.Storage.Interfaces.Tour.Managers
 {
@@ -6,9 +7,7 @@ namespace Travelx.Storage.Interfaces.Tour.Managers
     {
         Models.Tour GetTour(int tourId);
         Models.Tour GetTour(string tourType, string countryUrl, string tourUrl);
-        IReadOnlyCollection<Models.Tour> GetTourCollection(string tourType, string countryUrl);
-        IReadOnlyCollection<Models.Tour> GetTourCollection(string tourType);
-        IReadOnlyCollection<Models.Tour> GetTourCollection();
+        PageDataModel<Models.Tour> GetToursPage(TourDataFilter filter);
         void UpdateTour(Models.Tour tourDataModel);
         Models.Tour CreateTour(Models.Tour tourDataModel);
         void DeleteTour(Models.Tour tourDataModel);

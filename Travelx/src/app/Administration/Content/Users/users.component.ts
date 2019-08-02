@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { AccountService } from "@administrationCommon/Services/account.service";
 import { User } from "@administrationCommon/Services/account.service";
-import { PageOptions } from "@administrationCommon/Services/pager.service";
+import { PageOptions } from "@common/Services/pager.service";
 import { PagerComponent } from "@administrationCommon/Components/Pager/pager.component";
 import { ConfirmationPopupComponent } from "@administrationCommon/Components/ConfirmationPopup/confirmationPopup.component";
 

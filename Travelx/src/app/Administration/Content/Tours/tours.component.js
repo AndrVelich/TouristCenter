@@ -60,9 +60,9 @@ var ToursComponent = /** @class */ (function () {
         var _this = this;
         this.isCountriesLoading = true;
         this.countryCollection = new Dictionary();
-        this.countryService.getCountryCollection(this.activeTourType)
+        this.countryService.getCountriesPage(this.activeTourType)
             .subscribe(function (data) {
-            data.map(function (country) { return _this.countryCollection.add(country.urlName, country.name); });
+            data.collection.map(function (country) { return _this.countryCollection.add(country.urlName, country.name); });
             _this.isCountriesLoading = false;
         });
     };

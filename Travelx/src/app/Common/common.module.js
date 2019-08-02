@@ -6,10 +6,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { NgModule } from "@angular/core";
 import { ClickOutsideDirective } from "./Directives/clickOutside.directive";
-//import { Dictionary } from "./Types/Dictionary";
-//import { Result } from "./Types/Result";
 import { TourTypeService } from "./Services/tourType.service";
 import { PreloaderService } from "./Services/preloader.service";
+import { PagerService } from "./Services/pager.service";
+import { HttpErrorInterceptorProvider } from './Interceptors/HttpErrorInterceptor';
 var CommonModule = /** @class */ (function () {
     function CommonModule() {
     }
@@ -20,6 +20,8 @@ var CommonModule = /** @class */ (function () {
             providers: [
                 TourTypeService,
                 PreloaderService,
+                PagerService,
+                HttpErrorInterceptorProvider,
             ],
             declarations: [
                 ClickOutsideDirective

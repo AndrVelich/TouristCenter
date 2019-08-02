@@ -2,7 +2,7 @@
 import { Observable } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { PagerService, Pager, PageOptions } from "@administrationCommon/Services/pager.service";
+import { PagerService, Pager, PageOptions } from "@common/Services/pager.service";
 
 @Component({
     selector: "pagerComponent",
@@ -39,6 +39,12 @@ export class PagerComponent implements OnInit {
             this.setPageOptionsToUrl();
             this.GetPageData();
         }
+    }
+
+    public resetPager(): void {
+        this.pageOptions.skip = 0;
+        this.setPageOptionsToUrl();
+        this.GetPageData();
     }
 
     private GetPageData(): void

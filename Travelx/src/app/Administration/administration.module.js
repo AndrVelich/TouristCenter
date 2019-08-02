@@ -9,6 +9,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
+import { HttpClientModule } from '@angular/common/http';
 import { TextMaskModule } from 'angular2-text-mask';
 import { RouterModule } from "@angular/router";
 import { MatDialogModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
@@ -38,7 +39,6 @@ import { LoginService } from "./Common/Services/login.service";
 import { RegisterService } from "./Common/Services/register.service";
 import { OrderService } from "./Common/Services/order.service";
 import { AccountService } from "./Common/Services/account.service";
-import { PagerService } from "./Common/Services/pager.service";
 var AdministrationModule = /** @class */ (function () {
     function AdministrationModule() {
     }
@@ -53,9 +53,11 @@ var AdministrationModule = /** @class */ (function () {
                 MatSelectModule,
                 MatDatepickerModule,
                 MatNativeDateModule,
-                HttpModule,
                 TextMaskModule,
                 CommonModule,
+                //Obsolete
+                HttpModule,
+                HttpClientModule,
                 RouterModule.forRoot(routes)
             ],
             providers: [
@@ -67,7 +69,6 @@ var AdministrationModule = /** @class */ (function () {
                 OrderService,
                 MatDatepickerModule,
                 AccountService,
-                PagerService,
             ],
             entryComponents: [
                 ConfirmationPopupComponent,

@@ -1,9 +1,9 @@
-import {throwError as observableThrowError,  Observable } from 'rxjs';
-import {map, catchError} from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { Injectable } from "@angular/core";
 
 @Injectable()
-export class PagerService{
+export class PagerService
+{
 
     public GetPager(totalItems: number, pageOptions: PageOptions): Pager {
 
@@ -89,5 +89,17 @@ export class PageOptions {
         this.skip = skip;
         this.take = take;
         this.pagerLength = pagerLength;
+    }
+}
+
+export class Page<T>
+{
+    public count: number
+    public collection: Array<T>
+
+    constructor(count: number, collection: Array<T>)
+    {
+        this.count = count;
+        this.collection = collection;
     }
 }

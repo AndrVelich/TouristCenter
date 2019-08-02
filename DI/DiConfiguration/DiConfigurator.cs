@@ -1,4 +1,6 @@
 ﻿using AccountService.Configurator;
+using AccountService.Interfaces.Managers;
+using AccountService.Managers;
 using Microsoft.Extensions.DependencyInjection;
 using Travelx.Domain.Country.Managers;
 using Travelx.Domain.Image.Managers;
@@ -48,6 +50,8 @@ namespace DiConfiguration
             services.AddTransient<ITourManager, TourManager>();
             services.AddTransient<IPromotionManager, PromotionManager>();
             services.AddTransient<IImageManager, ImageManager>();
+            services.AddTransient<ISignInManager, SignInManager>();
+            services.AddTransient<IUserManager, UserManager>();
 
         }
 

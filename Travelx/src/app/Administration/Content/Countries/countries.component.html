@@ -70,4 +70,6 @@
             </div>
         </div>
     </div>
+    <pagerComponent [pageOptions]="pageOptions"
+                    (setPageEvent)="getCountriesPage($event)"></pagerComponent>
 </div>

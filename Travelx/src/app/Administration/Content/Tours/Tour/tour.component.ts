@@ -13,8 +13,6 @@ import { TourService } from "@administrationCommon/Services/tour.service";
 import { Tour } from "@administrationCommon/Services/tour.service";
 
 @Component({
-    
-    
     selector: "tour",
     templateUrl: "tour.component.html",
     styleUrls: ["tour.component.css"],
@@ -114,11 +112,11 @@ export class TourComponent {
         if(this.tour.category)
         {
             this.isCountriesLoaded = true;
-            this.countryService.getCountryCollection(this.tour.category)
+            this.countryService.getCountriesPage(this.tour.category)
             .subscribe(data => 
             {
                 this.countries = new Dictionary();              
-                data.map((country) => this.countries.add(country.urlName, country.name));
+                data.collection.map((country) => this.countries.add(country.urlName, country.name));
                 this.isCountriesLoaded = false;
             });
         }

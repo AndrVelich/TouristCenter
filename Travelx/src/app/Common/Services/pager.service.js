@@ -72,4 +72,12 @@ var PageOptions = /** @class */ (function () {
     return PageOptions;
 }());
 export { PageOptions };
+var Page = /** @class */ (function () {
+    function Page(count, collection) {
+        this.count = count;
+        this.collection = collection;
+    }
+    return Page;
+}());
+export { Page };
 //# sourceMappingURL=pager.service.js.map

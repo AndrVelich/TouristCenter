@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Travelx.Domain.Common.Converters;
 using Travelx.Domain.Interfaces.Common.Enums;
+using Travelx.Domain.Interfaces.Common.Page;
 using Travelx.Domain.Interfaces.Tour.Exceptions;
+using Travelx.Domain.Interfaces.Tour.Filter;
 using Travelx.Domain.Interfaces.Tour.Managers;
 using Travelx.Domain.Interfaces.Tour.Models;
+using Travelx.Domain.Tour.Convertors;
 using Travelx.Storage.Interfaces.Image.Managers;
 using Travelx.Storage.Interfaces.Tour.Managers;
 using TourModel = Travelx.Domain.Tour.Models.Tour;
@@ -49,33 +51,15 @@ namespace Travelx.Domain.Tour.Managers
             return tour;
         }
 
-        public IReadOnlyCollection<ITour> GetTourCollection()
+        public PageModel<ITour> GetToursPage(TourFilter filter)
         {
-            var tours = _tourDataManager.GetTourCollection()
-                .Select(c => new TourModel(c, _tourDataManager, _imageDataManager))
+            var dataFilter = TourFilterConverter.ConvertToDbValue(filter);
+            var tourPageData = _tourDataManager.GetToursPage(dataFilter);
+            var tourPageCollection = tourPageData.Collection.Select(c => new TourModel(c, _tourDataManager, _imageDataManager))
                 .ToList();
+            var result = new PageModel<ITour>(tourPageData.Count, tourPageCollection);
 
-            return tours;
-        }
-
-        public IReadOnlyCollection<ITour> GetTourCollection(TourTypesEnum tourType)
-        {
-            var tourTypeData = TourTypesEnumConverter.ConvertToDbValue(tourType);
-            var tours = _tourDataManager.GetTourCollection(tourTypeData)
-                .Select(c => new TourModel(c, _tourDataManager, _imageDataManager))
-                .ToList();
-
-            return tours;
-        }
-
-        public IReadOnlyCollection<ITour> GetTourCollection(TourTypesEnum tourType, string countryUrl)
-        {
-            var tourTypeData = TourTypesEnumConverter.ConvertToDbValue(tourType);
-            var tours = _tourDataManager.GetTourCollection(tourTypeData, countryUrl)
-                .Select(c => new TourModel(c, _tourDataManager, _imageDataManager))
-                .ToList();
-
-            return tours;
+            return result;
         }
 
         public ITour CreateTour(

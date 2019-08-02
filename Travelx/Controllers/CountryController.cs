@@ -4,12 +4,15 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Travelx.Domain.Interfaces.Common.Enums;
+using Travelx.Domain.Interfaces.Common.Page;
 using Travelx.Domain.Interfaces.Country.Exceptions;
+using Travelx.Domain.Interfaces.Country.Filter;
 using Travelx.Domain.Interfaces.Country.Managers;
 using Travelx.Domain.Interfaces.Country.Models;
 using Travelx.Domain.Interfaces.Image.Managers;
 using Travelx.Domain.Interfaces.Image.Models;
 using Travelx.Helpers.Converters;
+using Travelx.Models.Common.Page;
 using Travelx.Models.Country;
 using Travelx.Settings;
 
@@ -43,71 +46,42 @@ namespace Travelx.Controllers
         }
 
         [HttpGet]
-        [Route("api/countries/{tourType?}")]
-        public List<CountryViewModel> GetCollection(string tourType = null)
+        [Route("api/countries")]
+        public PageViewModel<CountryViewModel> GetCollection(string tourType, int skip = 0, int take = int.MaxValue)
         {
-            IReadOnlyCollection<ICountry> countries;
-            if (string.IsNullOrWhiteSpace(tourType))
+            var countryFilter = new CountryFilter(skip, take)
             {
-                countries = _countryManager.GetCountryCollection();
-            }
-            else
-            {
-                var domainTourType = TourTypesConverter.ConvertFromString(tourType);
-                countries = _countryManager.GetCountryCollection(domainTourType);
-            }
-
-            var result = countries.Select(c => new CountryViewModel(c))
-                .OrderBy(c => c.Category)
-                .ThenBy(c => c.Name)
-                .ToList();
+                TourType = string.IsNullOrWhiteSpace(tourType) ? (TourTypesEnum?)null : TourTypesConverter.ConvertFromString(tourType)
+            };
+            var countriesPage = _countryManager.GetCountriesPage(countryFilter);
+            var result = GetCountriesPageViewModel(countriesPage);
 
             return result;
         }
 
         [HttpGet, Route("api/hotCountries")]
-        public List<CountryViewModel> GetHotCollection()
+        public PageViewModel<CountryViewModel> GetHotCollection(int skip = 0, int take = int.MaxValue)
         {
-            var domainTourType = TourTypesEnum.Beach;
-            var countries = _countryManager.GetCountryCollection(domainTourType);
+            var result = GetBeachToursPage(skip, take);
             var discount = _settings.HotToursDiscount;
-            foreach (var country in countries)
-            {
-                country.FiveStarsPrice = (int)(country.FiveStarsPrice * discount);
-                country.FourStarsPrice = (int)(country.FourStarsPrice * discount);
-                country.ThreeStarsPrice = (int)(country.ThreeStarsPrice * discount);
-            }
-
-            var result = countries.Select(c => new CountryViewModel(c))
-            .OrderBy(c => c.Name)
-            .ToList();
+            SetDiscount(result.Collection, discount);
 
             return result;
         }
 
         [HttpGet]
         [Route("api/earlyCountries")]
-        public List<CountryViewModel> GetEarlyCollection()
+        public PageViewModel<CountryViewModel> GetEarlyCollection(int skip = 0, int take = int.MaxValue)
         {
-            var domainTourType = TourTypesEnum.Beach;
-            var countries = _countryManager.GetCountryCollection(domainTourType);
+            var result = GetBeachToursPage(skip, take);
             var discount = _settings.EarlyToursDiscount;
-            foreach (var country in countries)
-            {
-                country.FiveStarsPrice = (int)(country.FiveStarsPrice * discount);
-                country.FourStarsPrice = (int)(country.FourStarsPrice * discount);
-                country.ThreeStarsPrice = (int)(country.ThreeStarsPrice * discount);
-            }
-
-            var result = countries.Select(c => new CountryViewModel(c))
-                .OrderBy(c => c.Name)
-                .ToList();
+            SetDiscount(result.Collection, discount);
 
             return result;
         }
 
         [Authorize]
-        public void Post(CountryViewModel country)
+        public void Post([FromBody]CountryViewModel country)
         {
             ICountry countryModel;
             try
@@ -175,6 +149,37 @@ namespace Travelx.Controllers
             var image = _imageManager.CreateImage(mimeType, imageData);
 
             return image;
+        }
+
+        private PageViewModel<CountryViewModel> GetCountriesPageViewModel(PageModel<ICountry> pageModel)
+        {
+            var countriesPageCollection = pageModel.Collection.Select(c => new CountryViewModel(c))
+                .ToList();
+            var result = new PageViewModel<CountryViewModel>(pageModel.Count, countriesPageCollection);
+
+            return result;
+        }
+
+        private void SetDiscount(IReadOnlyCollection<CountryViewModel> countryCollection, decimal discount)
+        {
+            foreach (var country in countryCollection)
+            {
+                country.FiveStarsPrice = (int)(country.FiveStarsPrice * discount);
+                country.FourStarsPrice = (int)(country.FourStarsPrice * discount);
+                country.ThreeStarsPrice = (int)(country.ThreeStarsPrice * discount);
+            }
+        }
+        
+        private PageViewModel<CountryViewModel> GetBeachToursPage(int skip = 0, int take = int.MaxValue)
+        {
+            var countryFilter = new CountryFilter(skip, take)
+            {
+                TourType = TourTypesEnum.Beach
+            };
+            var countriesPage = _countryManager.GetCountriesPage(countryFilter);
+            var result = GetCountriesPageViewModel(countriesPage);
+
+            return result;
         }
     }
 }

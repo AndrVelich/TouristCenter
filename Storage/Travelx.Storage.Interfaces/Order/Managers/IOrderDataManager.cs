@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using Travelx.Storage.Interfaces.Common.Filters;
+using Travelx.Storage.Interfaces.Common.Page;
 
 namespace Travelx.Storage.Interfaces.Order.Managers
 {
     public interface IOrderDataManager
     {
         Models.Order GetOrder(int orderId);
-        IReadOnlyCollection<Models.Order> GetOrderCollection(int skip, int take);
-        int GetOrdersCount();
+        PageDataModel<Models.Order> GetOrdersPage(DataFilterBase filter);
         bool IsAnyNewOrders();
         void UpdateOrder(Models.Order orderDataModel);
         void CreateOrder(Models.Order orderDataModel);

@@ -84,10 +84,10 @@ var TourComponent = /** @class */ (function () {
         var _this = this;
         if (this.tour.category) {
             this.isCountriesLoaded = true;
-            this.countryService.getCountryCollection(this.tour.category)
+            this.countryService.getCountriesPage(this.tour.category)
                 .subscribe(function (data) {
                 _this.countries = new Dictionary();
-                data.map(function (country) { return _this.countries.add(country.urlName, country.name); });
+                data.collection.map(function (country) { return _this.countries.add(country.urlName, country.name); });
                 _this.isCountriesLoaded = false;
             });
         }

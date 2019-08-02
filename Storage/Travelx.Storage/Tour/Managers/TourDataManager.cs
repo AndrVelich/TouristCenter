@@ -2,6 +2,8 @@
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Travelx.Storage.Context;
+using Travelx.Storage.Interfaces.Common.Page;
+using Travelx.Storage.Interfaces.Tour.Filter;
 using Travelx.Storage.Interfaces.Tour.Managers;
 using Travelx.Storage.Interfaces.Tour.Models;
 using TourDataModel = Travelx.Storage.Interfaces.Tour.Models.Tour;
@@ -37,35 +39,27 @@ namespace Travelx.Storage.Tour.Managers
             return tour;
         }
 
-        public IReadOnlyCollection<TourDataModel> GetTourCollection()
+        public PageDataModel<TourDataModel> GetToursPage(TourDataFilter filter)
         {
-            var tours = _dbContext.Tours
+            var filteredTours = _dbContext.Tours
                 .Include(t => t.Country)
                 .Include(t => t.TourImages)
-                .AsNoTracking().ToList();
-            return tours;
-        }
+                .OrderBy(t => t.Category)
+                .ThenBy(t => t.Country)
+                .ThenBy(t => t.Name)
+                .Where(t => string.IsNullOrWhiteSpace(filter.TourType) || t.Category == filter.TourType)
+                .Where(t => string.IsNullOrWhiteSpace(filter.CountryUrl) || t.Country.UrlName == filter.CountryUrl);
 
-        public IReadOnlyCollection<TourDataModel> GetTourCollection(string tourType, string countryUrl)
-        {
-            var tours = _dbContext.Tours
-                .Include(t => t.Country)
-                .Include(t => t.TourImages)
+            var count = filteredTours.Count();
+            var pageCollection = filteredTours
+                .Skip(filter.Skip)
+                .Take(filter.Take)
                 .AsNoTracking()
-                .Where(t => t.Category == tourType && t.Country.UrlName == countryUrl)
                 .ToList();
-            return tours;
-        }
 
-        public IReadOnlyCollection<TourDataModel> GetTourCollection(string tourType)
-        {
-            var tours = _dbContext.Tours
-                .Include(t => t.Country)
-                .Include(t => t.TourImages)
-                .AsNoTracking()
-                .Where(t => t.Category == tourType)
-                .ToList();
-            return tours;
+            var result = new PageDataModel<TourDataModel>(count, pageCollection);
+
+            return result;
         }
 
         public TourDataModel CreateTour(TourDataModel tourDataModel)

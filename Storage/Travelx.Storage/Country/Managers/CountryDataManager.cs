@@ -2,6 +2,8 @@
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Travelx.Storage.Context;
+using Travelx.Storage.Interfaces.Common.Page;
+using Travelx.Storage.Interfaces.Country.Filter;
 using Travelx.Storage.Interfaces.Country.Managers;
 using Travelx.Storage.Interfaces.Country.Models;
 using CountryDataModel = Travelx.Storage.Interfaces.Country.Models.Country;
@@ -35,20 +37,24 @@ namespace Travelx.Storage.Country.Managers
             return country;
         }
 
-        public IReadOnlyCollection<CountryDataModel> GetCountryCollection()
+        public PageDataModel<CountryDataModel> GetCountriesPage(CountryDataFilter filter)
         {
-            var countries = _dbContext.Countries.Include(c => c.CountryImages).AsNoTracking().ToList();
-            return countries;
-        }
+            var filteredCountries = _dbContext.Countries
+                .Include(t => t.CountryImages)
+                .OrderBy(t => t.Category)
+                .ThenBy(t => t.Name)
+                .Where(t => string.IsNullOrWhiteSpace(filter.TourType) || t.Category == filter.TourType);
 
-        public IReadOnlyCollection<CountryDataModel> GetCountryCollection(string tourType)
-        {
-            var countries = _dbContext.Countries
-                .Include(c => c.CountryImages)
+            var count = filteredCountries.Count();
+            var pageCollection = filteredCountries
+                .Skip(filter.Skip)
+                .Take(filter.Take)
                 .AsNoTracking()
-                .Where(c => c.Category == tourType)
                 .ToList();
-            return countries;
+
+            var result = new PageDataModel<CountryDataModel>(count, pageCollection);
+
+            return result;
         }
 
         public CountryDataModel CreateCountry(CountryDataModel countryDataModel)

@@ -1,6 +1,9 @@
+using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Travelx.Domain.Interfaces.Common.Filters;
 using Travelx.Domain.Interfaces.Order.Managers;
+using Travelx.Models.Common.Page;
 using Travelx.Models.Order;
 
 namespace Travelx.Controllers
@@ -25,17 +28,21 @@ namespace Travelx.Controllers
 
         [HttpGet]
         [Authorize]
-        [Route("api/ordersPage/{skip}/{take}")]
-        public OrdersPage GetOrderCollection(int skip, int take)
+        [Route("api/orders")]
+        public PageViewModel<OrderViewModel> GetOrderCollection(int skip, int take)
         {
-            var ordersCount = _orderManager.GetOrdersCount();
-            var orders = _orderManager.GetOrderCollection(skip, take);
-            var resut = new OrdersPage(ordersCount, orders);
+            var filter = new FilterBase(skip, take);
+            var ordersPage = _orderManager.GetOrdersPage(filter);
+            var ordersPageCollection = ordersPage.Collection.Select(o => new OrderViewModel(o))
+                .ToList();
+            var resut = new PageViewModel<OrderViewModel>(ordersPage.Count, ordersPageCollection);
 
             return resut;
         }
 
-        public void Post(OrderViewModel orderViewModel)
+        [HttpPost]
+        [Route("api/order")]
+        public void Post([FromBody]OrderViewModel orderViewModel)
         {
             var order = _orderManager.CreateOrder(orderViewModel.Name,
                   orderViewModel.Phone,
@@ -46,7 +53,9 @@ namespace Travelx.Controllers
         }
 
         [Authorize]
-        public void Put(OrderViewModel orderViewModel)
+        [HttpPut]
+        [Route("api/order")]
+        public void Put([FromBody]OrderViewModel orderViewModel)
         {
             var order = _orderManager.GetOrder(orderViewModel.OrderId);
             order.Name = orderViewModel.Name;

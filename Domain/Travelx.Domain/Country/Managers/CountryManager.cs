@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Travelx.Domain.Common.Converters;
+using Travelx.Domain.Country.Convertors;
 using Travelx.Domain.Interfaces.Common.Enums;
+using Travelx.Domain.Interfaces.Common.Page;
 using Travelx.Domain.Interfaces.Country.Exceptions;
+using Travelx.Domain.Interfaces.Country.Filter;
 using Travelx.Domain.Interfaces.Country.Managers;
 using Travelx.Domain.Interfaces.Country.Models;
 using Travelx.Storage.Interfaces.Country.Managers;
@@ -46,23 +48,15 @@ namespace Travelx.Domain.Country.Managers
             return country;
         }
 
-        public IReadOnlyCollection<ICountry> GetCountryCollection()
+        public PageModel<ICountry> GetCountriesPage(CountryFilter filter)
         {
-            var countries = _countryDataManager.GetCountryCollection()
-                .Select(c => new CountryModel(c, _countryDataManager))
+            var dataFilter = CountryFilterConverter.ConvertToDbValue(filter);
+            var tourPageData = _countryDataManager.GetCountriesPage(dataFilter);
+            var tourPageCollection = tourPageData.Collection.Select(c => new CountryModel(c, _countryDataManager))
                 .ToList();
+            var result = new PageModel<ICountry>(tourPageData.Count, tourPageCollection);
 
-            return countries;
-        }
-
-        public IReadOnlyCollection<ICountry> GetCountryCollection(TourTypesEnum tourType)
-        {
-            var tourTypeData = TourTypesEnumConverter.ConvertToDbValue(tourType);
-            var countries = _countryDataManager.GetCountryCollection(tourTypeData)
-                .Select(c => new CountryModel(c, _countryDataManager))
-                .ToList();
-
-            return countries;
+            return result;
         }
 
         public ICountry CreateCountry(
