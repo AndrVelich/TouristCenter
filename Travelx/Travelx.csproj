@@ -11,13 +11,17 @@
 
   <ItemGroup>
     <Content Include="src\administration.html" />
-    <Content Include="src\assets\administration\images\star.svg" />
     <Content Include="src\index.html" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="obj\" />
+    <Folder Include="src\assets\administration\images\" />
     <Folder Include="wwwroot\distSite\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Content\Images\star.svg" />
   </ItemGroup>
 
   <ItemGroup>
