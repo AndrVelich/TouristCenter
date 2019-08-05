@@ -5,7 +5,8 @@
   float: right;
   line-height: 33px; }
   .promotions-header a.link-big i {
-    font-size: 19px; }
+    font-size: 19px;
+    margin: 0 10px; }
 
 .promotions-wrapper {
   margin: 0 20px; }
@@ -27,7 +28,8 @@
       min-width: 200px;
       max-width: 500px; }
       .promotions-wrapper .promotion .image-description .promotion-descriptions a.link-big i {
-        font-size: 19px; }
+        font-size: 19px;
+        margin-left: 10px; }
 
 @media (min-width: 850px) {
   .promotion {

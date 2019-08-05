@@ -3,6 +3,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
+import { HttpClientModule } from '@angular/common/http';
 import { TextMaskModule } from 'angular2-text-mask';
 import { RouterModule } from "@angular/router";
 
@@ -67,6 +68,7 @@ import { PromotionService } from "./Common/Services/promotion.service";
             MatDialogModule,
             MatSelectModule,
             HttpModule,
+            HttpClientModule,
             TextMaskModule,
             CommonModule,
             SlideshowModule,

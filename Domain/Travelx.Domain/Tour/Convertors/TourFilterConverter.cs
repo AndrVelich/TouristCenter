@@ -12,6 +12,7 @@ namespace Travelx.Domain.Tour.Convertors
             {
                 Skip = tourFilter.Skip,
                 Take = tourFilter.Take,
+                CountryUrl = tourFilter.CountryUrl,
                 TourType = tourFilter.TourType.HasValue ? TourTypesEnumConverter.ConvertToDbValue(tourFilter.TourType.Value) : null
             };
 

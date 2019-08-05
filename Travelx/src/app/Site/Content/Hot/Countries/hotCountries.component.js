@@ -33,7 +33,7 @@ var HotCountriesComponent = /** @class */ (function () {
         var _this = this;
         this.preloaderService.startPreloader();
         this.countryService.getHotCountryCollection()
-            .subscribe(function (data) { return _this.countryCollection = data; }, function (err) { return console.log(err); }, function () { return _this.preloaderService.finishPreloader(); });
+            .subscribe(function (data) { return _this.countryCollection = data.collection; }, function (err) { return console.log(err); }, function () { return _this.preloaderService.finishPreloader(); });
     };
     HotCountriesComponent.prototype.setTitleAndMeta = function () {
         this.titleService.setTitle("Горящие туры. Путёвки из Минска.");

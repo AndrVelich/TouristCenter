@@ -10,16 +10,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Component } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import { Router, ActivatedRoute } from '@angular/router';
+import { PreloaderService } from "@common/Services/preloader.service";
 import { TourTypeService } from "@common/Services/tourType.service";
 import { CountryService } from "@administrationCommon/Services/country.service";
 import { Country } from "@administrationCommon/Services/country.service";
 var CountryComponent = /** @class */ (function () {
-    function CountryComponent(tourTypeService, countryService, fb, activeRoute, router) {
+    function CountryComponent(tourTypeService, countryService, fb, activeRoute, router, preloaderService) {
         this.tourTypeService = tourTypeService;
         this.countryService = countryService;
         this.fb = fb;
         this.activeRoute = activeRoute;
         this.router = router;
+        this.preloaderService = preloaderService;
         this.country = new Country();
         this.tourTypes = this.tourTypeService.GetTourTypes();
     }
@@ -47,11 +49,11 @@ var CountryComponent = /** @class */ (function () {
     };
     CountryComponent.prototype.saveCountry = function () {
         var _this = this;
+        this.preloaderService.startPreloader();
         this.countryService.addCountry(this.country)
-            //TODO need notifcation
             .subscribe(function () {
             _this.router.navigate(['administration/countries']);
-        }, function (error) { return _this.errorMessage = error; });
+        }, function (error) { return _this.errorMessage = error; }, function () { return _this.preloaderService.finishPreloader(); });
     };
     CountryComponent.prototype.setDataFromRoute = function () {
         var _this = this;
@@ -63,8 +65,9 @@ var CountryComponent = /** @class */ (function () {
     CountryComponent.prototype.getCountry = function () {
         var _this = this;
         if (this.countryUrlName) {
+            this.preloaderService.startPreloader();
             this.countryService.getCountry(this.tourType, this.countryUrlName)
-                .subscribe(function (data) { return _this.country = data; });
+                .subscribe(function (data) { return _this.country = data; }, function (error) { return _this.errorMessage = error; }, function () { return _this.preloaderService.finishPreloader(); });
         }
     };
     CountryComponent.prototype.buildForm = function () {
@@ -114,7 +117,8 @@ var CountryComponent = /** @class */ (function () {
             CountryService,
             FormBuilder,
             ActivatedRoute,
-            Router])
+            Router,
+            PreloaderService])
     ], CountryComponent);
     return CountryComponent;
 }());

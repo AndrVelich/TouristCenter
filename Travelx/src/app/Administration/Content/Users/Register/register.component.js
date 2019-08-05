@@ -10,13 +10,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Component } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
+import { PreloaderService } from "@common/Services/preloader.service";
 import { RegisterService } from "@administrationCommon/Services/register.service";
 import { Register } from "@administrationCommon/Services/register.service";
 var RegisterComponent = /** @class */ (function () {
-    function RegisterComponent(registerService, fb, router) {
+    function RegisterComponent(registerService, fb, router, preloaderService) {
         this.registerService = registerService;
         this.fb = fb;
         this.router = router;
+        this.preloaderService = preloaderService;
         this.registerModel = new Register();
     }
     RegisterComponent.prototype.ngOnInit = function () {
@@ -24,15 +26,16 @@ var RegisterComponent = /** @class */ (function () {
     };
     RegisterComponent.prototype.register = function () {
         var _this = this;
+        this.preloaderService.startPreloader();
         this.registerService.register(this.registerModel)
             .subscribe(function (result) {
             if (result.isSuccess) {
-                _this.router.navigate(['administration']);
+                _this.router.navigate(['administration/users']);
             }
             else {
                 _this.errorMessage = result.errorMessage;
             }
-        }, function (error) { return _this.errorMessage = error; });
+        }, function (error) { return _this.errorMessage = error; }, function () { return _this.preloaderService.finishPreloader(); });
     };
     RegisterComponent.prototype.buildForm = function () {
         this.registerForm = this.fb.group({
@@ -70,7 +73,8 @@ var RegisterComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [RegisterService,
             FormBuilder,
-            Router])
+            Router,
+            PreloaderService])
     ], RegisterComponent);
     return RegisterComponent;
 }());

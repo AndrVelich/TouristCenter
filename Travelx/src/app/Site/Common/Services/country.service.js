@@ -7,45 +7,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { throwError as observableThrowError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
 import { Injectable } from "@angular/core";
-import { Dictionary } from "@common/Types/Dictionary";
-import { Http, Response } from "@angular/http";
-//import {Observable} from 'rxjs/Rx';
+import { HttpClient, HttpParams } from '@angular/common/http';
 var CountryService = /** @class */ (function () {
-    function CountryService(http) {
-        this.http = http;
+    function CountryService(httpClient) {
+        this.httpClient = httpClient;
         this.url = '/api/country';
-        this.countries = new Dictionary();
     }
     CountryService.prototype.getCountryCollection = function (tourType) {
-        return this.http.get('api/countries/' + (tourType || '')).pipe(map(function (res) { return res.json(); }), catchError(this.handleError));
+        var params = new HttpParams();
+        if (tourType) {
+            params = params.set('tourType', tourType);
+        }
+        var options = { params: params };
+        var result = this.httpClient.get('api/countries', options);
+        return result;
     };
     CountryService.prototype.getCountry = function (tourType, countryUrlName) {
-        return this.http.get('api/country/' + tourType + '/' + countryUrlName).pipe(map(function (res) { return res.json(); }), catchError(this.handleError));
+        return this.httpClient.get('api/country/' + tourType + '/' + countryUrlName);
     };
     CountryService.prototype.getHotCountryCollection = function () {
-        return this.http.get('api/hotCountries').pipe(map(function (res) { return res.json(); }), catchError(this.handleError));
+        var result = this.httpClient.get('api/hotCountries');
+        return result;
     };
     CountryService.prototype.getEarlyCountryCollection = function () {
-        return this.http.get('api/earlyCountries').pipe(map(function (res) { return res.json(); }), catchError(this.handleError));
-    };
-    CountryService.prototype.handleError = function (error, cought) {
-        var message = "";
-        if (error instanceof Response) {
-            var errorData = error.json().error || JSON.stringify(error.json());
-            message = error.status + " - " + (error.statusText || '') + " " + errorData;
-        }
-        else {
-            message = error.message ? error.message : error.toString();
-        }
-        console.error(message);
-        return observableThrowError(message);
+        var result = this.httpClient.get('api/earlyCountries');
+        return result;
     };
     CountryService = __decorate([
         Injectable(),
-        __metadata("design:paramtypes", [Http])
+        __metadata("design:paramtypes", [HttpClient])
     ], CountryService);
     return CountryService;
 }());

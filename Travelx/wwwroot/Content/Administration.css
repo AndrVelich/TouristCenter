@@ -186,6 +186,15 @@ body {
       @media (max-width: 600px) {
         body .body-content .preloader .ajax-loader {
           padding-top: 0; } }
+    body .body-content .stars {
+      margin-right: 5px; }
+      body .body-content .stars .s {
+        background-image: url(/content/Images/star.svg);
+        background-position: 14px 14px;
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+        margin-top: 2px; }
 
 @media (min-width: 600px) {
   body .body-content .text-wrapper {

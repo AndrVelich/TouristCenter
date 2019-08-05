@@ -1,4 +1,10 @@
-﻿<h1>Пользователи</h1>
+﻿<div class="users-header">
+    <h1>Пользователи</h1>
+    <a [routerLink]="[ '/administration/users/register' ]" class="link-big">
+        <span>Новый пользователь</span>
+        <i class="fa fa-plus" aria-hidden="true"></i>
+    </a>
+</div>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -10,7 +16,7 @@
         <tr *ngFor="let user of userCollection">
             <td class="name">{{user.email}}</td>
             <td class="delete center">
-                <a (click)="openDeleteConfirmation(user.userId)" class="link-big" style="color:red">
+                <a (click)="openDeleteConfirmation(user)" class="link-big" style="color:red">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                 </a>
             </td>

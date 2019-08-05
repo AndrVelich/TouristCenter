@@ -38,7 +38,7 @@ export class HotCountriesComponent {
     {
         this.preloaderService.startPreloader();
         this.countryService.getHotCountryCollection()
-        .subscribe(data => this.countryCollection = data,
+            .subscribe(data => this.countryCollection = data.collection,
                     (err)=> console.log(err),
                     ()=> this.preloaderService.finishPreloader());
     }

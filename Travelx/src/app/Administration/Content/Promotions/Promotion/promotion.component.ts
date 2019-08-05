@@ -2,12 +2,11 @@
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { PreloaderService } from "@common/Services/preloader.service";
 import { PromotionService } from "@administrationCommon/Services/promotion.service";
 import { Promotion } from "@administrationCommon/Services/promotion.service";
 
 @Component({
-    
-    
     selector: "promotion",
     templateUrl: "promotion.component.html",
     styleUrls: ["promotion.component.css"]
@@ -21,7 +20,8 @@ export class PromotionComponent implements OnInit  {
         private promotionService: PromotionService,
         private fb: FormBuilder,
         private activeRoute: ActivatedRoute,
-        private router: Router
+        private router: Router,
+        private preloaderService: PreloaderService,
     )
     {
 
@@ -54,15 +54,18 @@ export class PromotionComponent implements OnInit  {
         this.promotion.oldImageCollection = this.promotion.oldImageCollection.filter(url => url != removeUrl);
     }
 
-    public savePromotion(){
+    public savePromotion()
+    {
+        this.preloaderService.startPreloader();
         this.promotionService.addPromotion(this.promotion)
-      //TODO need notifcation
-      .subscribe(
-      () => 
-      {
-            this.router.navigate(['administration/promotions'])
-      },
-      error => this.errorMessage = error);
+        .subscribe(
+            () => 
+            {
+                  this.router.navigate(['administration/promotions'])
+            },
+            error => this.errorMessage = error,
+            () => this.preloaderService.finishPreloader()
+        );
     }
 
     private setDataFromRoute(){
@@ -79,8 +82,11 @@ export class PromotionComponent implements OnInit  {
     {
         if(this.promotion && this.promotion.urlName)
         {
+            this.preloaderService.startPreloader();
             this.promotionService.getPromotion(this.promotion.urlName)
-            .subscribe(data => this.promotion = data);
+                .subscribe(data => this.promotion = data,
+                    error => this.errorMessage = error,
+                    () => this.preloaderService.finishPreloader());
         }
     }
 
@@ -88,8 +94,6 @@ export class PromotionComponent implements OnInit  {
         this.promotionForm = this.fb.group({
             "name": [this.promotion.name, [
                 Validators.required,
-                //Validators.minLength(2),
-                //Validators.maxLength(15)
             ]],
             "urlName": [this.promotion.urlName, [
                 Validators.required,

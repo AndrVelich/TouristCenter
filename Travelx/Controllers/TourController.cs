@@ -46,12 +46,12 @@ namespace Travelx.Controllers
 
         [HttpGet]
         [Route("api/tours")]
-        public PageViewModel<TourViewModel> GetCollection(string tourType, string countryUrl, int skip = 0, int take = int.MaxValue)
+        public PageViewModel<TourViewModel> GetCollection(string tourType, string country, int skip = 0, int take = int.MaxValue)
         {
             var tourFilter = new TourFilter(skip, take)
             {
-                TourType = TourTypesConverter.ConvertFromString(tourType),
-                CountryUrl = countryUrl
+                TourType = string.IsNullOrWhiteSpace(tourType) ? (TourTypesEnum?)null : TourTypesConverter.ConvertFromString(tourType),
+                CountryUrl = country
             };
             var toursPage = _tourManager.GetToursPage(tourFilter);
             var result = GetToursPageViewModel(toursPage);
@@ -60,13 +60,13 @@ namespace Travelx.Controllers
         }
 
         [HttpGet]
-        [Route("api/hotTours/{countryUrl}")]
-        public PageViewModel<TourViewModel> GetHotCollection(string countryUrl, int skip = 0, int take = int.MaxValue)
+        [Route("api/hotTours")]
+        public PageViewModel<TourViewModel> GetHotCollection(string country, int skip = 0, int take = int.MaxValue)
         {
             var tourFilter = new TourFilter(skip, take)
             {
                 TourType = TourTypesEnum.Beach,
-                CountryUrl = countryUrl
+                CountryUrl = country
             };
             var toursPage = _tourManager.GetToursPage(tourFilter);
             var discount = _settings.HotToursDiscount;
@@ -78,13 +78,13 @@ namespace Travelx.Controllers
         }
 
         [HttpGet]
-        [Route("api/earlyTours/{countryUrl}")]
-        public PageViewModel<TourViewModel> GetEarlyCollection(string countryUrl, int skip = 0, int take = int.MaxValue)
+        [Route("api/earlyTours")]
+        public PageViewModel<TourViewModel> GetEarlyCollection(string country, int skip = 0, int take = int.MaxValue)
         {
             var tourFilter = new TourFilter(skip, take)
             {
                 TourType = TourTypesEnum.Beach,
-                CountryUrl = countryUrl
+                CountryUrl = country
             };
             var toursPage = _tourManager.GetToursPage(tourFilter);
             var discount = _settings.EarlyToursDiscount;

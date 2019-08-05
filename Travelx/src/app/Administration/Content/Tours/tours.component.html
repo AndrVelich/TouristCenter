@@ -17,7 +17,7 @@
                     </mat-option>
                 </mat-select>
             </div>
-            
+
             <div class="filter-control">
                 <mat-select [(ngModel)]="activeCountry"
                             (selectionChange)="countryFiterChange()"
@@ -78,4 +78,6 @@
             </div>
         </div>
     </div>
+    <pagerComponent [pageOptions]="pageOptions"
+                    (setPageEvent)="getToursPage($event)"></pagerComponent>
 </div>

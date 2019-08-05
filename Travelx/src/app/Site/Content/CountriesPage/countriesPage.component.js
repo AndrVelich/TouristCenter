@@ -37,7 +37,7 @@ var CountriesPageComponent = /** @class */ (function () {
         var _this = this;
         this.preloaderService.startPreloader();
         this.countryService.getCountryCollection(this.tourType)
-            .subscribe(function (data) { return _this.countryCollection = data; }, function (err) { return console.log(err); }, function () { return _this.preloaderService.finishPreloader(); });
+            .subscribe(function (data) { return _this.countryCollection = data.collection; }, function (err) { return console.log(err); }, function () { return _this.preloaderService.finishPreloader(); });
     };
     CountriesPageComponent.prototype.setTitleAndMeta = function () {
         this.titleService.setTitle("Отдых 2019. Цены по странам");

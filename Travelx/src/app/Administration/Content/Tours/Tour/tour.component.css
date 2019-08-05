@@ -31,14 +31,6 @@
         font-size: 19px; }
     .tours-wrapper .tour .tour-prices {
       margin-top: 10px 0; }
-      .tours-wrapper .tour .tour-prices .stars {
-        margin-right: 5px; }
-        .tours-wrapper .tour .tour-prices .stars .s {
-          background-image: url(/content/images/star.svg);
-          background-position: 14px 14px;
-          width: 14px;
-          height: 14px;
-          display: inline-block; }
     .tours-wrapper .tour .tour-image {
       margin-top: 10px; }
       .tours-wrapper .tour .tour-image .small-images {

@@ -2,9 +2,11 @@
 import { FormGroup, FormBuilder, Validators, ValidatorFn, ValidationErrors } from "@angular/forms";
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { Result } from "@common/Types/Result";
+import { PreloaderService } from "@common/Services/preloader.service";
+
 import { RegisterService } from "@administrationCommon/Services/register.service";
 import { Register } from "@administrationCommon/Services/register.service";
-import { Result } from "@common/Types/Result";
 
 @Component({
     selector: "register",
@@ -19,7 +21,8 @@ export class RegisterComponent implements OnInit  {
     constructor(
         private registerService: RegisterService,
         private fb: FormBuilder,
-        private router: Router
+        private router: Router,
+        private preloaderService: PreloaderService,
     )
     { }
 
@@ -30,18 +33,20 @@ export class RegisterComponent implements OnInit  {
 
     public register()
     {
+        this.preloaderService.startPreloader();
         this.registerService.register(this.registerModel)
         .subscribe(
             (result: Result) =>
             {
                 if (result.isSuccess) {
-                    this.router.navigate(['administration']);
+                    this.router.navigate(['administration/users']);
                 }
                 else {
                     this.errorMessage = result.errorMessage;
                 }
             },
-            error => this.errorMessage = error);
+            error => this.errorMessage = error,
+            () => this.preloaderService.finishPreloader());
     }
 
     private buildForm() 

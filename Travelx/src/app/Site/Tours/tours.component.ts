@@ -83,7 +83,7 @@ export class ToursComponent {
     {
         this.preloaderService.startPreloader();
         this.tourService.getTourCollection(this.tourType, this.country.urlName)
-        .subscribe(data => this.tourCollection = data.sort(() =>  0.5 - Math.random()),
+            .subscribe(data => this.tourCollection = data.collection.sort(() =>  0.5 - Math.random()),
                     (err)=> console.log(err),
                     ()=> this.preloaderService.finishPreloader());
     }

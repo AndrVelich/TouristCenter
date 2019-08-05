@@ -8,7 +8,7 @@ import { ToursComponent } from "./Content/Tours/tours.component";
 import { TourComponent } from "./Content/Tours/Tour/tour.component";
 import { PromotionsComponent } from "./Content/Promotions/promotions.component";
 import { PromotionComponent } from "./Content/Promotions/Promotion/promotion.component";
-import { RegisterComponent } from "./Content/Register/register.component"; 
+import { RegisterComponent } from "./Content/Users/Register/register.component"; 
 import { OrdersComponent } from "./Content/Orders/orders.component";
 import { UsersComponent } from "./Content/Users/users.component";
 
@@ -57,7 +57,7 @@ export const routes: Routes = [
                 component: PromotionComponent
             },
             {
-                path: 'register',
+                path: 'users/register',
                 component: RegisterComponent
             },
             {

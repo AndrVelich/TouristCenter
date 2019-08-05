@@ -1,66 +1,46 @@
-
-import {throwError as observableThrowError,  Observable } from 'rxjs';
-
-import { catchError, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { Injectable } from "@angular/core";
-import { Dictionary } from "@common/Types/Dictionary";
-import { Http, Response } from "@angular/http";
-//import {Observable} from 'rxjs/Rx';
-
-
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Page } from "@common/Services/pager.service";
 
 @Injectable()
-export class TourService{
-    private countries: Dictionary = new Dictionary();
+export class TourService
+{
     private url: string = 'api/tour/';
 
-    constructor(private http: Http) 
-    {
-        
-    }
+    constructor(private httpClient: HttpClient) { }
 
-    public getTourCollection(tourType: string, country?: string): Observable<Tour[]>{
-        return this.http.get('api/tours/' + tourType + '/' + (country || '')).pipe(
-            map((res: Response) => <Tour[]>res.json()),
-            catchError(this.handleError),);
-    }
+    public getToursPage(tourType: string, country?: string, skip?: number, take?: number): Observable<Page<Tour>> {
+        let params = new HttpParams();
+        if (tourType) {
+            params = params.set('tourType', tourType)
+        }
+        if (country) {
+            params = params.set('country', country)
+        }
+        if (skip) {
+            params = params.set('skip', skip.toString());
+        }
+        if (take) {
+            params = params.set('take', take.toString());
+        }
 
-    public getAllTourCollection(): Observable<Tour[]>{
-        return this.http.get('api/tours/allTours').pipe(
-            map((res: Response) => <Tour[]>res.json()),
-            catchError(this.handleError),);
+        const options = { params: params };
+        let result = this.httpClient.get<Page<Tour>>('api/tours', options);
+
+        return result;
     }
 
     public getTour(tourType: string, countryUrlName: string, tourUrlName: string): Observable<Tour>{
-        return this.http.get(this.url + tourType + '/' + countryUrlName + '/' + tourUrlName).pipe(
-            map((res: Response) => <Tour>res.json()),
-            catchError(this.handleError),);
+        return this.httpClient.get<Tour>(this.url + tourType + '/' + countryUrlName + '/' + tourUrlName)
     }
 
     public addTour(tour){
-        return this.http.post(this.url, tour).pipe(
-            catchError(this.handleError));
+        return this.httpClient.post(this.url, tour)
     }
 
     public deleteTour(tourId){
-        return this.http.delete(this.url + tourId).pipe(
-            catchError(this.handleError));
-    }
-
-    private handleError(error: any, cought: Observable<any>): any 
-    {
-        let message = "";
-
-        if (error instanceof Response) {
-            let errorData = error.json().error || JSON.stringify(error.json());
-            message = `${error.status} - ${error.statusText || ''} ${errorData}`
-        } else {
-            message = error.message ? error.message : error.toString();
-        }
-
-        console.error(message);
-
-        return observableThrowError(message);
+        return this.httpClient.delete(this.url + tourId)
     }
 }
 

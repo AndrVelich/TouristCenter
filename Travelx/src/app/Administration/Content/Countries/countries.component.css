@@ -28,7 +28,8 @@
   float: right;
   line-height: 33px; }
   .countries-header a.link-big i {
-    font-size: 19px; }
+    font-size: 19px;
+    margin: 0 10px; }
 
 .country-filter {
   margin: 10px 0;
@@ -54,6 +55,7 @@
       min-width: 200px;
       max-width: 500px; }
       .counties-wrapper .country .image-description .country-descriptions a.link-big i {
+        margin-left: 10px;
         font-size: 19px; }
     .counties-wrapper .country .country-prices {
       margin-top: 10px;
@@ -65,15 +67,6 @@
         margin-bottom: 10px; }
         .counties-wrapper .country .country-prices .hotels li {
           list-style-type: none; }
-        .counties-wrapper .country .country-prices .hotels .stars {
-          margin-right: 5px; }
-          .counties-wrapper .country .country-prices .hotels .stars .s {
-            background-image: url(/content/images/star.svg);
-            background-position: 14px 14px;
-            width: 14px;
-            height: 14px;
-            display: inline-block;
-            margin-top: 2px; }
 
 @media (min-width: 850px) {
   .country {

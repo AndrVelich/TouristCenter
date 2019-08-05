@@ -7,48 +7,43 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { throwError as observableThrowError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
 import { Injectable } from "@angular/core";
-import { Dictionary } from "@common/Types/Dictionary";
-import { Http, Response } from "@angular/http";
-//import {Observable} from 'rxjs/Rx';
+import { HttpClient, HttpParams } from '@angular/common/http';
 var TourService = /** @class */ (function () {
-    function TourService(http) {
-        this.http = http;
-        this.countries = new Dictionary();
+    function TourService(httpClient) {
+        this.httpClient = httpClient;
         this.url = 'api/tour/';
     }
-    TourService.prototype.getTourCollection = function (tourType, country) {
-        return this.http.get('api/tours/' + tourType + '/' + (country || '')).pipe(map(function (res) { return res.json(); }), catchError(this.handleError));
-    };
-    TourService.prototype.getAllTourCollection = function () {
-        return this.http.get('api/tours/allTours').pipe(map(function (res) { return res.json(); }), catchError(this.handleError));
+    TourService.prototype.getToursPage = function (tourType, country, skip, take) {
+        var params = new HttpParams();
+        if (tourType) {
+            params = params.set('tourType', tourType);
+        }
+        if (country) {
+            params = params.set('country', country);
+        }
+        if (skip) {
+            params = params.set('skip', skip.toString());
+        }
+        if (take) {
+            params = params.set('take', take.toString());
+        }
+        var options = { params: params };
+        var result = this.httpClient.get('api/tours', options);
+        return result;
     };
     TourService.prototype.getTour = function (tourType, countryUrlName, tourUrlName) {
-        return this.http.get(this.url + tourType + '/' + countryUrlName + '/' + tourUrlName).pipe(map(function (res) { return res.json(); }), catchError(this.handleError));
+        return this.httpClient.get(this.url + tourType + '/' + countryUrlName + '/' + tourUrlName);
     };
     TourService.prototype.addTour = function (tour) {
-        return this.http.post(this.url, tour).pipe(catchError(this.handleError));
+        return this.httpClient.post(this.url, tour);
     };
     TourService.prototype.deleteTour = function (tourId) {
-        return this.http.delete(this.url + tourId).pipe(catchError(this.handleError));
-    };
-    TourService.prototype.handleError = function (error, cought) {
-        var message = "";
-        if (error instanceof Response) {
-            var errorData = error.json().error || JSON.stringify(error.json());
-            message = error.status + " - " + (error.statusText || '') + " " + errorData;
-        }
-        else {
-            message = error.message ? error.message : error.toString();
-        }
-        console.error(message);
-        return observableThrowError(message);
+        return this.httpClient.delete(this.url + tourId);
     };
     TourService = __decorate([
         Injectable(),
-        __metadata("design:paramtypes", [Http])
+        __metadata("design:paramtypes", [HttpClient])
     ], TourService);
     return TourService;
 }());

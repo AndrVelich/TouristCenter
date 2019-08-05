@@ -9,7 +9,7 @@
         </div>
         <div class="country-filter">
             <mat-select [(ngModel)]="activeTourType"
-                        (change)="tourTypeFiterChange()"
+                        (selectionChange)="tourTypeFiterChange()"
                         placeholder="Выберите...">
                 <mat-option *ngFor="let tourTypeKey of tourTypes.keys()" [value]="tourTypeKey">
                     {{ tourTypes[tourTypeKey] }}

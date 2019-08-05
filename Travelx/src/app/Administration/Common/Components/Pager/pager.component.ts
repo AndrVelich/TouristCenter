@@ -1,7 +1,8 @@
 ﻿import { Component, OnInit, EventEmitter, Output, Input } from "@angular/core";
 import { Observable } from 'rxjs';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
+import { RouterService } from "@common/Services/router.service";
 import { PagerService, Pager, PageOptions } from "@common/Services/pager.service";
 
 @Component({
@@ -18,7 +19,9 @@ export class PagerComponent implements OnInit {
     constructor(
         private pagerService: PagerService,
         private activeRoute: ActivatedRoute,
-        private router: Router) { }
+        private router: Router,
+        private routerService: RouterService,
+    ) { }
 
     ngOnInit()
     {
@@ -75,14 +78,7 @@ export class PagerComponent implements OnInit {
     }
 
     private setPageOptionsToUrl(): void {
-        this.router.navigate(
-            [],
-            {
-                relativeTo: this.activeRoute,
-                queryParams: this.pageOptions,
-                queryParamsHandling: 'merge',
-            });
+        this.routerService.updateQueryParams(this.pageOptions);        
     }
-
-    //TODO Check: last one on page -> remove
+    
 }

@@ -33,7 +33,7 @@ var EarlyCountriesComponent = /** @class */ (function () {
         var _this = this;
         this.preloaderService.startPreloader();
         this.countryService.getEarlyCountryCollection()
-            .subscribe(function (data) { return _this.countryCollection = data; }, function (err) { return console.log(err); }, function () { return _this.preloaderService.finishPreloader(); });
+            .subscribe(function (data) { return _this.countryCollection = data.collection; }, function (err) { return console.log(err); }, function () { return _this.preloaderService.finishPreloader(); });
     };
     EarlyCountriesComponent.prototype.setTitleAndMeta = function () {
         this.titleService.setTitle("Раннее Бронирование туров. Отдых 2019.");

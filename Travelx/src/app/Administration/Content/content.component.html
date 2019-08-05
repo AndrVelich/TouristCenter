@@ -1,6 +1,10 @@
 <headerComponent></headerComponent>
 <div class="body-content">
-  <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
+    <div *ngIf="isPreloaderInProgress()"
+         class="preloader">
+        <img class="ajax-loader" src="/Content/Images/preloader.gif" />
+    </div>
   <hr />
   <footerComponent></footerComponent>
 </div>

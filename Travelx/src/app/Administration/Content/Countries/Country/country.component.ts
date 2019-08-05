@@ -4,13 +4,12 @@ import { MatSelectModule } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Dictionary } from "@common/Types/Dictionary";
+import { PreloaderService } from "@common/Services/preloader.service";
 import { TourTypeService } from "@common/Services/tourType.service"; 
 import { CountryService } from "@administrationCommon/Services/country.service";
 import { Country } from "@administrationCommon/Services/country.service";
 
 @Component({
-    
-    
     selector: "country",
     templateUrl: "country.component.html",
     styleUrls: ["country.component.css"]
@@ -30,7 +29,8 @@ export class CountryComponent implements OnInit  {
         private countryService: CountryService,
         private fb: FormBuilder,
         private activeRoute: ActivatedRoute,
-        private router: Router
+        private router: Router,
+        private preloaderService: PreloaderService,
     )
     {
         this.tourTypes = this.tourTypeService.GetTourTypes();
@@ -64,15 +64,18 @@ export class CountryComponent implements OnInit  {
         this.country.oldImageCollection = this.country.oldImageCollection.filter(url => url != removeUrl);
     }
 
-    public saveCountry(){
+    public saveCountry()
+    {
+        this.preloaderService.startPreloader()
         this.countryService.addCountry(this.country)
-      //TODO need notifcation
-      .subscribe(
-      () => 
-      {
-            this.router.navigate(['administration/countries'])
-      },
-      error => this.errorMessage = error);
+        .subscribe(
+            () => 
+            {
+                  this.router.navigate(['administration/countries'])
+            },
+            error => this.errorMessage = error,
+            () => this.preloaderService.finishPreloader()
+        );
     }
 
     private setDataFromRoute(){
@@ -86,8 +89,13 @@ export class CountryComponent implements OnInit  {
     {
         if(this.countryUrlName)
         {
+            this.preloaderService.startPreloader()
             this.countryService.getCountry(this.tourType, this.countryUrlName)
-            .subscribe(data => this.country = data);
+                .subscribe(
+                    data => this.country = data,
+                    error => this.errorMessage = error,
+                    () => this.preloaderService.finishPreloader()
+                );
         }
     }
 

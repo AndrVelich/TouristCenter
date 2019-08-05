@@ -64,7 +64,7 @@ var EarlyToursComponent = /** @class */ (function () {
         var _this = this;
         this.preloaderService.startPreloader();
         this.tourService.getEarlyTourCollection(this.country.urlName)
-            .subscribe(function (data) { return _this.tourCollection = data.sort(function () { return 0.5 - Math.random(); }); }, function (err) { return console.log(err); }, function () { return _this.preloaderService.finishPreloader(); });
+            .subscribe(function (data) { return _this.tourCollection = data.collection.sort(function () { return 0.5 - Math.random(); }); }, function (err) { return console.log(err); }, function () { return _this.preloaderService.finishPreloader(); });
     };
     EarlyToursComponent.prototype.setTitleAndMeta = function () {
         if (this.country) {

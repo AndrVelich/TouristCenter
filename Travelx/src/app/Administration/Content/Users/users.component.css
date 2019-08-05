@@ -1,0 +1,9 @@
+﻿.users-header h2 {
+  display: inline; }
+
+.users-header a.link-big {
+  float: right;
+  line-height: 33px; }
+  .users-header a.link-big i {
+    font-size: 19px;
+    margin: 0 10px; }

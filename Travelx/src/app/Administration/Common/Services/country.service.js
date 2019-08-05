@@ -9,23 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Dictionary } from "@common/Types/Dictionary";
 var CountryService = /** @class */ (function () {
     function CountryService(httpClient) {
         this.httpClient = httpClient;
         this.url = 'api/country/';
-        this.countries = new Dictionary();
     }
     CountryService.prototype.getCountriesPage = function (tourType, skip, take) {
         var params = new HttpParams();
         if (tourType) {
-            params.set('tourType', tourType);
+            params = params.set('tourType', tourType);
         }
         if (skip) {
-            params.set('skip', skip.toString());
+            params = params.set('skip', skip.toString());
         }
         if (take) {
-            params.set('take', skip.toString());
+            params = params.set('take', take.toString());
         }
         var options = { params: params };
         var result = this.httpClient.get('api/countries', options);

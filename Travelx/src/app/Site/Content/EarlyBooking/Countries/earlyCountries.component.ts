@@ -38,7 +38,7 @@ export class EarlyCountriesComponent {
     {
         this.preloaderService.startPreloader();
         this.countryService.getEarlyCountryCollection()
-        .subscribe(data => this.countryCollection = data,
+            .subscribe(data => this.countryCollection = data.collection,
                     (err)=> console.log(err),
                     ()=> this.preloaderService.finishPreloader());
     }

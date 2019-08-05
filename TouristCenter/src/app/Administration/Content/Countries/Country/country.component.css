@@ -34,14 +34,6 @@
       margin-top: 10px; }
       .counties-wrapper .country .country-prices .hotels {
         margin-bottom: 10px; }
-        .counties-wrapper .country .country-prices .hotels .stars {
-          margin-right: 5px; }
-          .counties-wrapper .country .country-prices .hotels .stars .s {
-            background-image: url(/content/images/star.svg);
-            background-position: 14px 14px;
-            width: 14px;
-            height: 14px;
-            display: inline-block; }
     .counties-wrapper .country .country-image {
       margin-top: 10px; }
       .counties-wrapper .country .country-image .small-images {

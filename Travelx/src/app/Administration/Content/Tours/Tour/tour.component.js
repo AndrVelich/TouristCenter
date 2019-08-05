@@ -12,17 +12,19 @@ import { FormBuilder, Validators } from "@angular/forms";
 import { Router, ActivatedRoute } from '@angular/router';
 import { Dictionary } from "@common/Types/Dictionary";
 import { TourTypeService } from "@common/Services/tourType.service";
+import { PreloaderService } from "@common/Services/preloader.service";
 import { CountryService } from "@administrationCommon/Services/country.service";
 import { TourService } from "@administrationCommon/Services/tour.service";
 import { Tour } from "@administrationCommon/Services/tour.service";
 var TourComponent = /** @class */ (function () {
-    function TourComponent(tourTypeService, countryService, tourService, fb, activeRoute, router) {
+    function TourComponent(tourTypeService, countryService, tourService, fb, activeRoute, router, preloaderService) {
         this.tourTypeService = tourTypeService;
         this.countryService = countryService;
         this.tourService = tourService;
         this.fb = fb;
         this.activeRoute = activeRoute;
         this.router = router;
+        this.preloaderService = preloaderService;
         this.countries = new Dictionary();
         this.tour = new Tour();
         this.tourTypes = this.tourTypeService.GetTourTypes();
@@ -52,11 +54,11 @@ var TourComponent = /** @class */ (function () {
     };
     TourComponent.prototype.saveTour = function () {
         var _this = this;
+        this.preloaderService.startPreloader();
         this.tourService.addTour(this.tour)
-            //TODO need notifcation
             .subscribe(function () {
             _this.router.navigate(['administration/tours']);
-        }, function (error) { return _this.errorMessage = error; });
+        }, function (error) { return _this.errorMessage = error; }, function () { return _this.preloaderService.finishPreloader(); });
     };
     TourComponent.prototype.setDataFromRoute = function () {
         var _this = this;
@@ -76,8 +78,9 @@ var TourComponent = /** @class */ (function () {
     TourComponent.prototype.getTour = function () {
         var _this = this;
         if (this.tour.category && this.tour.country && this.tour.urlName) {
+            this.preloaderService.startPreloader();
             this.tourService.getTour(this.tour.category, this.tour.country, this.tour.urlName)
-                .subscribe(function (data) { return _this.tour = data; });
+                .subscribe(function (data) { return _this.tour = data; }, function (error) { return _this.errorMessage = error; }, function () { return _this.preloaderService.finishPreloader(); });
         }
     };
     TourComponent.prototype.getCountries = function () {
@@ -139,7 +142,8 @@ var TourComponent = /** @class */ (function () {
             TourService,
             FormBuilder,
             ActivatedRoute,
-            Router])
+            Router,
+            PreloaderService])
     ], TourComponent);
     return TourComponent;
 }());

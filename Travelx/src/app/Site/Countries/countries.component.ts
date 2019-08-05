@@ -47,7 +47,7 @@ export class CountriesComponent {
     {
         this.preloaderService.startPreloader();
         this.countryService.getCountryCollection(this.tourType)
-        .subscribe(data => this.countryCollection = data,
+        .subscribe(data => this.countryCollection = data.collection,
                     (err)=> console.log(err),
                     ()=> this.preloaderService.finishPreloader());
     }

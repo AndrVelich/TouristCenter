@@ -5,7 +5,7 @@ namespace Travelx.Controllers
 {
     public class AdministrationController : Controller
     {
-        //[Route("administration/register")]
+        //[Route("administration/users/register")]
 
         [Route("administration")]
         [Route("administration/orders")]
@@ -31,7 +31,7 @@ namespace Travelx.Controllers
         }
 
         //TODO A.V. ned to delete after first time registration
-        [Route("administration/register")]
+        [Route("administration/users/register")]
         public ActionResult Register()
         {
             return AdminstrationLayout();

@@ -2,14 +2,10 @@ import { Observable } from 'rxjs';
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Page } from "@common/Services/pager.service";
-import { Dictionary } from "@common/Types/Dictionary";
-
-
 
 @Injectable()
 export class CountryService{
     private url: string = 'api/country/';
-    private countries: Dictionary = new Dictionary();
 
     constructor(private httpClient: HttpClient) { }
 

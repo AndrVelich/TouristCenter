@@ -4,7 +4,8 @@ import { MatSelectModule } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Dictionary } from "@common/Types/Dictionary";
-import { TourTypeService } from "@common/Services/tourType.service"; 
+import { TourTypeService } from "@common/Services/tourType.service";
+import { PreloaderService } from "@common/Services/preloader.service";
 
 import { CountryService } from "@administrationCommon/Services/country.service";
 import { Country } from "@administrationCommon/Services/country.service";
@@ -35,18 +36,18 @@ export class TourComponent {
         private tourService: TourService,
         private fb: FormBuilder,
         private activeRoute: ActivatedRoute,
-        private router: Router
-    )
-    {
+        private router: Router,
+        private preloaderService: PreloaderService,
+    ) {
         this.tourTypes = this.tourTypeService.GetTourTypes();
     }
 
     ngOnInit() {
-        this.setDataFromRoute(); 
+        this.setDataFromRoute();
         this.getCountries();
         this.getTour();
         this.buildForm();
-        
+
     }
 
     public onSelectImage(event) {
@@ -62,29 +63,30 @@ export class TourComponent {
         }
     }
 
-    public removeNewImage(removeUrl){
+    public removeNewImage(removeUrl) {
         this.tour.newImageCollection = this.tour.newImageCollection.filter(url => url != removeUrl);
     }
 
-    public removeOldImage(removeUrl){
+    public removeOldImage(removeUrl) {
         this.tour.oldImageCollection = this.tour.oldImageCollection.filter(url => url != removeUrl);
     }
 
-    public saveTour(){
+    public saveTour() {
+        this.preloaderService.startPreloader();
         this.tourService.addTour(this.tour)
-      //TODO need notifcation
-      .subscribe(
-      () => {
-          this.router.navigate(['administration/tours']);
-      },
-      error => this.errorMessage = error);
+            .subscribe(
+                () => {
+                    this.router.navigate(['administration/tours']);
+                },
+                error => this.errorMessage = error,
+                () => this.preloaderService.finishPreloader());
     }
 
-    private setDataFromRoute(){
+    private setDataFromRoute() {
         this.activeRoute.params.subscribe(params => {
             this.tour.category = params['tourType'];
-            this.tour.country =  params['country'];
-            this.tour.urlName =  params['tour'];
+            this.tour.country = params['country'];
+            this.tour.urlName = params['tour'];
         });
     }
 
@@ -93,32 +95,29 @@ export class TourComponent {
         return result;
     }
 
-    public onChangeCategory()
-    {
+    public onChangeCategory() {
         this.getCountries();
     }
 
-    private getTour()
-    {
-        if(this.tour.category && this.tour.country && this.tour.urlName)
-        {
+    private getTour() {
+        if (this.tour.category && this.tour.country && this.tour.urlName) {
+            this.preloaderService.startPreloader();
             this.tourService.getTour(this.tour.category, this.tour.country, this.tour.urlName)
-            .subscribe(data => this.tour = data);
+                .subscribe(data => this.tour = data,
+                    error => this.errorMessage = error,
+                    () => this.preloaderService.finishPreloader());
         }
     }
 
-    private getCountries()
-    {
-        if(this.tour.category)
-        {
+    private getCountries() {
+        if (this.tour.category) {
             this.isCountriesLoaded = true;
             this.countryService.getCountriesPage(this.tour.category)
-            .subscribe(data => 
-            {
-                this.countries = new Dictionary();              
-                data.collection.map((country) => this.countries.add(country.urlName, country.name));
-                this.isCountriesLoaded = false;
-            });
+                .subscribe(data => {
+                    this.countries = new Dictionary();
+                    data.collection.map((country) => this.countries.add(country.urlName, country.name));
+                    this.isCountriesLoaded = false;
+                });
         }
     }
 
@@ -126,8 +125,6 @@ export class TourComponent {
         this.tourForm = this.fb.group({
             "name": [this.tour.name, [
                 Validators.required,
-                //Validators.minLength(2),
-                //Validators.maxLength(15)
             ]],
             "urlName": [this.tour.urlName, [
                 Validators.required,

@@ -7,33 +7,44 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 import { MatDialog } from '@angular/material';
-import { ConfirmationPopupComponent } from "@administrationCommon/Components/ConfirmationPopup/confirmationPopup.component";
+import { ActivatedRoute } from '@angular/router';
+import { RouterService } from "@common/Services/router.service";
 import { Dictionary } from "@common/Types/Dictionary";
 import { TourTypeService } from "@common/Services/tourType.service";
+import { PageOptions } from "@common/Services/pager.service";
+import { PagerComponent } from "@administrationCommon/Components/Pager/pager.component";
+import { PreloaderService } from "@common/Services/preloader.service";
+import { ConfirmationPopupComponent } from "@administrationCommon/Components/ConfirmationPopup/confirmationPopup.component";
 import { CountryService } from "@administrationCommon/Services/country.service";
 import { TourService } from "@administrationCommon/Services/tour.service";
 var ToursComponent = /** @class */ (function () {
-    function ToursComponent(dialog, tourTypeService, countryService, tourService) {
+    function ToursComponent(dialog, activeRoute, routerService, tourTypeService, countryService, tourService, preloaderService) {
         this.dialog = dialog;
+        this.activeRoute = activeRoute;
+        this.routerService = routerService;
         this.tourTypeService = tourTypeService;
         this.countryService = countryService;
         this.tourService = tourService;
+        this.preloaderService = preloaderService;
         this.starsArray = Array;
         this.countryCollection = new Dictionary();
         this.tourCollection = new Array();
+        this.pageOptions = new PageOptions(0, 10, 10);
     }
     ToursComponent.prototype.ngOnInit = function () {
         this.tourTypes = this.tourTypeService.GetTourTypes();
-        this.getAllTourCollection();
+        this.setPageOptionsFromUrl();
+        this.getCountryCollection();
     };
     ToursComponent.prototype.tourTypeFiterChange = function () {
+        this.activeCountry = '';
+        this.filterChange();
         this.getCountryCollection();
-        this.getTourCollection();
     };
     ToursComponent.prototype.countryFiterChange = function () {
-        this.getTourCollection();
+        this.filterChange();
     };
     ToursComponent.prototype.isCountrySelectDisabled = function () {
         var result = this.isCountriesLoading || !this.countryCollection;
@@ -51,8 +62,9 @@ var ToursComponent = /** @class */ (function () {
             .afterClosed()
             .subscribe(function (result) {
             if (result) {
+                _this.preloaderService.startPreloader();
                 _this.tourService.deleteTour(tourId)
-                    .subscribe(function () { return _this.updateTourCollection(); });
+                    .subscribe(function () { return _this.getToursPage(_this.pageOptions); }, function (error) { return _this.errorMessage = error; }, function () { return _this.preloaderService.finishPreloader(); });
             }
         });
     };
@@ -66,24 +78,44 @@ var ToursComponent = /** @class */ (function () {
             _this.isCountriesLoading = false;
         });
     };
-    ToursComponent.prototype.updateTourCollection = function () {
-        if (this.activeTourType) {
-            this.getTourCollection();
-        }
-        else {
-            this.getAllTourCollection();
-        }
-    };
-    ToursComponent.prototype.getAllTourCollection = function () {
+    ToursComponent.prototype.getToursPage = function (pageOptions) {
         var _this = this;
-        this.tourService.getAllTourCollection()
-            .subscribe(function (data) { return _this.tourCollection = data; });
+        this.preloaderService.startPreloader();
+        this.pageOptions = pageOptions;
+        this.tourService.getToursPage(this.activeTourType, this.activeCountry, pageOptions.skip, pageOptions.take)
+            .subscribe(function (data) {
+            _this.tourCollection = data.collection;
+            _this.pagerComponent.updatePager(data.count);
+        }, function (error) { return _this.errorMessage = error; }, function () { return _this.preloaderService.finishPreloader(); });
     };
-    ToursComponent.prototype.getTourCollection = function () {
-        var _this = this;
-        this.tourService.getTourCollection(this.activeTourType, this.activeCountry)
-            .subscribe(function (data) { return _this.tourCollection = data; });
+    ToursComponent.prototype.filterChange = function () {
+        this.setFilterOptionsToUrl();
+        this.pagerComponent.resetPager();
     };
+    ToursComponent.prototype.setFilterOptionsToUrl = function () {
+        var newParams = {
+            tourType: this.activeTourType,
+            country: this.activeCountry,
+        };
+        this.routerService.updateQueryParams(newParams);
+    };
+    ToursComponent.prototype.setPageOptionsFromUrl = function () {
+        var queryParams = this.activeRoute.snapshot.queryParams;
+        if (queryParams) {
+            var tourType = queryParams.tourType;
+            if (tourType) {
+                this.activeTourType = tourType;
+            }
+            var country = queryParams.country;
+            if (country) {
+                this.activeCountry = country;
+            }
+        }
+    };
+    __decorate([
+        ViewChild(PagerComponent, { static: false }),
+        __metadata("design:type", PagerComponent)
+    ], ToursComponent.prototype, "pagerComponent", void 0);
     ToursComponent = __decorate([
         Component({
             selector: "tours",
@@ -91,9 +123,12 @@ var ToursComponent = /** @class */ (function () {
             styleUrls: ["tours.component.css"]
         }),
         __metadata("design:paramtypes", [MatDialog,
+            ActivatedRoute,
+            RouterService,
             TourTypeService,
             CountryService,
-            TourService])
+            TourService,
+            PreloaderService])
     ], ToursComponent);
     return ToursComponent;
 }());

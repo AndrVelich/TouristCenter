@@ -10,14 +10,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Component } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import { Router, ActivatedRoute } from '@angular/router';
+import { PreloaderService } from "@common/Services/preloader.service";
 import { PromotionService } from "@administrationCommon/Services/promotion.service";
 import { Promotion } from "@administrationCommon/Services/promotion.service";
 var PromotionComponent = /** @class */ (function () {
-    function PromotionComponent(promotionService, fb, activeRoute, router) {
+    function PromotionComponent(promotionService, fb, activeRoute, router, preloaderService) {
         this.promotionService = promotionService;
         this.fb = fb;
         this.activeRoute = activeRoute;
         this.router = router;
+        this.preloaderService = preloaderService;
         this.promotion = new Promotion();
     }
     PromotionComponent.prototype.ngOnInit = function () {
@@ -44,11 +46,11 @@ var PromotionComponent = /** @class */ (function () {
     };
     PromotionComponent.prototype.savePromotion = function () {
         var _this = this;
+        this.preloaderService.startPreloader();
         this.promotionService.addPromotion(this.promotion)
-            //TODO need notifcation
             .subscribe(function () {
             _this.router.navigate(['administration/promotions']);
-        }, function (error) { return _this.errorMessage = error; });
+        }, function (error) { return _this.errorMessage = error; }, function () { return _this.preloaderService.finishPreloader(); });
     };
     PromotionComponent.prototype.setDataFromRoute = function () {
         var _this = this;
@@ -62,8 +64,9 @@ var PromotionComponent = /** @class */ (function () {
     PromotionComponent.prototype.getPromotion = function () {
         var _this = this;
         if (this.promotion && this.promotion.urlName) {
+            this.preloaderService.startPreloader();
             this.promotionService.getPromotion(this.promotion.urlName)
-                .subscribe(function (data) { return _this.promotion = data; });
+                .subscribe(function (data) { return _this.promotion = data; }, function (error) { return _this.errorMessage = error; }, function () { return _this.preloaderService.finishPreloader(); });
         }
     };
     PromotionComponent.prototype.buildForm = function () {
@@ -95,7 +98,8 @@ var PromotionComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [PromotionService,
             FormBuilder,
             ActivatedRoute,
-            Router])
+            Router,
+            PreloaderService])
     ], PromotionComponent);
     return PromotionComponent;
 }());

@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <Content Include="src\administration.html" />
+    <Content Include="src\assets\administration\images\star.svg" />
     <Content Include="src\index.html" />
   </ItemGroup>
 

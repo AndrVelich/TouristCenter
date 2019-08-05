@@ -1,63 +1,43 @@
-
-import {throwError as observableThrowError,  Observable } from 'rxjs';
-
-import {map, catchError} from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { Injectable } from "@angular/core";
-import { Dictionary } from "@common/Types/Dictionary";
-import { Http, Response } from "@angular/http";
-//import {Observable} from 'rxjs/Rx';
-
-
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Page } from "@common/Services/pager.service";
 
 @Injectable()
 export class CountryService{
     private url: string = '/api/country';
-    private countries: Dictionary = new Dictionary();
 
-    constructor(private http: Http) 
+    constructor(private httpClient: HttpClient) { }
+
+    public getCountryCollection(tourType?: string): Observable<Page<Country>>
     {
-        
-    }
+        let params = new HttpParams();
+        if (tourType) {
+            params = params.set('tourType', tourType)
+        }
 
-    public getCountryCollection(tourType?: string): Observable<Country[]>{
-        return this.http.get('api/countries/' + (tourType || '')).pipe(
-            map((res: Response) => <Country[]>res.json()),
-            catchError(this.handleError));
+        const options = { params: params };
+        let result = this.httpClient.get<Page<Country>>('api/countries', options);
+
+        return result;
     }
 
     public getCountry(tourType: string, countryUrlName: string): Observable<Country>{
-        return this.http.get('api/country/' + tourType + '/' + countryUrlName).pipe(
-            map((res: Response) => <Country>res.json()),
-            catchError(this.handleError));
+        return this.httpClient.get<Country>('api/country/' + tourType + '/' + countryUrlName);
     }
 
-    public getHotCountryCollection(): Observable<Country[]> {
-        return this.http.get('api/hotCountries').pipe(
-            map((res: Response) => <Country[]>res.json()),
-            catchError(this.handleError));
-    }
-
-    public getEarlyCountryCollection(): Observable<Country[]> {
-        return this.http.get('api/earlyCountries').pipe(
-            map((res: Response) => <Country[]>res.json()),
-            catchError(this.handleError));
-    }
-
-    private handleError(error: any, cought: Observable<any>): any 
+    public getHotCountryCollection(): Observable<Page<Country>>
     {
-        let message = "";
-
-        if (error instanceof Response) {
-            let errorData = error.json().error || JSON.stringify(error.json());
-            message = `${error.status} - ${error.statusText || ''} ${errorData}`;
-        } else {
-            message = error.message ? error.message : error.toString();
-        }
-
-        console.error(message);
-
-        return observableThrowError(message);
+        let result = this.httpClient.get<Page<Country>>('api/hotCountries');
+        return result;
     }
+
+    public getEarlyCountryCollection(): Observable<Page<Country>>
+    {
+        let result = this.httpClient.get<Page<Country>>('api/earlyCountries');
+        return result;
+    }
+
 }
 
 export class Country{

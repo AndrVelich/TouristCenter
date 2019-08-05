@@ -1,10 +1,15 @@
-﻿import { Component, OnInit } from "@angular/core";
+﻿import { Component, OnInit, ViewChild } from "@angular/core";
 import { MatSelectModule, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Router, ActivatedRoute } from '@angular/router';
 
-import { ConfirmationPopupComponent } from "@administrationCommon/Components/ConfirmationPopup/confirmationPopup.component";
-
+import { RouterService } from "@common/Services/router.service";
 import { Dictionary } from "@common/Types/Dictionary";
 import { TourTypeService } from "@common/Services/tourType.service"; 
+import { PageOptions } from "@common/Services/pager.service";
+import { PagerComponent } from "@administrationCommon/Components/Pager/pager.component";
+import { PreloaderService } from "@common/Services/preloader.service";
+
+import { ConfirmationPopupComponent } from "@administrationCommon/Components/ConfirmationPopup/confirmationPopup.component";
 
 import { CountryService } from "@administrationCommon/Services/country.service";
 import { Country } from "@administrationCommon/Services/country.service";
@@ -27,27 +32,37 @@ export class ToursComponent {
     public isCountriesLoading: boolean;
     public countryCollection: Dictionary = new Dictionary();
     public tourCollection: Array<Tour> = new Array<Tour>();
+    public pageOptions: PageOptions = new PageOptions(0, 10, 10);
+    @ViewChild(PagerComponent, { static: false }) pagerComponent: PagerComponent;
 
     constructor(
         public dialog: MatDialog,
+        private activeRoute: ActivatedRoute,
+        private routerService: RouterService,
         private tourTypeService: TourTypeService,
         private countryService: CountryService,
-        private tourService: TourService)
+        private tourService: TourService,
+        private preloaderService: PreloaderService,
+    )
     { }
 
     ngOnInit() 
     {
         this.tourTypes = this.tourTypeService.GetTourTypes();
-        this.getAllTourCollection();
-    }
-
-    public tourTypeFiterChange(){
+        this.setPageOptionsFromUrl();
         this.getCountryCollection();
-        this.getTourCollection()
     }
 
-    public countryFiterChange(){
-        this.getTourCollection();
+    public tourTypeFiterChange()
+    {
+        this.activeCountry = '';
+        this.filterChange();
+        this.getCountryCollection();
+    }
+
+    public countryFiterChange()
+    {
+        this.filterChange();
     }
 
     public isCountrySelectDisabled()
@@ -72,8 +87,11 @@ export class ToursComponent {
             .subscribe(result => {
                 if(result)
                 {
+                     this.preloaderService.startPreloader();
                      this.tourService.deleteTour(tourId)
-                        .subscribe(() => this.updateTourCollection());
+                         .subscribe(() => this.getToursPage(this.pageOptions),
+                             error => this.errorMessage = error,
+                             () => this.preloaderService.finishPreloader());
                 }
             });
     }
@@ -90,24 +108,43 @@ export class ToursComponent {
             });
     }
 
-    private updateTourCollection(){
-        if(this.activeTourType){
-            this.getTourCollection();
-        }
-        else{
-            this.getAllTourCollection();
-        }
+    private getToursPage(pageOptions: PageOptions)
+    {
+        this.preloaderService.startPreloader();
+        this.pageOptions = pageOptions;
+        this.tourService.getToursPage(this.activeTourType, this.activeCountry, pageOptions.skip, pageOptions.take)
+            .subscribe(data => {
+                this.tourCollection = data.collection;
+                this.pagerComponent.updatePager(data.count);
+            },
+            error => this.errorMessage = error,
+            () => this.preloaderService.finishPreloader());
     }
 
-    private getAllTourCollection()
-    {
-        this.tourService.getAllTourCollection()
-        .subscribe(data => this.tourCollection = data);
+    private filterChange() {
+        this.setFilterOptionsToUrl();
+        this.pagerComponent.resetPager();
     }
 
-    private getTourCollection()
-    {
-        this.tourService.getTourCollection(this.activeTourType, this.activeCountry)
-        .subscribe(data => this.tourCollection = data);
+    private setFilterOptionsToUrl(): void {
+        let newParams = {
+            tourType: this.activeTourType,
+            country: this.activeCountry,
+        };
+        this.routerService.updateQueryParams(newParams);
+    }
+
+    private setPageOptionsFromUrl(): void {
+        let queryParams = this.activeRoute.snapshot.queryParams;
+        if (queryParams) {
+            let tourType = queryParams.tourType;
+            if (tourType) {
+                this.activeTourType = tourType
+            }
+            let country = queryParams.country;
+            if (country) {
+                this.activeCountry = country
+            }
+        }
     }
 }

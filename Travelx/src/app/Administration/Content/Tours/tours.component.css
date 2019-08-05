@@ -28,13 +28,15 @@
   float: right;
   line-height: 33px; }
   .tours-header a.link-big i {
-    font-size: 19px; }
+    font-size: 19px;
+    margin: 0 10px; }
 
 .tour-filter {
   margin: 10px 0; }
   .tour-filter .filter-control {
     width: 340px;
-    display: inline-block; }
+    display: inline-block;
+    margin-right: 10px; }
 
 .tours-wrapper {
   margin: 0 20px; }
@@ -55,17 +57,9 @@
       margin-top: 10px;
       margin-right: 10px;
       min-width: 200px; }
-      .tours-wrapper .tour .image-description .tour-descriptions .stars {
-        margin-right: 5px; }
-        .tours-wrapper .tour .image-description .tour-descriptions .stars .s {
-          background-image: url(/content/images/star.svg);
-          background-position: 14px 14px;
-          width: 14px;
-          height: 14px;
-          display: inline-block;
-          margin-top: 2px; }
       .tours-wrapper .tour .image-description .tour-descriptions a.link-big i {
-        font-size: 19px; }
+        font-size: 19px;
+        margin-left: 10px; }
     .tours-wrapper .tour .tour-prices {
       margin-top: 10px;
       width: 220px; }

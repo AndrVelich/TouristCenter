@@ -1,69 +1,63 @@
-
-import {throwError as observableThrowError,  Observable } from 'rxjs';
-
-import {map, catchError} from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { Injectable } from "@angular/core";
-import { Dictionary } from "@common/Types/Dictionary";
-import { Http, Response } from "@angular/http";
-//import {Observable} from 'rxjs/Rx';
-
-
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Page } from "@common/Services/pager.service";
 
 @Injectable()
-export class TourService{
-    private countries: Dictionary = new Dictionary();
+export class TourService
+{
     private url: string = 'api/tour/';
 
-    constructor(private http: Http) 
+    constructor(private httpClient: HttpClient){ }
+
+    public getTourCollection(tourType: string, country?: string): Observable<Page<Tour>>
     {
-        
-    }
-
-    public getTourCollection(tourType: string, country?: string): Observable<Tour[]>{
-        return this.http.get('api/tours/' + tourType + '/' + (country || '')).pipe(
-            map((res: Response) => <Tour[]>res.json()),
-            catchError(this.handleError),);
-    }
-
-    public getHotTourCollection(country?: string): Observable<Tour[]> {
-        return this.http.get('api/hotTours/' + (country || '')).pipe(
-            map((res: Response) => <Tour[]>res.json()),
-            catchError(this.handleError));
-    }
-
-    public getEarlyTourCollection(country?: string): Observable<Tour[]> {
-        return this.http.get('api/earlyTours/' + (country || '')).pipe(
-            map((res: Response) => <Tour[]>res.json()),
-            catchError(this.handleError));
-    }
-
-    public getAllTourCollection(): Observable<Tour[]>{
-        return this.http.get('api/tours/allTours').pipe(
-            map((res: Response) => <Tour[]>res.json()),
-            catchError(this.handleError));
-    }
-
-    public getTour(tourType: string, countryUrlName: string, tourUrlName: string): Observable<Tour>{
-        return this.http.get(this.url + tourType + '/' + countryUrlName + '/' + tourUrlName).pipe(
-            map((res: Response) => <Tour>res.json()),
-            catchError(this.handleError));
-    }
-
-    private handleError(error: any, cought: Observable<any>): any 
-    {
-        let message = "";
-
-        if (error instanceof Response) {
-            let errorData = error.json().error || JSON.stringify(error.json());
-            message = `${error.status} - ${error.statusText || ''} ${errorData}`
-        } else {
-            message = error.message ? error.message : error.toString();
+        let params = new HttpParams();
+        if (tourType) {
+            params = params.set('tourType', tourType)
+        }
+        if (country) {
+            params = params.set('country', country)
         }
 
-        console.error(message);
+        const options = { params: params };
+        let result = this.httpClient.get<Page<Tour>>('api/tours', options);
 
-        return observableThrowError(message);
+        return result;
     }
+
+    public getHotTourCollection(country?: string): Observable<Page<Tour>>
+    {
+        let params = new HttpParams();
+        if (country) {
+            params = params.set('country', country)
+        }
+
+        const options = { params: params };
+        let result = this.httpClient.get<Page<Tour>>('api/hotTours', options);
+
+        return result;
+    }
+
+    public getEarlyTourCollection(country?: string): Observable<Page<Tour>> {
+        let params = new HttpParams();
+        if (country) {
+            params = params.set('country', country)
+        }
+
+        const options = { params: params };
+        let result = this.httpClient.get<Page<Tour>>('api/earlyTours', options);
+        return result;
+    }
+
+    //public getAllTourCollection(): Observable<Tour[]>{
+    //    return this.http.get('api/tours/allTours');
+    //}
+
+    //public getTour(tourType: string, countryUrlName: string, tourUrlName: string): Observable<Tour>{
+    //    return this.http.get(this.url + tourType + '/' + countryUrlName + '/' + tourUrlName);
+    //}
+
 }
 
 export class Tour{

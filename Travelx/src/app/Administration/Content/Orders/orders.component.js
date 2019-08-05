@@ -9,14 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component, ViewChild } from "@angular/core";
 import { MatDialog } from '@angular/material';
-import { OrderService } from "@administrationCommon/Services/order.service";
+import { PreloaderService } from "@common/Services/preloader.service";
 import { PageOptions } from "@common/Services/pager.service";
+import { OrderService } from "@administrationCommon/Services/order.service";
 import { ConfirmationPopupComponent } from "@administrationCommon/Components/ConfirmationPopup/confirmationPopup.component";
 import { PagerComponent } from "@administrationCommon/Components/Pager/pager.component";
 var OrdersComponent = /** @class */ (function () {
-    function OrdersComponent(dialog, orderService) {
+    function OrdersComponent(dialog, orderService, preloaderService) {
         this.dialog = dialog;
         this.orderService = orderService;
+        this.preloaderService = preloaderService;
         this.orderCollection = new Array();
         this.pageOptions = new PageOptions(0, 20, 10);
     }
@@ -36,11 +38,12 @@ var OrdersComponent = /** @class */ (function () {
     };
     OrdersComponent.prototype.markAsProcessedConfirm = function (order) {
         var _this = this;
+        this.preloaderService.startPreloader();
         order.isNew = false;
         this.orderService.saveOrder(order)
             .subscribe(function () {
             _this.getOrdersPage(_this.pageOptions);
-        }, function (error) { return _this.errorMessage = error; });
+        }, function (error) { return _this.errorMessage = error; }, function () { return _this.preloaderService.finishPreloader(); });
     };
     OrdersComponent.prototype.openDeleteConfirmation = function (orderId) {
         var _this = this;
@@ -50,19 +53,21 @@ var OrdersComponent = /** @class */ (function () {
             .afterClosed()
             .subscribe(function (result) {
             if (result) {
+                _this.preloaderService.startPreloader();
                 _this.orderService.deleteOrder(orderId)
-                    .subscribe(function () { return _this.getOrdersPage(_this.pageOptions); });
+                    .subscribe(function () { return _this.getOrdersPage(_this.pageOptions); }, function (err) { return console.log(err); }, function () { return _this.preloaderService.finishPreloader(); });
             }
         });
     };
     OrdersComponent.prototype.getOrdersPage = function (pageOptions) {
         var _this = this;
+        this.preloaderService.startPreloader();
         this.pageOptions = pageOptions;
         this.orderService.getOrdersPage(pageOptions.skip, pageOptions.take)
             .subscribe(function (data) {
             _this.orderCollection = data.collection;
             _this.pagerComponent.updatePager(data.count);
-        });
+        }, function (err) { return console.log(err); }, function () { return _this.preloaderService.finishPreloader(); });
     };
     __decorate([
         ViewChild(PagerComponent, { static: false }),
@@ -75,7 +80,8 @@ var OrdersComponent = /** @class */ (function () {
             styleUrls: ["orders.component.css"]
         }),
         __metadata("design:paramtypes", [MatDialog,
-            OrderService])
+            OrderService,
+            PreloaderService])
     ], OrdersComponent);
     return OrdersComponent;
 }());

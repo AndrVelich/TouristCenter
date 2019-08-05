@@ -9,12 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component, EventEmitter, Output, Input } from "@angular/core";
 import { Router, ActivatedRoute } from '@angular/router';
+import { RouterService } from "@common/Services/router.service";
 import { PagerService, PageOptions } from "@common/Services/pager.service";
 var PagerComponent = /** @class */ (function () {
-    function PagerComponent(pagerService, activeRoute, router) {
+    function PagerComponent(pagerService, activeRoute, router, routerService) {
         this.pagerService = pagerService;
         this.activeRoute = activeRoute;
         this.router = router;
+        this.routerService = routerService;
         this.setPageEvent = new EventEmitter();
     }
     PagerComponent.prototype.ngOnInit = function () {
@@ -30,6 +32,11 @@ var PagerComponent = /** @class */ (function () {
             this.setPageOptionsToUrl();
             this.GetPageData();
         }
+    };
+    PagerComponent.prototype.resetPager = function () {
+        this.pageOptions.skip = 0;
+        this.setPageOptionsToUrl();
+        this.GetPageData();
     };
     PagerComponent.prototype.GetPageData = function () {
         this.setPageEvent.emit(this.pageOptions);
@@ -52,11 +59,7 @@ var PagerComponent = /** @class */ (function () {
         }
     };
     PagerComponent.prototype.setPageOptionsToUrl = function () {
-        this.router.navigate([], {
-            relativeTo: this.activeRoute,
-            queryParams: this.pageOptions,
-            queryParamsHandling: 'merge',
-        });
+        this.routerService.updateQueryParams(this.pageOptions);
     };
     __decorate([
         Input(),
@@ -73,7 +76,8 @@ var PagerComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [PagerService,
             ActivatedRoute,
-            Router])
+            Router,
+            RouterService])
     ], PagerComponent);
     return PagerComponent;
 }());

@@ -1,9 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { MatSelectModule, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-
 import {Observable} from 'rxjs';
 
-
+import { PreloaderService } from "@common/Services/preloader.service";
 import { ConfirmationPopupComponent } from "@administrationCommon/Components/ConfirmationPopup/confirmationPopup.component";
 
 import { PromotionService } from "@administrationCommon/Services/promotion.service";
@@ -22,7 +21,9 @@ export class PromotionsComponent implements OnInit {
 
     constructor(
         public dialog: MatDialog,
-        private promotionService: PromotionService)
+        private promotionService: PromotionService,
+        private preloaderService: PreloaderService,
+    )
     { }
 
     ngOnInit() {
@@ -37,17 +38,26 @@ export class PromotionsComponent implements OnInit {
         })
             .afterClosed()
             .subscribe(result => {
-                if(result)
-                {
-                     this.promotionService.deletePromotion(promotionId)
-                        .subscribe(() => this.getPromotionCollection());
+                    if(result)
+                    {
+                         this.promotionService.deletePromotion(promotionId)
+                             .subscribe(
+                                 () => this.getPromotionCollection(), 
+                                 error => this.errorMessage = error,
+                                 () => this.preloaderService.finishPreloader()
+                             );
+                    }
                 }
-            });
+            );
     }
 
     private getPromotionCollection()
     {
+        this.preloaderService.startPreloader();
         this.promotionService.getPromotionCollection()
-        .subscribe(data => this.promotionCollection = data);
+            .subscribe(
+                data => this.promotionCollection = data,
+                error => this.errorMessage = error,
+                () => this.preloaderService.finishPreloader());
     }
 }

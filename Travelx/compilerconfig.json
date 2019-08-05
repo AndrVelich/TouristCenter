@@ -62,5 +62,25 @@
   {
     "outputFile": "src/app/Site/Content/TourTypes/tourTypes.component.css",
     "inputFile": "src/app/Site/Content/TourTypes/tourTypes.component.scss"
+  },
+  {
+    "outputFile": "src/app/Administration/Content/Countries/countries.component.css",
+    "inputFile": "src/app/Administration/Content/Countries/countries.component.scss"
+  },
+  {
+    "outputFile": "src/app/Administration/Content/Tours/tours.component.css",
+    "inputFile": "src/app/Administration/Content/Tours/tours.component.scss"
+  },
+  {
+    "outputFile": "src/app/Administration/Content/Users/users.component.css",
+    "inputFile": "src/app/Administration/Content/Users/users.component.scss"
+  },
+  {
+    "outputFile": "src/app/Administration/Content/Promotions/promotions.component.css",
+    "inputFile": "src/app/Administration/Content/Promotions/promotions.component.scss"
+  },
+  {
+    "outputFile": "src/app/Administration/Content/Countries/Country/country.component.css",
+    "inputFile": "../TouristCenter/src/app/Administration/Content/Countries/Country/country.component.scss"
   }
 ]

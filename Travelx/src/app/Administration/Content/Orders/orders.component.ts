@@ -3,9 +3,11 @@ import { MatSelectModule, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angu
 import { Observable } from 'rxjs';
 
 import { Dictionary } from "@common/Types/Dictionary";
+import { PreloaderService } from "@common/Services/preloader.service";
+import { PageOptions } from "@common/Services/pager.service";
+
 import { OrderService } from "@administrationCommon/Services/order.service";
 import { Order } from "@administrationCommon/Services/order.service";
-import { PageOptions } from "@common/Services/pager.service";
 import { ConfirmationPopupComponent } from "@administrationCommon/Components/ConfirmationPopup/confirmationPopup.component";
 import { PagerComponent } from "@administrationCommon/Components/Pager/pager.component";
 
@@ -23,7 +25,9 @@ export class OrdersComponent implements OnInit
 
     constructor(
         public dialog: MatDialog,
-        private orderService: OrderService)
+        private orderService: OrderService,
+        private preloaderService: PreloaderService,
+    )
     { }
 
     ngOnInit()
@@ -48,6 +52,7 @@ export class OrdersComponent implements OnInit
 
     private markAsProcessedConfirm (order: Order) : void
     {
+        this.preloaderService.startPreloader()
         order.isNew = false;
         this.orderService.saveOrder(order)
         .subscribe(
@@ -55,7 +60,9 @@ export class OrdersComponent implements OnInit
             {
                 this.getOrdersPage(this.pageOptions);
             },
-            error => this.errorMessage = error);
+            error => this.errorMessage = error,
+            () => this.preloaderService.finishPreloader()
+        );
     }
 
     public openDeleteConfirmation(orderId: number) : void
@@ -68,21 +75,30 @@ export class OrdersComponent implements OnInit
             .subscribe(result => {
                 if(result)
                 {
+                    this.preloaderService.startPreloader()
                      this.orderService.deleteOrder(orderId)
-                         .subscribe(() => this.getOrdersPage(this.pageOptions));
+                         .subscribe(
+                             () => this.getOrdersPage(this.pageOptions),
+                             (err) => console.log(err),
+                             () => this.preloaderService.finishPreloader()
+                         );
                 }
             });
     }
 
     private getOrdersPage(pageOptions: PageOptions)
     {
+        this.preloaderService.startPreloader();
         this.pageOptions = pageOptions;
         this.orderService.getOrdersPage(pageOptions.skip, pageOptions.take)
         .subscribe(data => 
-        {
-            this.orderCollection = data.collection;
-            this.pagerComponent.updatePager(data.count);
-        });
+            {
+                this.orderCollection = data.collection;
+                this.pagerComponent.updatePager(data.count);
+            }, 
+            (err) => console.log(err),
+            () => this.preloaderService.finishPreloader()
+        );
     }
 
 }

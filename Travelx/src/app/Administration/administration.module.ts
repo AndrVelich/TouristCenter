@@ -29,7 +29,7 @@ import { PromotionComponent } from "./Content/Promotions/Promotion/promotion.com
 import { ToursComponent } from "./Content/Tours/tours.component";
 import { TourComponent } from "./Content/Tours/Tour/tour.component";
 import { LoginComponent } from "./Login/login.component";
-import { RegisterComponent } from "./Content/Register/register.component";
+import { RegisterComponent } from "./Content/Users/Register/register.component";
 import { OrdersComponent } from "./Content/Orders/orders.component";
 import { UsersComponent } from "./Content/Users/users.component";
 

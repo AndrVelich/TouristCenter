@@ -9,12 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component } from "@angular/core";
 import { MatDialog } from '@angular/material';
+import { PreloaderService } from "@common/Services/preloader.service";
 import { ConfirmationPopupComponent } from "@administrationCommon/Components/ConfirmationPopup/confirmationPopup.component";
 import { PromotionService } from "@administrationCommon/Services/promotion.service";
 var PromotionsComponent = /** @class */ (function () {
-    function PromotionsComponent(dialog, promotionService) {
+    function PromotionsComponent(dialog, promotionService, preloaderService) {
         this.dialog = dialog;
         this.promotionService = promotionService;
+        this.preloaderService = preloaderService;
         this.promotionCollection = new Array();
     }
     PromotionsComponent.prototype.ngOnInit = function () {
@@ -29,14 +31,15 @@ var PromotionsComponent = /** @class */ (function () {
             .subscribe(function (result) {
             if (result) {
                 _this.promotionService.deletePromotion(promotionId)
-                    .subscribe(function () { return _this.getPromotionCollection(); });
+                    .subscribe(function () { return _this.getPromotionCollection(); }, function (error) { return _this.errorMessage = error; }, function () { return _this.preloaderService.finishPreloader(); });
             }
         });
     };
     PromotionsComponent.prototype.getPromotionCollection = function () {
         var _this = this;
+        this.preloaderService.startPreloader();
         this.promotionService.getPromotionCollection()
-            .subscribe(function (data) { return _this.promotionCollection = data; });
+            .subscribe(function (data) { return _this.promotionCollection = data; }, function (error) { return _this.errorMessage = error; }, function () { return _this.preloaderService.finishPreloader(); });
     };
     PromotionsComponent = __decorate([
         Component({
@@ -45,7 +48,8 @@ var PromotionsComponent = /** @class */ (function () {
             styleUrls: ["promotions.component.css"]
         }),
         __metadata("design:paramtypes", [MatDialog,
-            PromotionService])
+            PromotionService,
+            PreloaderService])
     ], PromotionsComponent);
     return PromotionsComponent;
 }());
