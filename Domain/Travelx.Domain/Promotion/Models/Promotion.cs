@@ -79,6 +79,8 @@ namespace Travelx.Domain.Promotion.Models
 
         public string Title { get; set; }
 
+        public bool IsActive { get; set; }
+
         public string MetaDescription { get; set; }
 
         public string MetaKeywords { get; set; }
@@ -94,6 +96,7 @@ namespace Travelx.Domain.Promotion.Models
             _description = dataModel.Description;
             _untilDate = dataModel.UntilDate;
             Title = dataModel.Title;
+            IsActive = dataModel.IsActive;
             MetaDescription = dataModel.MetaDescription;
             MetaKeywords = dataModel.MetaKeywords;
             _imageIdCollection = dataModel.PromotionImages?.Select(ci => ci.ImageId).ToList() ??
@@ -105,7 +108,8 @@ namespace Travelx.Domain.Promotion.Models
             string name,
             string urlName,
             string description,
-            DateTime untilDate
+            DateTime untilDate,
+            bool isActive
             )
         {
             _promotionDataManager = promotionDataManager;
@@ -115,6 +119,7 @@ namespace Travelx.Domain.Promotion.Models
             UrlName = urlName;
             Description = description;
             UntilDate = untilDate;
+            IsActive = isActive;
             _imageIdCollection = new List<int>();
         }
 
@@ -170,6 +175,7 @@ namespace Travelx.Domain.Promotion.Models
                 Description = Description,
                 UntilDate = UntilDate,
                 Title = Title,
+                IsActive = IsActive,
                 MetaDescription = MetaDescription,
                 MetaKeywords = MetaKeywords
             };

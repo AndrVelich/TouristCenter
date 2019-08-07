@@ -25,7 +25,17 @@
                         </a>
                         <div [innerHtml]="promotion.description"></div>
                         <div>
-                            <div class="until-date"> Действует до <strong>{{promotion.untilDate | date: 'yyyy-MM-dd'}}</strong></div>
+                            <div *ngIf="promotion.isActive" style="color:green">
+                                <i class="fa fa-check" aria-hidden="true"></i>
+                                <span>Active</span>
+                            </div>
+                            <div *ngIf="!promotion.isActive" style="color:red">
+                                <i class="fa fa-ban" aria-hidden="true"></i>
+                                <span>Disabled</span>
+                            </div>
+                            <div class="until-date">
+                                Действует до <strong>{{promotion.untilDate | date: 'yyyy-MM-dd'}}</strong>
+                            </div>
                         </div>
                     </div>
                 </div>

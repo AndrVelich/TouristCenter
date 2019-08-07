@@ -44,7 +44,7 @@ export class PromotionDetailsComponent {
 
     private getPromotion()
     {
-        this.promotionService.getPromotion(this.promotion.urlName)
+        this.promotionService.getActivePromotion(this.promotion.urlName)
             .subscribe(data => { this.promotion = data;
                 this.setTitleAndMeta();
             });

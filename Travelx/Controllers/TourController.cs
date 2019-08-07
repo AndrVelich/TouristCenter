@@ -96,6 +96,7 @@ namespace Travelx.Controllers
         }
 
         [Authorize]
+        [Route("api/tour")]
         public void Post([FromBody]TourViewModel tour)
         {
             ITour tourModel;

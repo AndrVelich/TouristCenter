@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TextMaskModule } from 'angular2-text-mask';
 import { RouterModule } from "@angular/router";
 import { MatDialogModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
+import { CKEditorModule } from 'ckeditor4-angular';
 import { CommonModule } from "@common/common.module";
 import { routes } from "./administration.routes";
 import { AdministrationComponent } from "./administration.component";
@@ -39,6 +40,7 @@ import { LoginService } from "./Common/Services/login.service";
 import { RegisterService } from "./Common/Services/register.service";
 import { OrderService } from "./Common/Services/order.service";
 import { AccountService } from "./Common/Services/account.service";
+import { CkeditorService } from "@administrationCommon/Services/ckeditor.service";
 var AdministrationModule = /** @class */ (function () {
     function AdministrationModule() {
     }
@@ -55,6 +57,7 @@ var AdministrationModule = /** @class */ (function () {
                 MatNativeDateModule,
                 TextMaskModule,
                 CommonModule,
+                CKEditorModule,
                 //Obsolete
                 HttpModule,
                 HttpClientModule,
@@ -69,6 +72,7 @@ var AdministrationModule = /** @class */ (function () {
                 OrderService,
                 MatDatepickerModule,
                 AccountService,
+                CkeditorService
             ],
             entryComponents: [
                 ConfirmationPopupComponent,

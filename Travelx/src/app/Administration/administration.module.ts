@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+﻿import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
@@ -14,6 +14,7 @@ import {
     MatNativeDateModule,
     MatInputModule
 } from '@angular/material';
+import { CKEditorModule } from 'ckeditor4-angular';
 
 import { CommonModule } from "@common/common.module";
 import { routes } from "./administration.routes";
@@ -43,6 +44,7 @@ import { LoginService } from "./Common/Services/login.service";
 import { RegisterService } from "./Common/Services/register.service";
 import { OrderService } from "./Common/Services/order.service";
 import { AccountService } from "./Common/Services/account.service";
+import { CkeditorService } from "@administrationCommon/Services/ckeditor.service";
 
 @NgModule({
     imports:
@@ -59,6 +61,8 @@ import { AccountService } from "./Common/Services/account.service";
 
             TextMaskModule,
             CommonModule,
+            CKEditorModule,
+
             //Obsolete
             HttpModule,
             HttpClientModule,
@@ -75,6 +79,7 @@ import { AccountService } from "./Common/Services/account.service";
             OrderService,
             MatDatepickerModule,
             AccountService,
+            CkeditorService
         ],
     entryComponents:
         [

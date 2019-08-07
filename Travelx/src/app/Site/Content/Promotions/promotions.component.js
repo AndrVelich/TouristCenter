@@ -29,7 +29,7 @@ var PromotionsComponent = /** @class */ (function () {
     PromotionsComponent.prototype.getPromotionCollection = function () {
         var _this = this;
         this.preloaderService.startPreloader();
-        this.promotionService.getPromotionCollection()
+        this.promotionService.getActivePromotionCollection()
             .subscribe(function (data) { return _this.promotionCollection = data; }, function (err) { return console.log(err); }, function () { return _this.preloaderService.finishPreloader(); });
     };
     PromotionsComponent.prototype.openOrderPopup = function (button) {

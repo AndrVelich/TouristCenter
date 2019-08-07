@@ -44,9 +44,35 @@ namespace Travelx.Domain.Promotion.Managers
             return promotion;
         }
 
+        public IPromotion GetActivePromotion(string promotionUrl)
+        {
+            var promotionDataModel = _promotionDataManager.GetPromotion(promotionUrl);
+            if (promotionDataModel == null)
+            {
+                throw new PromotionNotFoundException();
+            }
+            if (!promotionDataModel.IsActive)
+            {
+                throw new ActivePromotionNotFoundException();
+            }
+
+            var promotion = new PromotionModel(promotionDataModel, _promotionDataManager);
+
+            return promotion;
+        }
+
         public IReadOnlyCollection<IPromotion> GetPromotionCollection()
         {
             var promotions = _promotionDataManager.GetPromotionCollection()
+                .Select(c => new PromotionModel(c, _promotionDataManager))
+                .ToList();
+
+            return promotions;
+        }
+
+        public IReadOnlyCollection<IPromotion> GetActivePromotionCollection()
+        {
+            var promotions = _promotionDataManager.GetActivePromotionCollection()
                 .Select(c => new PromotionModel(c, _promotionDataManager))
                 .ToList();
 
@@ -57,14 +83,16 @@ namespace Travelx.Domain.Promotion.Managers
             string name,
             string urlName,
             string description,
-            DateTime untilDate)
+            DateTime untilDate,
+            bool isActive)
         {
             var promotion = new PromotionModel(
                 _promotionDataManager,
                 name,
                 urlName,
                 description,
-                untilDate
+                untilDate,
+                isActive
                );
 
             return promotion;

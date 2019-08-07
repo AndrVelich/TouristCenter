@@ -12,6 +12,7 @@ import { Country } from "@administrationCommon/Services/country.service";
 
 import { TourService } from "@administrationCommon/Services/tour.service";
 import { Tour } from "@administrationCommon/Services/tour.service";
+import { CkeditorService } from "@administrationCommon/Services/ckeditor.service";
 
 @Component({
     selector: "tour",
@@ -31,6 +32,7 @@ export class TourComponent {
     public errorMessage: string;
 
     constructor(
+        private ckeditorService: CkeditorService,
         private tourTypeService: TourTypeService,
         private countryService: CountryService,
         private tourService: TourService,

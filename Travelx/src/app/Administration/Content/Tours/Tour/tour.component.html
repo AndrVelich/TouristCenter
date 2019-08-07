@@ -4,7 +4,7 @@
             <div [formGroup]="tourForm" class="tour">
                 <div class="row">
                     <div class="col-md-6 col-sm-6 tour-descriptions">
-                        <div class="mb-3">
+                        <div class="control-section">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Название</span>
                                 <span class="required">*</span>
@@ -16,7 +16,7 @@
                                    [(ngModel)]="tour.name"
                                    aria-describedby="basic-addon1">
                         </div>
-                        <div class="mb-3">
+                        <div class="control-section">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Название для строки запроса(латиницей)</span>
                                 <span class="required">*</span>
@@ -28,7 +28,7 @@
                                    [(ngModel)]="tour.urlName"
                                    aria-describedby="basic-addon1">
                         </div>
-                        <div class="mb-3">
+                        <div class="control-section">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Город</span>
                                 <span class="required">*</span>
@@ -40,7 +40,7 @@
                                    [(ngModel)]="tour.city"
                                    aria-describedby="basic-addon1">
                         </div>
-                        <div class="mb-3">
+                        <div class="control-section">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
                                     Цена
@@ -54,7 +54,7 @@
                                    [(ngModel)]="tour.price"
                                    aria-describedby="basic-addon1">
                         </div>
-                        <div class="mb-3">
+                        <div class="control-section">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
                                     Перелет включен
@@ -68,7 +68,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6 tour-prices">
-                        <div class="mb-3">
+                        <div class="control-section">
                             <div class="input-group-prepend">
                                 <span class="input-group-text stars">
                                     X<span class="s"></span>
@@ -82,7 +82,7 @@
                                    [(ngModel)]="tour.stars"
                                    aria-describedby="basic-addon1">
                         </div>
-                        <div class="mb-3">
+                        <div class="control-section">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Ночей</span>
                                 <span class="required">*</span>
@@ -94,7 +94,7 @@
                                    [(ngModel)]="tour.nights"
                                    aria-describedby="basic-addon1">
                         </div>
-                        <div class="mb-3">
+                        <div class="control-section">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Категория</span>
                                 <span class="required">*</span>
@@ -108,7 +108,7 @@
                                 </mat-option>
                             </mat-select>
                         </div>
-                        <div class="mb-3">
+                        <div class="control-section">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Страна</span>
                                 <span class="required">*</span>
@@ -145,17 +145,14 @@
                     </a>
                 </div>
                 <div class="content-fields">
-                    <div class="mb-3">
+                    <div class="control-section">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Описание</span>
                         </div>
-                        <textarea type="text"
-                                  name="tourDescription"
-                                  class="form-control tour-description"
+                        <ckeditor name="tourDescription"
+                                  editorUrl="{{ckeditorService.ckeditorUrl}}"
                                   formControlName="description"
-                                  [(ngModel)]="tour.description"
-                                  aria-describedby="basic-addon1">
-                        </textarea>
+                                  [(ngModel)]="tour.description"></ckeditor>
                     </div>
                 </div>
                 <div class="actions">

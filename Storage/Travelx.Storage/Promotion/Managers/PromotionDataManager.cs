@@ -44,6 +44,16 @@ namespace Travelx.Storage.Promotion.Managers
             return countries;
         }
 
+        public IReadOnlyCollection<PromotionDataModel> GetActivePromotionCollection()
+        {
+            var countries = _dbContext.Promotions
+                .Include(t => t.PromotionImages)
+                .Where(p => p.IsActive)
+                .AsNoTracking()
+                .ToList();
+            return countries;
+        }
+
         public PromotionDataModel CreatePromotion(PromotionDataModel promotionDataModel)
         {
             var result = _dbContext.Promotions.Add(promotionDataModel).Entity;

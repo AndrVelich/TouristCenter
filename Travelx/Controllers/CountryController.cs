@@ -81,6 +81,7 @@ namespace Travelx.Controllers
         }
 
         [Authorize]
+        [Route("api/country")]
         public void Post([FromBody]CountryViewModel country)
         {
             ICountry countryModel;

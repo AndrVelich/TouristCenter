@@ -4,7 +4,7 @@
             <div [formGroup]="countryForm" class="country">
                 <div class="row">
                     <div class="col-md-6 col-sm-6 country-descriptions">
-                        <div class="mb-3">
+                        <div class="control-section">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Название</span>
                                 <span class="required">*</span>
@@ -16,7 +16,7 @@
                                    [(ngModel)]="country.name"
                                    aria-describedby="basic-addon1">
                         </div>
-                        <div class="mb-3">
+                        <div class="control-section">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Название для строки запроса(латиницей)</span>
                                 <span class="required">*</span>
@@ -28,7 +28,7 @@
                                    [(ngModel)]="country.urlName"
                                    aria-describedby="basic-addon1">
                         </div>
-                        <div class="mb-3">
+                        <div class="control-section">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Категория</span>
                                 <span class="required">*</span>
@@ -41,7 +41,7 @@
                                 </mat-option>
                             </mat-select>
                         </div>
-                        <div class="mb-3">
+                        <div class="control-section">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Title</span>
                             </div>
@@ -55,7 +55,7 @@
                     </div>
                     <div class="col-md-6 col-sm-6 country-prices">
                         <div class="hotels">
-                            <div class="mb-3">
+                            <div class="control-section">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text stars">
                                         <span class="s"></span><span class="s"></span><span class="s"></span><span class="s"></span><span class="s"></span>
@@ -69,7 +69,7 @@
                                        [(ngModel)]="country.fiveStarsPrice"
                                        aria-describedby="basic-addon1">
                             </div>
-                            <div class="mb-3">
+                            <div class="control-section">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text stars">
                                         <span class="s"></span><span class="s"></span><span class="s"></span><span class="s"></span>
@@ -83,7 +83,7 @@
                                        [(ngModel)]="country.fourStarsPrice"
                                        aria-describedby="basic-addon1">
                             </div>
-                            <div class="mb-3">
+                            <div class="control-section">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text stars">
                                         <span class="s"></span><span class="s"></span><span class="s"></span>
@@ -122,19 +122,19 @@
                     </a>
                 </div>
                 <div class="content-fields">
-                    <div class="mb-3">
+                    <div class="control-section">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Описание</span>
                             <span class="required">*</span>
                         </div>
-                        <textarea type="text"
-                                  name="description"
-                                  class="form-control small-height"
+                        <ckeditor name="description"
+                                  editorUrl="{{ckeditorService.ckeditorUrl}}"
+                                  [config]="{ extraPlugins: 'colorbutton' }"
                                   formControlName="description"
-                                  [(ngModel)]="country.description"
-                                  aria-describedby="basic-addon1"></textarea>
+                                  [(ngModel)]="country.description"></ckeditor>
+
                     </div>
-                    <div class="mb-3">
+                    <div class="control-section">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Meta description</span>
                         </div>
@@ -145,7 +145,7 @@
                                   [(ngModel)]="country.metaDescription"
                                   aria-describedby="basic-addon1"></textarea>
                     </div>
-                    <div class="mb-3">
+                    <div class="control-section">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Meta keywords</span>
                         </div>
@@ -156,7 +156,7 @@
                                   [(ngModel)]="country.metaKeywords"
                                   aria-describedby="basic-addon1"></textarea>
                     </div>
-                    <div class="mb-3">
+                    <div class="control-section">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Header</span>
                         </div>
@@ -167,28 +167,25 @@
                                   [(ngModel)]="country.pageHeader"
                                   aria-describedby="basic-addon1"></textarea>
                     </div>
-                    <div class="mb-3">
+                    <div class="control-section">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Контент для страницы верхний</span>
                             <span class="required">*</span>
                         </div>
-                        <textarea type="text"
-                                  name="pageContent"
-                                  class="form-control large-height"
+                        <ckeditor name="pageContent"
+                                  editorUrl="{{ckeditorService.ckeditorUrl}}"
                                   formControlName="pageContent"
-                                  [(ngModel)]="country.pageContent"
-                                  aria-describedby="basic-addon1"></textarea>
+                                  [(ngModel)]="country.pageContent"></ckeditor>
                     </div>
-                    <div class="mb-3">
+                    <div class="control-section">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Контент для страницы нижний</span>
                         </div>
-                        <textarea type="text"
-                                  name="pageContentBottom"
-                                  class="form-control large-height"
+                        <ckeditor name="pageContentBottom"
+                                  editorUrl="{{ckeditorService.ckeditorUrl}}"
                                   formControlName="pageContentBottom"
-                                  [(ngModel)]="country.pageContentBottom"
-                                  aria-describedby="basic-addon1"></textarea>
+                                  [(ngModel)]="country.pageContentBottom"></ckeditor>
+
                     </div>
                 </div>
                 <div class="actions">

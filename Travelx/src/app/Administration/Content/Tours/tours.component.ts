@@ -17,6 +17,8 @@ import { Country } from "@administrationCommon/Services/country.service";
 import { TourService } from "@administrationCommon/Services/tour.service";
 import { Tour } from "@administrationCommon/Services/tour.service";
 
+import { CkeditorService } from "@administrationCommon/Services/ckeditor.service";
+
 @Component({
     selector: "tours",
     templateUrl: "tours.component.html",
@@ -37,6 +39,7 @@ export class ToursComponent {
 
     constructor(
         public dialog: MatDialog,
+        public ckeditorService: CkeditorService,
         private activeRoute: ActivatedRoute,
         private routerService: RouterService,
         private tourTypeService: TourTypeService,

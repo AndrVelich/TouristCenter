@@ -16,8 +16,10 @@ import { PreloaderService } from "@common/Services/preloader.service";
 import { CountryService } from "@administrationCommon/Services/country.service";
 import { TourService } from "@administrationCommon/Services/tour.service";
 import { Tour } from "@administrationCommon/Services/tour.service";
+import { CkeditorService } from "@administrationCommon/Services/ckeditor.service";
 var TourComponent = /** @class */ (function () {
-    function TourComponent(tourTypeService, countryService, tourService, fb, activeRoute, router, preloaderService) {
+    function TourComponent(ckeditorService, tourTypeService, countryService, tourService, fb, activeRoute, router, preloaderService) {
+        this.ckeditorService = ckeditorService;
         this.tourTypeService = tourTypeService;
         this.countryService = countryService;
         this.tourService = tourService;
@@ -137,7 +139,8 @@ var TourComponent = /** @class */ (function () {
             styleUrls: ["tour.component.css"],
             providers: [CountryService]
         }),
-        __metadata("design:paramtypes", [TourTypeService,
+        __metadata("design:paramtypes", [CkeditorService,
+            TourTypeService,
             CountryService,
             TourService,
             FormBuilder,

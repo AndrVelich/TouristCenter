@@ -19,6 +19,8 @@ namespace Travelx.Models.Promotion
 
         public string Title { get; set; }
 
+        public bool IsActive { get; set; }
+
         public string MetaDescription { get; set; }
 
         public string MetaKeywords { get; set; }
@@ -37,6 +39,7 @@ namespace Travelx.Models.Promotion
             Title = promotion.Title;
             MetaDescription = promotion.MetaDescription;
             MetaKeywords = promotion.MetaKeywords;
+            IsActive = promotion.IsActive;
 
             NewImageCollection = new List<string>();
             OldImageCollection = promotion.ImageIdCollection.ToList();

@@ -19,9 +19,11 @@ import { PreloaderService } from "@common/Services/preloader.service";
 import { ConfirmationPopupComponent } from "@administrationCommon/Components/ConfirmationPopup/confirmationPopup.component";
 import { CountryService } from "@administrationCommon/Services/country.service";
 import { TourService } from "@administrationCommon/Services/tour.service";
+import { CkeditorService } from "@administrationCommon/Services/ckeditor.service";
 var ToursComponent = /** @class */ (function () {
-    function ToursComponent(dialog, activeRoute, routerService, tourTypeService, countryService, tourService, preloaderService) {
+    function ToursComponent(dialog, ckeditorService, activeRoute, routerService, tourTypeService, countryService, tourService, preloaderService) {
         this.dialog = dialog;
+        this.ckeditorService = ckeditorService;
         this.activeRoute = activeRoute;
         this.routerService = routerService;
         this.tourTypeService = tourTypeService;
@@ -123,6 +125,7 @@ var ToursComponent = /** @class */ (function () {
             styleUrls: ["tours.component.css"]
         }),
         __metadata("design:paramtypes", [MatDialog,
+            CkeditorService,
             ActivatedRoute,
             RouterService,
             TourTypeService,

@@ -36,7 +36,7 @@ var PromotionDetailsComponent = /** @class */ (function () {
     };
     PromotionDetailsComponent.prototype.getPromotion = function () {
         var _this = this;
-        this.promotionService.getPromotion(this.promotion.urlName)
+        this.promotionService.getActivePromotion(this.promotion.urlName)
             .subscribe(function (data) {
             _this.promotion = data;
             _this.setTitleAndMeta();

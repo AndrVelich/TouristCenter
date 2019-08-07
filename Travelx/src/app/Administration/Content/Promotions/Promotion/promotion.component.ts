@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { PreloaderService } from "@common/Services/preloader.service";
 import { PromotionService } from "@administrationCommon/Services/promotion.service";
 import { Promotion } from "@administrationCommon/Services/promotion.service";
+import { CkeditorService } from "@administrationCommon/Services/ckeditor.service";
 
 @Component({
     selector: "promotion",
@@ -17,6 +18,7 @@ export class PromotionComponent implements OnInit  {
     public errorMessage: string;
 
     constructor(
+        public ckeditorService: CkeditorService,
         private promotionService: PromotionService,
         private fb: FormBuilder,
         private activeRoute: ActivatedRoute,
@@ -108,6 +110,7 @@ export class PromotionComponent implements OnInit  {
             "title": [this.promotion.title, []],
             "metaDescription": [this.promotion.metaDescription, []],
             "metaKeywords": [this.promotion.metaKeywords, []],
+            "isActive": [this.promotion.isActive],
         });
     }
 }

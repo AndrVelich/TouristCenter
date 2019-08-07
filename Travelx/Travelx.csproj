@@ -17,6 +17,8 @@
   <ItemGroup>
     <Folder Include="obj\" />
     <Folder Include="src\assets\administration\images\" />
+    <Folder Include="src\assets\administration\plugins\" />
+    <Folder Include="src\assets\administration\plugins\ckeditor\" />
     <Folder Include="wwwroot\distSite\" />
   </ItemGroup>
 

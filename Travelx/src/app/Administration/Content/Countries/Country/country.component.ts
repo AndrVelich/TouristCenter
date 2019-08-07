@@ -8,6 +8,7 @@ import { PreloaderService } from "@common/Services/preloader.service";
 import { TourTypeService } from "@common/Services/tourType.service"; 
 import { CountryService } from "@administrationCommon/Services/country.service";
 import { Country } from "@administrationCommon/Services/country.service";
+import { CkeditorService } from "@administrationCommon/Services/ckeditor.service";
 
 @Component({
     selector: "country",
@@ -25,6 +26,7 @@ export class CountryComponent implements OnInit  {
     public errorMessage: string;
 
     constructor(
+        public ckeditorService: CkeditorService,
         private tourTypeService: TourTypeService,
         private countryService: CountryService,
         private fb: FormBuilder,

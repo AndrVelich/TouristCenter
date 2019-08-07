@@ -34,7 +34,7 @@ export class PromotionsComponent {
     private getPromotionCollection()
     {
         this.preloaderService.startPreloader();
-        this.promotionService.getPromotionCollection()
+        this.promotionService.getActivePromotionCollection()
         .subscribe(data => this.promotionCollection = data,
                     (err)=> console.log(err),
                     ()=> this.preloaderService.finishPreloader());

@@ -25,6 +25,7 @@ namespace Travelx.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         [Route("api/promotion/{promotionUrl}")]
         public PromotionViewModel GetPromotion(string promotionUrl)
         {
@@ -35,6 +36,17 @@ namespace Travelx.Controllers
         }
 
         [HttpGet]
+        [Route("api/promotion/active/{promotionUrl}")]
+        public PromotionViewModel GetActivePromotion(string promotionUrl)
+        {
+            var promotion = _promotionManager.GetActivePromotion(promotionUrl);
+            var promotionViewModel = new PromotionViewModel(promotion);
+
+            return promotionViewModel;
+        }
+
+        [HttpGet]
+        [Authorize]
         [Route("api/promotions")]
         public List<PromotionViewModel> GetCollection()
         {
@@ -44,7 +56,18 @@ namespace Travelx.Controllers
             return result;
         }
 
+        [HttpGet]
+        [Route("api/promotions/active")]
+        public List<PromotionViewModel> GetActiveCollection()
+        {
+            var promotions = _promotionManager.GetActivePromotionCollection();
+            var result = promotions.Select(c => new PromotionViewModel(c)).ToList();
+
+            return result;
+        }
+
         [Authorize]
+        [Route("api/promotion")]
         public void Post([FromBody]PromotionViewModel promotion)
         {
             IPromotion promotionModel;
@@ -55,6 +78,7 @@ namespace Travelx.Controllers
                 promotionModel.UrlName = promotion.UrlName;
                 promotionModel.Description = promotion.Description;
                 promotionModel.UntilDate = promotion.UntilDate;
+                promotionModel.IsActive = promotion.IsActive;
             }
             catch (PromotionNotFoundException)
             {
@@ -62,7 +86,8 @@ namespace Travelx.Controllers
                         promotion.Name,
                         promotion.UrlName,
                         promotion.Description,
-                        promotion.UntilDate
+                        promotion.UntilDate,
+                        promotion.IsActive
                     );
             }
             

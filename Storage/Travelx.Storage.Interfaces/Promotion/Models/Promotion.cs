@@ -30,6 +30,8 @@ namespace Travelx.Storage.Interfaces.Promotion.Models
 
         public string Title { get; set; }
 
+        public bool IsActive { get; set; }
+
         public string MetaDescription { get; set; }
 
         public string MetaKeywords { get; set; }

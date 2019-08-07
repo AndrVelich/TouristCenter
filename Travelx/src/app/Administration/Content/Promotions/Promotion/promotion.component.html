@@ -4,7 +4,7 @@
             <div [formGroup]="promotionForm" class="promotion">
                 <div class="row">
                     <div class="col-md-6 col-sm-6 promotion-descriptions">
-                        <div class="mb-3">
+                        <div class="control-section">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Название</span>
                                 <span class="required">*</span>
@@ -16,7 +16,7 @@
                                    [(ngModel)]="promotion.name"
                                    aria-describedby="basic-addon1">
                         </div>
-                        <div class="mb-3">
+                        <div class="control-section">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Название для строки запроса(латиницей)</span>
                                 <span class="required">*</span>
@@ -28,7 +28,7 @@
                                    [(ngModel)]="promotion.urlName"
                                    aria-describedby="basic-addon1">
                         </div>
-                        <div class="mb-3">
+                        <div class="control-section">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Срок действия акции</span>
                                 <span class="required">*</span>
@@ -42,6 +42,18 @@
                                 <mat-datepicker-toggle matSuffix [for]="untilDate"></mat-datepicker-toggle>
                                 <mat-datepicker #untilDate></mat-datepicker>
                             </div>
+                        </div>
+                        <div class="control-section">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    Active
+                                </span>
+                            </div>
+                            <input type="checkbox"
+                                   name="isActive"
+                                   formControlName="isActive"
+                                   [(ngModel)]="promotion.isActive"
+                                   aria-describedby="basic-addon1">
                         </div>
                     </div>
                 </div>
@@ -66,19 +78,17 @@
                     </a>
                 </div>
                 <div class="content-fields">
-                    <div class="mb-3">
+                    <div class="control-section">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Описание</span>
                             <span class="required">*</span>
                         </div>
-                        <textarea type="text"
-                                  name="description"
-                                  class="form-control promotion-description"
+                        <ckeditor name="description"
+                                  editorUrl="{{ckeditorService.ckeditorUrl}}"
                                   formControlName="description"
-                                  [(ngModel)]="promotion.description"
-                                  aria-describedby="basic-addon1"></textarea>
+                                  [(ngModel)]="promotion.description"></ckeditor>
                     </div>
-                    <div class="mb-3">
+                    <div class="control-section">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Title</span>
                             <span class="required">*</span>
@@ -90,7 +100,7 @@
                                   [(ngModel)]="promotion.title"
                                   aria-describedby="basic-addon1"></textarea>
                     </div>
-                    <div class="mb-3">
+                    <div class="control-section">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Meta description</span>
                             <span class="required">*</span>
@@ -102,7 +112,7 @@
                                   [(ngModel)]="promotion.metaDescription"
                                   aria-describedby="basic-addon1"></textarea>
                     </div>
-                    <div class="mb-3">
+                    <div class="control-section">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Meta keywords</span>
                             <span class="required">*</span>

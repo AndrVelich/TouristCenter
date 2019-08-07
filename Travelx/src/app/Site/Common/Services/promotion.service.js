@@ -7,36 +7,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { throwError as observableThrowError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
 import { Injectable } from "@angular/core";
-import { Http, Response } from "@angular/http";
+import { HttpClient } from '@angular/common/http';
 var PromotionService = /** @class */ (function () {
-    function PromotionService(http) {
-        this.http = http;
+    function PromotionService(httpClient) {
+        this.httpClient = httpClient;
         this.url = '/api/promotion';
     }
-    PromotionService.prototype.getPromotionCollection = function () {
-        return this.http.get('api/promotions').pipe(map(function (res) { return res.json(); }), catchError(this.handleError));
+    PromotionService.prototype.getActivePromotionCollection = function () {
+        return this.httpClient.get('api/promotions/active');
     };
-    PromotionService.prototype.getPromotion = function (promotionUrlName) {
-        return this.http.get('api/promotion/' + promotionUrlName).pipe(map(function (res) { return res.json(); }), catchError(this.handleError));
-    };
-    PromotionService.prototype.handleError = function (error, cought) {
-        var message = "";
-        if (error instanceof Response) {
-            var errorData = error.json().error || JSON.stringify(error.json());
-            message = error.status + " - " + (error.statusText || '') + " " + errorData;
-        }
-        else {
-            message = error.message ? error.message : error.toString();
-        }
-        console.error(message);
-        return observableThrowError(message);
+    PromotionService.prototype.getActivePromotion = function (promotionUrlName) {
+        return this.httpClient.get('api/promotion/active/' + promotionUrlName);
     };
     PromotionService = __decorate([
         Injectable(),
-        __metadata("design:paramtypes", [Http])
+        __metadata("design:paramtypes", [HttpClient])
     ], PromotionService);
     return PromotionService;
 }());

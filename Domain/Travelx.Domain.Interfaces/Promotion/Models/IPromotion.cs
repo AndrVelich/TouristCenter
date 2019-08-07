@@ -17,6 +17,8 @@ namespace Travelx.Domain.Interfaces.Promotion.Models
 
         string Title { get; set; }
 
+        bool IsActive { get; set; }
+
         string MetaDescription { get; set; }
 
         string MetaKeywords { get; set; }

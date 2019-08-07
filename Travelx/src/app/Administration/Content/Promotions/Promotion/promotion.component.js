@@ -13,8 +13,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { PreloaderService } from "@common/Services/preloader.service";
 import { PromotionService } from "@administrationCommon/Services/promotion.service";
 import { Promotion } from "@administrationCommon/Services/promotion.service";
+import { CkeditorService } from "@administrationCommon/Services/ckeditor.service";
 var PromotionComponent = /** @class */ (function () {
-    function PromotionComponent(promotionService, fb, activeRoute, router, preloaderService) {
+    function PromotionComponent(ckeditorService, promotionService, fb, activeRoute, router, preloaderService) {
+        this.ckeditorService = ckeditorService;
         this.promotionService = promotionService;
         this.fb = fb;
         this.activeRoute = activeRoute;
@@ -87,6 +89,7 @@ var PromotionComponent = /** @class */ (function () {
             "title": [this.promotion.title, []],
             "metaDescription": [this.promotion.metaDescription, []],
             "metaKeywords": [this.promotion.metaKeywords, []],
+            "isActive": [this.promotion.isActive],
         });
     };
     PromotionComponent = __decorate([
@@ -95,7 +98,8 @@ var PromotionComponent = /** @class */ (function () {
             templateUrl: "promotion.component.html",
             styleUrls: ["promotion.component.css"]
         }),
-        __metadata("design:paramtypes", [PromotionService,
+        __metadata("design:paramtypes", [CkeditorService,
+            PromotionService,
             FormBuilder,
             ActivatedRoute,
             Router,
