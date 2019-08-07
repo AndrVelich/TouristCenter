@@ -25,6 +25,6 @@ export class IndividualCountryComponent {
     private setTitleAndMeta() : void
     {
         this.titleService.setTitle("Индивидуальный отдых");
-        this.metaService.addTag({ name: 'description', content: "Индивидуальный отдых" });
+        this.metaService.updateTag({ name: 'description', content: "Индивидуальный отдых" });
     }
 }

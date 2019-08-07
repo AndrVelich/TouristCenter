@@ -25,6 +25,6 @@ export class NewYearCountryComponent {
     private setTitleAndMeta() : void
     {
         this.titleService.setTitle("Новогодние туры");
-        this.metaService.addTag({ name: 'description', content: "Новогодние туры" });
+        this.metaService.updateTag({ name: 'description', content: "Новогодние туры" });
     }
 }

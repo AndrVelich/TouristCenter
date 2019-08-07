@@ -24,6 +24,6 @@ export class CorporateCountryComponent {
     private setTitleAndMeta() : void
     {
         this.titleService.setTitle("Корпоративные туры");
-        this.metaService.addTag({ name: 'description', content: "Корпоративные туры" });
+        this.metaService.updateTag({ name: 'description', content: "Корпоративные туры" });
     }
 }

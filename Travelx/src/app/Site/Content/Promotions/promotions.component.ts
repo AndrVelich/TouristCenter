@@ -49,6 +49,6 @@ export class PromotionsComponent {
     private setTitleAndMeta() : void
     {
         this.titleService.setTitle("Акции");
-        this.metaService.addTag({ name: 'description', content: "Акции" });
+        this.metaService.updateTag({ name: 'description', content: "Акции" });
     }
 }

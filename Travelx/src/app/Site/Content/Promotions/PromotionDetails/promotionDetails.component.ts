@@ -68,12 +68,12 @@ export class PromotionDetailsComponent {
 
         if(this.promotion && this.promotion.metaDescription != null)
         {
-            this.metaService.addTag({ name: 'description', content: this.promotion.metaDescription });
+            this.metaService.updateTag({ name: 'description', content: this.promotion.metaDescription });
         }
 
         if(this.promotion && this.promotion.metaKeywords != null)
         {
-            this.metaService.addTag({ name: 'keywords', content: this.promotion.metaKeywords });
+            this.metaService.updateTag({ name: 'keywords', content: this.promotion.metaKeywords });
         }
     }
 

@@ -46,8 +46,8 @@ export class HotCountriesComponent {
     private setTitleAndMeta() : void
     {
         this.titleService.setTitle("Горящие туры. Путёвки из Минска.");
-        this.metaService.addTag({ name: 'description', content: "➤ Горящие туры на море. ➤Путёвки из Минска, Москвы и Киева. ➤Более 6 830 горячих предложений. ➤Экономия до 39% здесь ➥" });
-        this.metaService.addTag({ name: 'keywords', content: "горящие туры из Минска, горящие путевки, горящие туры цены, горящие туры на двоих, горячие туры" });
+        this.metaService.updateTag({ name: 'description', content: "➤ Горящие туры на море. ➤Путёвки из Минска, Москвы и Киева. ➤Более 6 830 горячих предложений. ➤Экономия до 39% здесь ➥" });
+        this.metaService.updateTag({ name: 'keywords', content: "горящие туры из Минска, горящие путевки, горящие туры цены, горящие туры на двоих, горячие туры" });
     }
 
     public openOrderPopup(button : string) {

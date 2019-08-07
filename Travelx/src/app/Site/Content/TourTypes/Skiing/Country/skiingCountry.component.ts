@@ -24,6 +24,6 @@ export class SkiingCountryComponent {
     private setTitleAndMeta() : void
     {
         this.titleService.setTitle("Горнолыжные туры");
-        this.metaService.addTag({ name: 'description', content: "Горнолыжные туры" });
+        this.metaService.updateTag({ name: 'description', content: "Горнолыжные туры" });
     }
 }
