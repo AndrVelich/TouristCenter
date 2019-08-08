@@ -19,7 +19,7 @@ var NewYearCountryComponent = /** @class */ (function () {
     };
     NewYearCountryComponent.prototype.setTitleAndMeta = function () {
         this.titleService.setTitle("Новогодние туры");
-        this.metaService.addTag({ name: 'description', content: "Новогодние туры" });
+        this.metaService.updateTag({ name: 'description', content: "Новогодние туры" });
     };
     NewYearCountryComponent = __decorate([
         Component({

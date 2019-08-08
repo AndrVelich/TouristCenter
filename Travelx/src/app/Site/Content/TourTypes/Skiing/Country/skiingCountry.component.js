@@ -19,7 +19,7 @@ var SkiingCountryComponent = /** @class */ (function () {
     };
     SkiingCountryComponent.prototype.setTitleAndMeta = function () {
         this.titleService.setTitle("Горнолыжные туры");
-        this.metaService.addTag({ name: 'description', content: "Горнолыжные туры" });
+        this.metaService.updateTag({ name: 'description', content: "Горнолыжные туры" });
     };
     SkiingCountryComponent = __decorate([
         Component({

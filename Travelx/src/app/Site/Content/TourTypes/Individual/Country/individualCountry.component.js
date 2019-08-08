@@ -19,7 +19,7 @@ var IndividualCountryComponent = /** @class */ (function () {
     };
     IndividualCountryComponent.prototype.setTitleAndMeta = function () {
         this.titleService.setTitle("Индивидуальный отдых");
-        this.metaService.addTag({ name: 'description', content: "Индивидуальный отдых" });
+        this.metaService.updateTag({ name: 'description', content: "Индивидуальный отдых" });
     };
     IndividualCountryComponent = __decorate([
         Component({

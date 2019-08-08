@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Travelx.Handlers.ExceptionHandler;
 using Travelx.Settings;
 
 namespace Travelx
@@ -36,18 +38,21 @@ namespace Travelx
             ConfigureApplicationCookie(services);
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            loggerFactory.AddFile("Logs/travelx-{Date}.txt");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            else
+            {
+                app.ConfigureExceptionHandler(loggerFactory);
+            }
             app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseDefaultFiles();
             app.UseStaticFiles();
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

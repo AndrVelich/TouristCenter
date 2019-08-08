@@ -39,7 +39,7 @@ var PromotionsComponent = /** @class */ (function () {
     };
     PromotionsComponent.prototype.setTitleAndMeta = function () {
         this.titleService.setTitle("Акции");
-        this.metaService.addTag({ name: 'description', content: "Акции" });
+        this.metaService.updateTag({ name: 'description', content: "Акции" });
     };
     PromotionsComponent = __decorate([
         Component({

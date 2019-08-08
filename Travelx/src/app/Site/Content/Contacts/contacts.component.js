@@ -25,8 +25,8 @@ var ContactsComponent = /** @class */ (function () {
     };
     ContactsComponent.prototype.setTitleAndMeta = function () {
         this.titleService.setTitle("Контакты | «Travel X» на карте, адрес и телефоны компании, электронная почта, где находится и как лучше доехать до турфирмы. ");
-        this.metaService.addTag({ name: 'description', content: "➤ Контакты «Travel X»: телефоны, e-mail, адрес. ➤Как нас найти, как добраться, как пройти. Посмотреть на карте где находится компания. ➥" });
-        this.metaService.addTag({ name: 'keywords', content: ": контакты, телефоны, адрес компании, организации, электронная почта, как доехать, как пройти, где находится, как связаться, тревел х на карте" });
+        this.metaService.updateTag({ name: 'description', content: "➤ Контакты «Travel X»: телефоны, e-mail, адрес. ➤Как нас найти, как добраться, как пройти. Посмотреть на карте где находится компания. ➥" });
+        this.metaService.updateTag({ name: 'keywords', content: ": контакты, телефоны, адрес компании, организации, электронная почта, как доехать, как пройти, где находится, как связаться, тревел х на карте" });
     };
     ContactsComponent = __decorate([
         Component({

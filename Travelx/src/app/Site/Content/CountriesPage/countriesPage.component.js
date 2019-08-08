@@ -41,8 +41,8 @@ var CountriesPageComponent = /** @class */ (function () {
     };
     CountriesPageComponent.prototype.setTitleAndMeta = function () {
         this.titleService.setTitle("Отдых 2019. Цены по странам");
-        this.metaService.addTag({ name: 'description', content: "➤ 85+ стран для отдыха. ➤Актуальные цены на все популярные направления. ➤Ответ на вопрос «Где отдохнуть?» Вы найдете здесь!" });
-        this.metaService.addTag({ name: 'keywords', content: "отдых 2019, отдых 2019 цены, где отдохнуть, страны отдых" });
+        this.metaService.updateTag({ name: 'description', content: "➤ 85+ стран для отдыха. ➤Актуальные цены на все популярные направления. ➤Ответ на вопрос «Где отдохнуть?» Вы найдете здесь!" });
+        this.metaService.updateTag({ name: 'keywords', content: "отдых 2019, отдых 2019 цены, где отдохнуть, страны отдых" });
     };
     CountriesPageComponent.prototype.openOrderPopup = function (button) {
         var dialogRef = this.dialog.open(OrderComponent, {

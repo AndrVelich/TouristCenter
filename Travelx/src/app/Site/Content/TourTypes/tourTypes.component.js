@@ -27,8 +27,8 @@ var TourTypesComponent = /** @class */ (function () {
     };
     TourTypesComponent.prototype.setTitleAndMeta = function () {
         this.titleService.setTitle("Поиск и подбор туров в Минске");
-        this.metaService.addTag({ name: 'description', content: "➤ Поиск и подбор тура. ➤Вылеты из Минска/ Москвы/ Киева. ➤Отдых на море, автобусные маршруты, авиатуры в Европу и пр." });
-        this.metaService.addTag({ name: 'keywords', content: "туры из Минска, подбор тура, поиск тура, виды туров" });
+        this.metaService.updateTag({ name: 'description', content: "➤ Поиск и подбор тура. ➤Вылеты из Минска/ Москвы/ Киева. ➤Отдых на море, автобусные маршруты, авиатуры в Европу и пр." });
+        this.metaService.updateTag({ name: 'keywords', content: "туры из Минска, подбор тура, поиск тура, виды туров" });
     };
     TourTypesComponent = __decorate([
         Component({

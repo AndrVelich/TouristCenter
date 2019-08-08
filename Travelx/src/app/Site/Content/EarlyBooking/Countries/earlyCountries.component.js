@@ -37,8 +37,8 @@ var EarlyCountriesComponent = /** @class */ (function () {
     };
     EarlyCountriesComponent.prototype.setTitleAndMeta = function () {
         this.titleService.setTitle("Раннее Бронирование туров. Отдых 2019.");
-        this.metaService.addTag({ name: 'description', content: "➤Акция «Раннее Бронирование 2019». ➤ Экономия до 49% на отдых при оформлении тура заранее! ➤Более 6 356 вариантов отдыха! Смотреть…➥" });
-        this.metaService.addTag({ name: 'keywords', content: "Раннее Бронирование, Раннее Бронирование 2019, Раннее Бронирование из Минска, Раннее Бронирование туров, акция" });
+        this.metaService.updateTag({ name: 'description', content: "➤Акция «Раннее Бронирование 2019». ➤ Экономия до 49% на отдых при оформлении тура заранее! ➤Более 6 356 вариантов отдыха! Смотреть…➥" });
+        this.metaService.updateTag({ name: 'keywords', content: "Раннее Бронирование, Раннее Бронирование 2019, Раннее Бронирование из Минска, Раннее Бронирование туров, акция" });
     };
     EarlyCountriesComponent.prototype.openOrderPopup = function (button) {
         var dialogRef = this.dialog.open(OrderComponent, {

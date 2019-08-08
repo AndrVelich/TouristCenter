@@ -6,6 +6,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="obj\**" />
+    <Content Remove="obj\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="obj\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\error.html" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="src\index.html" />
   </ItemGroup>
 
@@ -15,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="obj\" />
+    <Folder Include="Logs\" />
     <Folder Include="src\assets\administration\images\" />
     <Folder Include="src\assets\administration\plugins\" />
     <Folder Include="src\assets\administration\plugins\ckeditor\" />
@@ -24,11 +35,13 @@
 
   <ItemGroup>
     <None Include="wwwroot\Content\Images\star.svg" />
+    <None Include="wwwroot\error.html" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="Serilog.Extensions.Logging.File" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup>

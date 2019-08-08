@@ -82,10 +82,10 @@ var ToursComponent = /** @class */ (function () {
             }
         }
         if (this.country && this.country.metaDescription != null) {
-            this.metaService.addTag({ name: 'description', content: this.country.metaDescription });
+            this.metaService.updateTag({ name: 'description', content: this.country.metaDescription });
         }
         if (this.country && this.country.metaKeywords != null) {
-            this.metaService.addTag({ name: 'keywords', content: this.country.metaKeywords });
+            this.metaService.updateTag({ name: 'keywords', content: this.country.metaKeywords });
         }
     };
     ToursComponent = __decorate([

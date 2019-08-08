@@ -19,7 +19,7 @@ var BeachCountryComponent = /** @class */ (function () {
     };
     BeachCountryComponent.prototype.setTitleAndMeta = function () {
         this.titleService.setTitle("Пляжный отдых");
-        this.metaService.addTag({ name: 'description', content: "Пляжный отдых" });
+        this.metaService.updateTag({ name: 'description', content: "Пляжный отдых" });
     };
     BeachCountryComponent = __decorate([
         Component({

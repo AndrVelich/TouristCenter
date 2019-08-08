@@ -27,8 +27,8 @@ var HomeComponent = /** @class */ (function () {
     };
     HomeComponent.prototype.setTitleAndMeta = function () {
         this.titleService.setTitle("Турфирма в Минске| Центр организации отдыха «Travel X»");
-        this.metaService.addTag({ name: 'description', content: "➤Турфирма «Travel X» в Минске. ➤Поиск по 9.430 турам. ➤Актуальные цены от 96$. ➤Организация отдыха «под ключ». Заходите на сайт и выбирайте путёвку! ➥" });
-        this.metaService.addTag({ name: 'keywords', content: "турфирма Минск, поиск тура, турагентство Минск, туристическая фирма, трэвел х, трэвел икс, тревел х, тревел икс, турфирма, турагентство, туристическая компания, надежная турфирма" });
+        this.metaService.updateTag({ name: 'description', content: "➤Турфирма «Travel X» в Минске. ➤Поиск по 9.430 турам. ➤Актуальные цены от 96$. ➤Организация отдыха «под ключ». Заходите на сайт и выбирайте путёвку! ➥" });
+        this.metaService.updateTag({ name: 'keywords', content: "турфирма Минск, поиск тура, турагентство Минск, туристическая фирма, трэвел х, трэвел икс, тревел х, тревел икс, турфирма, турагентство, туристическая компания, надежная турфирма" });
     };
     HomeComponent = __decorate([
         Component({

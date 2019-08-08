@@ -22,8 +22,8 @@ var BusToursComponent = /** @class */ (function () {
     };
     BusToursComponent.prototype.setTitleAndMeta = function () {
         this.titleService.setTitle("Европа: автобусные туры и экскурсии из Минска");
-        this.metaService.addTag({ name: 'description', content: "➤Автобусные туры в Европу по 47 направлениям! Экскурсионные маршруты 2019 из Минска и других городов. ➤Каталог из 3 857 предложений здесь➥" });
-        this.metaService.addTag({ name: 'keywords', content: "автобусные туры, автобусные туры из Минска, автобусные туры по Европе, туры по Европе, туры выходного дня, экскурсии, маршруты, тур на автобусе" });
+        this.metaService.updateTag({ name: 'description', content: "➤Автобусные туры в Европу по 47 направлениям! Экскурсионные маршруты 2019 из Минска и других городов. ➤Каталог из 3 857 предложений здесь➥" });
+        this.metaService.updateTag({ name: 'keywords', content: "автобусные туры, автобусные туры из Минска, автобусные туры по Европе, туры по Европе, туры выходного дня, экскурсии, маршруты, тур на автобусе" });
     };
     BusToursComponent.prototype.openOrderPopup = function (button) {
         var dialogRef = this.dialog.open(OrderComponent, {

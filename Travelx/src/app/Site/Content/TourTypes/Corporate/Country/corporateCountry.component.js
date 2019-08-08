@@ -19,7 +19,7 @@ var CorporateCountryComponent = /** @class */ (function () {
     };
     CorporateCountryComponent.prototype.setTitleAndMeta = function () {
         this.titleService.setTitle("Корпоративные туры");
-        this.metaService.addTag({ name: 'description', content: "Корпоративные туры" });
+        this.metaService.updateTag({ name: 'description', content: "Корпоративные туры" });
     };
     CorporateCountryComponent = __decorate([
         Component({
