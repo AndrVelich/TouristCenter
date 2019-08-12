@@ -82,5 +82,41 @@
   {
     "outputFile": "src/app/Administration/Content/Countries/Country/country.component.css",
     "inputFile": "../TouristCenter/src/app/Administration/Content/Countries/Country/country.component.scss"
+  },
+  {
+    "outputFile": "wwwroot/Content/Banners.css",
+    "inputFile": "wwwroot/Content/Banners.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/administration.css",
+    "inputFile": "wwwroot/css/administration.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/site.css",
+    "inputFile": "wwwroot/css/site.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/banners.css",
+    "inputFile": "wwwroot/css/banners.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/carousel.css",
+    "inputFile": "wwwroot/css/carousel.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/fonts.css",
+    "inputFile": "wwwroot/css/fonts.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/mat-dialog.css",
+    "inputFile": "wwwroot/css/mat-dialog.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/preloader.css",
+    "inputFile": "wwwroot/css/preloader.scss"
+  },
+  {
+    "outputFile": "src/app/Administration/Content/Orders/orders.component.css",
+    "inputFile": "src/app/Administration/Content/Orders/orders.component.scss"
   }
 ]

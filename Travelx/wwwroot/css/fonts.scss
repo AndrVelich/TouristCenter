@@ -1,0 +1,109 @@
+//------------Akrobat----------
+@font-face {
+    font-family: 'Akrobat-ExtraBold';
+    src: url(../fonts/Akrobat-ExtraBold.otf);
+    font-weight: normal;
+    font-style: italic;
+}
+
+
+//------------PFD----------
+@font-face {
+    font-family: 'PFDinDisplayPro-Light';
+    src: url(../fonts/PFDinDisplayPro-Light.ttf);
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PFDinDisplayPro-Reg';
+    src: url(../fonts/PFDinDisplayPro-Reg.ttf);
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PFDinDisplayPro-Thin';
+    src: url(../fonts/PFDinDisplayPro-Thin.ttf);
+    font-weight: normal;
+    font-style: italic;
+}
+
+
+//------------OpenSans----------
+@font-face {
+    font-family: 'OpenSans-Light';
+    src: url(../fonts/Open_Sans/OpenSans-Light.ttf);
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'OpenSans-Semibold';
+    src: url(../fonts/Open_Sans/OpenSans-Semibold.ttf);
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'OpenSans-Regular';
+    src: url(../fonts/Open_Sans/OpenSans-Regular.ttf);
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'OpenSans-Bold';
+    src: url(../fonts/Open_Sans/OpenSans-Bold.ttf);
+    font-weight: normal;
+    font-style: italic;
+}
+
+//------------MISTRAL----------
+@font-face {
+    font-family: 'MISTRAL';
+    src: url(../fonts/Mistral/MISTRAL.TTF);
+    font-weight: normal;
+    font-style: italic;
+}
+
+//------------EastSeaDokdo----------
+@font-face {
+    font-family: 'EastSeaDokdo';
+    src: url(../fonts/EastSeaDokdo/EastSeaDokdo.otf);
+    font-weight: normal;
+    font-style: italic;
+}
+
+
+.font-Akrobat-ExtraBold {
+    font-family: 'Akrobat-ExtraBold', sans-serif;
+}
+
+.font-PFDinDisplayPro-Light {
+    font-family: 'PFDinDisplayPro-Light', sans-serif;
+}
+
+.font-PFDinDisplayPro-Reg {
+    font-family: 'PFDinDisplayPro-Reg', sans-serif;
+}
+
+.font-OpenSans-Semibold {
+    font-family: 'OpenSans-Semibold', sans-serif;
+}
+
+.font-OpenSans-Bold {
+    font-family: OpenSans-Bold, sans-serif;
+}
+
+.font-OpenSans-Regular {
+    font-family: OpenSans-Regular, sans-serif;
+}
+
+.font-Mistral {
+    font-family: Mistral, sans-serif;
+}
+
+.font-EastSeaDokdo {
+    font-family: EastSeaDokdo, sans-serif;
+}

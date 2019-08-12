@@ -1,0 +1,120 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, legend, input, button, textarea, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+h1, h2 {
+    color: #0A155F;
+    font-family: Akrobat-ExtraBold;
+}
+
+h3, h4, h5, h6 {
+    font-family: OpenSans-Semibold;
+}
+
+label {
+    font-weight: normal;
+}
+
+.required {
+    color: red;
+    font-weight: bold;
+    margin: 0 5px;
+}
+
+.error {
+    color: red;
+}
+
+.ng-dirty.ng-invalid {
+    border-color: red !important;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+body {
+    position: relative;
+    font-family: 'OpenSans-Light', sans-serif;
+    color: #191919;
+    font-size: 16px;
+    min-width: 360px;
+
+    h1 {
+        margin: 20px auto;
+    }
+
+    .width-wrapper {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    a {
+        cursor: pointer !important;
+        text-decoration: none !important;
+    }
+
+    a.link-big {
+        font-size: 22px;
+    }
+
+    a.link-medium {
+        font-size: 17px;
+    }
+
+    .body-content {
+        margin: 0 !important;
+        position: relative;
+        min-height: 600px;
+        font-family: OpenSans-Regular, sans-serif;
+
+        .center {
+            text-align: center;
+        }
+
+        .text-wrapper {
+            overflow: hidden;
+        }
+    }
+}
+
+
+@media (min-width: 600px) {
+    body {
+        .body-content {
+
+            .text-wrapper {
+                margin: 0 95px;
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        .body-content {
+
+            .text-wrapper {
+                margin: 0 10px;
+            }
+        }
+    }
+}
+
+//TODO Hack for tours page
+.tours-text {
+
+    h1 {
+        margin: 20px 0;
+    }
+
+    .country-name {
+        color: #6c6c6c;
+    }
+
+    .forward-text {
+        margin-top: 20px;
+    }
+}

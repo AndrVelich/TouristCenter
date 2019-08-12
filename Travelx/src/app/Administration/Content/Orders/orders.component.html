@@ -15,14 +15,14 @@
     </thead>
     <tbody>
     <tr *ngFor="let order of orderCollection">
-        <td class="name">{{order.orderId}}</td>
+        <td class="orderId">{{order.orderId}}</td>
         <td class="name">{{order.name}}</td>
         <td class="phone">{{order.phone}}</td>
-        <td>{{order.description}}</td>
-        <td>
+        <td class="description">{{order.description}}</td>
+        <td class="link">
             <a target="_blank" href="{{order.url}}">{{order.url == '/' ? 'Home' : order.url}}</a>
         </td>
-        <td>{{order.tourOrButton}}</td>
+        <td class="tourButton">{{order.tourOrButton}}</td>
         <td class="createdDateTime">{{order.createdDateTime | date: 'yyyy-MM-dd HH:mm'}}</td>
         <td class="mark-as-processed center">
             <a *ngIf="order.isNew" (click)="markAsProcessed(order)" class="link-big" style="color:blue">

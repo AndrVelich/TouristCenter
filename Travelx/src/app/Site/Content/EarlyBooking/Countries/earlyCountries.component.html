@@ -1,5 +1,23 @@
 ﻿<div class="banner"
      [style.background]="'url(/Content/Images/EarlyBooking/banner.jpg)'">
+    <div class="banner-content">
+        <div class="banner-content-center">
+            <div class="banner-head font-Akrobat-ExtraBold">
+                <div>Бронируйте раньше, экономьте больше!</div>
+            </div>
+            <div class="banner-text font-OpenSans-Regular">
+                <div>
+                    ПОДУМАЙТЕ О ПРЕДСТОЯЩЕМ ПУТЕШЕСТВИИ УЖЕ СЕЙЧАС.
+                </div>
+                <div>
+                    СОХРАНИТЕ ДО 49% СВОЕГО БЮДЖЕТА!
+                </div>
+            </div>
+            <button (click)="openOrderPopup('ЗАБРОНИРОВАТЬ СЕЙЧАС')" class="white-button">
+                ЗАБРОНИРОВАТЬ СЕЙЧАС
+            </button>
+        </div>
+    </div>
 </div>
 <div class="width-wrapper">
     <div class="early-countries-page">
@@ -103,7 +121,7 @@
                     <h2>Реальные выгоды Раннего Бронирования для Вас:</h2>
                     <div class="separator"></div>
                     <div class="benefit">
-                        <span class="tour-benefit-header">
+                        <span class="early-benefit-header">
                             Фиксированная стоимость.
                         </span>
                         После полной оплаты путевки сумма становится неизменной. Благополучно забудьте про скачки валютного курса!

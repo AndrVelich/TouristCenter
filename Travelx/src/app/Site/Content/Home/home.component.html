@@ -7,17 +7,21 @@
         </ol>
         <div class="carousel-inner">
             <div class="item active">
-                <div class="banner" 
+                <div class="banner"
                      [style.background]="'url(/Content/Images/Home/MainBanner/banner1.jpg)'">
                     <div class="banner-content">
-                        <div class="banner-head font-Akrobat-ExtraBold">
-                            Готовы сбежать от холодов к прогретому морю?
+                        <div class="banner-content-center">
+                            <div class="banner-head font-Akrobat-ExtraBold">
+                                Готовы сбежать от холодов к прогретому морю?
 
+                            </div>
+                            <div class="banner-text font-OpenSans-Regular">
+                                Ваше приключение с компанией Travelx здесь и сейчас!
+                            </div>
+                            <button (click)="openOrderPopup('ТЕЛЕПОРТ К МОРЮ')" class="white-button">
+                                ТЕЛЕПОРТ К МОРЮ
+                            </button>
                         </div>
-                        <div class="banner-text font-OpenSans-Regular">
-                            Ваше приключение с компанией Travelx здесь и сейчас!
-                        </div>
-                        <button (click)="openOrderPopup('ТЕЛЕПОРТ К МОРЮ')" class="white-button">ТЕЛЕПОРТ К МОРЮ</button>
                     </div>
                 </div>
             </div>
@@ -25,14 +29,18 @@
                 <div class="banner"
                      [style.background]="'url(/Content/Images/Home/MainBanner/banner2.jpg)'">
                     <div class="banner-content">
-                        <div class="banner-head font-Akrobat-ExtraBold">
-                            Лимитированная акция на <span class="font-Mistral">Египет!</span>
+                        <div class="banner-content-center">
+                            <div class="banner-head font-Akrobat-ExtraBold">
+                                Лимитированная акция на <span class="font-Mistral">Египет!</span>
+                            </div>
+                            <div class="banner-text font-OpenSans-Regular">
+                                <div>Получите первыми самые выгодные предложения по отелям!</div>
+                                <div>Закажите сегодня и сэкономьте!</div>
+                            </div>
+                            <button (click)="openOrderPopup('Подробнее')" class="white-button">
+                                ХОЧУ СПЕЦ. ПРЕДЛОЖЕНИЕ!
+                            </button>
                         </div>
-                        <div class="banner-text font-OpenSans-Regular">
-                            <div>Получите первыми самые выгодные предложения по отелям!</div>
-                            <div>Закажите сегодня и сэкономьте!</div>
-                        </div>
-                        <button (click)="openOrderPopup('Подробнее')" class="white-button">ХОЧУ СПЕЦ. ПРЕДЛОЖЕНИЕ!</button>
                     </div>
                 </div>
             </div>
@@ -40,18 +48,22 @@
                 <div class="banner"
                      [style.background]="'url(/Content/Images/Home/MainBanner/banner3.jpg)'">
                     <div class="banner-content">
-                        <div class="banner-head font-Akrobat-ExtraBold">
-                            Сэкономьте до 49% на путевке!
-                        </div>
-                        <div class="banner-text">
-                            <div class="font-OpenSans-Regular">
-                                Купите тур на лето 2019 уже сейчас!
+                        <div class="banner-content-center">
+                            <div class="banner-head font-Akrobat-ExtraBold">
+                                Сэкономьте до 49% на путевке!
                             </div>
-                            <div class="font-EastSeaDokdo" style="color:#ffe7c9">
-                                Самый выгодный этап Раннего Бронирования стартовал.
+                            <div class="banner-text">
+                                <div class="font-OpenSans-Regular">
+                                    Купите тур на лето 2019 уже сейчас!
+                                </div>
+                                <div class="font-EastSeaDokdo" style="color: #ffe7c9">
+                                    Самый выгодный этап Раннего Бронирования стартовал.
+                                </div>
                             </div>
+                            <button (click)="openOrderPopup('ПОДРОБНЕЕ')" class="white-button">
+                                ПОДРОБНЕЕ
+                            </button>
                         </div>
-                        <button (click)="openOrderPopup('ПОДРОБНЕЕ')" class="white-button">ПОДРОБНЕЕ</button>
                     </div>
                 </div>
             </div>
@@ -81,7 +93,7 @@
                     <h3>Экспертность</h3>
                 </div>
                 <div class="benefit-bottom">
-                    Каждый наш специалист работает в туризме более 4 лет и много путешествует!
+                    Каждый наш специалист работает в туризме более 7 лет и много путешествует!
                     Такой практический опыт делает
                     Ваш отпуск легким и беззаботным.
                 </div>
@@ -154,7 +166,7 @@
                 </div>
                 <div class="put-order-wrapper">
                     <div class="text font-Akrobat-ExtraBold">Забронировать тур прямо сейчас</div>
-                    <button type="button" (click)="openOrderPopup('ДА!')" class="order-btn">ДА!</button>
+                    <button type="button" (click)="openOrderPopup('ЗАБРОНИРОВАТЬ')" class="order-btn">ЗАБРОНИРОВАТЬ</button>
                 </div>
                 <div class="benefit space">
                     <div class="benifit-header">

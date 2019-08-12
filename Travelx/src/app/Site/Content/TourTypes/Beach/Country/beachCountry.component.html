@@ -1,1 +1,18 @@
-﻿<countriesComponent></countriesComponent>
+﻿<div class="banner"
+     [style.background]="'url(/Content/Images/Beach/banner.jpg)'">
+    <div class="banner-content">
+        <div class="banner-content-center">
+            <div class="banner-head font-Akrobat-ExtraBold">
+                На месте этих людей можете быть <span class="font-Mistral">Вы!</span>
+            </div>
+            <div class="banner-text font-OpenSans-Regular">
+                <div>ДАЙТЕ НАМ ЗНАТЬ, ЧТО ГОТОВЫ К ПУТЕШЕСТВИЮ,</div>
+                <div>И ВОЛШЕБСТВО НАЧНЕТСЯ!</div>
+            </div>
+            <button (click)="openOrderPopup('ХОЧУ НА МОРЕ')" class="white-button">
+                ХОЧУ НА МОРЕ
+            </button>
+        </div>
+    </div>
+</div>
+<countriesComponent></countriesComponent>

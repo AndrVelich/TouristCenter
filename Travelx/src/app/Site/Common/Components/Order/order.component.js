@@ -11,7 +11,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 import { Component, Inject, Renderer2 } from "@angular/core";
-import { FormBuilder, Validators } from "@angular/forms";
+import { FormGroup, FormControl, FormBuilder, Validators } from "@angular/forms";
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Router } from '@angular/router';
 import { OrderService, Order } from "@siteCommon/Services/order.service";
@@ -42,14 +42,18 @@ var OrderComponent = /** @class */ (function () {
     };
     OrderComponent.prototype.saveOrder = function () {
         var _this = this;
-        this.isPreloaderInProgress = true;
-        //TODO need notifcation
-        this.service.addOrder(this.order)
-            .subscribe(function () {
-            _this.showConfirmMessage = true;
-            _this.isPreloaderInProgress = false;
-        }, function (error) { return _this.errorMessage = error; });
-        //this.dialogRef.close()
+        if (this.orderForm.valid) {
+            this.isPreloaderInProgress = true;
+            this.service.addOrder(this.order)
+                .subscribe(function () {
+                _this.showConfirmMessage = true;
+                _this.isPreloaderInProgress = false;
+            }, function (error) { return _this.errorMessage = error; });
+            //this.dialogRef.close()
+        }
+        else {
+            this.validateAllFormFields(this.orderForm);
+        }
     };
     OrderComponent.prototype.buildForm = function () {
         this.orderForm = this.fb.group({
@@ -61,6 +65,19 @@ var OrderComponent = /** @class */ (function () {
                     Validators.pattern('^[0-9() -]+$')
                 ]],
             "description": [this.order.description]
+        });
+    };
+    //TODO move to the service
+    OrderComponent.prototype.validateAllFormFields = function (formGroup) {
+        var _this = this;
+        Object.keys(formGroup.controls).forEach(function (field) {
+            var control = formGroup.get(field);
+            if (control instanceof FormControl) {
+                control.markAsDirty({ onlySelf: true });
+            }
+            else if (control instanceof FormGroup) {
+                _this.validateAllFormFields(control);
+            }
         });
     };
     OrderComponent = __decorate([

@@ -1,0 +1,9 @@
+﻿.carousel .carousel-indicators li {
+  width: 15px;
+  height: 15px;
+  margin: 5px;
+  border: 2px solid #FEB849; }
+
+.carousel .carousel-indicators li.active {
+  background-color: #FEB849;
+  border: 2px solid white; }

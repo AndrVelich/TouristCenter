@@ -1,14 +1,27 @@
-﻿.phone {
-    width: 140px;
-}
+﻿table {
+    word-break: break-word;
 
-.createdDateTime {
-    width: 100px;
-}
+    .phone, .mark-as-processed, .tourButton {
+        min-width: 140px;
+    }
 
-a.link-big {
+    .orderId {
+        min-width: 80px;
+    }
 
-    i {
-        font-size: 19px;
+    .name, .createdDateTime, .delete {
+        min-width: 100px;
+    }
+
+    .description, .link {
+        max-width: 320px;
+        min-width: 140px;
+    }
+
+    a.link-big {
+
+        i {
+            font-size: 19px;
+        }
     }
 }

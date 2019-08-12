@@ -8,11 +8,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from "@angular/core";
+import { MatDialog } from '@angular/material';
 import { Title, Meta } from '@angular/platform-browser';
+import { OrderComponent } from "@siteCommon/Components/Order/order.component";
 var BeachCountryComponent = /** @class */ (function () {
-    function BeachCountryComponent(titleService, metaService) {
+    function BeachCountryComponent(titleService, metaService, dialog) {
         this.titleService = titleService;
         this.metaService = metaService;
+        this.dialog = dialog;
     }
     BeachCountryComponent.prototype.ngOnInit = function () {
         this.setTitleAndMeta();
@@ -21,6 +24,11 @@ var BeachCountryComponent = /** @class */ (function () {
         this.titleService.setTitle("Пляжный отдых");
         this.metaService.updateTag({ name: 'description', content: "Пляжный отдых" });
     };
+    BeachCountryComponent.prototype.openOrderPopup = function (button) {
+        var dialogRef = this.dialog.open(OrderComponent, {
+            data: button
+        });
+    };
     BeachCountryComponent = __decorate([
         Component({
             selector: "beachCountry",
@@ -28,7 +36,8 @@ var BeachCountryComponent = /** @class */ (function () {
             styleUrls: ["beachCountry.component.css"]
         }),
         __metadata("design:paramtypes", [Title,
-            Meta])
+            Meta,
+            MatDialog])
     ], BeachCountryComponent);
     return BeachCountryComponent;
 }());

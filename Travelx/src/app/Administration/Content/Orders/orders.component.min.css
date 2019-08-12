@@ -1,1 +1,1 @@
-﻿.phone{width:140px;}.createdDateTime{width:100px;}a.link-big i{font-size:19px;}
+﻿table{word-break:break-word;}table .phone,table .mark-as-processed,table .tourButton{min-width:140px;}table .orderId{min-width:80px;}table .name,table .createdDateTime,table .delete{min-width:100px;}table .description,table .link{max-width:320px;min-width:140px;}table a.link-big i{font-size:19px;}

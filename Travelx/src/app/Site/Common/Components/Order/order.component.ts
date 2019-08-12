@@ -4,7 +4,7 @@ import {
     OnDestroy,
     Renderer2
 } from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { FormGroup, FormControl, FormBuilder, Validators } from "@angular/forms";
 import { MatDialog, MatSelectModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Router } from '@angular/router';
 import { OrderService, Order } from "@siteCommon/Services/order.service";
@@ -21,18 +21,17 @@ export class OrderComponent implements OnDestroy {
     public errorMessage: string;
     public showConfirmMessage: boolean = false;
     public isPreloaderInProgress: boolean = false;
-    public mask: Array<any> = ['8','(', /[0-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/];
+    public mask: Array<any> = ['8', '(', /[0-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/];
 
     constructor(
-      public dialogRef: MatDialogRef<OrderComponent>,
-      @Inject(MAT_DIALOG_DATA) public data: string,
-      private renderer: Renderer2,
-      private fb: FormBuilder,
-      private service: OrderService,
-      private router: Router
-      )
-    {
-      this.renderer.addClass(document.body, 'modal-open');
+        public dialogRef: MatDialogRef<OrderComponent>,
+        @Inject(MAT_DIALOG_DATA) public data: string,
+        private renderer: Renderer2,
+        private fb: FormBuilder,
+        private service: OrderService,
+        private router: Router
+    ) {
+        this.renderer.addClass(document.body, 'modal-open');
     }
 
     ngOnInit() {
@@ -40,27 +39,31 @@ export class OrderComponent implements OnDestroy {
         this.order.url = this.router.url;
         this.order.tourOrButton = this.data;
     }
- 
+
     onNoClick(): void {
-       this.dialogRef.close();
+        this.dialogRef.close();
     }
 
     ngOnDestroy() {
-       this.renderer.removeClass(document.body, 'modal-open');
+        this.renderer.removeClass(document.body, 'modal-open');
     }
 
-    saveOrder(){
-        this.isPreloaderInProgress = true;
-        //TODO need notifcation
-        this.service.addOrder(this.order)
-        .subscribe(
-            () => { 
-                    this.showConfirmMessage = true;
-                    this.isPreloaderInProgress = false;
-                  },
-            error => this.errorMessage = error);
+    saveOrder() {
+        if (this.orderForm.valid) {
+            this.isPreloaderInProgress = true;
+            this.service.addOrder(this.order)
+                .subscribe(
+                    () => {
+                        this.showConfirmMessage = true;
+                        this.isPreloaderInProgress = false;
+                    },
+                    error => this.errorMessage = error);
 
-      //this.dialogRef.close()
+            //this.dialogRef.close()
+        }
+        else {
+            this.validateAllFormFields(this.orderForm);
+        }
     }
 
     private buildForm() {
@@ -73,6 +76,18 @@ export class OrderComponent implements OnDestroy {
                 Validators.pattern('^[0-9() -]+$')
             ]],
             "description": [this.order.description]
+        });
+    }
+
+    //TODO move to the service
+    private validateAllFormFields(formGroup: FormGroup) {   
+        Object.keys(formGroup.controls).forEach(field => {  
+            const control = formGroup.get(field);           
+            if (control instanceof FormControl) {           
+                control.markAsDirty({ onlySelf: true });
+            } else if (control instanceof FormGroup) {      
+                this.validateAllFormFields(control);        
+            }
         });
     }
 }
