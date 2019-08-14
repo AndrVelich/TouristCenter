@@ -40,6 +40,7 @@ export class ToursComponent {
     constructor(
         public dialog: MatDialog,
         public ckeditorService: CkeditorService,
+        private router: Router,
         private activeRoute: ActivatedRoute,
         private routerService: RouterService,
         private tourTypeService: TourTypeService,

@@ -22,11 +22,10 @@ import { CkeditorService } from "@administrationCommon/Services/ckeditor.service
 })
 export class TourComponent {
     private isCountriesLoaded: boolean;
-
+    private returnUrl: string;
     public tourTypes: Dictionary;
     public category: string;
     public tourForm: FormGroup;
-
     public countries: Dictionary = new Dictionary();
     public tour: Tour = new Tour();
     public errorMessage: string;
@@ -49,7 +48,7 @@ export class TourComponent {
         this.getCountries();
         this.getTour();
         this.buildForm();
-
+        this.setReturnUrl();
     }
 
     public onSelectImage(event) {
@@ -78,10 +77,29 @@ export class TourComponent {
         this.tourService.addTour(this.tour)
             .subscribe(
                 () => {
-                    this.router.navigate(['administration/tours']);
+                    this.navigateToTours();
                 },
                 error => this.errorMessage = error,
                 () => this.preloaderService.finishPreloader());
+    }
+
+    public navigateToTours(): void {
+        if (this.returnUrl) {
+            this.router.navigateByUrl(this.returnUrl);
+        }
+        else {
+            this.router.navigate(['administration/tours'])
+        }
+    }
+
+    private setReturnUrl(): string {
+        let returnUrl = null;
+        let queryParams = this.activeRoute.snapshot.queryParams;
+        if (queryParams) {
+            this.returnUrl = queryParams.returnUrl;
+        }
+
+        return returnUrl;
     }
 
     private setDataFromRoute() {

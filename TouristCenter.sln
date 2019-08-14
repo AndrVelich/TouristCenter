@@ -33,9 +33,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Travelx.Domain.Interfaces",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Account", "Account", "{D410B121-B743-44C6-BB61-3D99E05C3816}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountService", "Account\AccountService\AccountService.csproj", "{1E473863-BE27-4DA3-88C8-C27F9BA03BF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountService", "Account\AccountService\AccountService.csproj", "{1E473863-BE27-4DA3-88C8-C27F9BA03BF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountService.Interfaces", "Account\AccountService.Interfaces\AccountService.Interfaces.csproj", "{1DE49915-4715-438F-BFD5-5698F4453487}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountService.Interfaces", "Account\AccountService.Interfaces\AccountService.Interfaces.csproj", "{1DE49915-4715-438F-BFD5-5698F4453487}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Email", "Email", "{BCB0BE8F-E6AD-4D0E-AADD-2F9087EA0F80}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

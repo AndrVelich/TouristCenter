@@ -41,7 +41,7 @@
                         <div class="stars">
                             <span *ngFor="let i of starsArray(tour.stars).fill('star')" class="s"></span>
                         </div>
-                        <a [routerLink]="[ '/administration/tours/' + tour.category + '/' + tour.country +'/' + tour.urlName ]" class="link-big">
+                        <a [routerLink]="[ '/administration/tours/' + tour.category + '/' + tour.country +'/' + tour.urlName ]" [queryParams]="{ returnUrl: router.url }" class="link-big">
                             <span [innerHtml]="tour.name"></span>
                             <i class="fa fa-pencil" aria-hidden="true"></i>
                         </a>

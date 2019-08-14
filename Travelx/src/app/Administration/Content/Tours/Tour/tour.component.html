@@ -160,7 +160,7 @@
                             [disabled]="!tourForm.valid">
                         Сохранить
                     </button>
-                    <button routerLink="/administration/tours"
+                    <button (click)="navigateToTours()"
                             class="btn btn-secondary">
                         Отменить
                     </button>

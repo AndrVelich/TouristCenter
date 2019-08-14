@@ -6,9 +6,9 @@
     color: white; }
     .tour-types .tour-type .tour-type-info {
       position: absolute;
-      top: 25%;
-      width: 100%;
-      right: 0; }
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
       .tour-types .tour-type .tour-type-info .tour-type-name {
         font-size: 28px;
         font-family: 'PFDinDisplayPro-ExtraBold', sans-serif; }

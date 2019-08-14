@@ -5,7 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { Dictionary } from "@common/Types/Dictionary";
 import { PreloaderService } from "@common/Services/preloader.service";
-import { TourTypeService } from "@common/Services/tourType.service"; 
+import { TourTypeService } from "@common/Services/tourType.service";
 import { CountryService } from "@administrationCommon/Services/country.service";
 import { Country } from "@administrationCommon/Services/country.service";
 import { CkeditorService } from "@administrationCommon/Services/ckeditor.service";
@@ -15,10 +15,10 @@ import { CkeditorService } from "@administrationCommon/Services/ckeditor.service
     templateUrl: "country.component.html",
     styleUrls: ["country.component.css"]
 })
-export class CountryComponent implements OnInit  {
+export class CountryComponent implements OnInit {
     private tourType: string;
     private countryUrlName: string;
-
+    private returnUrl: string;
     public tourTypes: Dictionary;
     public category: string;
     public countryForm: FormGroup;
@@ -33,16 +33,15 @@ export class CountryComponent implements OnInit  {
         private activeRoute: ActivatedRoute,
         private router: Router,
         private preloaderService: PreloaderService,
-    )
-    {
+    ) {
         this.tourTypes = this.tourTypeService.GetTourTypes();
     }
 
     ngOnInit() {
-        this.setDataFromRoute(); 
+        this.setDataFromRoute();
         this.getCountry();
         this.buildForm();
-        
+        this.setReturnUrl();
     }
 
     public onSelectImage(event) {
@@ -58,39 +57,54 @@ export class CountryComponent implements OnInit  {
         }
     }
 
-    public removeNewImage(removeUrl){
+    public removeNewImage(removeUrl) {
         this.country.newImageCollection = this.country.newImageCollection.filter(url => url != removeUrl);
     }
 
-    public removeOldImage(removeUrl){
+    public removeOldImage(removeUrl) {
         this.country.oldImageCollection = this.country.oldImageCollection.filter(url => url != removeUrl);
     }
 
-    public saveCountry()
-    {
+    public saveCountry(): void {
         this.preloaderService.startPreloader()
         this.countryService.addCountry(this.country)
-        .subscribe(
-            () => 
-            {
-                  this.router.navigate(['administration/countries'])
-            },
-            error => this.errorMessage = error,
-            () => this.preloaderService.finishPreloader()
-        );
+            .subscribe(
+                () => {
+                    this.navigateToCountries();
+                },
+                error => this.errorMessage = error,
+                () => this.preloaderService.finishPreloader()
+            );
     }
 
-    private setDataFromRoute(){
+    public navigateToCountries(): void {
+        if (this.returnUrl) {
+            this.router.navigateByUrl(this.returnUrl);
+        }
+        else {
+            this.router.navigate(['administration/countries'])
+        }
+    }
+
+    private setReturnUrl(): string {
+        let returnUrl = null;
+        let queryParams = this.activeRoute.snapshot.queryParams;
+        if (queryParams) {
+            this.returnUrl = queryParams.returnUrl;
+        }
+
+        return returnUrl;
+    }
+
+    private setDataFromRoute() {
         this.activeRoute.params.subscribe(params => {
             this.tourType = params['tourType'];
-            this.countryUrlName =  params['country'];
+            this.countryUrlName = params['country'];
         });
     }
 
-    private getCountry()
-    {
-        if(this.countryUrlName)
-        {
+    private getCountry() {
+        if (this.countryUrlName) {
             this.preloaderService.startPreloader()
             this.countryService.getCountry(this.tourType, this.countryUrlName)
                 .subscribe(
@@ -138,7 +152,7 @@ export class CountryComponent implements OnInit  {
             "title": [this.country.title, []],
             "metaDescription": [this.country.metaDescription, []],
             "metaKeywords": [this.country.metaKeywords, []],
-            
+
         });
     }
 }

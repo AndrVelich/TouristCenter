@@ -118,5 +118,9 @@
   {
     "outputFile": "src/app/Administration/Content/Orders/orders.component.css",
     "inputFile": "src/app/Administration/Content/Orders/orders.component.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Common/Components/TourTypesTile/tourTypesTile.component.css",
+    "inputFile": "src/app/Site/Common/Components/TourTypesTile/tourTypesTile.component.scss"
   }
 ]

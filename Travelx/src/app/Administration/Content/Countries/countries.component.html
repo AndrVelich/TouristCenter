@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <div class="country-descriptions">
-                        <a [routerLink]="[ '/administration/countries/' + country.category + '/' + country.urlName ]" class="link-big">
+                        <a [routerLink]="[ '/administration/countries/' + country.category + '/' + country.urlName ]" [queryParams]="{ returnUrl: router.url }" class="link-big">
                             <span [innerHtml]="country.name"></span>
                             <i class="fa fa-pencil" aria-hidden="true"></i>
                         </a>

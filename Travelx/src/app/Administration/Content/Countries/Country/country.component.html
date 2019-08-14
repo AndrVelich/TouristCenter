@@ -191,7 +191,7 @@
                     <button (click)="saveCountry()" 
                             class="btn btn-primary" 
                             [disabled]="!countryForm.valid">Сохранить</button>
-                    <button routerLink="/administration/countries"
+                    <button (click)="navigateToCountries()"
                             class="btn btn-secondary">Отменить</button>
                 </div>
             </div>
