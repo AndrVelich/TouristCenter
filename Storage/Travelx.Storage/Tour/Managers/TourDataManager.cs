@@ -132,35 +132,39 @@ namespace Travelx.Storage.Tour.Managers
 
         private void UpdateImages(TourDataModel tourDataModel, ICollection<TourImage> tourImages)
         {
+            AddImages(tourDataModel, tourImages);
+            DeleteImages(tourDataModel, tourImages);
+        }
+
+        private void AddImages(TourDataModel tourDataModel, ICollection<TourImage> tourImages)
+        {
             var newImageCollection = tourImages
-                .Where(i => tourDataModel.TourImages
-                .All(db => db.ImageId != i.ImageId && db.Image != null))
-                .Select(ti => ti.Image)
+                .Where(i => tourDataModel.TourImages.All(db => db.ImageId != i.ImageId))
                 .ToList();
 
             foreach (var newImage in newImageCollection)
             {
-                _dbContext.Images.Add(newImage);
-                var newTourImag = new TourImage
-                {
-                    TourId = tourDataModel.CountryId,
-                    Image = newImage
-                };
-                tourDataModel.TourImages.Add(newTourImag);
+                tourDataModel.TourImages.Add(newImage);
             }
+        }
 
+        private void DeleteImages(TourDataModel tourDataModel, ICollection<TourImage> tourImages)
+        {
             var tourImageForDeleteCollection = tourDataModel.TourImages.Where(db => tourImages.All(i => i.ImageId != db.ImageId)).ToList();
 
             foreach (var tourImageForDelete in tourImageForDeleteCollection)
             {
                 tourDataModel.TourImages.Remove(tourImageForDelete);
-                _dbContext.Images.Remove(tourImageForDelete.Image);
+                var image = _dbContext.Images.FirstOrDefault(i => i.ImageId == tourImageForDelete.ImageId);
+                if (image != null)
+                {
+                    _dbContext.Images.Remove(image);
+                }
             }
         }
 
         private void AttachCountry(TourDataModel tourDataModel)
         {
-            //TODO A.V check null
             var country = _dbContext.Countries
                 .FirstOrDefault(c => c.UrlName == tourDataModel.Country.UrlName && c.Category == tourDataModel.Country.Category);
             tourDataModel.Country = country;

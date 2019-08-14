@@ -123,28 +123,30 @@ namespace Travelx.Storage.Promotion.Managers
 
         private void UpdateImages(PromotionDataModel promotionDataModel, ICollection<PromotionImage> promotionImages)
         {
-            var newImageCollection = promotionImages.Where(i => promotionDataModel.PromotionImages
-                    .All(db => db.ImageId != i.ImageId && db.Image != null))
-                .Select(pi => pi.Image)
+            AddImages(promotionDataModel, promotionImages);
+            DeleteImages(promotionDataModel, promotionImages);
+        }
+
+        private void AddImages(PromotionDataModel promotionDataModel, ICollection<PromotionImage> promotionImages)
+        {
+            var newImageCollection = promotionImages
+                .Where(i => promotionDataModel.PromotionImages
+                    .All(db => db.ImageId != i.ImageId))
                 .ToList();
 
             foreach (var newImage in newImageCollection)
             {
-                _dbContext.Images.Add(newImage);
-                var promotionImage = new PromotionImage
-                {
-                    PromotionId = promotionDataModel.PromotionId,
-                    Image = newImage
-                };
-                promotionDataModel.PromotionImages.Add(promotionImage);
+                promotionDataModel.PromotionImages.Add(newImage);
             }
+        }
 
+        private void DeleteImages(PromotionDataModel promotionDataModel, ICollection<PromotionImage> promotionImages)
+        {
             var promotionImageForDeleteCollection = promotionDataModel.PromotionImages.Where(db => promotionImages.All(i => i.ImageId != db.ImageId)).ToList();
 
-            foreach (var promotionImageForDelete in promotionImageForDeleteCollection)
+            foreach (var countryImageForDelete in promotionImageForDeleteCollection)
             {
-                promotionDataModel.PromotionImages.Remove(promotionImageForDelete);
-                _dbContext.Images.Remove(promotionImageForDelete.Image);
+                promotionDataModel.PromotionImages.Remove(countryImageForDelete);
             }
         }
     }

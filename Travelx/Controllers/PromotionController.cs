@@ -90,7 +90,11 @@ namespace Travelx.Controllers
                         promotion.IsActive
                     );
             }
-            
+
+            promotionModel.Title = promotion.Title;
+            promotionModel.MetaDescription = promotion.MetaDescription;
+            promotionModel.MetaKeywords = promotion.MetaKeywords;
+
             var imageForDeleteCollection = promotionModel.ImageIdCollection.Where(imageId => !promotion.OldImageCollection.Contains(imageId)).ToList();
 
             foreach (var newImage in promotion.NewImageCollection)

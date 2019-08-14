@@ -125,18 +125,17 @@
                     </div>
                 </div>
                 <div class="tour-image">
-                    <div class="small-images" *ngFor="let imageUrl of tour.newImageCollection">
-                        <a [style.background]="'url(' + imageUrl + ')'">
-                            <div (click)="removeNewImage(imageUrl)" class="cross-close">&#10005;</div>
-                        </a>
-                    </div>
                     <div class="small-images" *ngFor="let imageUrl of tour.oldImageCollection">
                         <a [style.background]="'url(' + '/api/image/' + imageUrl + ')'">
                             <div (click)="removeOldImage(imageUrl)" class="cross-close">&#10005;</div>
                         </a>
                     </div>
-
-                    <br />
+                    <div class="small-images" *ngFor="let imageUrl of tour.newImageCollection">
+                        <a [style.background]="'url(' + imageUrl + ')'">
+                            <div (click)="removeNewImage(imageUrl)" class="cross-close">&#10005;</div>
+                        </a>
+                    </div>
+                    <br/>
                     <a class="link-medium">
                         <label class="upload-mage">
                             <span>Загрузить изображение</span>

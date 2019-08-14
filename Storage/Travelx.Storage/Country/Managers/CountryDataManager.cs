@@ -70,7 +70,7 @@ namespace Travelx.Storage.Country.Managers
             var countryImages = countryDataModel.CountryImages;
             countryDataModel.CountryImages = new HashSet<CountryImage>();
 
-            var entry = _dbContext.Entry(countryDataModel);
+            var entry = _dbContext.Attach(countryDataModel);
             entry.State = EntityState.Modified;
             entry.Collection(c => c.CountryImages).Load();
 
@@ -137,25 +137,39 @@ namespace Travelx.Storage.Country.Managers
         #endregion
 
         #region [Update]
-        //TODO need to refactor
+
         private void UpdateImages(CountryDataModel countryDataModel, ICollection<CountryImage> countryImages)
+        {
+            AddImages(countryDataModel, countryImages);
+            DeleteImages(countryDataModel, countryImages);
+        }
+
+        private void AddImages(CountryDataModel countryDataModel, ICollection<CountryImage> countryImages)
         {
             var newImageCollection = countryImages
                 .Where(i => countryDataModel.CountryImages
-                    .All(db => db.ImageId != i.ImageId && db.Image != null))
+                    .All(db => db.ImageId != i.ImageId))
                 .ToList();
 
             foreach (var newImage in newImageCollection)
             {
                 countryDataModel.CountryImages.Add(newImage);
             }
+        }
 
+        private void DeleteImages(CountryDataModel countryDataModel, ICollection<CountryImage> countryImages)
+        {
             var countryImageForDeleteCollection = countryDataModel.CountryImages.Where(db => countryImages.All(i => i.ImageId != db.ImageId)).ToList();
 
             foreach (var countryImageForDelete in countryImageForDeleteCollection)
             {
                 countryDataModel.CountryImages.Remove(countryImageForDelete);
-                _dbContext.Images.Remove(countryImageForDelete.Image);
+                var image = _dbContext.Images.FirstOrDefault(i => i.ImageId == countryImageForDelete.ImageId);
+                if (image != null)
+                {
+                    _dbContext.Images.Remove(image);
+                }
+
             }
         }
 
