@@ -43,10 +43,12 @@ namespace Travelx.Storage.Order.Managers
             return result;
         }
 
-        public void CreateOrder(OrderDataModel orderDataModel)
+        public OrderDataModel CreateOrder(OrderDataModel orderDataModel)
         {
             _dbContext.Orders.Add(orderDataModel);
             _dbContext.SaveChanges();
+
+            return orderDataModel;
         }
 
         public void UpdateOrder(OrderDataModel orderDataModel)

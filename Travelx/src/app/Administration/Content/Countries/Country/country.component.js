@@ -31,6 +31,7 @@ var CountryComponent = /** @class */ (function () {
         this.setDataFromRoute();
         this.getCountry();
         this.buildForm();
+        this.setReturnUrl();
     };
     CountryComponent.prototype.onSelectImage = function (event) {
         var _this = this;
@@ -54,8 +55,24 @@ var CountryComponent = /** @class */ (function () {
         this.preloaderService.startPreloader();
         this.countryService.addCountry(this.country)
             .subscribe(function () {
-            _this.router.navigate(['administration/countries']);
+            _this.navigateToCountries();
         }, function (error) { return _this.errorMessage = error; }, function () { return _this.preloaderService.finishPreloader(); });
+    };
+    CountryComponent.prototype.navigateToCountries = function () {
+        if (this.returnUrl) {
+            this.router.navigateByUrl(this.returnUrl);
+        }
+        else {
+            this.router.navigate(['administration/countries']);
+        }
+    };
+    CountryComponent.prototype.setReturnUrl = function () {
+        var returnUrl = null;
+        var queryParams = this.activeRoute.snapshot.queryParams;
+        if (queryParams) {
+            this.returnUrl = queryParams.returnUrl;
+        }
+        return returnUrl;
     };
     CountryComponent.prototype.setDataFromRoute = function () {
         var _this = this;

@@ -1,6 +1,8 @@
 ﻿using AccountService.Configurator;
 using AccountService.Interfaces.Managers;
 using AccountService.Managers;
+using EmailSender.Configurator;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Travelx.Domain.Country.Managers;
 using Travelx.Domain.Image.Managers;
@@ -29,10 +31,12 @@ namespace DiConfiguration
     public sealed class DiConfigurator
     {
         private readonly string _connectionString;
+        private readonly IConfiguration _configuration;
 
-        public DiConfigurator(string connectionString)
+        public DiConfigurator(string connectionString, IConfiguration configuration)
         {
             _connectionString = connectionString;
+            _configuration = configuration;
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -43,16 +47,14 @@ namespace DiConfiguration
 
         private void RegisterBuisnessPart(IServiceCollection services)
         {
-            IdentityConfigurator.ConfigureIdentity(services, _connectionString);
+            IdentityConfigurator.Configure(services, _connectionString);
+            EmailSenderConfigurator.Configure(services, _configuration);
 
             services.AddTransient<IOrderManager, OrderManager>();
             services.AddTransient<ICountryManager, CountryManager>();
             services.AddTransient<ITourManager, TourManager>();
             services.AddTransient<IPromotionManager, PromotionManager>();
             services.AddTransient<IImageManager, ImageManager>();
-            services.AddTransient<ISignInManager, SignInManager>();
-            services.AddTransient<IUserManager, UserManager>();
-
         }
 
         private void RegisterDataPart(IServiceCollection services)

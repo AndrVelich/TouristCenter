@@ -83,7 +83,8 @@ namespace Travelx.Domain.Order.Models
         public void CreateOrder()
         {
             var orderDataModel = ConvertOrderToDataModel();
-            _orderDataManager.CreateOrder(orderDataModel);
+            orderDataModel = _orderDataManager.CreateOrder(orderDataModel);
+            OrderId = orderDataModel.OrderId;
         }
 
         public void UpdateOrder()

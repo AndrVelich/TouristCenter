@@ -36,6 +36,7 @@ var TourComponent = /** @class */ (function () {
         this.getCountries();
         this.getTour();
         this.buildForm();
+        this.setReturnUrl();
     };
     TourComponent.prototype.onSelectImage = function (event) {
         var _this = this;
@@ -59,8 +60,24 @@ var TourComponent = /** @class */ (function () {
         this.preloaderService.startPreloader();
         this.tourService.addTour(this.tour)
             .subscribe(function () {
-            _this.router.navigate(['administration/tours']);
+            _this.navigateToTours();
         }, function (error) { return _this.errorMessage = error; }, function () { return _this.preloaderService.finishPreloader(); });
+    };
+    TourComponent.prototype.navigateToTours = function () {
+        if (this.returnUrl) {
+            this.router.navigateByUrl(this.returnUrl);
+        }
+        else {
+            this.router.navigate(['administration/tours']);
+        }
+    };
+    TourComponent.prototype.setReturnUrl = function () {
+        var returnUrl = null;
+        var queryParams = this.activeRoute.snapshot.queryParams;
+        if (queryParams) {
+            this.returnUrl = queryParams.returnUrl;
+        }
+        return returnUrl;
     };
     TourComponent.prototype.setDataFromRoute = function () {
         var _this = this;

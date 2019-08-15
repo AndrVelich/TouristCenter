@@ -29,7 +29,7 @@ namespace Travelx
         public void ConfigureServices(IServiceCollection services)
         {
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
-            var diConfigurator = new DiConfigurator(connectionString);
+            var diConfigurator = new DiConfigurator(connectionString, Configuration);
             diConfigurator.ConfigureServices(services);
             services.AddMvc();
             services.AddOptions();
@@ -40,15 +40,7 @@ namespace Travelx
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddFile("Logs/travelx-{Date}.txt");
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.ConfigureExceptionHandler(loggerFactory);
-            }
+            ConfigureLogging(app, env, loggerFactory);
             app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseDefaultFiles();
@@ -73,6 +65,19 @@ namespace Travelx
                 options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
                 options.SlidingExpiration = true;
             });
+        }
+
+        private void ConfigureLogging(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        {
+            loggerFactory.AddFile("Logs/travelx-{Date}.txt");
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.ConfigureExceptionHandler(loggerFactory);
+            }
         }
     }
 }

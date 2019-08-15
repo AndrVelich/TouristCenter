@@ -1,4 +1,5 @@
 using System.Linq;
+using EmailSender.Interfaces.Senders;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Travelx.Domain.Interfaces.Common.Filters;
@@ -11,10 +12,12 @@ namespace Travelx.Controllers
     public sealed class OrderController : Controller
     {
         private readonly IOrderManager _orderManager;
+        private readonly IOrderSender _orderSender;
 
-        public OrderController(IOrderManager orderManager)
+        public OrderController(IOrderManager orderManager, IOrderSender orderSender)
         {
             _orderManager = orderManager;
+            _orderSender = orderSender;
         }
 
         [HttpGet]
@@ -50,6 +53,8 @@ namespace Travelx.Controllers
                   orderViewModel.Url,
                   orderViewModel.TourOrButton);
             order.CreateOrder();
+
+            _orderSender.SendOrderNotification(order);
         }
 
         [Authorize]

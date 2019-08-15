@@ -9,7 +9,7 @@ namespace Travelx.Storage.Interfaces.Order.Managers
         PageDataModel<Models.Order> GetOrdersPage(DataFilterBase filter);
         bool IsAnyNewOrders();
         void UpdateOrder(Models.Order orderDataModel);
-        void CreateOrder(Models.Order orderDataModel);
+        Models.Order CreateOrder(Models.Order orderDataModel);
         void DeleteOrder(Models.Order orderDataModed);
     }
 }

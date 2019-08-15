@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component, ViewChild } from "@angular/core";
 import { MatDialog } from '@angular/material';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { RouterService } from "@common/Services/router.service";
 import { Dictionary } from "@common/Types/Dictionary";
 import { TourTypeService } from "@common/Services/tourType.service";
@@ -21,9 +21,10 @@ import { CountryService } from "@administrationCommon/Services/country.service";
 import { TourService } from "@administrationCommon/Services/tour.service";
 import { CkeditorService } from "@administrationCommon/Services/ckeditor.service";
 var ToursComponent = /** @class */ (function () {
-    function ToursComponent(dialog, ckeditorService, activeRoute, routerService, tourTypeService, countryService, tourService, preloaderService) {
+    function ToursComponent(dialog, ckeditorService, router, activeRoute, routerService, tourTypeService, countryService, tourService, preloaderService) {
         this.dialog = dialog;
         this.ckeditorService = ckeditorService;
+        this.router = router;
         this.activeRoute = activeRoute;
         this.routerService = routerService;
         this.tourTypeService = tourTypeService;
@@ -126,6 +127,7 @@ var ToursComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [MatDialog,
             CkeditorService,
+            Router,
             ActivatedRoute,
             RouterService,
             TourTypeService,
