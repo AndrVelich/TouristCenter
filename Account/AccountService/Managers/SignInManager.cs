@@ -18,6 +18,7 @@ namespace AccountService.Managers
         public async Task<LoginResultEnum> Login(string email, string password, bool isPersistent, bool lockoutOnFailure)
         {
             var identityResult = await _signInManager.PasswordSignInAsync(email, password, isPersistent, lockoutOnFailure);
+
             if (identityResult.Succeeded)
             {
                 return LoginResultEnum.Success;

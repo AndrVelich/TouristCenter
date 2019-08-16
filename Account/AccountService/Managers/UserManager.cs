@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AccountService.Interfaces.Exceptions;
 using AccountService.Interfaces.Managers;
@@ -17,12 +18,24 @@ namespace AccountService.Managers
             _userManager = userManager;
         }
 
+        public async Task<IApplicationUser> GetUser(string email)
+        {
+            var user = await GetUserByEmail(email);
+            return user;
+        }
+
+        public async Task<IApplicationUser> UpdateUser(IApplicationUser user)
+        {
+            var identityUser = user as ApplicationUser;
+            await _userManager.UpdateAsync(identityUser);
+            return user;
+        }
+
         public async Task<IApplicationUser> Register(string email, string password)
         {
             var user = new ApplicationUser { UserName = email, Email = email };
             var identityResult = await _userManager.CreateAsync(user, password);
-            user = await _userManager.FindByEmailAsync(email);
-
+            user = await GetUserByEmail(email);
             CheckIdentityResult(identityResult);
 
             return user;
@@ -41,6 +54,14 @@ namespace AccountService.Managers
             CheckIdentityResult(identityResult);
         }
 
+        public IReadOnlyCollection<IApplicationUser> GetUsersNotificationEnabled()
+        {
+            var users = _userManager.Users.Where(u => u.EmailConfirmed && u.NotificationEnabled).ToList();
+            var resut = users;
+
+            return resut;
+        }
+
         public IUsersPage GetUsersPage(int skip, int take)
         {
             var usersCount = _userManager.Users.Count();
@@ -50,6 +71,30 @@ namespace AccountService.Managers
             return resut;
         }
 
+        public async Task<string> GenerateEmailConfirmationTokenAsync(IApplicationUser user)
+        {
+            var identityUser = user as ApplicationUser;
+            if (identityUser == null)
+            {
+                throw new UserNotFoundException();
+            }
+            var token = await _userManager.GenerateEmailConfirmationTokenAsync(identityUser);
+
+            return token;
+        }
+
+        public async Task<string> ConfirmEmailAsync(string email, string token)
+        {
+            if (string.IsNullOrWhiteSpace(token))
+            {
+                throw new TokenNotValidException();
+            }
+            var user = await GetUserByEmail(email);
+            var result = await _userManager.ConfirmEmailAsync(user, token);
+            CheckIdentityResult(result);
+            return token;
+        }
+
         private void CheckIdentityResult(IdentityResult identityResult)
         {
             if (!identityResult.Succeeded)
@@ -57,6 +102,17 @@ namespace AccountService.Managers
                 var errorMessage = identityResult.Errors.FirstOrDefault()?.Description;
                 throw new AccountResultException(errorMessage);
             }
+        }
+
+        private async Task<ApplicationUser> GetUserByEmail(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                throw new UserNotFoundException();
+            }
+
+            return user;
         }
     }
 }

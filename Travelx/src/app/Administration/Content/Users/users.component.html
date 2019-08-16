@@ -9,12 +9,34 @@
     <thead>
         <tr>
             <td>Email</td>
+            <td>Уведомлять о заявках</td>
+            <td>Активировать</td>
             <td>Удалить</td>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let user of userCollection">
             <td class="name">{{user.email}}</td>
+            <td class="notification center">
+                <a *ngIf="user.notificationEnabled" 
+                   (click)="openDisableNotifyConfirmation(user)" 
+                   class="link-big" 
+                   style="color:blue">
+                    <i class="fa fa-mail" aria-hidden="true"></i>
+                </a>
+                <a *ngIf="!user.notificationEnabled"
+                   (click)="openEnableNotifyConfirmation(user)"
+                   class="link-big" 
+                   style="color:grey">
+                    <i class="fa fa-mail" aria-hidden="true"></i>
+                </a>
+            </td>
+            <td *ngIf="!user.emailConfirmed" 
+                class="activate center">
+                <a (click)="openActivateConfirmation(user)" class="link-big" style="color:green">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                </a>
+            </td>
             <td class="delete center">
                 <a (click)="openDeleteConfirmation(user)" class="link-big" style="color:red">
                     <i class="fa fa-trash" aria-hidden="true"></i>

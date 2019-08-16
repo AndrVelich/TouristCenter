@@ -56,13 +56,13 @@ export class RegisterComponent implements OnInit  {
                 Validators.required,
                 Validators.pattern('^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$')
             ]],
+            "firstName": [this.registerModel.firstName, [Validators.required]],
+            "lastName": [this.registerModel.lastName, [Validators.required]],
             "password": [this.registerModel.password, [
                 Validators.required,
                 Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+]).*$'),
             ]],
-            "confirmPassword": [this.registerModel.confirmPassword, [
-                Validators.required,
-            ]]
+            "confirmPassword": [this.registerModel.confirmPassword, [Validators.required]]
         },
         {
             validator: this.checkPasswords

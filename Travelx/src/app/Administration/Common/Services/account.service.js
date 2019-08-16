@@ -7,36 +7,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { throwError as observableThrowError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
 import { Injectable } from "@angular/core";
-import { Http, Response } from "@angular/http";
+import { HttpClient } from '@angular/common/http';
 var AccountService = /** @class */ (function () {
-    function AccountService(http) {
-        this.http = http;
+    function AccountService(httpClient) {
+        this.httpClient = httpClient;
         this.url = '/api/account/';
     }
     AccountService.prototype.getUsersPage = function (skip, take) {
-        return this.http.get(this.url + 'usersPage/' + skip + '/' + take).pipe(map(function (res) { return res.json(); }), catchError(this.handleError));
+        return this.httpClient.get(this.url + 'usersPage/' + skip + '/' + take);
+    };
+    AccountService.prototype.updateUser = function (user) {
+        return this.httpClient.put(this.url + 'user/', user);
+    };
+    AccountService.prototype.confirmEmailUser = function (email) {
+        return this.httpClient.post(this.url + 'confirm/', email);
     };
     AccountService.prototype.deleteUser = function (userId) {
-        return this.http.delete(this.url + 'user/' + userId).pipe(catchError(this.handleError));
-    };
-    AccountService.prototype.handleError = function (error, cought) {
-        var message = "";
-        if (error instanceof Response) {
-            var errorData = error.json().error || JSON.stringify(error.json());
-            message = error.status + " - " + (error.statusText || '') + " " + errorData;
-        }
-        else {
-            message = error.message ? error.message : error.toString();
-        }
-        console.error(message);
-        return observableThrowError(message);
+        return this.httpClient.delete(this.url + 'user/' + userId);
     };
     AccountService = __decorate([
         Injectable(),
-        __metadata("design:paramtypes", [Http])
+        __metadata("design:paramtypes", [HttpClient])
     ], AccountService);
     return AccountService;
 }());
@@ -47,10 +39,4 @@ var User = /** @class */ (function () {
     return User;
 }());
 export { User };
-var UsersPage = /** @class */ (function () {
-    function UsersPage() {
-    }
-    return UsersPage;
-}());
-export { UsersPage };
 //# sourceMappingURL=account.service.js.map

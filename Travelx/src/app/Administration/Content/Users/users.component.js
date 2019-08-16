@@ -38,14 +38,58 @@ var UsersComponent = /** @class */ (function () {
             }
         });
     };
+    UsersComponent.prototype.openActivateConfirmation = function (user) {
+        var _this = this;
+        this.dialog.open(ConfirmationPopupComponent, {
+            data: 'Вы уверены, что хототе активировать пользователя <b>' + user.email + '</b>?'
+        })
+            .afterClosed()
+            .subscribe(function (result) {
+            if (result) {
+                _this.preloaderService.startPreloader();
+                _this.accountService.confirmEmailUser(user.email)
+                    .subscribe(function () { return _this.getUsersPage(_this.pageOptions); }, function (error) { return _this.errorMessage = error; }, function () { return _this.preloaderService.finishPreloader(); });
+            }
+        });
+    };
+    UsersComponent.prototype.openEnableNotifyConfirmation = function (user) {
+        var _this = this;
+        this.dialog.open(ConfirmationPopupComponent, {
+            data: 'Вы уверены, что хототе активировать уведомления по заявкам для пользователя <b>' + user.email + '</b>?'
+        })
+            .afterClosed()
+            .subscribe(function (result) {
+            if (result) {
+                user.notificationEnabled = true;
+                _this.preloaderService.startPreloader();
+                _this.accountService.updateUser(user)
+                    .subscribe(function () { return _this.getUsersPage(_this.pageOptions); }, function (error) { return _this.errorMessage = error; }, function () { return _this.preloaderService.finishPreloader(); });
+            }
+        });
+    };
+    UsersComponent.prototype.openDisableNotifyConfirmation = function (user) {
+        var _this = this;
+        this.dialog.open(ConfirmationPopupComponent, {
+            data: 'Вы уверены, что хототе отключить уведомления по заявкам для пользователя <b>' + user.email + '</b>?'
+        })
+            .afterClosed()
+            .subscribe(function (result) {
+            if (result) {
+                user.notificationEnabled = false;
+                _this.preloaderService.startPreloader();
+                _this.accountService.updateUser(user)
+                    .subscribe(function () { return _this.getUsersPage(_this.pageOptions); }, function (error) { return _this.errorMessage = error; }, function () { return _this.preloaderService.finishPreloader(); });
+            }
+        });
+    };
     UsersComponent.prototype.getUsersPage = function (pageOptions) {
         var _this = this;
         this.preloaderService.startPreloader();
         this.pageOptions = pageOptions;
         this.accountService.getUsersPage(pageOptions.skip, pageOptions.take)
             .subscribe(function (data) {
-            _this.userCollection = data.userCollection;
-            _this.pagerComponent.updatePager(data.usersCount);
+            _this.userCollection = data.collection;
+            _this.pagerComponent.updatePager(data.count);
         }, function (error) { return _this.errorMessage = error; }, function () { return _this.preloaderService.finishPreloader(); });
     };
     __decorate([

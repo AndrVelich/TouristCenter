@@ -1,4 +1,5 @@
-﻿using AccountService.Context;
+﻿using System;
+using AccountService.Context;
 using AccountService.Interfaces.Managers;
 using AccountService.Managers;
 using AccountService.Models;
@@ -16,6 +17,13 @@ namespace AccountService.Configurator
                 options.UseSqlServer(connectionString));
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<IdentityContext>();
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.AllowedForNewUsers = true;
+            });
 
             services.AddTransient<ISignInManager, SignInManager>();
             services.AddTransient<IUserManager, UserManager>();

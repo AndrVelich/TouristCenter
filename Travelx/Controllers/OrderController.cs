@@ -1,4 +1,5 @@
 using System.Linq;
+using AccountService.Interfaces.Managers;
 using EmailSender.Interfaces.Senders;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -12,6 +13,7 @@ namespace Travelx.Controllers
     public sealed class OrderController : Controller
     {
         private readonly IOrderManager _orderManager;
+        private readonly IUserManager _userManager;
         private readonly IOrderSender _orderSender;
 
         public OrderController(IOrderManager orderManager, IOrderSender orderSender)
@@ -47,6 +49,7 @@ namespace Travelx.Controllers
         [Route("api/order")]
         public void Post([FromBody]OrderViewModel orderViewModel)
         {
+            var users = _userManager.GetUsersNotificationEnabled();
             var order = _orderManager.CreateOrder(orderViewModel.Name,
                   orderViewModel.Phone,
                   orderViewModel.Description,
@@ -54,7 +57,7 @@ namespace Travelx.Controllers
                   orderViewModel.TourOrButton);
             order.CreateOrder();
 
-            _orderSender.SendOrderNotification(order);
+            _orderSender.SendOrderNotification(order, users);
         }
 
         [Authorize]

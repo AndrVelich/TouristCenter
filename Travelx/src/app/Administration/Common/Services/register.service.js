@@ -7,33 +7,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { throwError as observableThrowError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
 import { Injectable } from "@angular/core";
-import { Http, Response } from "@angular/http";
+import { HttpClient } from '@angular/common/http';
 var RegisterService = /** @class */ (function () {
-    function RegisterService(http) {
-        this.http = http;
+    function RegisterService(httpClient) {
+        this.httpClient = httpClient;
         this.url = '/api/account/register';
     }
     RegisterService.prototype.register = function (register) {
-        return this.http.post(this.url, register).pipe(map(function (res) { return res.json(); }), catchError(this.handleError));
-    };
-    RegisterService.prototype.handleError = function (error, cought) {
-        var message = "";
-        if (error instanceof Response) {
-            var errorData = error.json().error || JSON.stringify(error.json());
-            message = error.status + " - " + (error.statusText || '') + " " + errorData;
-        }
-        else {
-            message = error.message ? error.message : error.toString();
-        }
-        console.error(message);
-        return observableThrowError(message);
+        return this.httpClient.post(this.url, register);
     };
     RegisterService = __decorate([
         Injectable(),
-        __metadata("design:paramtypes", [Http])
+        __metadata("design:paramtypes", [HttpClient])
     ], RegisterService);
     return RegisterService;
 }());

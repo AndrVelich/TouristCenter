@@ -1,11 +1,15 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using AccountService.Interfaces.Exceptions;
 using AccountService.Interfaces.Managers;
 using AccountService.Interfaces.Models.Enums;
+using EmailSender.Interfaces.Senders;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Travelx.Models.Account;
 using Travelx.Models.Common;
+using Travelx.Models.Common.Page;
 
 namespace Travelx.Controllers
 {
@@ -14,11 +18,16 @@ namespace Travelx.Controllers
     {
         private readonly ISignInManager _signInManager;
         private readonly IUserManager _userManager;
+        private readonly IAccountSender _accountSender;
+        private readonly ILogger _logger;
 
-        public AccountController(ISignInManager signInManager, IUserManager userManager)
+
+        public AccountController(ISignInManager signInManager, IUserManager userManager, IAccountSender accountSender, ILogger<AccountController> logger)
         {
             _signInManager = signInManager;
             _userManager = userManager;
+            _accountSender = accountSender;
+            _logger = logger;
         }
 
         [HttpPost]
@@ -42,27 +51,56 @@ namespace Travelx.Controllers
         [Route("api/account/register")]
         //TODO A.V. need to delete [AllowAnonymous] after first registration
         [AllowAnonymous]
-        public async Task<Result> Register([FromBody]RegisterViewModel model)
+        public async Task<Result> RegisterAsync([FromBody]RegisterViewModel model)
         {
             try
             {
-                await _userManager.Register(model.Email, model.Password);
+                var user = await _userManager.Register(model.Email, model.Password);
+                var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                var url = Url.Action(
+                    "ConfirmEmail",
+                    "Account",
+                    new { userId = user.Id, code = token },
+                    protocol: HttpContext.Request.Scheme);
+                _accountSender.SendRegistrationConfirmation(user, url);
             }
             catch (AccountResultException excpetion)
             {
+                _logger.LogError(excpetion, "Error while creating user");
                 Result.FailResult(excpetion.Message);
             }
             
             return Result.SuccessResult;
         }
 
+        [HttpPut]
+        [Route("api/account/user")]
+        [AllowAnonymous]
+        public async Task<Result> UpadteUserAsync([FromBody]UserViewModel model)
+        {
+            try
+            {
+                var user = await _userManager.GetUser(model.Email);
+                user.NotificationEnabled = model.NotificationEnabled;
+                await _userManager.UpdateUser(user);
+            }
+            catch (AccountResultException excpetion)
+            {
+                _logger.LogError(excpetion, "Error while updating user");
+                Result.FailResult(excpetion.Message);
+            }
+
+            return Result.SuccessResult;
+        }
+
         [HttpGet]
         [Authorize]
         [Route("api/account/userspage/{skip}/{take}")]
-        public UsersPageViewModel GetUsersPage(int skip, int take)
+        public PageViewModel<UserViewModel> GetUsersPage(int skip, int take)
         {
             var accountUsersPage = _userManager.GetUsersPage(skip, take);
-            var resut = new UsersPageViewModel(accountUsersPage);
+            var collection = accountUsersPage.UserCollection.Select(u => new UserViewModel(u)).ToList();
+            var resut = new PageViewModel<UserViewModel>(accountUsersPage.UsersCount, collection);
 
             return resut;
         }
@@ -70,7 +108,6 @@ namespace Travelx.Controllers
         [Authorize]
         [HttpDelete]
         [Route("api/account/user/{id}")]
-        //TODO doesn't work
         public async Task<Result> Delete(string id)
         {
             try
@@ -79,9 +116,37 @@ namespace Travelx.Controllers
             }
             catch (AccountResultException excpetion)
             {
+                _logger.LogError(excpetion, "Error while deleting user");
                 Result.FailResult(excpetion.Message);
             }
 
+            return Result.SuccessResult;
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<ActionResult> ConfirmEmail(string email, string token)
+        {
+            await _userManager.ConfirmEmailAsync(email, token);
+            return RedirectToRoute("administration");
+        }
+
+        [HttpPost]
+        [Authorize]
+        [Route("api/account/confirm")]
+        public async Task<Result> ConfirmEmailAdmin([FromBody]string email)
+        {
+            try
+            {
+                var user = await _userManager.GetUser(email);
+                var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                await _userManager.ConfirmEmailAsync(email, token);
+            }
+            catch (AccountResultException excpetion)
+            {
+                _logger.LogError(excpetion, "Error while confirmation user email");
+                Result.FailResult(excpetion.Message);
+            }
             return Result.SuccessResult;
         }
     }
