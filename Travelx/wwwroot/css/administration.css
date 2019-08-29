@@ -66,6 +66,14 @@ body {
     body .body-content .control-section {
       margin: 20px 0; }
 
+.triangle-down {
+  width: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid;
+  margin: 0 4px;
+  display: inline-block; }
+
 @media (min-width: 600px) {
   body .body-content .text-wrapper {
     margin: 0 95px; } }

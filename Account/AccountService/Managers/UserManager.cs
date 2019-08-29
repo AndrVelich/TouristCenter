@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AccountService.Interfaces.Exceptions;
 using AccountService.Interfaces.Managers;
@@ -11,6 +12,7 @@ namespace AccountService.Managers
 {
     public class UserManager : IUserManager
     {
+        
         private readonly UserManager<ApplicationUser> _userManager;
 
         public UserManager(UserManager<ApplicationUser> userManager)
@@ -24,6 +26,16 @@ namespace AccountService.Managers
             return user;
         }
 
+        public async Task<IApplicationUser> GetUser(ClaimsPrincipal claimsUser)
+        {
+            var user = await _userManager.GetUserAsync(claimsUser);
+            if (user == null)
+            {
+                throw new UserNotFoundException();
+            }
+            return user;
+        }
+
         public async Task<IApplicationUser> UpdateUser(IApplicationUser user)
         {
             var identityUser = user as ApplicationUser;
@@ -31,9 +43,10 @@ namespace AccountService.Managers
             return user;
         }
 
-        public async Task<IApplicationUser> Register(string email, string password)
+        //TODO create domain model
+        public async Task<IApplicationUser> Register(string email, string password, string firstName, string lastName)
         {
-            var user = new ApplicationUser { UserName = email, Email = email };
+            var user = new ApplicationUser { UserName = email, Email = email, FirstName = firstName, LastName = lastName };
             var identityResult = await _userManager.CreateAsync(user, password);
             user = await GetUserByEmail(email);
             CheckIdentityResult(identityResult);

@@ -8,12 +8,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Injectable } from "@angular/core";
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 var AccountService = /** @class */ (function () {
     function AccountService(httpClient) {
         this.httpClient = httpClient;
         this.url = '/api/account/';
     }
+    AccountService.prototype.getCurrentUser = function () {
+        return this.httpClient.get(this.url + 'currentuser/');
+    };
     AccountService.prototype.getUsersPage = function (skip, take) {
         return this.httpClient.get(this.url + 'usersPage/' + skip + '/' + take);
     };
@@ -21,7 +24,9 @@ var AccountService = /** @class */ (function () {
         return this.httpClient.put(this.url + 'user/', user);
     };
     AccountService.prototype.confirmEmailUser = function (email) {
-        return this.httpClient.post(this.url + 'confirm/', email);
+        var headerOptions = new HttpHeaders();
+        headerOptions.set('Content-Type', 'application/json');
+        return this.httpClient.put(this.url + 'confirm/', email, { headers: headerOptions });
     };
     AccountService.prototype.deleteUser = function (userId) {
         return this.httpClient.delete(this.url + 'user/' + userId);

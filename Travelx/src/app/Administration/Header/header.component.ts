@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        //this.timer.unsubscribe();
+        this.timer.unsubscribe();
     }
 
     private checkIsAnyNewOrders(context)

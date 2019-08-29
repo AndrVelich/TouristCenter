@@ -5,7 +5,6 @@ using EmailSender.Interfaces.Senders;
 using EmailSender.Service;
 using Microsoft.AspNetCore.Hosting;
 using MimeKit;
-using Travelx.Domain.Interfaces.Order.Models;
 
 namespace EmailSender.Senders
 {
@@ -33,9 +32,9 @@ namespace EmailSender.Senders
                              + Path.DirectorySeparatorChar
                              + "Account"
                              + Path.DirectorySeparatorChar
-                             + "OrderNotification.html";
+                             + "RegistrationConfirmation.html";
 
-            var subject = "Новая заявка";
+            var subject = "Регистрация";
 
             var builder = new BodyBuilder();
             using (StreamReader SourceReader = System.IO.File.OpenText(pathToFile))
@@ -43,7 +42,7 @@ namespace EmailSender.Senders
                 builder.HtmlBody = SourceReader.ReadToEnd();
             }
             string messageBody = ReplaceTokens(builder.HtmlBody, user, url);
-            await _emailService.SendEmailAsync("andr.velich@gmail.com", subject, messageBody);
+            await _emailService.SendEmailAsync(user.Email, subject, messageBody);
         }
 
         private string ReplaceTokens(string messageBody, IApplicationUser user, string url)

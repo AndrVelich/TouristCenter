@@ -15,7 +15,7 @@
                         <a (click)="toggleMenu()">
                             <i class="fa fa-bars" aria-hidden="true"></i>
                             <span>
-                                Меню <span  class="new-order" *ngIf="isAnyNewOrders">Новая заявка!</span>
+                                Меню <span class="new-order" *ngIf="isAnyNewOrders">Новая заявка!</span>
                             </span>
                         </a>
                     </div>
@@ -48,6 +48,13 @@
                             <a href="/account/users">
                                 <i class="fa fa-users" aria-hidden="true"></i>
                                 <span>Пользователи</span>
+                            </a>
+                        </li>
+                        <li>
+                            <!--TODO create account sub-menu-->
+                            <a href="/account/logout">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <span>Выйти</span>
                             </a>
                         </li>
                     </ul>
@@ -83,8 +90,12 @@
                             <span>Пользователи</span>
                         </a>
                     </li>
+                    <li>
+                        <accountMenu></accountMenu>
+                    </li>
                 </ul>
             </div>
+            <div style="clear:both"></div>
         </div>
     </div>
 </header>

@@ -35,10 +35,10 @@ namespace AccountService.Managers
             return LoginResultEnum.Fail;
         }
 
-        //TODO implement
-        public async Task<bool> Logout()
+        
+        public void Logout()
         {
-            return false;
+            _signInManager.SignOutAsync();
         }
     }
 }

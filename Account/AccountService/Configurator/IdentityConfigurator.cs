@@ -16,7 +16,8 @@ namespace AccountService.Configurator
             services.AddDbContext<IdentityContext>(options =>
                 options.UseSqlServer(connectionString));
             services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<IdentityContext>();
+                .AddEntityFrameworkStores<IdentityContext>()
+                .AddDefaultTokenProviders();
 
             services.Configure<IdentityOptions>(options =>
             {

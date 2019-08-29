@@ -13,6 +13,7 @@ namespace EmailSender.Configurator
         {
             services.Configure<SmtpSettings>(configuration.GetSection("SmtpSettings"));
             services.AddTransient<IOrderSender, OrderSender>();
+            services.AddTransient<IAccountSender, AccountSender>();
             services.AddTransient<IEmailService, EmailService>();
         }
     }

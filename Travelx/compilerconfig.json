@@ -122,5 +122,9 @@
   {
     "outputFile": "src/app/Site/Common/Components/TourTypesTile/tourTypesTile.component.css",
     "inputFile": "src/app/Site/Common/Components/TourTypesTile/tourTypesTile.component.scss"
+  },
+  {
+    "outputFile": "src/app/Administration/AccountMenu/accountMenu.component.css",
+    "inputFile": "src/app/Administration/AccountMenu/accountMenu.component.scss"
   }
 ]

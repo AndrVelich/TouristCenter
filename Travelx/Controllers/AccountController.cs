@@ -55,14 +55,14 @@ namespace Travelx.Controllers
         {
             try
             {
-                var user = await _userManager.Register(model.Email, model.Password);
+                var user = await _userManager.Register(model.Email, model.Password, model.FirstName, model.LastName);
                 var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                 var url = Url.Action(
                     "ConfirmEmail",
                     "Account",
-                    new { userId = user.Id, code = token },
+                    new { email = user.Email, token = token },
                     protocol: HttpContext.Request.Scheme);
-                _accountSender.SendRegistrationConfirmation(user, url);
+                await _accountSender.SendRegistrationConfirmation(user, url);
             }
             catch (AccountResultException excpetion)
             {
@@ -128,10 +128,17 @@ namespace Travelx.Controllers
         public async Task<ActionResult> ConfirmEmail(string email, string token)
         {
             await _userManager.ConfirmEmailAsync(email, token);
-            return RedirectToRoute("administration");
+            return Redirect("/administration");
         }
 
-        [HttpPost]
+        [HttpGet]
+        public ActionResult Logout()
+        {
+            _signInManager.Logout();
+            return Redirect("/");
+        }
+
+        [HttpPut]
         [Authorize]
         [Route("api/account/confirm")]
         public async Task<Result> ConfirmEmailAdmin([FromBody]string email)
@@ -148,6 +155,17 @@ namespace Travelx.Controllers
                 Result.FailResult(excpetion.Message);
             }
             return Result.SuccessResult;
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("api/account/currentUser")]
+        public async Task<UserViewModel> GetCurrentUser()
+        {
+            var user = await _userManager.GetUser(HttpContext.User);
+            var userViewModel = new UserViewModel(user);
+
+            return userViewModel;
         }
     }
 }

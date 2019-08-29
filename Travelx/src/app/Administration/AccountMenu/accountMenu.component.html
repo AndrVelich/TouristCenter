@@ -1,0 +1,14 @@
+﻿<div class="menu-container" *ngIf="currentUser">
+    <a [matMenuTriggerFor]="userInfoMenu">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        <span>{{currentUser.firstName}} {{currentUser.lastName}}</span>
+        <span class="triangle-down">
+        </span>
+    </a>
+    <mat-menu class="mat-menu" #userInfoMenu="matMenu">
+        <a class="menu-item" href="/account/logout">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <span>Выйти</span>
+        </a>
+    </mat-menu>
+</div>
