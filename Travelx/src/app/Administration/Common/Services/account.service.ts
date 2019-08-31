@@ -22,9 +22,7 @@ export class AccountService{
     }
 
     public confirmEmailUser(email: string) {
-        const headerOptions = new HttpHeaders();
-        headerOptions.set('Content-Type', 'application/json');
-        return this.httpClient.put(this.url + 'confirm/', email, { headers: headerOptions });
+        return this.httpClient.put(this.url + 'confirm/' + email, {});
     }
 
     public deleteUser(userId: number) {

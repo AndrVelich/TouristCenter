@@ -140,8 +140,8 @@ namespace Travelx.Controllers
 
         [HttpPut]
         [Authorize]
-        [Route("api/account/confirm")]
-        public async Task<Result> ConfirmEmailAdmin([FromBody]string email)
+        [Route("api/account/confirm/{email}")]
+        public async Task<Result> ConfirmEmailAdmin(string email)
         {
             try
             {

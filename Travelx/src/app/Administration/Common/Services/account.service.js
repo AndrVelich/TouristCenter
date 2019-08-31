@@ -8,7 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 var AccountService = /** @class */ (function () {
     function AccountService(httpClient) {
         this.httpClient = httpClient;
@@ -24,9 +24,7 @@ var AccountService = /** @class */ (function () {
         return this.httpClient.put(this.url + 'user/', user);
     };
     AccountService.prototype.confirmEmailUser = function (email) {
-        var headerOptions = new HttpHeaders();
-        headerOptions.set('Content-Type', 'application/json');
-        return this.httpClient.put(this.url + 'confirm/', email, { headers: headerOptions });
+        return this.httpClient.put(this.url + 'confirm/' + email, {});
     };
     AccountService.prototype.deleteUser = function (userId) {
         return this.httpClient.delete(this.url + 'user/' + userId);

@@ -16,10 +16,11 @@ namespace Travelx.Controllers
         private readonly IUserManager _userManager;
         private readonly IOrderSender _orderSender;
 
-        public OrderController(IOrderManager orderManager, IOrderSender orderSender)
+        public OrderController(IOrderManager orderManager, IOrderSender orderSender, IUserManager userManager)
         {
             _orderManager = orderManager;
             _orderSender = orderSender;
+            _userManager = userManager;
         }
 
         [HttpGet]

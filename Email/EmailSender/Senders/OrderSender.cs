@@ -63,7 +63,7 @@ namespace EmailSender.Senders
             messageBody = messageBody.Replace(descriptionToken, order.Description);
             messageBody = messageBody.Replace(pageToken, order.Url);
             messageBody = messageBody.Replace(buttonToken, order.TourOrButton);
-            messageBody = messageBody.Replace(dateToken, order.CreatedDateTime.ToString("{yyyy-MM-dd HH:mm}"));
+            messageBody = messageBody.Replace(dateToken, order.CreatedDateTime.ToString("yyyy-MM-dd HH:mm"));
 
             return messageBody;
         }
