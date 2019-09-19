@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using DiConfiguration;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -69,7 +70,7 @@ namespace Travelx
 
         private void ConfigureLogging(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddFile("Logs/travelx-{Date}.txt");
+            loggerFactory.AddFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Log-{Date}.txt"));
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

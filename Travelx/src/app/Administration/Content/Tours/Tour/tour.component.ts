@@ -31,7 +31,7 @@ export class TourComponent {
     public errorMessage: string;
 
     constructor(
-        private ckeditorService: CkeditorService,
+        public ckeditorService: CkeditorService,
         private tourTypeService: TourTypeService,
         private countryService: CountryService,
         private tourService: TourService,

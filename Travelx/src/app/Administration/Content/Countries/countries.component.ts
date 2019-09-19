@@ -73,7 +73,7 @@ export class CountriesComponent implements OnInit {
         );
     }
 
-    private getCountriesPage(pageOptions: PageOptions)
+    public getCountriesPage(pageOptions: PageOptions)
     {
         this.preloaderService.startPreloader();
         this.pageOptions = pageOptions;

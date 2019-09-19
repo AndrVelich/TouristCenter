@@ -112,7 +112,7 @@ export class ToursComponent {
             });
     }
 
-    private getToursPage(pageOptions: PageOptions)
+    public getToursPage(pageOptions: PageOptions)
     {
         this.preloaderService.startPreloader();
         this.pageOptions = pageOptions;

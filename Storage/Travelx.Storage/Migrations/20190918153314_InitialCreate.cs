@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Travelx.Storage.Migrations
 {
-    public partial class InitialTravelxDbMigration : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -77,6 +77,7 @@ namespace Travelx.Storage.Migrations
                     Description = table.Column<string>(nullable: false),
                     UntilDate = table.Column<DateTime>(nullable: false),
                     Title = table.Column<string>(nullable: true),
+                    IsActive = table.Column<bool>(nullable: false),
                     MetaDescription = table.Column<string>(nullable: true),
                     MetaKeywords = table.Column<string>(nullable: true)
                 },

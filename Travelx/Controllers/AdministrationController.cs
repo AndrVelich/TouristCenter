@@ -5,8 +5,7 @@ namespace Travelx.Controllers
 {
     public class AdministrationController : Controller
     {
-        //[Route("administration/users/register")]
-
+        [Route("administration/users/register")]
         [Route("administration")]
         [Route("administration/orders")]
         [Route("administration/countries")]
@@ -31,11 +30,11 @@ namespace Travelx.Controllers
         }
 
         //TODO A.V. ned to delete after first time registration
-        [Route("administration/users/register")]
-        public ActionResult Register()
-        {
-            return AdminstrationLayout();
-        }
+        //[Route("administration/users/register")]
+        //public ActionResult Register()
+        //{
+        //    return AdminstrationLayout();
+        //}
 
         private VirtualFileResult AdminstrationLayout()
         {

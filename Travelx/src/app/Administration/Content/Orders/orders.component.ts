@@ -86,7 +86,7 @@ export class OrdersComponent implements OnInit
             });
     }
 
-    private getOrdersPage(pageOptions: PageOptions)
+    public getOrdersPage(pageOptions: PageOptions)
     {
         this.preloaderService.startPreloader();
         this.pageOptions = pageOptions;

@@ -101,7 +101,7 @@ export class UsersComponent implements OnInit {
             });
     }
 
-    private getUsersPage(pageOptions: PageOptions) {
+    public getUsersPage(pageOptions: PageOptions) {
         this.preloaderService.startPreloader();
         this.pageOptions = pageOptions;
         this.accountService.getUsersPage(pageOptions.skip, pageOptions.take)

@@ -10,8 +10,8 @@ using Travelx.Storage.Context;
 namespace Travelx.Storage.Migrations
 {
     [DbContext(typeof(TravelxContext))]
-    [Migration("20190807154040_isActiveColumnPromotions")]
-    partial class isActiveColumnPromotions
+    [Migration("20190918153314_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
