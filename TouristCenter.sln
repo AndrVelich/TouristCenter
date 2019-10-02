@@ -9,16 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{9156C7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Storage", "Storage", "{E0FD2A3C-AA8A-4AEA-B4FE-B11829F78594}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristCenter.Domain", "Domain\TouristCenter.Domain\TouristCenter.Domain.csproj", "{2C53DAA0-3439-4B6E-9611-F6755FFFCED2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristCenter.Domain.Interfaces", "Domain\TouristCenter.Domain.Interfaces\TouristCenter.Domain.Interfaces.csproj", "{596284CD-C559-4F30-B746-773C9AFAAC22}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristCenter.Storage", "Storage\TouristCenter.Storage\TouristCenter.Storage.csproj", "{FEBE7D7F-1965-4D50-8010-C183EEC33AE7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristCenter.Storage.Interfaces", "Storage\TouristCenter.Storage.Interfaces\TouristCenter.Storage.Interfaces.csproj", "{FEC1FD16-2985-4A45-A003-22AECA3323D2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristCenter", "TouristCenter\TouristCenter.csproj", "{977BD9BC-F4E3-4BEF-82FE-E9AE459266B8}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Travelx", "Travelx\Travelx.csproj", "{5E389E29-C9FB-48B2-9807-059FAB69DD4D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Travelx.Storage", "Storage\Travelx.Storage\Travelx.Storage.csproj", "{A3D3C9B3-2EE9-4607-80AF-351FFDDEA063}"
@@ -39,9 +29,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountService.Interfaces",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Email", "Email", "{BCB0BE8F-E6AD-4D0E-AADD-2F9087EA0F80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailSender", "Email\EmailSender\EmailSender.csproj", "{055F04A7-1BB5-4B59-B913-2DF229CCE8B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmailSender", "Email\EmailSender\EmailSender.csproj", "{055F04A7-1BB5-4B59-B913-2DF229CCE8B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailSender.Interfaces", "Email\EmailSender.Interfaces\EmailSender.Interfaces.csproj", "{2B81F2A2-96CD-484C-88AC-E44F89A716F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmailSender.Interfaces", "Email\EmailSender.Interfaces\EmailSender.Interfaces.csproj", "{2B81F2A2-96CD-484C-88AC-E44F89A716F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,26 +39,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2C53DAA0-3439-4B6E-9611-F6755FFFCED2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2C53DAA0-3439-4B6E-9611-F6755FFFCED2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2C53DAA0-3439-4B6E-9611-F6755FFFCED2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2C53DAA0-3439-4B6E-9611-F6755FFFCED2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{596284CD-C559-4F30-B746-773C9AFAAC22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{596284CD-C559-4F30-B746-773C9AFAAC22}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{596284CD-C559-4F30-B746-773C9AFAAC22}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{596284CD-C559-4F30-B746-773C9AFAAC22}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FEBE7D7F-1965-4D50-8010-C183EEC33AE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FEBE7D7F-1965-4D50-8010-C183EEC33AE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FEBE7D7F-1965-4D50-8010-C183EEC33AE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FEBE7D7F-1965-4D50-8010-C183EEC33AE7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FEC1FD16-2985-4A45-A003-22AECA3323D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FEC1FD16-2985-4A45-A003-22AECA3323D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FEC1FD16-2985-4A45-A003-22AECA3323D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FEC1FD16-2985-4A45-A003-22AECA3323D2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{977BD9BC-F4E3-4BEF-82FE-E9AE459266B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{977BD9BC-F4E3-4BEF-82FE-E9AE459266B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{977BD9BC-F4E3-4BEF-82FE-E9AE459266B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{977BD9BC-F4E3-4BEF-82FE-E9AE459266B8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5E389E29-C9FB-48B2-9807-059FAB69DD4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5E389E29-C9FB-48B2-9807-059FAB69DD4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E389E29-C9FB-48B2-9807-059FAB69DD4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -114,10 +84,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{2C53DAA0-3439-4B6E-9611-F6755FFFCED2} = {9156C75C-238A-4001-849A-E9CBBD2F56AF}
-		{596284CD-C559-4F30-B746-773C9AFAAC22} = {9156C75C-238A-4001-849A-E9CBBD2F56AF}
-		{FEBE7D7F-1965-4D50-8010-C183EEC33AE7} = {E0FD2A3C-AA8A-4AEA-B4FE-B11829F78594}
-		{FEC1FD16-2985-4A45-A003-22AECA3323D2} = {E0FD2A3C-AA8A-4AEA-B4FE-B11829F78594}
 		{A3D3C9B3-2EE9-4607-80AF-351FFDDEA063} = {E0FD2A3C-AA8A-4AEA-B4FE-B11829F78594}
 		{D4644B25-6932-4960-AF7F-D525BED07815} = {E0FD2A3C-AA8A-4AEA-B4FE-B11829F78594}
 		{9B34C144-6353-4ABA-84B0-1E7633E66834} = {10EBED2D-551A-42D2-B264-641F96C4AD50}
