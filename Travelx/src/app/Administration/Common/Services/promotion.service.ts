@@ -30,7 +30,8 @@ export class PromotionService{
             catchError(this.handleError),);
     }
 
-    public addPromotion(promotion){
+    public addPromotion(promotion) {
+        promotion.untilDate = promotion.untilDate.toLocaleString();
         return this.http.post(this.url, promotion).pipe(
             catchError(this.handleError));
     }
@@ -62,7 +63,7 @@ export class Promotion{
     public name : string
     public urlName : string
     public description : string
-    public untilDate : Date
+    public untilDate : string
     public title: string
     public isActive: boolean
     public metaDescription : string

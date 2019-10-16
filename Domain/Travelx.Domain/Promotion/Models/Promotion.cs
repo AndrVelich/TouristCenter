@@ -67,7 +67,7 @@ namespace Travelx.Domain.Promotion.Models
             get => _untilDate;
             set
             {
-                if (value < DateTime.Now)
+                if (_isNew && value < DateTime.Now.Date)
                 {
                     throw new PromotionUntilDateNotValidException();
                 }

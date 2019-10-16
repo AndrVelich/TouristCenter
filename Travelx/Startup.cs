@@ -29,11 +29,12 @@ namespace Travelx
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddOptions();
+            services.AddMvc();
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
             var diConfigurator = new DiConfigurator(connectionString, Configuration);
             diConfigurator.ConfigureServices(services);
-            services.AddMvc();
-            services.AddOptions();
+            
             services.Configure<TravelxSettings>(Configuration.GetSection("TravelxSettings"));
 
             ConfigureApplicationCookie(services);

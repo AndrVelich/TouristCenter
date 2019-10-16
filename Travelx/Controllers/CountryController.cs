@@ -47,7 +47,7 @@ namespace Travelx.Controllers
 
         [HttpGet]
         [Route("api/countries")]
-        public PageViewModel<CountryViewModel> GetCollection(string tourType, int skip = 0, int take = int.MaxValue)
+        public PageViewModel<CountryShortViewModel> GetCollection(string tourType, int skip = 0, int take = int.MaxValue)
         {
             var countryFilter = new CountryFilter(skip, take)
             {
@@ -60,7 +60,7 @@ namespace Travelx.Controllers
         }
 
         [HttpGet, Route("api/hotCountries")]
-        public PageViewModel<CountryViewModel> GetHotCollection(int skip = 0, int take = int.MaxValue)
+        public PageViewModel<CountryShortViewModel> GetHotCollection(int skip = 0, int take = int.MaxValue)
         {
             var result = GetBeachToursPage(skip, take);
             var discount = _settings.HotToursDiscount;
@@ -71,7 +71,7 @@ namespace Travelx.Controllers
 
         [HttpGet]
         [Route("api/earlyCountries")]
-        public PageViewModel<CountryViewModel> GetEarlyCollection(int skip = 0, int take = int.MaxValue)
+        public PageViewModel<CountryShortViewModel> GetEarlyCollection(int skip = 0, int take = int.MaxValue)
         {
             var result = GetBeachToursPage(skip, take);
             var discount = _settings.EarlyToursDiscount;
@@ -152,16 +152,16 @@ namespace Travelx.Controllers
             return image;
         }
 
-        private PageViewModel<CountryViewModel> GetCountriesPageViewModel(PageModel<ICountry> pageModel)
+        private PageViewModel<CountryShortViewModel> GetCountriesPageViewModel(PageModel<ICountry> pageModel)
         {
-            var countriesPageCollection = pageModel.Collection.Select(c => new CountryViewModel(c))
+            var countriesPageCollection = pageModel.Collection.Select(c => new CountryShortViewModel(c))
                 .ToList();
-            var result = new PageViewModel<CountryViewModel>(pageModel.Count, countriesPageCollection);
+            var result = new PageViewModel<CountryShortViewModel>(pageModel.Count, countriesPageCollection);
 
             return result;
         }
 
-        private void SetDiscount(IReadOnlyCollection<CountryViewModel> countryCollection, decimal discount)
+        private void SetDiscount(IReadOnlyCollection<CountryShortViewModel> countryCollection, decimal discount)
         {
             foreach (var country in countryCollection)
             {
@@ -171,7 +171,7 @@ namespace Travelx.Controllers
             }
         }
         
-        private PageViewModel<CountryViewModel> GetBeachToursPage(int skip = 0, int take = int.MaxValue)
+        private PageViewModel<CountryShortViewModel> GetBeachToursPage(int skip = 0, int take = int.MaxValue)
         {
             var countryFilter = new CountryFilter(skip, take)
             {

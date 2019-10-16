@@ -7,9 +7,13 @@
 
   <ItemGroup>
     <Compile Remove="obj\**" />
+    <Compile Remove="wwwroot\Scripts\**" />
     <Content Remove="obj\**" />
+    <Content Remove="wwwroot\Scripts\**" />
     <EmbeddedResource Remove="obj\**" />
+    <EmbeddedResource Remove="wwwroot\Scripts\**" />
     <None Remove="obj\**" />
+    <None Remove="wwwroot\Scripts\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,18 +23,119 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="src\css\common\bootstrap.css" />
+    <None Remove="src\css\common\bootstrap.min.css" />
+    <None Remove="src\css\common\fa-svg-with-js.css" />
     <None Remove="src\index.html" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="src\administration.html" />
+    <Content Include="src\assets\fonts\Akrobat-ExtraBold.otf" />
+    <Content Include="src\assets\fonts\EastSeaDokdo\EastSeaDokdo.otf" />
+    <Content Include="src\assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="src\assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="src\assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="src\assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="src\assets\fonts\Mistral\MISTRAL.TTF" />
+    <Content Include="src\assets\fonts\Open_Sans\OpenSans-Bold.ttf" />
+    <Content Include="src\assets\fonts\Open_Sans\OpenSans-BoldItalic.ttf" />
+    <Content Include="src\assets\fonts\Open_Sans\OpenSans-CondBold.ttf" />
+    <Content Include="src\assets\fonts\Open_Sans\OpenSans-CondLight.ttf" />
+    <Content Include="src\assets\fonts\Open_Sans\OpenSans-CondLightItalic.ttf" />
+    <Content Include="src\assets\fonts\Open_Sans\OpenSans-ExtraBold.ttf" />
+    <Content Include="src\assets\fonts\Open_Sans\OpenSans-ExtraBoldItalic.ttf" />
+    <Content Include="src\assets\fonts\Open_Sans\OpenSans-Italic.ttf" />
+    <Content Include="src\assets\fonts\Open_Sans\OpenSans-Light.ttf" />
+    <Content Include="src\assets\fonts\Open_Sans\OpenSans-LightItalic.ttf" />
+    <Content Include="src\assets\fonts\Open_Sans\OpenSans-Regular.ttf" />
+    <Content Include="src\assets\fonts\Open_Sans\OpenSans-Semibold.ttf" />
+    <Content Include="src\assets\fonts\Open_Sans\OpenSans-SemiboldItalic.ttf" />
+    <Content Include="src\assets\fonts\PFDinDisplayPro-Light.ttf" />
+    <Content Include="src\assets\fonts\PFDinDisplayPro-Reg.ttf" />
+    <Content Include="src\assets\fonts\PFDinDisplayPro-Thin.ttf" />
+    <Content Include="src\css\administration\administration.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\css\administration\administration.min.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\css\administration\administration.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\css\common\fonts.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\css\common\fonts.min.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\css\common\fonts.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\css\common\mat-dialog.css">
+      <DependentUpon>mat-dialog.scss</DependentUpon>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\css\common\mat-dialog.min.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\css\common\mat-dialog.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\css\common\preloader.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\css\site\banners.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\css\site\banners.min.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\css\site\banners.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\css\site\carousel.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\css\site\carousel.min.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\css\site\carousel.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\assets\css\bootstrap.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\assets\css\bootstrap.min.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\css\common\plugins\fa-svg-with-js.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\css\site\site.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\css\site\site.min.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="src\css\site\site.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
     <Content Include="src\index.html" />
+    <Content Include="src\assets\scripts\bootstrap.js" />
+    <Content Include="src\assets\scripts\bootstrap.min.js" />
+    <Content Include="src\scripts\fontAwesome.js" />
+    <Content Include="src\assets\scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="src\assets\scripts\jquery-1.10.2.js" />
+    <Content Include="src\assets\scripts\jquery-1.10.2.min.js" />
+    <Content Include="src\assets\scripts\jquery-1.10.2.min.map" />
+    <Content Include="src\scripts\modernizr-2.6.2.js" />
+    <Content Include="src\scripts\respond.js" />
+    <Content Include="src\scripts\respond.min.js" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Logs\" />
-    <Folder Include="src\assets\administration\images\" />
-    <Folder Include="src\assets\administration\plugins\" />
     <Folder Include="wwwroot\distSite\" />
   </ItemGroup>
 
@@ -50,15 +155,6 @@
   <ItemGroup>
     <ProjectReference Include="..\DI\DiConfiguration\DiConfiguration.csproj" />
     <ProjectReference Include="..\Domain\Travelx.Domain.Interfaces\Travelx.Domain.Interfaces.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Update="wwwroot\css\mat-dialog.css">
-      <DependentUpon>mat-dialog.scss</DependentUpon>
-    </Content>
-    <Content Update="wwwroot\css\preloader.css">
-      <DependentUpon>preloader.scss</DependentUpon>
-    </Content>
   </ItemGroup>
 
 </Project>

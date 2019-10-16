@@ -22,9 +22,19 @@
               "src/favicon.ico"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/css/common/plugins/fa-svg-with-js.css",
+              "src/css/common/fonts.css",
+              "src/css/common/mat-dialog.css",
+              "src/css/common/preloader.css",
+              "src/css/site/banners.css",
+              "src/css/site/carousel.css",
+              "src/css/site/site.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/scripts/respond.js",
+              "src/scripts/fontAwesome.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -70,9 +80,17 @@
             "karmaConfig": "./karma.conf.js",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
-            "scripts": [],
+            "scripts": [
+              "src/scripts/respond.js",
+              "src/scripts/fontAwesome.js"
+            ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/css/common/plugins/fa-svg-with-js.css",
+              "src/css/common/fonts.css",
+              "src/css/common/mat-dialog.css",
+              "src/css/common/preloader.css",
+              "src/css/administration/administration.css"
             ],
             "assets": [
               "src/assets",
@@ -137,10 +155,18 @@
               "src/assets",
               "src/favicon.ico"
             ],
-            "styles": [
-              "src/styles.css"
+            "scripts": [
+              "src/scripts/respond.js",
+              "src/scripts/fontAwesome.js"
             ],
-            "scripts": []
+            "styles": [
+              "src/styles.css",
+              "src/css/common/plugins/fa-svg-with-js.css",
+              "src/css/common/fonts.css",
+              "src/css/common/mat-dialog.css",
+              "src/css/common/preloader.css",
+              "src/css/administration/administration.css"
+            ]
           },
           "configurations": {
             "production": {

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Travelx.Domain.Interfaces.Image.Managers;
+using Travelx.Domain.Interfaces.Image.Models;
 
 namespace Travelx.Controllers
 {
@@ -15,7 +16,11 @@ namespace Travelx.Controllers
         [Route("api/image/{id}")]
         public ActionResult Get(int id)
         {
-            var image = _imageManager.GetImage(id);
+            IImage image = null;
+            if (id != default(int))
+            {
+                image = _imageManager.GetImage(id);
+            }
             if (image == null)
             {
                 return new EmptyResult();

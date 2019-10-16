@@ -23,7 +23,6 @@
                         <a (click)="openDeleteConfirmation(promotion.promotionId, promotion.name)" class="link-big" style="color:red">
                             <i class="fa fa-trash" aria-hidden="true"></i>
                         </a>
-                        <div [innerHtml]="promotion.description"></div>
                         <div>
                             <div *ngIf="promotion.isActive" style="color:green">
                                 <i class="fa fa-check" aria-hidden="true"></i>

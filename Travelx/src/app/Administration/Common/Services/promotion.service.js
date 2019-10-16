@@ -24,6 +24,7 @@ var PromotionService = /** @class */ (function () {
         return this.http.get(this.url + promotionUrlName).pipe(map(function (res) { return res.json(); }), catchError(this.handleError));
     };
     PromotionService.prototype.addPromotion = function (promotion) {
+        promotion.untilDate = promotion.untilDate.toLocaleString();
         return this.http.post(this.url, promotion).pipe(catchError(this.handleError));
     };
     PromotionService.prototype.deletePromotion = function (promotionId) {

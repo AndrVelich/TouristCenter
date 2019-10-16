@@ -126,5 +126,21 @@
   {
     "outputFile": "src/app/Administration/AccountMenu/accountMenu.component.css",
     "inputFile": "src/app/Administration/AccountMenu/accountMenu.component.scss"
+  },
+  {
+    "outputFile": "src/assets/administration/css/preloader.css",
+    "inputFile": "src/assets/administration/css/preloader.scss"
+  },
+  {
+    "outputFile": "src/assets/site/css/banners.css",
+    "inputFile": "src/assets/site/css/banners.scss"
+  },
+  {
+    "outputFile": "src/css/common/fonts.css",
+    "inputFile": "src/css/common/fonts.scss"
+  },
+  {
+    "outputFile": "src/css/site/banners.css",
+    "inputFile": "src/css/site/banners.scss"
   }
 ]
