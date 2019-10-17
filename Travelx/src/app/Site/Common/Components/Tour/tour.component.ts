@@ -27,8 +27,12 @@ export class TourComponent {
     }
 
     public openImagesPopup(imageIds: Array<number>) {
+        //TODO dognail should use separate property for tile image
+        let imageIdsShort = Object.assign([], imageIds);
+        imageIdsShort.shift();
+
         let dialogRef = this.dialog.open(ImagesPopupComponent, {
-            data: imageIds
+            data: imageIdsShort
         });
     }
    

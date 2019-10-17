@@ -23,6 +23,7 @@
             ],
             "styles": [
               "src/styles.css",
+              "src/assets/css/bootstrap.min.css",
               "src/css/common/plugins/fa-svg-with-js.css",
               "src/css/common/fonts.css",
               "src/css/common/mat-dialog.css",
@@ -161,6 +162,7 @@
             ],
             "styles": [
               "src/styles.css",
+              "src/assets/css/bootstrap.min.css",
               "src/css/common/plugins/fa-svg-with-js.css",
               "src/css/common/fonts.css",
               "src/css/common/mat-dialog.css",
