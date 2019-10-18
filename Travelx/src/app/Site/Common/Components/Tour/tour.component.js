@@ -23,8 +23,11 @@ var TourComponent = /** @class */ (function () {
         });
     };
     TourComponent.prototype.openImagesPopup = function (imageIds) {
+        //TODO dognail should use separate property for tile image
+        var imageIdsShort = Object.assign([], imageIds);
+        imageIdsShort.shift();
         var dialogRef = this.dialog.open(ImagesPopupComponent, {
-            data: imageIds
+            data: imageIdsShort
         });
     };
     __decorate([
