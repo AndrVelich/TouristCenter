@@ -46,7 +46,7 @@ namespace Travelx.Controllers
 
         [HttpGet]
         [Route("api/tours")]
-        public PageViewModel<TourShortViewModel> GetCollection(string tourType, string country, int skip = 0, int take = int.MaxValue)
+        public PageViewModel<TourViewModel> GetCollection(string tourType, string country, int skip = 0, int take = int.MaxValue)
         {
             var tourFilter = new TourFilter(skip, take)
             {
@@ -61,7 +61,7 @@ namespace Travelx.Controllers
 
         [HttpGet]
         [Route("api/hotTours")]
-        public PageViewModel<TourShortViewModel> GetHotCollection(string country, int skip = 0, int take = int.MaxValue)
+        public PageViewModel<TourViewModel> GetHotCollection(string country, int skip = 0, int take = int.MaxValue)
         {
             var tourFilter = new TourFilter(skip, take)
             {
@@ -79,7 +79,7 @@ namespace Travelx.Controllers
 
         [HttpGet]
         [Route("api/earlyTours")]
-        public PageViewModel<TourShortViewModel> GetEarlyCollection(string country, int skip = 0, int take = int.MaxValue)
+        public PageViewModel<TourViewModel> GetEarlyCollection(string country, int skip = 0, int take = int.MaxValue)
         {
             var tourFilter = new TourFilter(skip, take)
             {
@@ -164,16 +164,16 @@ namespace Travelx.Controllers
             return image;
         }
 
-        private PageViewModel<TourShortViewModel> GetToursPageViewModel(PageModel<ITour> pageModel)
+        private PageViewModel<TourViewModel> GetToursPageViewModel(PageModel<ITour> pageModel)
         {
-            var toursPageCollection = pageModel.Collection.Select(c => new TourShortViewModel(c))
+            var toursPageCollection = pageModel.Collection.Select(c => new TourViewModel(c))
                 .ToList();
-            var result = new PageViewModel<TourShortViewModel>(pageModel.Count, toursPageCollection);
+            var result = new PageViewModel<TourViewModel>(pageModel.Count, toursPageCollection);
 
             return result;
         }
 
-        private void SetDiscount(IReadOnlyCollection<TourShortViewModel> tourCollection, decimal discount)
+        private void SetDiscount(IReadOnlyCollection<TourViewModel> tourCollection, decimal discount)
         {
             foreach (var tour in tourCollection)
             {

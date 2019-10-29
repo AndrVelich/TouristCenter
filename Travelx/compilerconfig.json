@@ -142,5 +142,9 @@
   {
     "outputFile": "src/css/site/banners.css",
     "inputFile": "src/css/site/banners.scss"
+  },
+  {
+    "outputFile": "src/app/Site/Content/TourTypes/NewYear/Country/newYearCountry.component.css",
+    "inputFile": "src/app/Site/Content/TourTypes/NewYear/Country/newYearCountry.component.scss"
   }
 ]

@@ -16,7 +16,7 @@
                 <span [innerHtml]="tour.name"></span>
             </a>
             <div class="city" [innerHtml]="tour.city"></div>
-            <div class="description" [innerHtml]="tour.description"></div>
+            <div class="description" *ngIf="tour.description" [innerHtml]="tour.description"></div>
             <div class="tour-options">
                 <div>
                     <img class="arrows-orange" src="/Content/Images/Tours/arrows-orange.png" />
