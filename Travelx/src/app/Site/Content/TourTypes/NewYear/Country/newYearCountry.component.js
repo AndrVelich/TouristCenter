@@ -8,14 +8,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from "@angular/core";
+import { MatDialog } from '@angular/material';
 import { Title, Meta } from '@angular/platform-browser';
+import { OrderComponent } from "@siteCommon/Components/Order/order.component";
 var NewYearCountryComponent = /** @class */ (function () {
-    function NewYearCountryComponent(titleService, metaService) {
+    function NewYearCountryComponent(titleService, metaService, dialog) {
         this.titleService = titleService;
         this.metaService = metaService;
+        this.dialog = dialog;
     }
     NewYearCountryComponent.prototype.ngOnInit = function () {
         this.setTitleAndMeta();
+    };
+    NewYearCountryComponent.prototype.openOrderPopup = function (button) {
+        var dialogRef = this.dialog.open(OrderComponent, {
+            data: button
+        });
     };
     NewYearCountryComponent.prototype.setTitleAndMeta = function () {
         this.titleService.setTitle("Новогодние туры");
@@ -28,7 +36,8 @@ var NewYearCountryComponent = /** @class */ (function () {
             styleUrls: ["newYearCountry.component.css"]
         }),
         __metadata("design:paramtypes", [Title,
-            Meta])
+            Meta,
+            MatDialog])
     ], NewYearCountryComponent);
     return NewYearCountryComponent;
 }());
